@@ -30,6 +30,9 @@
 #define kShipSpecialGloryDevice			64
 #define kShipSpecialGambling			128
 #define kShipSpecialGravitonic			256
+#define kShipSpecialHyperjump			512
+#define kShipSpecialWarpChunnel			1024
+#define kShipSpecialImperialAssault		2048
 
 @interface NuShipDatabase : NSObject
 {
