@@ -1,0 +1,571 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7E29089514ABBCCD00B11972 /* HullDatabase.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7E29089414ABBCCD00B11972 /* HullDatabase.plist */; };
+		7E29089D14ABBCE900B11972 /* NuGameListRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E29089714ABBCE900B11972 /* NuGameListRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7E29089E14ABBCE900B11972 /* NuGameListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E29089814ABBCE900B11972 /* NuGameListRequest.m */; };
+		7E29089F14ABBCE900B11972 /* NuLoginRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E29089914ABBCE900B11972 /* NuLoginRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7E2908A014ABBCE900B11972 /* NuLoginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E29089A14ABBCE900B11972 /* NuLoginRequest.m */; };
+		7E2908A114ABBCE900B11972 /* NuTurnRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E29089B14ABBCE900B11972 /* NuTurnRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7E2908A214ABBCE900B11972 /* NuTurnRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E29089C14ABBCE900B11972 /* NuTurnRequest.m */; };
+		7E2908A614ABBD8F00B11972 /* JSONKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E2908A414ABBD8F00B11972 /* JSONKit.h */; };
+		7E2908A714ABBD8F00B11972 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2908A514ABBD8F00B11972 /* JSONKit.m */; };
+		7E2908BA14ABBFE500B11972 /* NuGame.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E2908A814ABBFE400B11972 /* NuGame.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7E2908BB14ABBFE500B11972 /* NuGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2908A914ABBFE400B11972 /* NuGame.m */; };
+		7E2908BC14ABBFE500B11972 /* NuGameSettings.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E2908AA14ABBFE400B11972 /* NuGameSettings.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7E2908BD14ABBFE500B11972 /* NuGameSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2908AB14ABBFE400B11972 /* NuGameSettings.m */; };
+		7E2908BE14ABBFE500B11972 /* NuHull.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E2908AC14ABBFE400B11972 /* NuHull.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7E2908BF14ABBFE500B11972 /* NuHull.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2908AD14ABBFE400B11972 /* NuHull.m */; };
+		7E2908C014ABBFE500B11972 /* NuIonStorm.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E2908AE14ABBFE400B11972 /* NuIonStorm.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7E2908C114ABBFE500B11972 /* NuIonStorm.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2908AF14ABBFE400B11972 /* NuIonStorm.m */; };
+		7E2908C214ABBFE500B11972 /* NuPlanet.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E2908B014ABBFE500B11972 /* NuPlanet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7E2908C314ABBFE500B11972 /* NuPlanet.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2908B114ABBFE500B11972 /* NuPlanet.m */; };
+		7E2908C414ABBFE500B11972 /* NuPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E2908B214ABBFE500B11972 /* NuPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7E2908C514ABBFE500B11972 /* NuPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2908B314ABBFE500B11972 /* NuPlayer.m */; };
+		7E2908C614ABBFE500B11972 /* NuShip.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E2908B414ABBFE500B11972 /* NuShip.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7E2908C714ABBFE500B11972 /* NuShip.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2908B514ABBFE500B11972 /* NuShip.m */; };
+		7E2908C814ABBFE500B11972 /* NuStarbase.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E2908B614ABBFE500B11972 /* NuStarbase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7E2908C914ABBFE500B11972 /* NuStarbase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2908B714ABBFE500B11972 /* NuStarbase.m */; };
+		7E2908CA14ABBFE500B11972 /* NuTurn.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E2908B814ABBFE500B11972 /* NuTurn.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7E2908CB14ABBFE500B11972 /* NuTurn.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2908B914ABBFE500B11972 /* NuTurn.m */; };
+		7E2908CD14ABC2B200B11972 /* PlanuKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E2908CC14ABC2B100B11972 /* PlanuKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7EB9CC1D14ABB4D700A6ECB3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB9CC1C14ABB4D700A6ECB3 /* Cocoa.framework */; };
+		7EB9CC2714ABB4D700A6ECB3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7EB9CC2514ABB4D700A6ECB3 /* InfoPlist.strings */; };
+		7EB9CC3314ABB4D800A6ECB3 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB9CC3214ABB4D800A6ECB3 /* SenTestingKit.framework */; };
+		7EB9CC3414ABB4D800A6ECB3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB9CC1C14ABB4D700A6ECB3 /* Cocoa.framework */; };
+		7EB9CC3714ABB4D800A6ECB3 /* PlanuKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB9CC1914ABB4D700A6ECB3 /* PlanuKit.framework */; };
+		7EB9CC3D14ABB4D800A6ECB3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7EB9CC3B14ABB4D800A6ECB3 /* InfoPlist.strings */; };
+		7EB9CC3F14ABB4D800A6ECB3 /* PlanuKitTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 7EB9CC3E14ABB4D800A6ECB3 /* PlanuKitTests.h */; };
+		7EB9CC4114ABB4D800A6ECB3 /* PlanuKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB9CC4014ABB4D800A6ECB3 /* PlanuKitTests.m */; };
+		7EB9CC5614ABB7BF00A6ECB3 /* NuShipDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB9CC5414ABB7BF00A6ECB3 /* NuShipDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7EB9CC5714ABB7BF00A6ECB3 /* NuShipDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB9CC5514ABB7BF00A6ECB3 /* NuShipDatabase.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7EB9CC3514ABB4D800A6ECB3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7EB9CC0F14ABB4D700A6ECB3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7EB9CC1814ABB4D700A6ECB3;
+			remoteInfo = PlanuKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7E29089414ABBCCD00B11972 /* HullDatabase.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = HullDatabase.plist; sourceTree = "<group>"; };
+		7E29089714ABBCE900B11972 /* NuGameListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NuGameListRequest.h; path = ../PlanuKit/PlanuKit/NuGameListRequest.h; sourceTree = "<group>"; };
+		7E29089814ABBCE900B11972 /* NuGameListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NuGameListRequest.m; path = ../PlanuKit/PlanuKit/NuGameListRequest.m; sourceTree = "<group>"; };
+		7E29089914ABBCE900B11972 /* NuLoginRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NuLoginRequest.h; path = ../PlanuKit/PlanuKit/NuLoginRequest.h; sourceTree = "<group>"; };
+		7E29089A14ABBCE900B11972 /* NuLoginRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NuLoginRequest.m; path = ../PlanuKit/PlanuKit/NuLoginRequest.m; sourceTree = "<group>"; };
+		7E29089B14ABBCE900B11972 /* NuTurnRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NuTurnRequest.h; path = ../PlanuKit/PlanuKit/NuTurnRequest.h; sourceTree = "<group>"; };
+		7E29089C14ABBCE900B11972 /* NuTurnRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NuTurnRequest.m; path = ../PlanuKit/PlanuKit/NuTurnRequest.m; sourceTree = "<group>"; };
+		7E2908A414ABBD8F00B11972 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = ../JSONKit/JSONKit.h; sourceTree = "<group>"; };
+		7E2908A514ABBD8F00B11972 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONKit.m; path = ../JSONKit/JSONKit.m; sourceTree = "<group>"; };
+		7E2908A814ABBFE400B11972 /* NuGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuGame.h; sourceTree = "<group>"; };
+		7E2908A914ABBFE400B11972 /* NuGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuGame.m; sourceTree = "<group>"; };
+		7E2908AA14ABBFE400B11972 /* NuGameSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuGameSettings.h; sourceTree = "<group>"; };
+		7E2908AB14ABBFE400B11972 /* NuGameSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuGameSettings.m; sourceTree = "<group>"; };
+		7E2908AC14ABBFE400B11972 /* NuHull.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuHull.h; sourceTree = "<group>"; };
+		7E2908AD14ABBFE400B11972 /* NuHull.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuHull.m; sourceTree = "<group>"; };
+		7E2908AE14ABBFE400B11972 /* NuIonStorm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuIonStorm.h; sourceTree = "<group>"; };
+		7E2908AF14ABBFE400B11972 /* NuIonStorm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuIonStorm.m; sourceTree = "<group>"; };
+		7E2908B014ABBFE500B11972 /* NuPlanet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuPlanet.h; sourceTree = "<group>"; };
+		7E2908B114ABBFE500B11972 /* NuPlanet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuPlanet.m; sourceTree = "<group>"; };
+		7E2908B214ABBFE500B11972 /* NuPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuPlayer.h; sourceTree = "<group>"; };
+		7E2908B314ABBFE500B11972 /* NuPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuPlayer.m; sourceTree = "<group>"; };
+		7E2908B414ABBFE500B11972 /* NuShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuShip.h; sourceTree = "<group>"; };
+		7E2908B514ABBFE500B11972 /* NuShip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuShip.m; sourceTree = "<group>"; };
+		7E2908B614ABBFE500B11972 /* NuStarbase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuStarbase.h; sourceTree = "<group>"; };
+		7E2908B714ABBFE500B11972 /* NuStarbase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuStarbase.m; sourceTree = "<group>"; };
+		7E2908B814ABBFE500B11972 /* NuTurn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuTurn.h; sourceTree = "<group>"; };
+		7E2908B914ABBFE500B11972 /* NuTurn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuTurn.m; sourceTree = "<group>"; };
+		7E2908CC14ABC2B100B11972 /* PlanuKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanuKit.h; sourceTree = "<group>"; };
+		7EB9CC1914ABB4D700A6ECB3 /* PlanuKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PlanuKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EB9CC1C14ABB4D700A6ECB3 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		7EB9CC1F14ABB4D700A6ECB3 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		7EB9CC2014ABB4D700A6ECB3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		7EB9CC2114ABB4D700A6ECB3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7EB9CC2414ABB4D700A6ECB3 /* PlanuKit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PlanuKit-Info.plist"; sourceTree = "<group>"; };
+		7EB9CC2614ABB4D700A6ECB3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7EB9CC2814ABB4D700A6ECB3 /* PlanuKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PlanuKit-Prefix.pch"; sourceTree = "<group>"; };
+		7EB9CC3114ABB4D800A6ECB3 /* PlanuKitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlanuKitTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EB9CC3214ABB4D800A6ECB3 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		7EB9CC3A14ABB4D800A6ECB3 /* PlanuKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PlanuKitTests-Info.plist"; sourceTree = "<group>"; };
+		7EB9CC3C14ABB4D800A6ECB3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7EB9CC3E14ABB4D800A6ECB3 /* PlanuKitTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlanuKitTests.h; sourceTree = "<group>"; };
+		7EB9CC4014ABB4D800A6ECB3 /* PlanuKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlanuKitTests.m; sourceTree = "<group>"; };
+		7EB9CC5414ABB7BF00A6ECB3 /* NuShipDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuShipDatabase.h; sourceTree = "<group>"; };
+		7EB9CC5514ABB7BF00A6ECB3 /* NuShipDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuShipDatabase.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7EB9CC1514ABB4D700A6ECB3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EB9CC1D14ABB4D700A6ECB3 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EB9CC2D14ABB4D800A6ECB3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EB9CC3314ABB4D800A6ECB3 /* SenTestingKit.framework in Frameworks */,
+				7EB9CC3414ABB4D800A6ECB3 /* Cocoa.framework in Frameworks */,
+				7EB9CC3714ABB4D800A6ECB3 /* PlanuKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7E29089614ABBCE900B11972 /* Service Requests */ = {
+			isa = PBXGroup;
+			children = (
+				7E29089714ABBCE900B11972 /* NuGameListRequest.h */,
+				7E29089814ABBCE900B11972 /* NuGameListRequest.m */,
+				7E29089914ABBCE900B11972 /* NuLoginRequest.h */,
+				7E29089A14ABBCE900B11972 /* NuLoginRequest.m */,
+				7E29089B14ABBCE900B11972 /* NuTurnRequest.h */,
+				7E29089C14ABBCE900B11972 /* NuTurnRequest.m */,
+			);
+			name = "Service Requests";
+			path = ../../PlanuPlanu;
+			sourceTree = "<group>";
+		};
+		7E2908A314ABBD8F00B11972 /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				7E2908A414ABBD8F00B11972 /* JSONKit.h */,
+				7E2908A514ABBD8F00B11972 /* JSONKit.m */,
+			);
+			name = JSONKit;
+			path = ../PlanuPlanu;
+			sourceTree = "<group>";
+		};
+		7EB9CC0D14ABB4D700A6ECB3 = {
+			isa = PBXGroup;
+			children = (
+				7E2908A314ABBD8F00B11972 /* JSONKit */,
+				7EB9CC2214ABB4D700A6ECB3 /* PlanuKit */,
+				7EB9CC3814ABB4D800A6ECB3 /* PlanuKitTests */,
+				7EB9CC1B14ABB4D700A6ECB3 /* Frameworks */,
+				7EB9CC1A14ABB4D700A6ECB3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7EB9CC1A14ABB4D700A6ECB3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7EB9CC1914ABB4D700A6ECB3 /* PlanuKit.framework */,
+				7EB9CC3114ABB4D800A6ECB3 /* PlanuKitTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7EB9CC1B14ABB4D700A6ECB3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7EB9CC1C14ABB4D700A6ECB3 /* Cocoa.framework */,
+				7EB9CC3214ABB4D800A6ECB3 /* SenTestingKit.framework */,
+				7EB9CC1E14ABB4D700A6ECB3 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7EB9CC1E14ABB4D700A6ECB3 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7EB9CC1F14ABB4D700A6ECB3 /* AppKit.framework */,
+				7EB9CC2014ABB4D700A6ECB3 /* CoreData.framework */,
+				7EB9CC2114ABB4D700A6ECB3 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		7EB9CC2214ABB4D700A6ECB3 /* PlanuKit */ = {
+			isa = PBXGroup;
+			children = (
+				7E2908A814ABBFE400B11972 /* NuGame.h */,
+				7E2908A914ABBFE400B11972 /* NuGame.m */,
+				7E2908AA14ABBFE400B11972 /* NuGameSettings.h */,
+				7E2908AB14ABBFE400B11972 /* NuGameSettings.m */,
+				7E2908AC14ABBFE400B11972 /* NuHull.h */,
+				7E2908AD14ABBFE400B11972 /* NuHull.m */,
+				7E2908AE14ABBFE400B11972 /* NuIonStorm.h */,
+				7E2908AF14ABBFE400B11972 /* NuIonStorm.m */,
+				7E2908B014ABBFE500B11972 /* NuPlanet.h */,
+				7E2908B114ABBFE500B11972 /* NuPlanet.m */,
+				7E2908B214ABBFE500B11972 /* NuPlayer.h */,
+				7E2908B314ABBFE500B11972 /* NuPlayer.m */,
+				7E2908B414ABBFE500B11972 /* NuShip.h */,
+				7E2908B514ABBFE500B11972 /* NuShip.m */,
+				7EB9CC5414ABB7BF00A6ECB3 /* NuShipDatabase.h */,
+				7EB9CC5514ABB7BF00A6ECB3 /* NuShipDatabase.m */,
+				7E2908B614ABBFE500B11972 /* NuStarbase.h */,
+				7E2908B714ABBFE500B11972 /* NuStarbase.m */,
+				7E2908B814ABBFE500B11972 /* NuTurn.h */,
+				7E2908B914ABBFE500B11972 /* NuTurn.m */,
+				7E29089614ABBCE900B11972 /* Service Requests */,
+				7EB9CC2314ABB4D700A6ECB3 /* Supporting Files */,
+				7E29089414ABBCCD00B11972 /* HullDatabase.plist */,
+				7E2908CC14ABC2B100B11972 /* PlanuKit.h */,
+			);
+			path = PlanuKit;
+			sourceTree = "<group>";
+		};
+		7EB9CC2314ABB4D700A6ECB3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7EB9CC2414ABB4D700A6ECB3 /* PlanuKit-Info.plist */,
+				7EB9CC2514ABB4D700A6ECB3 /* InfoPlist.strings */,
+				7EB9CC2814ABB4D700A6ECB3 /* PlanuKit-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7EB9CC3814ABB4D800A6ECB3 /* PlanuKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				7EB9CC3E14ABB4D800A6ECB3 /* PlanuKitTests.h */,
+				7EB9CC4014ABB4D800A6ECB3 /* PlanuKitTests.m */,
+				7EB9CC3914ABB4D800A6ECB3 /* Supporting Files */,
+			);
+			path = PlanuKitTests;
+			sourceTree = "<group>";
+		};
+		7EB9CC3914ABB4D800A6ECB3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7EB9CC3A14ABB4D800A6ECB3 /* PlanuKitTests-Info.plist */,
+				7EB9CC3B14ABB4D800A6ECB3 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		7EB9CC1614ABB4D700A6ECB3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EB9CC5614ABB7BF00A6ECB3 /* NuShipDatabase.h in Headers */,
+				7E29089D14ABBCE900B11972 /* NuGameListRequest.h in Headers */,
+				7E29089F14ABBCE900B11972 /* NuLoginRequest.h in Headers */,
+				7E2908A114ABBCE900B11972 /* NuTurnRequest.h in Headers */,
+				7E2908A614ABBD8F00B11972 /* JSONKit.h in Headers */,
+				7E2908BA14ABBFE500B11972 /* NuGame.h in Headers */,
+				7E2908BC14ABBFE500B11972 /* NuGameSettings.h in Headers */,
+				7E2908BE14ABBFE500B11972 /* NuHull.h in Headers */,
+				7E2908C014ABBFE500B11972 /* NuIonStorm.h in Headers */,
+				7E2908C214ABBFE500B11972 /* NuPlanet.h in Headers */,
+				7E2908C414ABBFE500B11972 /* NuPlayer.h in Headers */,
+				7E2908C614ABBFE500B11972 /* NuShip.h in Headers */,
+				7E2908C814ABBFE500B11972 /* NuStarbase.h in Headers */,
+				7E2908CA14ABBFE500B11972 /* NuTurn.h in Headers */,
+				7E2908CD14ABC2B200B11972 /* PlanuKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		7EB9CC1814ABB4D700A6ECB3 /* PlanuKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7EB9CC4414ABB4D800A6ECB3 /* Build configuration list for PBXNativeTarget "PlanuKit" */;
+			buildPhases = (
+				7EB9CC1414ABB4D700A6ECB3 /* Sources */,
+				7EB9CC1514ABB4D700A6ECB3 /* Frameworks */,
+				7EB9CC1614ABB4D700A6ECB3 /* Headers */,
+				7EB9CC1714ABB4D700A6ECB3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PlanuKit;
+			productName = PlanuKit;
+			productReference = 7EB9CC1914ABB4D700A6ECB3 /* PlanuKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		7EB9CC3014ABB4D800A6ECB3 /* PlanuKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7EB9CC4714ABB4D800A6ECB3 /* Build configuration list for PBXNativeTarget "PlanuKitTests" */;
+			buildPhases = (
+				7EB9CC2C14ABB4D800A6ECB3 /* Sources */,
+				7EB9CC2D14ABB4D800A6ECB3 /* Frameworks */,
+				7EB9CC2E14ABB4D800A6ECB3 /* Resources */,
+				7EB9CC2F14ABB4D800A6ECB3 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7EB9CC3614ABB4D800A6ECB3 /* PBXTargetDependency */,
+			);
+			name = PlanuKitTests;
+			productName = PlanuKitTests;
+			productReference = 7EB9CC3114ABB4D800A6ECB3 /* PlanuKitTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7EB9CC0F14ABB4D700A6ECB3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Roboboogie Studios";
+			};
+			buildConfigurationList = 7EB9CC1214ABB4D700A6ECB3 /* Build configuration list for PBXProject "PlanuKit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7EB9CC0D14ABB4D700A6ECB3;
+			productRefGroup = 7EB9CC1A14ABB4D700A6ECB3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7EB9CC1814ABB4D700A6ECB3 /* PlanuKit */,
+				7EB9CC3014ABB4D800A6ECB3 /* PlanuKitTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7EB9CC1714ABB4D700A6ECB3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EB9CC2714ABB4D700A6ECB3 /* InfoPlist.strings in Resources */,
+				7E29089514ABBCCD00B11972 /* HullDatabase.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EB9CC2E14ABB4D800A6ECB3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EB9CC3D14ABB4D800A6ECB3 /* InfoPlist.strings in Resources */,
+				7EB9CC3F14ABB4D800A6ECB3 /* PlanuKitTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7EB9CC2F14ABB4D800A6ECB3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7EB9CC1414ABB4D700A6ECB3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EB9CC5714ABB7BF00A6ECB3 /* NuShipDatabase.m in Sources */,
+				7E29089E14ABBCE900B11972 /* NuGameListRequest.m in Sources */,
+				7E2908A014ABBCE900B11972 /* NuLoginRequest.m in Sources */,
+				7E2908A214ABBCE900B11972 /* NuTurnRequest.m in Sources */,
+				7E2908A714ABBD8F00B11972 /* JSONKit.m in Sources */,
+				7E2908BB14ABBFE500B11972 /* NuGame.m in Sources */,
+				7E2908BD14ABBFE500B11972 /* NuGameSettings.m in Sources */,
+				7E2908BF14ABBFE500B11972 /* NuHull.m in Sources */,
+				7E2908C114ABBFE500B11972 /* NuIonStorm.m in Sources */,
+				7E2908C314ABBFE500B11972 /* NuPlanet.m in Sources */,
+				7E2908C514ABBFE500B11972 /* NuPlayer.m in Sources */,
+				7E2908C714ABBFE500B11972 /* NuShip.m in Sources */,
+				7E2908C914ABBFE500B11972 /* NuStarbase.m in Sources */,
+				7E2908CB14ABBFE500B11972 /* NuTurn.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EB9CC2C14ABB4D800A6ECB3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EB9CC4114ABB4D800A6ECB3 /* PlanuKitTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7EB9CC3614ABB4D800A6ECB3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7EB9CC1814ABB4D700A6ECB3 /* PlanuKit */;
+			targetProxy = 7EB9CC3514ABB4D800A6ECB3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7EB9CC2514ABB4D700A6ECB3 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7EB9CC2614ABB4D700A6ECB3 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		7EB9CC3B14ABB4D800A6ECB3 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7EB9CC3C14ABB4D800A6ECB3 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7EB9CC4214ABB4D800A6ECB3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		7EB9CC4314ABB4D800A6ECB3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		7EB9CC4514ABB4D800A6ECB3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PlanuKit/PlanuKit-Prefix.pch";
+				INFOPLIST_FILE = "PlanuKit/PlanuKit-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		7EB9CC4614ABB4D800A6ECB3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PlanuKit/PlanuKit-Prefix.pch";
+				INFOPLIST_FILE = "PlanuKit/PlanuKit-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		7EB9CC4814ABB4D800A6ECB3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PlanuKit/PlanuKit-Prefix.pch";
+				INFOPLIST_FILE = "PlanuKitTests/PlanuKitTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		7EB9CC4914ABB4D800A6ECB3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PlanuKit/PlanuKit-Prefix.pch";
+				INFOPLIST_FILE = "PlanuKitTests/PlanuKitTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7EB9CC1214ABB4D700A6ECB3 /* Build configuration list for PBXProject "PlanuKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EB9CC4214ABB4D800A6ECB3 /* Debug */,
+				7EB9CC4314ABB4D800A6ECB3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7EB9CC4414ABB4D800A6ECB3 /* Build configuration list for PBXNativeTarget "PlanuKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EB9CC4514ABB4D800A6ECB3 /* Debug */,
+				7EB9CC4614ABB4D800A6ECB3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7EB9CC4714ABB4D800A6ECB3 /* Build configuration list for PBXNativeTarget "PlanuKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EB9CC4814ABB4D800A6ECB3 /* Debug */,
+				7EB9CC4914ABB4D800A6ECB3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7EB9CC0F14ABB4D700A6ECB3 /* Project object */;
+}
