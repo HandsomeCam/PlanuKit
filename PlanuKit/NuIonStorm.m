@@ -38,31 +38,14 @@
 
 - (void)loadFromDict:(NSDictionary*)input
 {
-    NSNumber* buf;
-    
-    buf = [input objectForKey:@"heading"];
-    self.heading = [buf intValue];
-    
-    buf = [input objectForKey:@"id"];
-    self.ionStormId = [buf intValue];
-    
-    buf = [input objectForKey:@"isgrowing"];
-    self.isGrowing = [buf boolValue];
-    
-    buf = [input objectForKey:@"radius"];
-    self.radius = [buf intValue];
-    
-    buf = [input objectForKey:@"voltage"];
-    self.voltage = [buf intValue];
-    
-    buf = [input objectForKey:@"warp"];
-    self.warp = [buf intValue];
-    
-    buf = [input objectForKey:@"x"];
-    self.x = [buf intValue];
-    
-    buf = [input objectForKey:@"y"];
-    self.y = [buf intValue];
+    self.heading = [[input objectForKey:@"heading"] intValue];
+    self.ionStormId = [[input objectForKey:@"id"] intValue];
+    self.isGrowing = [[input objectForKey:@"isgrowing"] boolValue];
+    self.radius = [[input objectForKey:@"radius"] intValue];
+    self.voltage = [[input objectForKey:@"voltage"] intValue];
+    self.warp = [[input objectForKey:@"warp"] intValue];
+    self.x = [[input objectForKey:@"x"] intValue];
+    self.y = [[input objectForKey:@"y"] intValue];
 }
 
 @end
