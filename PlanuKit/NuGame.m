@@ -24,7 +24,7 @@
 @implementation NuGame
 
 @synthesize name;
-@synthesize gameId;
+@synthesize gameId, settings;
 
 - (id)init
 {
@@ -42,6 +42,9 @@
     NSNumber* gid = [input objectForKey:@"id"];
 
     self.gameId = [gid intValue];
+    
+    self.settings = [[[NuGameSettings alloc] init] autorelease];
+    [self.settings loadFromDict:[input objectForKey:@"settings"]];
     
     return YES;
 }

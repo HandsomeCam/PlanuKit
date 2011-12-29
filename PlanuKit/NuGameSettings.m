@@ -22,8 +22,15 @@
 #import "NuGameSettings.h"
 
 @implementation NuGameSettings
+ 
 
-@synthesize mapHeight, mapWidth;
+@synthesize buildQueuePlanetId, cloakFail, debrisDiskPercent;
+@synthesize discussionId, hostCompleted, hostStart, settingsId;
+@synthesize mapHeight, mapWidth, maxAllies, maxIonCloudsPerStorm;
+@synthesize maxIonStorms, gameName, nebulas, nextHost, nuIonStorms;
+@synthesize numberOfPlanets, planetScanRange, roundMap, shipScanRange;
+@synthesize stars, structureDecayRate, teamSize, turn, uniqueRaces;
+@synthesize victoryCountdown;
 
 - (id)init
 {
@@ -37,14 +44,36 @@
 
 - (BOOL)loadFromDict:(NSDictionary*)input
 {
-    NSNumber* mw;
-    NSNumber* mh;
+    NSDateFormatter* df = [[[NSDateFormatter alloc] init] autorelease];
     
-    mw = [input objectForKey:@"mapwidth"];
-    mh = [input objectForKey:@"mapheight"];
-    
-    self.mapHeight = [mh intValue];
-    self.mapWidth = [mw intValue];
+    self.buildQueuePlanetId = [[input objectForKey:@"buildqueueplanetid"] intValue];
+    self.cloakFail = [[input objectForKey:@"cloakfail"] intValue];
+    self.debrisDiskPercent = [[input objectForKey:@"debrisdiskpercent"] intValue];
+    self.discussionId = [input objectForKey:@"discussionid"];
+    self.hostCompleted = [df dateFromString:[input objectForKey:@"hostcompleted"]];
+    self.hostStart = [df dateFromString:[input objectForKey:@"hoststart"]];
+    self.settingsId = [[input objectForKey:@"id"] intValue];
+
+    self.mapHeight = [[input objectForKey:@"mapheight"] intValue];
+    self.mapWidth = [[input objectForKey:@"mapwidth"] intValue];
+
+    self.maxAllies = [[input objectForKey:@"maxalliest"] intValue];
+    self.maxIonCloudsPerStorm = [[input objectForKey:@"maxioncloudsperstorm"] intValue];
+    self.maxIonStorms = [[input objectForKey:@"maxions"] intValue];
+    self.gameName = [input objectForKey:@"name"];
+    self.nebulas = [[input objectForKey:@"nebulas"] intValue];
+    self.nextHost = [df dateFromString:[input objectForKey:@"nexthost"]];
+    self.nuIonStorms = [[input objectForKey:@"nuionstorms"] intValue];
+    self.numberOfPlanets = [[input objectForKey:@"numplanets"] intValue];
+    self.planetScanRange = [[input objectForKey:@"planetscanrange"] intValue];
+    self.roundMap = [[input objectForKey:@"roundmap"] boolValue];
+    self.shipScanRange = [[input objectForKey:@"shipscanrange"] intValue];
+    self.stars = [[input objectForKey:@"stars"] intValue];
+    self.structureDecayRate = [[input objectForKey:@"structuredecayrate"] intValue];
+    self.teamSize = [[input objectForKey:@"teamsize"] intValue];
+    self.turn = [[input objectForKey:@"turn"] intValue];
+    self.uniqueRaces = [[input objectForKey:@"uniqueraces"] intValue];
+    self.victoryCountdown = [[input objectForKey:@"victorycountdown"] intValue];
     
     return YES;
 }

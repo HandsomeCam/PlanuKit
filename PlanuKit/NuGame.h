@@ -20,15 +20,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NuGameSettings.h"
 
 @interface NuGame : NSObject
 {
     NSString* name;
     NSInteger gameId;
+    NuGameSettings* settings;
 }
 
 @property (nonatomic, retain) NSString* name;
 @property (nonatomic, assign) NSInteger gameId;
+@property (nonatomic, retain) NuGameSettings* settings;
 
 - (BOOL)loadFromDict:(NSDictionary*)input;
 
