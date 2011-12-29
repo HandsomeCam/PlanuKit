@@ -20,13 +20,38 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NuPlayerRaces.h"
 
 @interface NuPlayer : NSObject
 {
+    NSString* email;
+    NSInteger finishRank;
     NSInteger playerId;
+    NSInteger priorityPoints;
+    NuPlayerRace raceId;
+    NSString* saveKey;
+    NSInteger status;
+    NSInteger teamId;
+    NSInteger turnJoined;
+    BOOL turnReady;
+    NSInteger turnsMissed;
+    NSInteger turnStatus;
+    NSString* username;
 }
-
+ 
+@property (nonatomic, retain) NSString* email;
+@property (nonatomic, assign) NSInteger finishRank;
 @property (nonatomic, assign) NSInteger playerId;
+@property (nonatomic, assign) NSInteger priorityPoints;
+@property (nonatomic, assign) NuPlayerRace raceId;
+@property (nonatomic, retain) NSString* saveKey;
+@property (nonatomic, assign) NSInteger status;
+@property (nonatomic, assign) NSInteger teamId;
+@property (nonatomic, assign) NSInteger turnJoined;
+@property (nonatomic, assign) BOOL turnReady;
+@property (nonatomic, assign) NSInteger turnsMissed;
+@property (nonatomic, assign) NSInteger turnStatus;
+@property (nonatomic, retain) NSString* username;
 
 - (void)loadFromDict:(NSDictionary*)input;
 

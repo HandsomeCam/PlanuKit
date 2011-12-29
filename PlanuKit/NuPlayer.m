@@ -23,7 +23,10 @@
 
 @implementation NuPlayer
 
-@synthesize playerId;
+@synthesize playerId, email, finishRank, priorityPoints;
+@synthesize raceId, saveKey, status, teamId;
+@synthesize turnJoined, turnReady, turnsMissed, turnStatus;
+@synthesize username;
 
 - (id)init
 {
@@ -37,10 +40,19 @@
 
 - (void)loadFromDict:(NSDictionary*)input
 {
-    NSNumber* buf;
-    
-    buf = [input objectForKey:@"id"];
-    playerId = [buf intValue];
+    self.playerId = [[input objectForKey:@"id"] intValue];
+    self.email = [input objectForKey:@"email"];
+    self.finishRank = [[input objectForKey:@"finishrank"] intValue];
+    self.priorityPoints = [[input objectForKey:@"prioritypoints"] intValue];
+    self.raceId = [[input objectForKey:@"raceid"] intValue];
+    self.saveKey = [input objectForKey:@"savekey"];
+    self.status = [[input objectForKey:@"status"] intValue];
+    self.teamId = [[input objectForKey:@"teamid"] intValue];
+    self.turnJoined = [[input objectForKey:@"turnjoined"] intValue];
+    self.turnReady = [[input objectForKey:@"turnready"] boolValue];
+    self.turnsMissed = [[input objectForKey:@"turnsmissed"] intValue];
+    self.turnStatus = [[input objectForKey:@"turnstatus"] intValue];
+    self.username = [input objectForKey:@"username"];
 }
 
 @end

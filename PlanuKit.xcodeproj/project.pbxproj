@@ -35,6 +35,7 @@
 		7E2908CA14ABBFE500B11972 /* NuTurn.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E2908B814ABBFE500B11972 /* NuTurn.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7E2908CB14ABBFE500B11972 /* NuTurn.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2908B914ABBFE500B11972 /* NuTurn.m */; };
 		7E2908CD14ABC2B200B11972 /* PlanuKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E2908CC14ABC2B100B11972 /* PlanuKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7E2908D114AC331A00B11972 /* NuPlayerRaces.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E2908D014AC331900B11972 /* NuPlayerRaces.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7EB9CC1D14ABB4D700A6ECB3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB9CC1C14ABB4D700A6ECB3 /* Cocoa.framework */; };
 		7EB9CC2714ABB4D700A6ECB3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7EB9CC2514ABB4D700A6ECB3 /* InfoPlist.strings */; };
 		7EB9CC3314ABB4D800A6ECB3 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB9CC3214ABB4D800A6ECB3 /* SenTestingKit.framework */; };
@@ -86,6 +87,7 @@
 		7E2908B814ABBFE500B11972 /* NuTurn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuTurn.h; sourceTree = "<group>"; };
 		7E2908B914ABBFE500B11972 /* NuTurn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuTurn.m; sourceTree = "<group>"; };
 		7E2908CC14ABC2B100B11972 /* PlanuKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanuKit.h; sourceTree = "<group>"; };
+		7E2908D014AC331900B11972 /* NuPlayerRaces.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuPlayerRaces.h; sourceTree = "<group>"; };
 		7EB9CC1914ABB4D700A6ECB3 /* PlanuKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PlanuKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EB9CC1C14ABB4D700A6ECB3 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		7EB9CC1F14ABB4D700A6ECB3 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -217,6 +219,7 @@
 				7EB9CC2314ABB4D700A6ECB3 /* Supporting Files */,
 				7E29089414ABBCCD00B11972 /* HullDatabase.plist */,
 				7E2908CC14ABC2B100B11972 /* PlanuKit.h */,
+				7E2908D014AC331900B11972 /* NuPlayerRaces.h */,
 			);
 			path = PlanuKit;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				7E2908C814ABBFE500B11972 /* NuStarbase.h in Headers */,
 				7E2908CA14ABBFE500B11972 /* NuTurn.h in Headers */,
 				7E2908CD14ABC2B200B11972 /* PlanuKit.h in Headers */,
+				7E2908D114AC331A00B11972 /* NuPlayerRaces.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

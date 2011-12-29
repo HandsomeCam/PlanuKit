@@ -40,5 +40,6 @@
 #import "NuShipDatabase.h"
 #import "NuStarbase.h"
 #import "NuTurn.h"
+#import "NuPlayerRaces.h"
 
 #endif
