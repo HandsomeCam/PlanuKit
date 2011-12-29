@@ -74,8 +74,6 @@
     self.canCloak = [[input objectForKey:@"hasCloak"] boolValue];
     
     self.specialAbility = [[input objectForKey:@"special"] intValue];
-    
-
 }
 
 @end

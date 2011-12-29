@@ -110,6 +110,64 @@
 @property (nonatomic, assign) NSInteger planetId;
 
 @property (nonatomic, assign) NSInteger clans;
+ 
+@property (nonatomic, assign) NSInteger infoTurn;
+@property (nonatomic, retain) NSString* friendlyCode;
+@property (nonatomic, assign) NSInteger temperature; 
+@property (nonatomic, assign) NSInteger readyStatus;
+ 
+@property (nonatomic, assign) NSInteger colonistsChange;
+@property (nonatomic, assign) NSInteger colonyHappinessChange;
+@property (nonatomic, assign) NSInteger colonyTaxRate;
+
+@property (nonatomic, assign) NSInteger nativeChange;
+@property (nonatomic, assign) NSInteger nativeClans;
+@property (nonatomic, assign) NSInteger nativeHappinessChange;
+@property (nonatomic, assign) NSInteger nativeHappiness;
+
+// TODO: make this an enum
+@property (nonatomic, assign) NSInteger nativeGovernment;
+@property (nonatomic, retain) NSString* nativeGovernmentName;
+@property (nonatomic, retain) NSString* nativeRaceName;
+@property (nonatomic, assign) NSInteger nativeRace;
+@property (nonatomic, assign) NSInteger nativeTaxRate;
+
+@property (nonatomic, assign) BOOL debrisDisk;
+
+// Resources
+@property (nonatomic, assign) NSInteger duranium;
+@property (nonatomic, assign) NSInteger molybdenum;
+@property (nonatomic, assign) NSInteger neutronium;
+
+@property (nonatomic, assign) NSInteger megacredits;
+@property (nonatomic, assign) NSInteger supplies;
+
+@property (nonatomic, assign) NSInteger suppliesSold;
+
+@property (nonatomic, assign) NSInteger defenseTarget;
+@property (nonatomic, assign) NSInteger factoriesTarget;
+@property (nonatomic, assign) NSInteger minesTarget;
+
+@property (nonatomic, assign) NSInteger duraniumDensity;
+@property (nonatomic, assign) NSInteger neutroniumDensity;
+@property (nonatomic, assign) NSInteger molybdenumDensity;
+@property (nonatomic, assign) NSInteger tritaniumDensity;
+
+@property (nonatomic, assign) NSInteger duraniumOnGround;
+@property (nonatomic, assign) NSInteger molybdenumOnGround;
+@property (nonatomic, assign) NSInteger neutroniumOnGround;
+@property (nonatomic, assign) NSInteger tritaniumOnGround;
+
+@property (nonatomic, assign) NSInteger duraniumTotal;
+@property (nonatomic, assign) NSInteger molybdenumTotal;
+@property (nonatomic, assign) NSInteger neutroniumTotal;
+@property (nonatomic, assign) NSInteger tritaniumTotal;
+
+// Infrastructure
+@property (nonatomic, assign) NSInteger factories;
+@property (nonatomic, assign) NSInteger defensePosts;
+@property (nonatomic, assign) NSInteger mines;
+ 
 
 @property (nonatomic, retain) NuStarbase* starbase;
 

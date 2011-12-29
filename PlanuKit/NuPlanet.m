@@ -26,8 +26,20 @@
 @synthesize isBuildingStarbase;
 @synthesize defenseBuilt, factoriesBuilt, minesBuilt;
 @synthesize x,y, name, ownerId, planetId;
-@synthesize starbase, clans;
+@synthesize starbase, clans, debrisDisk;
+@synthesize infoTurn, friendlyCode, temperature, readyStatus;
+@synthesize colonistsChange, colonyHappinessChange, colonyTaxRate;
+@synthesize nativeChange, nativeClans, nativeHappinessChange, nativeHappiness;
+@synthesize nativeGovernment, nativeGovernmentName, nativeRaceName, nativeRace, nativeTaxRate;
+@synthesize duranium, molybdenum, neutronium, megacredits, supplies;
+@synthesize suppliesSold;
+@synthesize defenseTarget, factoriesTarget, minesTarget;
+@synthesize duraniumDensity, neutroniumDensity, molybdenumDensity, tritaniumDensity;
+@synthesize duraniumOnGround, molybdenumOnGround, neutroniumOnGround, tritaniumOnGround;
+@synthesize duraniumTotal, molybdenumTotal, neutroniumTotal, tritaniumTotal;
 
+// Infrastructure
+@synthesize factories, defensePosts, mines;
 
 - (id)init
 {
@@ -42,24 +54,69 @@
 
 - (BOOL)loadFromDict:(NSDictionary*)input
 {
-    NSNumber* buf;
-    
-    buf = [input objectForKey:@"x"];
-    self.x = [buf intValue];
-    buf = [input objectForKey:@"y"];
-    self.y = [buf intValue];
-    
-    buf = [input objectForKey:@"ownerid"];
-    self.ownerId = [buf intValue];
+    self.x = [[input objectForKey:@"x"] intValue];
+    self.y = [[input objectForKey:@"y"] intValue];
+    self.ownerId = [[input objectForKey:@"ownerid"] intValue];
     
     self.name = [input objectForKey:@"name"];
+    self.planetId = [[input objectForKey:@"id"] intValue];
+    self.clans = [[input objectForKey:@"clans"] intValue];
     
-    buf = [input objectForKey:@"id"];
-    self.planetId = [buf intValue];
+    self.isBuildingStarbase = [[input objectForKey:@"buildingstarbase"] boolValue];
+    self.defenseBuilt = [[input objectForKey:@"builtdefense"] intValue];
+    self.factoriesBuilt = [[input objectForKey:@"builtfoctories"] intValue];
+    self.minesBuilt = [[input objectForKey:@"builtmines"] intValue];
     
-    buf = [input objectForKey:@"clans"];
-    self.clans = [buf intValue];
+    self.debrisDisk = [[input objectForKey:@"debrisdisk"] boolValue];
+    self.infoTurn = [[input objectForKey:@"infoturn"] intValue];
+
+    self.friendlyCode = [input objectForKey:@"friendlycode"];
+    self.temperature = [[input objectForKey:@"temp"] intValue];
     
+    self.readyStatus = [[input objectForKey:@"readystatus"] intValue];
+
+    self.colonistsChange = [[input objectForKey:@"colchange"] intValue];
+    self.colonyHappinessChange = [[input objectForKey:@"colhappychange"] intValue];
+    self.colonyTaxRate = [[input objectForKey:@"colonisttaxrate"] intValue];
+    
+    self.nativeChange = [[input objectForKey:@"nativechange"] intValue];
+    self.nativeClans = [[input objectForKey:@"nativeclans"] intValue];
+    self.nativeHappinessChange = [[input objectForKey:@"nativehappychange"] intValue];
+    self.nativeHappiness = [[input objectForKey:@"nativehappypoints"] intValue];
+    
+    self.nativeGovernment = [[input objectForKey:@"nativegovernment"] intValue];
+    self.nativeGovernmentName = [input objectForKey:@"nativegovernmentname"];
+    self.nativeRaceName = [input objectForKey:@"nativeracename"];
+    self.nativeRace = [[input objectForKey:@"nativetype"] intValue];
+    self.nativeTaxRate = [[input objectForKey:@"nativetaxrate"] intValue];
+    
+    self.duranium = [[input objectForKey:@"duranium"] intValue];
+    self.molybdenum = [[input objectForKey:@"molybdenum"] intValue];
+    self.neutronium = [[input objectForKey:@"neutronium"] intValue];
+    self.megacredits = [[input objectForKey:@"megacredits"] intValue];
+    self.supplies = [[input objectForKey:@"supplies"] intValue];
+    
+    suppliesSold = [[input objectForKey:@"suppliessold"] intValue];
+    
+    defenseTarget  = [[input objectForKey:@"targetdefense"] intValue];
+    factoriesTarget = [[input objectForKey:@"targetfactories"] intValue];
+    minesTarget = [[input objectForKey:@"targetmines"] intValue];
+    
+    duraniumDensity = [[input objectForKey:@"densityduranium"] intValue];
+    neutroniumDensity  = [[input objectForKey:@"densityneutronium"] intValue];
+    molybdenumDensity = [[input objectForKey:@"densitymolybdenum"] intValue];
+    tritaniumDensity = [[input objectForKey:@"densitytritanium"] intValue];
+
+    duraniumOnGround = [[input objectForKey:@"groundduranium"] intValue];
+    molybdenumOnGround = [[input objectForKey:@"groundmolybdenum"] intValue];
+    neutroniumOnGround = [[input objectForKey:@"groundneutronium"] intValue];
+    tritaniumOnGround = [[input objectForKey:@"groundtritanium"] intValue];
+
+    duraniumTotal = [[input objectForKey:@"totalduranium"] intValue];
+    molybdenumTotal = [[input objectForKey:@"totalmolybdenum"] intValue];
+    neutroniumTotal = [[input objectForKey:@"totalneutronium"] intValue];
+    tritaniumTotal = [[input objectForKey:@"totaltritanium"] intValue];
+
     return YES;
 }
 
