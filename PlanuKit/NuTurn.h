@@ -25,7 +25,7 @@
 
 @interface NuTurn : NSObject
 {
-    NSArray* planetList;
+    NSArray* planets;
     NuGameSettings* gameSettings;
     NuPlayer* player;
     NSArray* ionStorms;
@@ -33,12 +33,12 @@
     
 }
 
-@property (nonatomic, retain) NSArray* planetList;
+@property (nonatomic, retain) NSArray* planets;
 @property (nonatomic, retain) NuGameSettings* gameSettings;
 @property (nonatomic, retain) NuPlayer* player;
 @property (nonatomic, retain) NSArray* ionStorms;
 @property (nonatomic, retain) NSArray* ships;
 
 -(BOOL)loadFromDict:(NSDictionary*)input;
-
+-(void)calculateShipPlanetDistances;
 @end

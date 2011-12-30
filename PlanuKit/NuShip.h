@@ -73,6 +73,7 @@
     NSInteger x;
     NSInteger y;
     NSArray* waypoints;
+    double distanceToClosestPlanet;
 }
 
 @property (nonatomic, assign) NSInteger ammo;
@@ -125,6 +126,8 @@
 @property (nonatomic, assign) NSInteger x;
 @property (nonatomic, assign) NSInteger y;
 @property (nonatomic, retain) NSArray* waypoints;
+
+@property (nonatomic, assign) double distanceToClosestPlanet;
 
 - (void)loadFromDict:(NSDictionary*)input;
 

@@ -27,7 +27,7 @@
 
 @implementation NuTurn
 
-@synthesize planetList, gameSettings, player, ionStorms, ships;
+@synthesize planets, gameSettings, player, ionStorms, ships;
 
 - (id)init
 {
@@ -61,7 +61,7 @@
         [planet release];
     }
     
-    self.planetList = pl;
+    self.planets = pl;
     
     self.player = [[[NuPlayer alloc] init] autorelease];
     [self.player loadFromDict:[input objectForKey:@"player"]];
@@ -75,7 +75,7 @@
         
         [sb loadFromDict:sbDict];
         
-        for (NuPlanet* sbp in self.planetList)
+        for (NuPlanet* sbp in self.planets)
         {
             if (sb.planetId == sbp.planetId)
             {
@@ -110,7 +110,29 @@
     
     self.ships = starships;
     
+    [self calculateShipPlanetDistances];
+    
     return NO;
+}
+
+-(void)calculateShipPlanetDistances
+{
+    for (NuShip* ship in self.ships)
+    {
+        double bestDist = 10000;
+        
+        for (NuPlanet* planet in self.planets)
+        {
+            double currentDist = sqrt(pow(planet.x - ship.x,2) + pow(planet.y - ship.y,2));
+            
+            if (currentDist < bestDist)
+            {
+                bestDist = currentDist;
+            }
+        }
+        
+        ship.distanceToClosestPlanet = bestDist;
+    }
 }
 
 @end
