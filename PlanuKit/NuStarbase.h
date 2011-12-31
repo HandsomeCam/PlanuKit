@@ -20,8 +20,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NuMappableEntity.h"
 
-@interface NuStarbase : NSObject
+@interface NuStarbase : NuMappableEntity
 {
     NSInteger planetId;
 }
