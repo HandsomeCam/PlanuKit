@@ -24,7 +24,7 @@
 @implementation NuIonStorm
 
 @synthesize heading, ionStormId, isGrowing, radius;
-@synthesize voltage, warp, x, y;
+@synthesize voltage, warp;
 
 - (id)init
 {

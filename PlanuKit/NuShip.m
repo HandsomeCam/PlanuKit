@@ -37,7 +37,7 @@
 @synthesize transferMegacredits, transferMolybdenum, transferNeutronium;
 @synthesize transferSupplies, transferTargetId, transferTargetType;
 @synthesize transferTritanium, tritanium, turn, turnKilled;
-@synthesize warp, x, y, waypoints, distanceToClosestPlanet;
+@synthesize warp, waypoints, distanceToClosestPlanet;
 
 - (id)init
 {

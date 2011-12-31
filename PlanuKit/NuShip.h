@@ -20,8 +20,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NuMappableEntity.h"
 
-@interface NuShip : NSObject
+@interface NuShip : NuMappableEntity
 {
     NSInteger ammo;
     NSInteger bays;
@@ -70,8 +71,6 @@
     NSInteger turn;
     NSInteger turnKilled;
     NSInteger warp;
-    NSInteger x;
-    NSInteger y;
     NSArray* waypoints;
     double distanceToClosestPlanet;
 }
@@ -123,8 +122,6 @@
 @property (nonatomic, assign) NSInteger turn;
 @property (nonatomic, assign) NSInteger turnKilled;
 @property (nonatomic, assign) NSInteger warp;
-@property (nonatomic, assign) NSInteger x;
-@property (nonatomic, assign) NSInteger y;
 @property (nonatomic, retain) NSArray* waypoints;
 
 @property (nonatomic, assign) double distanceToClosestPlanet;

@@ -21,8 +21,9 @@
 
 #import <Foundation/Foundation.h>
 #import "NuStarbase.h"
+#import "NuMappableEntity.h"
 
-@interface NuPlanet : NSObject
+@interface NuPlanet : NuMappableEntity
 {
     BOOL isBuildingStarbase;
     
@@ -32,8 +33,6 @@
     NSInteger infoTurn;
     NSString* friendlyCode;
     NSInteger temperature;
-    NSInteger x;
-    NSInteger y;
     
     NSInteger ownerId;
     NSInteger readyStatus;
@@ -102,9 +101,7 @@
 @property (nonatomic, assign) NSInteger defenseBuilt;
 @property (nonatomic, assign) NSInteger factoriesBuilt;
 @property (nonatomic, assign) NSInteger minesBuilt;
-
-@property (nonatomic, assign) NSInteger x;
-@property (nonatomic, assign) NSInteger y;
+ 
 @property (nonatomic, retain) NSString* name;
 @property (nonatomic, assign) NSInteger ownerId;
 @property (nonatomic, assign) NSInteger planetId;

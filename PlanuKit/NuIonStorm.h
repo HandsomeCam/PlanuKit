@@ -20,17 +20,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NuMappableEntity.h"
 
-@interface NuIonStorm : NSObject
+@interface NuIonStorm : NuMappableEntity
 {
     NSInteger heading;
     NSInteger ionStormId;
     BOOL isGrowing;
     NSInteger radius;
     NSInteger voltage;
-    NSInteger warp;
-    NSInteger x;
-    NSInteger y;
+    NSInteger warp; 
 }
 
 @property (nonatomic, assign) NSInteger heading;
@@ -39,8 +38,6 @@
 @property (nonatomic, assign) NSInteger radius;
 @property (nonatomic, assign) NSInteger voltage;
 @property (nonatomic, assign) NSInteger warp;
-@property (nonatomic, assign) NSInteger x;
-@property (nonatomic, assign) NSInteger y;
 
 - (void)loadFromDict:(NSDictionary*)input;
 

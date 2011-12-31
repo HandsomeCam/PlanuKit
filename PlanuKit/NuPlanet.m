@@ -25,7 +25,7 @@
 
 @synthesize isBuildingStarbase;
 @synthesize defenseBuilt, factoriesBuilt, minesBuilt;
-@synthesize x,y, name, ownerId, planetId;
+@synthesize name, ownerId, planetId;
 @synthesize starbase, clans, debrisDisk;
 @synthesize infoTurn, friendlyCode, temperature, readyStatus;
 @synthesize colonistsChange, colonyHappinessChange, colonyTaxRate;

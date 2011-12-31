@@ -1,8 +1,8 @@
 //
-//  PlanuKit.h
+//  NuMappableEntity.m
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 12/28/11.
+//  Created by Cameron Hotchkies on 12/31/11.
 //  Copyright 2011 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
@@ -19,29 +19,20 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#ifndef PlanuKit_PlanuKit_h
-#define PlanuKit_PlanuKit_h
-
-// Service Requests
-
-#import "NuGameListRequest.h"
-#import "NuLoginRequest.h"
-#import "NuTurnRequest.h"
-
-// Data Structures
-
-#import "NuGameSettings.h"
-#import "NuGame.h"
-#import "NuHull.h"
-
 #import "NuMappableEntity.h"
-#import "NuIonStorm.h"
-#import "NuPlanet.h"
-#import "NuPlayer.h"
-#import "NuShip.h"
-#import "NuShipDatabase.h"
-#import "NuStarbase.h"
-#import "NuTurn.h"
-#import "NuPlayerRaces.h"
 
-#endif
+@implementation NuMappableEntity
+
+@synthesize x, y;
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        // Initialization code here.
+    }
+    
+    return self;
+}
+
+@end
