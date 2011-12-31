@@ -20,6 +20,8 @@
 //
 
 #import "NuShip.h"
+#import "NuHull.h"
+#import "NuShipDatabase.h"
 
 @implementation NuShip
  
@@ -100,9 +102,67 @@
     
     self.x = [[input objectForKey:@"x"] intValue];
     self.y = [[input objectForKey:@"y"] intValue];
+    
+    if (self.heading < 0 
+        && (self.x != self.targetX && self.y != self.targetY)
+        && self.warp > 0)
+    {
+        NSInteger mvX = self.targetX - self.x;
+        NSInteger mvY = self.targetY - self.y;
+        
+        double hdng = atan2((double)mvX, (double)mvY);
+        hdng *= 180;
+        hdng /= pi;
+        
+        // Account for x=0 y > 0 as the 0deg point
+        //hdng -= 180;
+        
+        if (hdng < 0)
+        {
+            hdng += 360;
+        }
+        
+        self.heading = (int)hdng;
+        
+        
+    }
 
     // TODO: load waypoints
     //self.waypoints;
+}
+
+- (NSInteger)flightLength
+{
+    NSInteger retVal = pow(self.warp,2);
+    
+    // Check for Gravitonic accellerator
+    NuShipDatabase* db = [NuShipDatabase sharedDatabase];
+    NuHull* thisHull = [db.hulls objectAtIndex:self.hullId-1];
+    if (thisHull.specialAbility == kShipSpecialGravitonic)
+    {
+        retVal += retVal;
+    }
+    
+    if (self.targetX != self.x && self.targetY != self.y)
+    {
+        NSInteger targetPathX = self.targetX - self.x;
+        NSInteger targetPathY = self.targetY - self.y;
+
+        NSInteger targetLength = sqrt( pow(targetPathX,2) + pow(targetPathY,2) );
+        if (targetLength < retVal)
+        {
+            retVal = targetLength;
+        }
+    }
+    
+    // HYP override
+    if (thisHull.specialAbility == kShipSpecialHyperjump
+        && [self.friendlyCode isEqualToString:@"HYP"])
+    {
+        retVal = 350;
+    }
+    
+    return retVal;
 }
 
 @end

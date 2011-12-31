@@ -130,5 +130,6 @@
 @property (nonatomic, assign) double distanceToClosestPlanet;
 
 - (void)loadFromDict:(NSDictionary*)input;
+- (NSInteger)flightLength;
 
 @end
