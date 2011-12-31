@@ -1,8 +1,8 @@
 //
-//  NuTurn.h
+//  NuMessage.h
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 12/23/11.
+//  Created by Cameron Hotchkies on 12/30/11.
 //  Copyright 2011 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
@@ -20,26 +20,30 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NuGameSettings.h"
-#import "NuPlayer.h"
 
-@interface NuTurn : NSObject
+@interface NuMessage : NSObject
 {
-    NSArray* planets;
-    NuGameSettings* gameSettings;
-    NuPlayer* player;
-    NSArray* ionStorms;
-    NSArray* ships;
-    NSArray* messages;
+    NSString* body;
+    NSString* headline;
+    NSInteger messageId;
+    NSInteger messageType;
+    NSInteger ownerId;
+    NSInteger target;
+    NSInteger turn;
+    NSInteger x;
+    NSInteger y;
 }
 
-@property (nonatomic, retain) NSArray* planets;
-@property (nonatomic, retain) NuGameSettings* gameSettings;
-@property (nonatomic, retain) NuPlayer* player;
-@property (nonatomic, retain) NSArray* ionStorms;
-@property (nonatomic, retain) NSArray* ships;
-@property (nonatomic, retain) NSArray* messages;
+@property (nonatomic, retain) NSString* body;
+@property (nonatomic, retain) NSString* headline;
+@property (nonatomic, assign) NSInteger messageId;
+@property (nonatomic, assign) NSInteger messageType;
+@property (nonatomic, assign) NSInteger ownerId;
+@property (nonatomic, assign) NSInteger target;
+@property (nonatomic, assign) NSInteger turn;
+@property (nonatomic, assign) NSInteger x;
+@property (nonatomic, assign) NSInteger y;
 
--(BOOL)loadFromDict:(NSDictionary*)input;
--(void)calculateShipPlanetDistances;
+- (void)loadFromDict:(NSDictionary*)input;
+
 @end

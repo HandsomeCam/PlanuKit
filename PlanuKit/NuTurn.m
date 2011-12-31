@@ -24,10 +24,11 @@
 #import "NuStarbase.h"
 #import "NuIonStorm.h"
 #import "NuShip.h"
+#import "NuMessage.h"
 
 @implementation NuTurn
 
-@synthesize planets, gameSettings, player, ionStorms, ships;
+@synthesize planets, gameSettings, player, ionStorms, ships, messages;
 
 - (id)init
 {
@@ -111,6 +112,18 @@
     self.ships = starships;
     
     [self calculateShipPlanetDistances];
+    
+    // Load Messages
+    NSMutableArray* msgs = [NSMutableArray array];
+    
+    for (NSDictionary* msgDict in [input objectForKey:@"mymessages"])
+    {
+        NuMessage* msg = [[[NuMessage alloc] init] autorelease];
+        [msg loadFromDict:msgDict];
+        [msgs addObject:msg];
+    }
+    
+    self.messages = msgs;
     
     return NO;
 }
