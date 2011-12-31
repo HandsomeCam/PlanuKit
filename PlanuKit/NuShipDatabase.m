@@ -34,7 +34,8 @@ static NuShipDatabase* instance;
     if (self) 
     {
         // Initialization code here.
-        NSString* path = [[NSBundle mainBundle] pathForResource:@"HullDatabase" ofType:@"plist"];
+        NSBundle* frameworkBundle = [NSBundle bundleForClass:[self class]];
+        NSString* path = [frameworkBundle pathForResource:@"HullDatabase" ofType:@"plist"];
          
         NSMutableArray *hullDicts = [[[NSMutableDictionary alloc] initWithContentsOfFile:
                                       path] objectForKey:@"Ships"];
