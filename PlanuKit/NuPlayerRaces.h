@@ -3,7 +3,7 @@
 //  PlanuKit
 //
 //  Created by Cameron Hotchkies on 12/28/11.
-//  Copyright 2011 Roboboogie Studios. All rights reserved.
+//  Copyright 2012 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU Lesser General Public License as published by
@@ -35,6 +35,6 @@ typedef enum
     kNuPlayerRaceRoboticImperium   = 9,
     kNuPlayerRaceRebels            = 10,
     kNuPlayerRaceMissingColonies   = 11
-} NuPlayerRace;
+} NuPlayerRaces;
 
 #endif

@@ -38,11 +38,13 @@
 #import "NuMappableEntity.h"
 #import "NuIonStorm.h"
 #import "NuPlanet.h"
-#import "NuPlayer.h"
 #import "NuShip.h"
 #import "NuShipDatabase.h"
 #import "NuStarbase.h"
 #import "NuTurn.h"
+
 #import "NuPlayerRaces.h"
+#import "NuPlayerRace.h"
+#import "NuPlayer.h"
 
 #endif

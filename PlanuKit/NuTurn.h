@@ -32,6 +32,8 @@
     NSArray* ships;
     NSArray* messages;
     NSArray* diplomaticRelations;
+    NSArray* players;
+    NSArray* races;
 }
 
 @property (nonatomic, retain) NSArray* planets;
@@ -41,6 +43,8 @@
 @property (nonatomic, retain) NSArray* ships;
 @property (nonatomic, retain) NSArray* messages;
 @property (nonatomic, retain) NSArray* diplomaticRelations;
+@property (nonatomic, retain) NSArray* players;
+@property (nonatomic, retain) NSArray* races;
 
 -(BOOL)loadFromDict:(NSDictionary*)input;
 -(void)calculateShipPlanetDistances;

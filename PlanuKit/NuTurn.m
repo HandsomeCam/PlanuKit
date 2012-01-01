@@ -26,11 +26,12 @@
 #import "NuShip.h"
 #import "NuMessage.h"
 #import "NuDiplomaticRelation.h"
+#import "NuPlayerRace.h"
 
 @implementation NuTurn
 
 @synthesize planets, gameSettings, player, ionStorms, ships, messages;
-@synthesize diplomaticRelations;
+@synthesize diplomaticRelations, players, races;
 
 - (id)init
 {
@@ -141,6 +142,31 @@
     }
     
     self.messages = msgs;
+    
+    // Load Players
+    NSMutableArray* plyrs = [NSMutableArray array];
+    
+    for (NSDictionary* playerDict in [input objectForKey:@"players"])
+    {
+        NuPlayer* plyr = [[[NuPlayer alloc] init] autorelease];
+        [plyr loadFromDict:playerDict];
+        
+        [plyrs addObject:plyr];
+    }
+    
+    self.players = plyrs;
+    
+    // Load Races
+    NSMutableArray* rcs = [NSMutableArray array];
+    
+    for (NSDictionary* raceDict in [input objectForKey:@"races"])
+    {
+        NuPlayerRace* race = [[[NuPlayerRace alloc] init] autorelease];
+        [race loadFromDict:raceDict];
+        [rcs addObject:race];
+    }
+    
+    self.races = rcs;
     
     return NO;
 }

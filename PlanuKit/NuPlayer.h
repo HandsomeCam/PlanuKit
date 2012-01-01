@@ -28,7 +28,7 @@
     NSInteger finishRank;
     NSInteger playerId;
     NSInteger priorityPoints;
-    NuPlayerRace raceId;
+    NuPlayerRaces raceId;
     NSString* saveKey;
     NSInteger status;
     NSInteger teamId;
@@ -43,7 +43,7 @@
 @property (nonatomic, assign) NSInteger finishRank;
 @property (nonatomic, assign) NSInteger playerId;
 @property (nonatomic, assign) NSInteger priorityPoints;
-@property (nonatomic, assign) NuPlayerRace raceId;
+@property (nonatomic, assign) NuPlayerRaces raceId;
 @property (nonatomic, retain) NSString* saveKey;
 @property (nonatomic, assign) NSInteger status;
 @property (nonatomic, assign) NSInteger teamId;
