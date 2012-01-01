@@ -25,9 +25,11 @@
 {
     NSInteger x;
     NSInteger y;
+    NSInteger ownerId;
 }
 
 @property (nonatomic, assign) NSInteger x;
 @property (nonatomic, assign) NSInteger y;
+@property (nonatomic, assign) NSInteger ownerId;
 
 @end

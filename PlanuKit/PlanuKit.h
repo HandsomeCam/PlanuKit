@@ -33,6 +33,7 @@
 #import "NuGameSettings.h"
 #import "NuGame.h"
 #import "NuHull.h"
+#import "NuDiplomaticRelation.h"
 
 #import "NuMappableEntity.h"
 #import "NuIonStorm.h"

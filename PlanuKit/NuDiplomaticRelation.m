@@ -1,5 +1,5 @@
 //
-//  NuMappableEntity.m
+//  NuDiplomaticRelation.m
 //  PlanuKit
 //
 //  Created by Cameron Hotchkies on 12/31/11.
@@ -19,21 +19,31 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "NuMappableEntity.h"
+#import "NuDiplomaticRelation.h"
 
-@implementation NuMappableEntity
+@implementation NuDiplomaticRelation
 
-@synthesize x, y, ownerId;
+@synthesize conflictLevel, relationId, playerId;
+@synthesize playerToId, relationTo, relationFrom;
 
 - (id)init
 {
     self = [super init];
     if (self) {
         // Initialization code here.
-        ownerId = -1;
     }
     
     return self;
+}
+
+- (void)loadFromDict:(NSDictionary*)input
+{
+    self.conflictLevel = [[input objectForKey:@"conflictlevel"] intValue];
+    self.relationId = [[input objectForKey:@"id"] intValue];
+    self.playerId = [[input objectForKey:@"playerid"] intValue];
+    self.playerToId = [[input objectForKey:@"playertoid"] intValue];
+    self.relationTo = [[input objectForKey:@"relationfrom"] intValue];
+    self.relationFrom = [[input objectForKey:@"relationto"] intValue];
 }
 
 @end

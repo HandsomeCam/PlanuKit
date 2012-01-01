@@ -50,7 +50,6 @@
     NSInteger molybdenum;
     NSString* name;
     NSInteger neutronium;
-    NSInteger ownerId;
     NSInteger readyStatus;
     NSInteger supplies;
     NSInteger targetX;
@@ -101,7 +100,6 @@
 @property (nonatomic, assign) NSInteger molybdenum;
 @property (nonatomic, retain) NSString* name;
 @property (nonatomic, assign) NSInteger neutronium;
-@property (nonatomic, assign) NSInteger ownerId;
 @property (nonatomic, assign) NSInteger readyStatus;
 @property (nonatomic, assign) NSInteger supplies;
 @property (nonatomic, assign) NSInteger targetX;

@@ -33,8 +33,7 @@
     NSInteger infoTurn;
     NSString* friendlyCode;
     NSInteger temperature;
-    
-    NSInteger ownerId;
+     
     NSInteger readyStatus;
     
     NSInteger clans;
@@ -103,7 +102,6 @@
 @property (nonatomic, assign) NSInteger minesBuilt;
  
 @property (nonatomic, retain) NSString* name;
-@property (nonatomic, assign) NSInteger ownerId;
 @property (nonatomic, assign) NSInteger planetId;
 
 @property (nonatomic, assign) NSInteger clans;

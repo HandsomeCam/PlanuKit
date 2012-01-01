@@ -25,10 +25,12 @@
 #import "NuIonStorm.h"
 #import "NuShip.h"
 #import "NuMessage.h"
+#import "NuDiplomaticRelation.h"
 
 @implementation NuTurn
 
 @synthesize planets, gameSettings, player, ionStorms, ships, messages;
+@synthesize diplomaticRelations;
 
 - (id)init
 {
@@ -44,11 +46,25 @@
 {
     NSDictionary* settingsDict = [input objectForKey:@"settings"];
     
+    // Load Settings
     NuGameSettings* settings = [[[NuGameSettings alloc] init] autorelease];
     
     [settings loadFromDict:settingsDict];
     self.gameSettings = settings;
     
+    // Load Diplomatic Relations
+    NSMutableArray* rels = [NSMutableArray array];
+    
+    for (NSDictionary* relDict in [input objectForKey:@"relations"])
+    {
+        NuDiplomaticRelation* ndr = [[[NuDiplomaticRelation alloc] init] autorelease];
+        [ndr loadFromDict:relDict];
+        [rels addObject:ndr];
+    }
+    
+    self.diplomaticRelations = rels;
+    
+    // Load planets
     NSMutableArray* pl = [NSMutableArray array];
     
     for (NSDictionary* planetDict in [input objectForKey:@"planets"])
@@ -64,6 +80,7 @@
     
     self.planets = pl;
     
+    // Load player
     self.player = [[[NuPlayer alloc] init] autorelease];
     [self.player loadFromDict:[input objectForKey:@"player"]];
     

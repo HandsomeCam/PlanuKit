@@ -31,7 +31,7 @@
 @synthesize heading, history, hullId, shipId;
 @synthesize infoTurn, isCloaked, mass, megacredits;
 @synthesize mission, mission1target, mission2target, molybdenum;
-@synthesize name, neutronium, ownerId, readyStatus;
+@synthesize name, neutronium, readyStatus;
 @synthesize supplies, targetX, targetY, torpedoId;
 @synthesize torps, transferAmmo, transferClans, transferDuranium;
 @synthesize transferMegacredits, transferMolybdenum, transferNeutronium;
