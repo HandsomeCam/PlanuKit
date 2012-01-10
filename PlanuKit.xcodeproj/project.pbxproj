@@ -362,6 +362,7 @@
 		7EB9CC0F14ABB4D700A6ECB3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = "Roboboogie Studios";
 			};
 			buildConfigurationList = 7EB9CC1214ABB4D700A6ECB3 /* Build configuration list for PBXProject "PlanuKit" */;
