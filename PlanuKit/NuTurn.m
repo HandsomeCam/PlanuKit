@@ -191,4 +191,18 @@
     }
 }
 
+-(NuPlayer*)playerForId:(NSInteger)playerId
+{
+    for (NuPlayer* plyr in self.players)
+    {
+        if (plyr.playerId == playerId)
+        {
+            NSLog(@"Yeah! %@", plyr.username);
+            return plyr;
+        }
+    }
+    
+    return nil;
+}
+
 @end

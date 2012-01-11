@@ -66,6 +66,18 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		7E6995C114BD0A4D007FDFD3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		7E29089414ABBCCD00B11972 /* HullDatabase.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = HullDatabase.plist; sourceTree = "<group>"; };
 		7E29089714ABBCE900B11972 /* NuGameListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NuGameListRequest.h; path = ../PlanuKit/PlanuKit/NuGameListRequest.h; sourceTree = "<group>"; };
@@ -327,6 +339,7 @@
 				7EB9CC1514ABB4D700A6ECB3 /* Frameworks */,
 				7EB9CC1614ABB4D700A6ECB3 /* Headers */,
 				7EB9CC1714ABB4D700A6ECB3 /* Resources */,
+				7E6995C114BD0A4D007FDFD3 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -504,7 +517,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INSTALL_PATH = "@executable_path/../Frameworks";
+				INSTALL_PATH = "@rpath";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -525,7 +538,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INSTALL_PATH = "@executable_path/../Frameworks";
+				INSTALL_PATH = "@rpath";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx;
 			};
@@ -540,6 +553,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PlanuKit/PlanuKit-Prefix.pch";
 				INFOPLIST_FILE = "PlanuKit/PlanuKit-Info.plist";
+				INSTALL_PATH = "@rpath";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
 			};
@@ -554,6 +568,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PlanuKit/PlanuKit-Prefix.pch";
 				INFOPLIST_FILE = "PlanuKit/PlanuKit-Info.plist";
+				INSTALL_PATH = "@rpath";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
 			};

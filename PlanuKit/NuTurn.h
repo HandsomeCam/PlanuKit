@@ -48,4 +48,7 @@
 
 -(BOOL)loadFromDict:(NSDictionary*)input;
 -(void)calculateShipPlanetDistances;
+
+-(NuPlayer*)playerForId:(NSInteger)playerId;
+
 @end
