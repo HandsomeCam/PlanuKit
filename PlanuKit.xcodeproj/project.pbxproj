@@ -54,6 +54,8 @@
 		7ECC437714AFFC1B0083591C /* NuPlayerRace.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC437514AFFC1A0083591C /* NuPlayerRace.m */; };
 		7EF364F614AEC3C1009BBE86 /* NuMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EF364F414AEC3C1009BBE86 /* NuMessage.h */; };
 		7EF364F714AEC3C1009BBE86 /* NuMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF364F514AEC3C1009BBE86 /* NuMessage.m */; };
+		7EFFD36814BE85FC009CA6DE /* NuMinefield.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EFFD36614BE85FC009CA6DE /* NuMinefield.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7EFFD36914BE85FC009CA6DE /* NuMinefield.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFD36714BE85FC009CA6DE /* NuMinefield.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +134,8 @@
 		7ECC437514AFFC1A0083591C /* NuPlayerRace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuPlayerRace.m; sourceTree = "<group>"; };
 		7EF364F414AEC3C1009BBE86 /* NuMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuMessage.h; sourceTree = "<group>"; };
 		7EF364F514AEC3C1009BBE86 /* NuMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuMessage.m; sourceTree = "<group>"; };
+		7EFFD36614BE85FC009CA6DE /* NuMinefield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuMinefield.h; sourceTree = "<group>"; };
+		7EFFD36714BE85FC009CA6DE /* NuMinefield.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuMinefield.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -293,6 +297,8 @@
 				7E2908B514ABBFE500B11972 /* NuShip.m */,
 				7E2908B614ABBFE500B11972 /* NuStarbase.h */,
 				7E2908B714ABBFE500B11972 /* NuStarbase.m */,
+				7EFFD36614BE85FC009CA6DE /* NuMinefield.h */,
+				7EFFD36714BE85FC009CA6DE /* NuMinefield.m */,
 			);
 			name = "Mappable Entities";
 			path = ..;
@@ -325,6 +331,7 @@
 				7ECC436C14AFCDDE0083591C /* NuMappableEntity.h in Headers */,
 				7ECC437214AFD6F10083591C /* NuDiplomaticRelation.h in Headers */,
 				7ECC437614AFFC1B0083591C /* NuPlayerRace.h in Headers */,
+				7EFFD36814BE85FC009CA6DE /* NuMinefield.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +463,7 @@
 				7ECC436D14AFCDDE0083591C /* NuMappableEntity.m in Sources */,
 				7ECC437314AFD6F10083591C /* NuDiplomaticRelation.m in Sources */,
 				7ECC437714AFFC1B0083591C /* NuPlayerRace.m in Sources */,
+				7EFFD36914BE85FC009CA6DE /* NuMinefield.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -3,7 +3,7 @@
 //  PlanuKit
 //
 //  Created by Cameron Hotchkies on 12/23/11.
-//  Copyright 2011 Roboboogie Studios. All rights reserved.
+//  Copyright 2011-2012 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU Lesser General Public License as published by
@@ -27,11 +27,12 @@
 #import "NuMessage.h"
 #import "NuDiplomaticRelation.h"
 #import "NuPlayerRace.h"
+#import "NuMinefield.h"
 
 @implementation NuTurn
 
 @synthesize planets, gameSettings, player, ionStorms, ships, messages;
-@synthesize diplomaticRelations, players, races;
+@synthesize diplomaticRelations, players, races, minefields;
 
 - (id)init
 {
@@ -167,6 +168,18 @@
     }
     
     self.races = rcs;
+    
+    // Load Minefields
+    NSMutableArray* mfs = [NSMutableArray array];
+    
+    for (NSDictionary* mfDict in [input objectForKey:@"minefields"])
+    {
+        NuMinefield* mf = [[[NuMinefield alloc] init] autorelease];
+        [mf loadFromDict:mfDict];
+        [mfs addObject:mf];
+    }
+    
+    self.minefields = mfs;
     
     return NO;
 }

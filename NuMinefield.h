@@ -1,9 +1,9 @@
 //
-//  PlanuKit.h
+//  NuMinefield.h
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 12/28/11.
-//  Copyright 2011-2012 Roboboogie Studios. All rights reserved.
+//  Created by Cameron Hotchkies on 1/11/12.
+//  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU Lesser General Public License as published by
@@ -19,33 +19,25 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#ifndef PlanuKit_PlanuKit_h
-#define PlanuKit_PlanuKit_h
-
-// Service Requests
-
-#import "NuGameListRequest.h"
-#import "NuLoginRequest.h"
-#import "NuTurnRequest.h"
-
-// Data Structures
-
-#import "NuGameSettings.h"
-#import "NuGame.h"
-#import "NuHull.h"
-#import "NuDiplomaticRelation.h"
-
 #import "NuMappableEntity.h"
-#import "NuIonStorm.h"
-#import "NuPlanet.h"
-#import "NuShip.h"
-#import "NuShipDatabase.h"
-#import "NuStarbase.h"
-#import "NuTurn.h"
-#import "NuMinefield.h"
 
-#import "NuPlayerRaces.h"
-#import "NuPlayerRace.h"
-#import "NuPlayer.h"
+@interface NuMinefield : NuMappableEntity
+{
+    NSString* friendlyCode;
+    NSInteger minefieldId;
+    NSInteger infoTurn;
+    BOOL isWeb;
+    NSInteger radius;
+    NSInteger units;
+}
 
-#endif
+@property (nonatomic, retain) NSString* friendlyCode;
+@property (nonatomic, assign) NSInteger minefieldId;
+@property (nonatomic, assign) NSInteger infoTurn;
+@property (nonatomic, assign) BOOL isWeb;
+@property (nonatomic, assign) NSInteger radius;
+@property (nonatomic, assign) NSInteger units;
+
+- (void)loadFromDict:(NSDictionary*)input;
+
+@end
