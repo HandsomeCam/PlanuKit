@@ -31,7 +31,8 @@
 
 @implementation NuTurn
 
-@synthesize planets, gameSettings, player, ionStorms, ships, messages;
+@synthesize planets, gameSettings, player, ionStorms, ships;
+@synthesize playerMessages, systemMessages;
 @synthesize diplomaticRelations, players, races, minefields;
 
 - (id)init
@@ -132,7 +133,7 @@
     
     [self calculateShipPlanetDistances];
     
-    // Load Messages
+    // Load Player Messages
     NSMutableArray* msgs = [NSMutableArray array];
     
     for (NSDictionary* msgDict in [input objectForKey:@"mymessages"])
@@ -142,7 +143,19 @@
         [msgs addObject:msg];
     }
     
-    self.messages = msgs;
+    self.playerMessages = msgs;
+    
+    // Load System Messages
+    msgs = [NSMutableArray array];
+    
+    for (NSDictionary* msgDict in [input objectForKey:@"messages"])
+    {
+        NuMessage* msg = [[[NuMessage alloc] init] autorelease];
+        [msg loadFromDict:msgDict];
+        [msgs addObject:msg];
+    }
+    
+    self.systemMessages = msgs;
     
     // Load Players
     NSMutableArray* plyrs = [NSMutableArray array];

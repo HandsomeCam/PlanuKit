@@ -30,7 +30,8 @@
     NuPlayer* player;
     NSArray* ionStorms;
     NSArray* ships;
-    NSArray* messages;
+    NSArray* playerMessages;
+    NSArray* systemMessages;
     NSArray* diplomaticRelations;
     NSArray* players;
     NSArray* races;
@@ -42,7 +43,8 @@
 @property (nonatomic, retain) NuPlayer* player;
 @property (nonatomic, retain) NSArray* ionStorms;
 @property (nonatomic, retain) NSArray* ships;
-@property (nonatomic, retain) NSArray* messages;
+@property (nonatomic, retain) NSArray* playerMessages;
+@property (nonatomic, retain) NSArray* systemMessages;
 @property (nonatomic, retain) NSArray* diplomaticRelations;
 @property (nonatomic, retain) NSArray* players;
 @property (nonatomic, retain) NSArray* races;
