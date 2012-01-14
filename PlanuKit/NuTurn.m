@@ -140,6 +140,7 @@
     {
         NuMessage* msg = [[[NuMessage alloc] init] autorelease];
         [msg loadFromDict:msgDict];
+        msg.isPlayerMessage = YES;
         [msgs addObject:msg];
     }
     

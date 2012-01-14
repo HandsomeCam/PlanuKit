@@ -43,6 +43,7 @@
 #import "NuStarbase.h"
 #import "NuTurn.h"
 #import "NuMinefield.h"
+#import "NuMessage.h"
 
 #import "NuPlayerRaces.h"
 #import "NuPlayerRace.h"

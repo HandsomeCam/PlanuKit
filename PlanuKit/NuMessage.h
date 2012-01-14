@@ -21,28 +21,44 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum
+{
+    kNuMessageTypeMineSweep         =  4,
+    kNuMessageTypeColony            =  5,
+    kNuMessageTypeShip              =  8,
+    kNuMessageTypeExplosion         = 10,
+    kNuMessageTypeStarbase          = 11,
+    kNuMessageTypeMeteors           = 13,
+    kNuMessageTypeSensorSweep       = 14,
+    kNuMessageTypeDistressCall      = 16,
+    kNuMessageTypeMineScan          = 19
+} NuMessageType;
+
 @interface NuMessage : NSObject
 {
     NSString* body;
     NSString* headline;
     NSInteger messageId;
-    NSInteger messageType;
+    NuMessageType messageType;
     NSInteger ownerId;
     NSInteger target;
     NSInteger turn;
     NSInteger x;
     NSInteger y;
+    BOOL isPlayerMessage;
 }
 
 @property (nonatomic, retain) NSString* body;
 @property (nonatomic, retain) NSString* headline;
 @property (nonatomic, assign) NSInteger messageId;
-@property (nonatomic, assign) NSInteger messageType;
+@property (nonatomic, assign) NuMessageType messageType;
 @property (nonatomic, assign) NSInteger ownerId;
 @property (nonatomic, assign) NSInteger target;
 @property (nonatomic, assign) NSInteger turn;
 @property (nonatomic, assign) NSInteger x;
 @property (nonatomic, assign) NSInteger y;
+@property (nonatomic, assign) BOOL isPlayerMessage;
+
 
 - (void)loadFromDict:(NSDictionary*)input;
 

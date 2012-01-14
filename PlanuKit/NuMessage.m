@@ -24,13 +24,14 @@
 @implementation NuMessage
 
 @synthesize body, headline, messageId, messageType;
-@synthesize ownerId, target, turn, x, y;
+@synthesize ownerId, target, turn, x, y, isPlayerMessage;
 
 - (id)init
 {
     self = [super init];
     if (self) {
         // Initialization code here.
+        isPlayerMessage = NO;
     }
     
     return self;

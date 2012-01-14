@@ -52,7 +52,7 @@
 		7ECC437314AFD6F10083591C /* NuDiplomaticRelation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC437114AFD6F10083591C /* NuDiplomaticRelation.m */; };
 		7ECC437614AFFC1B0083591C /* NuPlayerRace.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ECC437414AFFC190083591C /* NuPlayerRace.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7ECC437714AFFC1B0083591C /* NuPlayerRace.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC437514AFFC1A0083591C /* NuPlayerRace.m */; };
-		7EF364F614AEC3C1009BBE86 /* NuMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EF364F414AEC3C1009BBE86 /* NuMessage.h */; };
+		7EF364F614AEC3C1009BBE86 /* NuMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EF364F414AEC3C1009BBE86 /* NuMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7EF364F714AEC3C1009BBE86 /* NuMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF364F514AEC3C1009BBE86 /* NuMessage.m */; };
 		7EFFD36814BE85FC009CA6DE /* NuMinefield.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EFFD36614BE85FC009CA6DE /* NuMinefield.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7EFFD36914BE85FC009CA6DE /* NuMinefield.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFD36714BE85FC009CA6DE /* NuMinefield.m */; };
