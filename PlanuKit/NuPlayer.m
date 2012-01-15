@@ -26,7 +26,7 @@
 @synthesize playerId, email, finishRank, priorityPoints;
 @synthesize raceId, saveKey, status, teamId;
 @synthesize turnJoined, turnReady, turnsMissed, turnStatus;
-@synthesize username;
+@synthesize username, race;
 
 - (id)init
 {

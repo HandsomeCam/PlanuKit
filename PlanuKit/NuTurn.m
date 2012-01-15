@@ -28,11 +28,27 @@
 #import "NuDiplomaticRelation.h"
 #import "NuPlayerRace.h"
 #import "NuMinefield.h"
+#import "NuHull.h"
+
+@interface NuTurn (private)
+
+- (void)loadDiplomaticRelations:(NSDictionary*)input;
+- (void)loadPlanets:(NSDictionary*)input;
+- (void)loadStarbases:(NSDictionary*)input;
+- (void)loadIonStorms:(NSDictionary*)input;
+- (void)loadShips:(NSDictionary*)input;
+- (void)loadMessages:(NSDictionary*)input;
+- (void)loadPlayers:(NSDictionary*)input;
+- (void)loadRaces:(NSDictionary*)input;
+- (void)loadMinefields:(NSDictionary*)input;
+- (void)loadHulls:(NSDictionary*)input;
+
+@end
 
 @implementation NuTurn
 
 @synthesize planets, gameSettings, player, ionStorms, ships;
-@synthesize playerMessages, systemMessages;
+@synthesize playerMessages, systemMessages, hulls;
 @synthesize diplomaticRelations, players, races, minefields;
 
 - (id)init
@@ -45,16 +61,8 @@
     return self;
 }
 
--(BOOL)loadFromDict:(NSDictionary*)input
+- (void)loadDiplomaticRelations:(NSDictionary*)input
 {
-    NSDictionary* settingsDict = [input objectForKey:@"settings"];
-    
-    // Load Settings
-    NuGameSettings* settings = [[[NuGameSettings alloc] init] autorelease];
-    
-    [settings loadFromDict:settingsDict];
-    self.gameSettings = settings;
-    
     // Load Diplomatic Relations
     NSMutableArray* rels = [NSMutableArray array];
     
@@ -67,6 +75,10 @@
     
     self.diplomaticRelations = rels;
     
+}
+
+- (void)loadPlanets:(NSDictionary *)input
+{
     // Load planets
     NSMutableArray* pl = [NSMutableArray array];
     
@@ -82,11 +94,10 @@
     }
     
     self.planets = pl;
-    
-    // Load player
-    self.player = [[[NuPlayer alloc] init] autorelease];
-    [self.player loadFromDict:[input objectForKey:@"player"]];
-    
+}
+
+- (void)loadStarbases:(NSDictionary *)input
+{
     // Load starbases
     NSArray* starbases = [input objectForKey:@"starbases"];
     
@@ -104,7 +115,10 @@
             }
         }
     }
-    
+}
+
+- (void)loadIonStorms:(NSDictionary *)input
+{
     // Load Ion Storms
     NSMutableArray* ions = [NSMutableArray array];
     
@@ -117,7 +131,10 @@
     }
     
     self.ionStorms = ions;
-    
+}
+
+- (void)loadShips:(NSDictionary *)input
+{
     // Load Ships
     NSMutableArray* starships = [NSMutableArray array];
     
@@ -126,13 +143,35 @@
         NuShip* ship = [[[NuShip alloc] init] autorelease];
         
         [ship loadFromDict:shipDict];
+        
+        for (NuHull* hull in hulls)
+        {
+            if (hull.hullId == ship.hullId)
+            {
+                ship.hull = hull;
+                break;
+            }
+        }
+        
+        for (NuPlayer* plr in self.players)
+        {
+            if (ship.ownerId == plr.playerId)
+            {
+                ship.owner = plr;
+                break;
+            }
+        }
+        
         [starships addObject:ship];
     }
     
     self.ships = starships;
     
     [self calculateShipPlanetDistances];
-    
+}
+
+- (void)loadMessages:(NSDictionary *)input
+{
     // Load Player Messages
     NSMutableArray* msgs = [NSMutableArray array];
     
@@ -157,7 +196,10 @@
     }
     
     self.systemMessages = msgs;
-    
+}
+
+- (void)loadPlayers:(NSDictionary *)input
+{
     // Load Players
     NSMutableArray* plyrs = [NSMutableArray array];
     
@@ -166,11 +208,23 @@
         NuPlayer* plyr = [[[NuPlayer alloc] init] autorelease];
         [plyr loadFromDict:playerDict];
         
+        for (NuPlayerRace* race in self.races)
+        {
+            if (plyr.raceId == race.raceId)
+            {
+                plyr.race = race;
+            }
+        }
+        
+        
         [plyrs addObject:plyr];
     }
     
     self.players = plyrs;
-    
+}
+
+- (void)loadRaces:(NSDictionary *)input
+{
     // Load Races
     NSMutableArray* rcs = [NSMutableArray array];
     
@@ -182,7 +236,10 @@
     }
     
     self.races = rcs;
-    
+}
+
+- (void)loadMinefields:(NSDictionary *)input
+{
     // Load Minefields
     NSMutableArray* mfs = [NSMutableArray array];
     
@@ -194,6 +251,56 @@
     }
     
     self.minefields = mfs;
+}
+
+- (void)loadHulls:(NSDictionary *)input
+{
+    NSMutableArray* hls = [NSMutableArray array];
+    
+    for (NSDictionary* hullDict in [input objectForKey:@"hulls"])
+    {
+        NuHull* hull = [[[NuHull alloc] init] autorelease];
+        [hull loadFromDict:hullDict];
+        [hls addObject:hull];
+    }
+    
+    self.hulls = hls;
+}
+
+-(BOOL)loadFromDict:(NSDictionary*)input
+{
+    NSDictionary* settingsDict = [input objectForKey:@"settings"];
+    
+    // Load Settings
+    NuGameSettings* settings = [[[NuGameSettings alloc] init] autorelease];
+    
+    [settings loadFromDict:settingsDict];
+    self.gameSettings = settings;
+
+    [self loadRaces:input];
+    [self loadHulls:input];
+    
+    [self loadPlayers:input];
+    
+    [self loadDiplomaticRelations:input];
+    
+    [self loadPlanets:input];
+    
+    // Load player
+    self.player = [[[NuPlayer alloc] init] autorelease];
+    [self.player loadFromDict:[input objectForKey:@"player"]];
+    
+    [self loadStarbases:input];
+    
+    [self loadIonStorms:input];
+    
+    
+    [self loadShips:input];
+    
+    [self loadMessages:input];
+    
+    
+    [self loadMinefields:input];
     
     return NO;
 }
@@ -224,7 +331,6 @@
     {
         if (plyr.playerId == playerId)
         {
-            NSLog(@"Yeah! %@", plyr.username);
             return plyr;
         }
     }

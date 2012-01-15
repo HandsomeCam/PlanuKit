@@ -21,6 +21,7 @@
 
 #import <Foundation/Foundation.h>
 #import "NuPlayerRaces.h"
+#import "NuPlayerRace.h"
 
 @interface NuPlayer : NSObject
 {
@@ -37,6 +38,7 @@
     NSInteger turnsMissed;
     NSInteger turnStatus;
     NSString* username;
+    NuPlayerRace* race;
 }
  
 @property (nonatomic, retain) NSString* email;
@@ -52,6 +54,7 @@
 @property (nonatomic, assign) NSInteger turnsMissed;
 @property (nonatomic, assign) NSInteger turnStatus;
 @property (nonatomic, retain) NSString* username;
+@property (nonatomic, retain) NuPlayerRace* race;
 
 - (void)loadFromDict:(NSDictionary*)input;
 

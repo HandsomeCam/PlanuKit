@@ -21,6 +21,8 @@
 
 #import <Foundation/Foundation.h>
 #import "NuMappableEntity.h"
+#import "NuHull.h"
+#import "NuPlayer.h"
 
 @interface NuShip : NuMappableEntity
 {
@@ -72,6 +74,9 @@
     NSInteger warp;
     NSArray* waypoints;
     double distanceToClosestPlanet;
+    
+    NuHull* hull;
+    NuPlayer* owner;
 }
 
 @property (nonatomic, assign) NSInteger ammo;
@@ -88,7 +93,10 @@
 @property (nonatomic, retain) NSString* friendlyCode;
 @property (nonatomic, assign) NSInteger heading;
 @property (nonatomic, retain) NSString* history;
+
 @property (nonatomic, assign) NSInteger hullId;
+@property (nonatomic, retain) NuHull*   hull;
+
 @property (nonatomic, assign) NSInteger shipId;
 @property (nonatomic, assign) NSInteger infoTurn;
 @property (nonatomic, assign) BOOL isCloaked;
@@ -123,6 +131,8 @@
 @property (nonatomic, retain) NSArray* waypoints;
 
 @property (nonatomic, assign) double distanceToClosestPlanet;
+
+@property (nonatomic, retain) NuPlayer* owner;
 
 - (void)loadFromDict:(NSDictionary*)input;
 - (NSInteger)flightLength;

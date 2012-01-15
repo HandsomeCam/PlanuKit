@@ -21,22 +21,6 @@
 
 #import <Foundation/Foundation.h>
 
-#define kShipSpecialTerraform           1
-#define kShipSpecialRadiationShielding  2
-#define kShipSpecialTachyonDevice		4
-#define kShipSpecialBioscanner			8
-#define kShipSpecialNebulaScanner		16
-#define kShipSpecialAdvancedCloak		32
-#define kShipSpecialGloryDevice			64
-#define kShipSpecialGambling			128
-#define kShipSpecialGravitonic			256
-#define kShipSpecialHyperjump			512
-#define kShipSpecialWarpChunnel			1024
-#define kShipSpecialImperialAssault		2048
-#define kShipSpecialAdvancedBioscanner	4096
-#define kShipSpecialAlchemy				8192
-#define kShipSpecialRamscoop			16384
-
 @interface NuShipDatabase : NSObject
 {
     NSArray* hulls;

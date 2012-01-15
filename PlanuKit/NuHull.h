@@ -21,6 +21,22 @@
 
 #import <Foundation/Foundation.h>
 
+#define kShipSpecialTerraform           1
+#define kShipSpecialRadiationShielding  2
+#define kShipSpecialTachyonDevice		4
+#define kShipSpecialBioscanner			8
+#define kShipSpecialNebulaScanner		16
+#define kShipSpecialAdvancedCloak		32
+#define kShipSpecialGloryDevice			64
+#define kShipSpecialGambling			128
+#define kShipSpecialGravitonic			256
+#define kShipSpecialHyperjump			512
+#define kShipSpecialWarpChunnel			1024
+#define kShipSpecialImperialAssault		2048
+#define kShipSpecialAdvancedBioscanner	4096
+#define kShipSpecialAlchemy				8192
+#define kShipSpecialRamscoop			16384
+
 @interface NuHull : NSObject
 {
     NSInteger hullId;
@@ -40,6 +56,7 @@
     NSInteger molybdenum;
     BOOL canCloak;
     NSInteger specialAbility;
+    NSString* description;
 }
 
 @property (nonatomic, assign) NSInteger hullId;
@@ -59,6 +76,7 @@
 @property (nonatomic, assign) NSInteger molybdenum;
 @property (nonatomic, assign) BOOL canCloak;
 @property (nonatomic, assign) NSInteger specialAbility;
+@property (nonatomic, retain) NSString* description;
 
 - (void)loadFromDict:(NSDictionary*)input;
 
