@@ -32,7 +32,7 @@
 @synthesize nativeChange, nativeClans, nativeHappinessChange, nativeHappiness;
 @synthesize nativeGovernment, nativeGovernmentName, nativeRaceName, nativeRace, nativeTaxRate;
 @synthesize duranium, molybdenum, neutronium, tritanium, megacredits, supplies;
-@synthesize suppliesSold;
+@synthesize suppliesSold, owner;
 @synthesize defenseTarget, factoriesTarget, minesTarget;
 @synthesize duraniumDensity, neutroniumDensity, molybdenumDensity, tritaniumDensity;
 @synthesize duraniumOnGround, molybdenumOnGround, neutroniumOnGround, tritaniumOnGround;

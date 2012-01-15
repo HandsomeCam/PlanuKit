@@ -88,6 +88,15 @@
         
         [planet loadFromDict:planetDict];
         
+        for (NuPlayer* plr in self.players)
+        {
+            if (planet.ownerId == plr.playerId)
+            {
+                planet.owner = plr;
+                break;
+            }
+        }
+        
         [pl addObject:planet];
         
         [planet release];

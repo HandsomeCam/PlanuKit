@@ -22,6 +22,7 @@
 #import <Foundation/Foundation.h>
 #import "NuStarbase.h"
 #import "NuMappableEntity.h"
+#import "NuPlayer.h"
 
 @interface NuPlanet : NuMappableEntity
 {
@@ -95,6 +96,7 @@
     NSInteger minesBuilt;
     
     NuStarbase* starbase;
+    NuPlayer* owner;
 }
 
 @property (nonatomic, assign) BOOL isBuildingStarbase;
@@ -167,6 +169,7 @@
  
 
 @property (nonatomic, retain) NuStarbase* starbase;
+@property (nonatomic, retain) NuPlayer* owner;
 
 - (BOOL)loadFromDict:(NSDictionary*)input;
 
