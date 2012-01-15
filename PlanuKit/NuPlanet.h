@@ -59,6 +59,7 @@
     NSInteger duranium;
     NSInteger molybdenum;
     NSInteger neutronium;
+    NSInteger tritanium;
     
     NSInteger megacredits;
     NSInteger supplies;
@@ -133,6 +134,7 @@
 @property (nonatomic, assign) NSInteger duranium;
 @property (nonatomic, assign) NSInteger molybdenum;
 @property (nonatomic, assign) NSInteger neutronium;
+@property (nonatomic, assign) NSInteger tritanium;
 
 @property (nonatomic, assign) NSInteger megacredits;
 @property (nonatomic, assign) NSInteger supplies;

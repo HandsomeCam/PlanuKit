@@ -31,7 +31,7 @@
 @synthesize colonistsChange, colonyHappinessChange, colonyTaxRate;
 @synthesize nativeChange, nativeClans, nativeHappinessChange, nativeHappiness;
 @synthesize nativeGovernment, nativeGovernmentName, nativeRaceName, nativeRace, nativeTaxRate;
-@synthesize duranium, molybdenum, neutronium, megacredits, supplies;
+@synthesize duranium, molybdenum, neutronium, tritanium, megacredits, supplies;
 @synthesize suppliesSold;
 @synthesize defenseTarget, factoriesTarget, minesTarget;
 @synthesize duraniumDensity, neutroniumDensity, molybdenumDensity, tritaniumDensity;
@@ -93,10 +93,15 @@
     self.duranium = [[input objectForKey:@"duranium"] intValue];
     self.molybdenum = [[input objectForKey:@"molybdenum"] intValue];
     self.neutronium = [[input objectForKey:@"neutronium"] intValue];
+    self.tritanium = [[input objectForKey:@"tritanium"] intValue];
     self.megacredits = [[input objectForKey:@"megacredits"] intValue];
     self.supplies = [[input objectForKey:@"supplies"] intValue];
     
     suppliesSold = [[input objectForKey:@"suppliessold"] intValue];
+    
+    self.defensePosts = [[input objectForKey:@"defense"] intValue];
+    self.factories = [[input objectForKey:@"factories"] intValue];
+    self.mines = [[input objectForKey:@"mines"] intValue];
     
     defenseTarget  = [[input objectForKey:@"targetdefense"] intValue];
     factoriesTarget = [[input objectForKey:@"targetfactories"] intValue];

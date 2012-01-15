@@ -247,7 +247,7 @@
         retVal |= kShipSpecialRamscoop;
     } 
     
-    return 0;
+    return retVal;
 }
 
 @end
