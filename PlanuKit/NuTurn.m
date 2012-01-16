@@ -29,6 +29,8 @@
 #import "NuPlayerRace.h"
 #import "NuMinefield.h"
 #import "NuHull.h"
+#import "NuBeam.h"
+#import "NuTorpedo.h"
 
 @interface NuTurn (private)
 
@@ -48,8 +50,9 @@
 @implementation NuTurn
 
 @synthesize planets, gameSettings, player, ionStorms, ships;
-@synthesize playerMessages, systemMessages, hulls;
+@synthesize playerMessages, systemMessages, hulls, beams;
 @synthesize diplomaticRelations, players, races, minefields;
+@synthesize launchers;
 
 - (id)init
 {
@@ -75,6 +78,34 @@
     
     self.diplomaticRelations = rels;
     
+}
+
+- (void)loadBeams:(NSDictionary*)input
+{
+    NSMutableArray* bms = [NSMutableArray array];
+    
+    for (NSDictionary* beamDict in [input objectForKey:@"beams"])
+    {
+        NuBeam* beam = [[[NuBeam alloc] init] autorelease];
+        [beam loadFromDict:beamDict];
+        [bms addObject:beam];
+    }
+    
+    self.beams = bms;
+}
+
+- (void)loadTorpedos:(NSDictionary*)input
+{
+    NSMutableArray* tps = [NSMutableArray array];
+    
+    for (NSDictionary* torpDict in [input objectForKey:@"torpedos"])
+    {
+        NuTorpedo* torp = [[[NuTorpedo alloc] init] autorelease];
+        [torp loadFromDict:torpDict];
+        [tps addObject:torp];
+    }
+    
+    self.launchers = tps;
 }
 
 - (void)loadPlanets:(NSDictionary *)input
@@ -168,6 +199,30 @@
             {
                 ship.owner = plr;
                 break;
+            }
+        }
+        
+        if (ship.beams > 0)
+        {
+            for (NuBeam* beam in self.beams)
+            {
+                if (ship.beamId == beam.beamId)
+                {
+                    ship.beam = beam;
+                    break;
+                }
+            }
+        }
+        
+        if (ship.torps > 0)
+        {
+            for (NuTorpedo* torp in self.launchers)
+            {
+                if (ship.torpedoId == torp.torpedoId)
+                {
+                    ship.launcher = torp;
+                    break;
+                }
             }
         }
         
@@ -270,6 +325,7 @@
     {
         NuHull* hull = [[[NuHull alloc] init] autorelease];
         [hull loadFromDict:hullDict];
+        
         [hls addObject:hull];
     }
     
@@ -286,9 +342,17 @@
     [settings loadFromDict:settingsDict];
     self.gameSettings = settings;
 
+    // Needs to be loaded before players
     [self loadRaces:input];
+    
+    // Needs to be loaded before ships
+    [self loadBeams:input];
+    [self loadTorpedos:input];
+    
+    // Needs to be loaded before ships
     [self loadHulls:input];
     
+    // Needs to be loaded before planets, ships, starbases, messages, minefields
     [self loadPlayers:input];
     
     [self loadDiplomaticRelations:input];
@@ -303,11 +367,9 @@
     
     [self loadIonStorms:input];
     
-    
     [self loadShips:input];
     
     [self loadMessages:input];
-    
     
     [self loadMinefields:input];
     

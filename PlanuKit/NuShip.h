@@ -23,6 +23,8 @@
 #import "NuMappableEntity.h"
 #import "NuHull.h"
 #import "NuPlayer.h"
+#import "NuBeam.h"
+#import "NuTorpedo.h"
 
 @interface NuShip : NuMappableEntity
 {
@@ -77,6 +79,9 @@
     
     NuHull* hull;
     NuPlayer* owner;
+    
+    NuTorpedo* launcher;
+    NuBeam* beam;
 }
 
 @property (nonatomic, assign) NSInteger ammo;
@@ -133,6 +138,9 @@
 @property (nonatomic, assign) double distanceToClosestPlanet;
 
 @property (nonatomic, retain) NuPlayer* owner;
+
+@property (nonatomic, retain) NuTorpedo* launcher;
+@property (nonatomic, retain) NuBeam* beam;
 
 - (void)loadFromDict:(NSDictionary*)input;
 - (NSInteger)flightLength;

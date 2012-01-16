@@ -36,6 +36,8 @@
 		7E2908CB14ABBFE500B11972 /* NuTurn.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2908B914ABBFE500B11972 /* NuTurn.m */; };
 		7E2908CD14ABC2B200B11972 /* PlanuKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E2908CC14ABC2B100B11972 /* PlanuKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7E2908D114AC331A00B11972 /* NuPlayerRaces.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E2908D014AC331900B11972 /* NuPlayerRaces.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7E9FC9C114C48DC800B44623 /* NuWeapon.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E9FC9BF14C48DC800B44623 /* NuWeapon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7E9FC9C214C48DC800B44623 /* NuWeapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9FC9C014C48DC800B44623 /* NuWeapon.m */; };
 		7EB9CC1D14ABB4D700A6ECB3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB9CC1C14ABB4D700A6ECB3 /* Cocoa.framework */; };
 		7EB9CC2714ABB4D700A6ECB3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7EB9CC2514ABB4D700A6ECB3 /* InfoPlist.strings */; };
 		7EB9CC3314ABB4D800A6ECB3 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB9CC3214ABB4D800A6ECB3 /* SenTestingKit.framework */; };
@@ -52,8 +54,12 @@
 		7ECC437314AFD6F10083591C /* NuDiplomaticRelation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC437114AFD6F10083591C /* NuDiplomaticRelation.m */; };
 		7ECC437614AFFC1B0083591C /* NuPlayerRace.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ECC437414AFFC190083591C /* NuPlayerRace.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7ECC437714AFFC1B0083591C /* NuPlayerRace.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC437514AFFC1A0083591C /* NuPlayerRace.m */; };
+		7EE440F614C411A7006745D7 /* NuBeam.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EE440F414C411A7006745D7 /* NuBeam.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7EE440F714C411A7006745D7 /* NuBeam.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE440F514C411A7006745D7 /* NuBeam.m */; };
 		7EF364F614AEC3C1009BBE86 /* NuMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EF364F414AEC3C1009BBE86 /* NuMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7EF364F714AEC3C1009BBE86 /* NuMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF364F514AEC3C1009BBE86 /* NuMessage.m */; };
+		7EFBC27B14C48787008D406D /* NuTorpedo.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EFBC27914C48786008D406D /* NuTorpedo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7EFBC27C14C48787008D406D /* NuTorpedo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFBC27A14C48786008D406D /* NuTorpedo.m */; };
 		7EFFD36814BE85FC009CA6DE /* NuMinefield.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EFFD36614BE85FC009CA6DE /* NuMinefield.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7EFFD36914BE85FC009CA6DE /* NuMinefield.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFFD36714BE85FC009CA6DE /* NuMinefield.m */; };
 /* End PBXBuildFile section */
@@ -110,6 +116,8 @@
 		7E2908B914ABBFE500B11972 /* NuTurn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuTurn.m; sourceTree = "<group>"; };
 		7E2908CC14ABC2B100B11972 /* PlanuKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanuKit.h; sourceTree = "<group>"; };
 		7E2908D014AC331900B11972 /* NuPlayerRaces.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuPlayerRaces.h; sourceTree = "<group>"; };
+		7E9FC9BF14C48DC800B44623 /* NuWeapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuWeapon.h; sourceTree = "<group>"; };
+		7E9FC9C014C48DC800B44623 /* NuWeapon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuWeapon.m; sourceTree = "<group>"; };
 		7EB9CC1914ABB4D700A6ECB3 /* PlanuKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PlanuKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EB9CC1C14ABB4D700A6ECB3 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		7EB9CC1F14ABB4D700A6ECB3 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -132,10 +140,14 @@
 		7ECC437114AFD6F10083591C /* NuDiplomaticRelation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuDiplomaticRelation.m; sourceTree = "<group>"; };
 		7ECC437414AFFC190083591C /* NuPlayerRace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuPlayerRace.h; sourceTree = "<group>"; };
 		7ECC437514AFFC1A0083591C /* NuPlayerRace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuPlayerRace.m; sourceTree = "<group>"; };
+		7EE440F414C411A7006745D7 /* NuBeam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuBeam.h; sourceTree = "<group>"; };
+		7EE440F514C411A7006745D7 /* NuBeam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuBeam.m; sourceTree = "<group>"; };
 		7EF364F414AEC3C1009BBE86 /* NuMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuMessage.h; sourceTree = "<group>"; };
 		7EF364F514AEC3C1009BBE86 /* NuMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuMessage.m; sourceTree = "<group>"; };
-		7EFFD36614BE85FC009CA6DE /* NuMinefield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuMinefield.h; sourceTree = "<group>"; };
-		7EFFD36714BE85FC009CA6DE /* NuMinefield.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuMinefield.m; sourceTree = "<group>"; };
+		7EFBC27914C48786008D406D /* NuTorpedo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuTorpedo.h; sourceTree = "<group>"; };
+		7EFBC27A14C48786008D406D /* NuTorpedo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuTorpedo.m; sourceTree = "<group>"; };
+		7EFFD36614BE85FC009CA6DE /* NuMinefield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NuMinefield.h; path = PlanuKit/NuMinefield.h; sourceTree = "<group>"; };
+		7EFFD36714BE85FC009CA6DE /* NuMinefield.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NuMinefield.m; path = PlanuKit/NuMinefield.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +241,8 @@
 			children = (
 				7E2908CC14ABC2B100B11972 /* PlanuKit.h */,
 				7ECC436F14AFCF760083591C /* Mappable Entities */,
+				7EE440F414C411A7006745D7 /* NuBeam.h */,
+				7EE440F514C411A7006745D7 /* NuBeam.m */,
 				7ECC437014AFD6F10083591C /* NuDiplomaticRelation.h */,
 				7ECC437114AFD6F10083591C /* NuDiplomaticRelation.m */,
 				7E2908A814ABBFE400B11972 /* NuGame.h */,
@@ -246,8 +260,12 @@
 				7E2908D014AC331900B11972 /* NuPlayerRaces.h */,
 				7EB9CC5414ABB7BF00A6ECB3 /* NuShipDatabase.h */,
 				7EB9CC5514ABB7BF00A6ECB3 /* NuShipDatabase.m */,
+				7EFBC27914C48786008D406D /* NuTorpedo.h */,
+				7EFBC27A14C48786008D406D /* NuTorpedo.m */,
 				7E2908B814ABBFE500B11972 /* NuTurn.h */,
 				7E2908B914ABBFE500B11972 /* NuTurn.m */,
+				7E9FC9BF14C48DC800B44623 /* NuWeapon.h */,
+				7E9FC9C014C48DC800B44623 /* NuWeapon.m */,
 				7E29089614ABBCE900B11972 /* Service Requests */,
 				7EB9CC2314ABB4D700A6ECB3 /* Supporting Files */,
 				7E29089414ABBCCD00B11972 /* HullDatabase.plist */,
@@ -332,6 +350,9 @@
 				7ECC437214AFD6F10083591C /* NuDiplomaticRelation.h in Headers */,
 				7ECC437614AFFC1B0083591C /* NuPlayerRace.h in Headers */,
 				7EFFD36814BE85FC009CA6DE /* NuMinefield.h in Headers */,
+				7EE440F614C411A7006745D7 /* NuBeam.h in Headers */,
+				7EFBC27B14C48787008D406D /* NuTorpedo.h in Headers */,
+				7E9FC9C114C48DC800B44623 /* NuWeapon.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,6 +485,9 @@
 				7ECC437314AFD6F10083591C /* NuDiplomaticRelation.m in Sources */,
 				7ECC437714AFFC1B0083591C /* NuPlayerRace.m in Sources */,
 				7EFFD36914BE85FC009CA6DE /* NuMinefield.m in Sources */,
+				7EE440F714C411A7006745D7 /* NuBeam.m in Sources */,
+				7EFBC27C14C48787008D406D /* NuTorpedo.m in Sources */,
+				7E9FC9C214C48DC800B44623 /* NuWeapon.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

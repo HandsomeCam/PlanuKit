@@ -49,4 +49,8 @@
 #import "NuPlayerRace.h"
 #import "NuPlayer.h"
 
+#import "NuWeapon.h"
+#import "NuBeam.h"
+#import "NuTorpedo.h"
+
 #endif

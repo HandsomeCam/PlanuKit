@@ -38,7 +38,7 @@
 @synthesize transferSupplies, transferTargetId, transferTargetType;
 @synthesize transferTritanium, tritanium, turn, turnKilled;
 @synthesize warp, waypoints, distanceToClosestPlanet, hull;
-@synthesize owner;
+@synthesize owner, beam, launcher;
 
 - (id)init
 {

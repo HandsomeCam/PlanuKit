@@ -78,6 +78,7 @@
 @property (nonatomic, assign) NSInteger specialAbility;
 @property (nonatomic, retain) NSString* description;
 
+
 - (void)loadFromDict:(NSDictionary*)input;
 
 @end
