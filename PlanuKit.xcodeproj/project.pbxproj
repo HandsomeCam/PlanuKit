@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E03E9FD14C785E0001E69FA /* NuShipTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E03E9FC14C785E0001E69FA /* NuShipTest.m */; };
+		7E20648314C6186F00E7A484 /* NuEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E20648114C6186F00E7A484 /* NuEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7E20648414C6186F00E7A484 /* NuEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E20648214C6186F00E7A484 /* NuEngine.m */; };
 		7E29089514ABBCCD00B11972 /* HullDatabase.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7E29089414ABBCCD00B11972 /* HullDatabase.plist */; };
 		7E29089D14ABBCE900B11972 /* NuGameListRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E29089714ABBCE900B11972 /* NuGameListRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7E29089E14ABBCE900B11972 /* NuGameListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E29089814ABBCE900B11972 /* NuGameListRequest.m */; };
@@ -87,6 +90,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7E03E9FB14C785E0001E69FA /* NuShipTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuShipTest.h; sourceTree = "<group>"; };
+		7E03E9FC14C785E0001E69FA /* NuShipTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuShipTest.m; sourceTree = "<group>"; };
+		7E20648114C6186F00E7A484 /* NuEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuEngine.h; sourceTree = "<group>"; };
+		7E20648214C6186F00E7A484 /* NuEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuEngine.m; sourceTree = "<group>"; };
 		7E29089414ABBCCD00B11972 /* HullDatabase.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = HullDatabase.plist; sourceTree = "<group>"; };
 		7E29089714ABBCE900B11972 /* NuGameListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NuGameListRequest.h; path = ../PlanuKit/PlanuKit/NuGameListRequest.h; sourceTree = "<group>"; };
 		7E29089814ABBCE900B11972 /* NuGameListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NuGameListRequest.m; path = ../PlanuKit/PlanuKit/NuGameListRequest.m; sourceTree = "<group>"; };
@@ -245,6 +252,8 @@
 				7EE440F514C411A7006745D7 /* NuBeam.m */,
 				7ECC437014AFD6F10083591C /* NuDiplomaticRelation.h */,
 				7ECC437114AFD6F10083591C /* NuDiplomaticRelation.m */,
+				7E20648114C6186F00E7A484 /* NuEngine.h */,
+				7E20648214C6186F00E7A484 /* NuEngine.m */,
 				7E2908A814ABBFE400B11972 /* NuGame.h */,
 				7E2908A914ABBFE400B11972 /* NuGame.m */,
 				7E2908AA14ABBFE400B11972 /* NuGameSettings.h */,
@@ -289,6 +298,8 @@
 				7EB9CC3E14ABB4D800A6ECB3 /* PlanuKitTests.h */,
 				7EB9CC4014ABB4D800A6ECB3 /* PlanuKitTests.m */,
 				7EB9CC3914ABB4D800A6ECB3 /* Supporting Files */,
+				7E03E9FB14C785E0001E69FA /* NuShipTest.h */,
+				7E03E9FC14C785E0001E69FA /* NuShipTest.m */,
 			);
 			path = PlanuKitTests;
 			sourceTree = "<group>";
@@ -353,6 +364,7 @@
 				7EE440F614C411A7006745D7 /* NuBeam.h in Headers */,
 				7EFBC27B14C48787008D406D /* NuTorpedo.h in Headers */,
 				7E9FC9C114C48DC800B44623 /* NuWeapon.h in Headers */,
+				7E20648314C6186F00E7A484 /* NuEngine.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,6 +500,7 @@
 				7EE440F714C411A7006745D7 /* NuBeam.m in Sources */,
 				7EFBC27C14C48787008D406D /* NuTorpedo.m in Sources */,
 				7E9FC9C214C48DC800B44623 /* NuWeapon.m in Sources */,
+				7E20648414C6186F00E7A484 /* NuEngine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +509,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EB9CC4114ABB4D800A6ECB3 /* PlanuKitTests.m in Sources */,
+				7E03E9FD14C785E0001E69FA /* NuShipTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

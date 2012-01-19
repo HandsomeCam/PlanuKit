@@ -39,7 +39,7 @@
 
 - (void)testExample
 {
-    STFail(@"Unit tests are not implemented yet in PlanuKitTests");
+    //STFail(@"Unit tests are not implemented yet in PlanuKitTests");
 }
 
 @end

@@ -30,7 +30,7 @@
 @synthesize enemy, engineId, experience, friendlyCode;
 @synthesize heading, history, hullId, shipId;
 @synthesize infoTurn, isCloaked, mass, megacredits;
-@synthesize mission, mission1target, mission2target, molybdenum;
+@synthesize mission, mission1targetId, mission2targetId, molybdenum;
 @synthesize name, neutronium, readyStatus;
 @synthesize supplies, targetX, targetY, torpedoId;
 @synthesize torps, transferAmmo, transferClans, transferDuranium;
@@ -38,7 +38,7 @@
 @synthesize transferSupplies, transferTargetId, transferTargetType;
 @synthesize transferTritanium, tritanium, turn, turnKilled;
 @synthesize warp, waypoints, distanceToClosestPlanet, hull;
-@synthesize owner, beam, launcher;
+@synthesize owner, beam, launcher, engine, missionTarget1, missionTarget2;
 
 - (id)init
 {
@@ -74,8 +74,8 @@
     self.mass = [[input objectForKey:@"mass"] intValue];
     self.megacredits = [[input objectForKey:@"megacredits"] intValue];
     self.mission = [[input objectForKey:@"mission"] intValue];
-    self.mission1target = [[input objectForKey:@"mission1target"] intValue];
-    self.mission2target = [[input objectForKey:@"mission2target"] intValue];
+    self.mission1targetId = [[input objectForKey:@"mission1target"] intValue];
+    self.mission2targetId = [[input objectForKey:@"mission2target"] intValue];
     self.molybdenum = [[input objectForKey:@"molybdenum"] intValue];
     self.name = [input objectForKey:@"name"];
     self.neutronium = [[input objectForKey:@"neutronium"] intValue];
@@ -134,6 +134,9 @@
 
 - (NSInteger)flightLength
 {
+    // TODO: account for lack of fuel and the weird major/minor
+    // calculation at http://www.donovansvgap.com/help/details.htm#movement
+    
     NSInteger retVal = pow(self.warp,2);
     
     // Check for Gravitonic accellerator
@@ -164,6 +167,83 @@
     }
     
     return retVal;
+}
+
+- (NSPoint)nextTurnDestination
+{
+    NSPoint target = NSMakePoint(self.targetX, self.targetY);
+    
+    NSPoint vector = NSMakePoint(target.x - self.x, target.y - self.y);
+    
+    NSInteger distance = floor(sqrt(pow(vector.x,2) + pow(vector.y,2)));
+    NSInteger maxTravel = pow(self.warp, 2);
+    if (self.hull.specialAbility == kShipSpecialGravitonic)
+    {
+        maxTravel *= 2;
+    }
+    
+    // check for out of fuel
+    if ([self fuelBurnToPoint:target] > self.neutronium)
+    {
+        maxTravel = [self maxDistanceForFuel];
+    }
+    
+    CGFloat trueHeading = atan2(vector.x, vector.y);
+    
+    if (maxTravel < distance)
+    {
+        target.x = self.x + floor(sin(trueHeading) * maxTravel );
+        target.y = self.y + floor(cos(trueHeading) * maxTravel );
+    }
+    
+    return target;
+}
+
+
+- (NSInteger)maxDistanceForFuel
+{
+    NSInteger fuelFactor = [self.engine fuelFactorForWarp:self.warp];
+    
+    NSInteger massFraction = trunc(self.mass/10);
+    
+    if (self.mission == kShipMissionTow)
+    {
+        massFraction += trunc(self.missionTarget1.mass/10);
+    }
+    
+    NSInteger fueluse = floor (fuelFactor * massFraction  / 10000 );
+    NSInteger maxTravel = pow(self.warp, 2);
+    if (self.hull.specialAbility == kShipSpecialGravitonic)
+    {
+        maxTravel *= 2;
+    }
+    
+    NSInteger distance = maxTravel * (self.neutronium / fueluse);
+    return distance;
+}
+
+- (NSInteger)fuelBurnToPoint:(NSPoint)target
+{
+    NSInteger massFraction = trunc(self.mass/10);
+
+    if (self.mission == kShipMissionTow)
+    {
+        massFraction += trunc(self.missionTarget1.mass/10);
+    }
+    
+    CGFloat distance = floor(sqrt(pow(target.x - x, 2) + pow(target.y - y, 2)));
+    
+    NSInteger maxTravel = pow(self.warp, 2);
+    if (self.hull.specialAbility == kShipSpecialGravitonic)
+    {
+        maxTravel *= 2;
+    }
+    
+    NSInteger fuelFactor = [self.engine fuelFactorForWarp:self.warp];
+    
+    NSInteger fuelUse = trunc(fuelFactor * massFraction * ((distance/maxTravel) / 10000));
+    
+    return fuelUse;
 }
 
 @end

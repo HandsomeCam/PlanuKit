@@ -25,6 +25,25 @@
 #import "NuPlayer.h"
 #import "NuBeam.h"
 #import "NuTorpedo.h"
+#import "NuEngine.h"
+
+typedef enum {
+    kShipMissionExploration         = 0,
+    kShipMissionMineSweep           = 1,
+    kShipMissionLayMines            = 2,
+    kShipMissionKill                = 3,
+    kShipMissionSensorSweep         = 4,
+    kShipMissionLandAndDisassemble  = 5,
+    kShipMissionTow                 = 6,
+    kShipMissionIntercept           = 7,
+    kShipMissionRaceSpecial         = 8, // Rob, Hiss, etc
+    kShipMissionCloak               = 9,
+    kShipMissionBeamUpFuel          = 10,
+    kShipMissionBeamUpDuranium      = 11,
+    kShipMissionBeamUpTritanium     = 12,
+    kShipMissionBeamUpMolybdenum    = 13,
+    kShipMissionBeamUpSupplies      = 14
+    } kShipMission;
 
 @interface NuShip : NuMappableEntity
 {
@@ -48,9 +67,9 @@
     BOOL isCloaked;
     NSInteger mass;
     NSInteger megacredits;
-    NSInteger mission;
-    NSInteger mission1target;
-    NSInteger mission2target;
+    kShipMission mission;
+    NSInteger mission1targetId;
+    NSInteger mission2targetId;
     NSInteger molybdenum;
     NSString* name;
     NSInteger neutronium;
@@ -82,6 +101,10 @@
     
     NuTorpedo* launcher;
     NuBeam* beam;
+    NuEngine* engine;
+    
+    NuShip* missionTarget1;
+    NuShip* missionTarget2;
 }
 
 @property (nonatomic, assign) NSInteger ammo;
@@ -107,9 +130,9 @@
 @property (nonatomic, assign) BOOL isCloaked;
 @property (nonatomic, assign) NSInteger mass;
 @property (nonatomic, assign) NSInteger megacredits;
-@property (nonatomic, assign) NSInteger mission;
-@property (nonatomic, assign) NSInteger mission1target;
-@property (nonatomic, assign) NSInteger mission2target;
+@property (nonatomic, assign) kShipMission mission;
+@property (nonatomic, assign) NSInteger mission1targetId;
+@property (nonatomic, assign) NSInteger mission2targetId;
 @property (nonatomic, assign) NSInteger molybdenum;
 @property (nonatomic, retain) NSString* name;
 @property (nonatomic, assign) NSInteger neutronium;
@@ -141,8 +164,15 @@
 
 @property (nonatomic, retain) NuTorpedo* launcher;
 @property (nonatomic, retain) NuBeam* beam;
+@property (nonatomic, retain) NuEngine* engine;
+
+@property (nonatomic, retain) NuShip* missionTarget1;
+@property (nonatomic, retain) NuShip* missionTarget2;
 
 - (void)loadFromDict:(NSDictionary*)input;
 - (NSInteger)flightLength;
+- (NSInteger)fuelBurnToPoint:(NSPoint)target;
+- (NSPoint)nextTurnDestination;
+- (NSInteger)maxDistanceForFuel;
 
 @end

@@ -52,5 +52,6 @@
 #import "NuWeapon.h"
 #import "NuBeam.h"
 #import "NuTorpedo.h"
+#import "NuEngine.h"
 
 #endif

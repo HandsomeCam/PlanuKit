@@ -31,6 +31,7 @@
 #import "NuHull.h"
 #import "NuBeam.h"
 #import "NuTorpedo.h"
+#import "NuEngine.h"
 
 @interface NuTurn (private)
 
@@ -44,6 +45,9 @@
 - (void)loadRaces:(NSDictionary*)input;
 - (void)loadMinefields:(NSDictionary*)input;
 - (void)loadHulls:(NSDictionary*)input;
+- (void)loadEngines:(NSDictionary*)input;
+
+- (void)assignMissionTargets;
 
 @end
 
@@ -52,7 +56,7 @@
 @synthesize planets, gameSettings, player, ionStorms, ships;
 @synthesize playerMessages, systemMessages, hulls, beams;
 @synthesize diplomaticRelations, players, races, minefields;
-@synthesize launchers;
+@synthesize launchers, engines;
 
 - (id)init
 {
@@ -106,6 +110,20 @@
     }
     
     self.launchers = tps;
+}
+
+- (void)loadEngines:(NSDictionary *)input
+{
+    NSMutableArray* engs = [NSMutableArray array];
+    
+    for (NSDictionary* engDict in [input objectForKey:@"engines"])
+    {
+        NuEngine* engine = [[[NuEngine alloc] init] autorelease];
+        [engine loadFromDict:engDict];
+        [engs addObject:engine];
+    }
+    
+    self.engines = engs;
 }
 
 - (void)loadPlanets:(NSDictionary *)input
@@ -226,12 +244,45 @@
             }
         }
         
+        for (NuEngine* engine in self.engines)
+        {
+            if (ship.engineId == engine.engineId)
+            {
+                ship.engine = engine;
+                break;
+            }
+        }
+        
         [starships addObject:ship];
     }
     
     self.ships = starships;
     
     [self calculateShipPlanetDistances];
+    [self assignMissionTargets];
+}
+
+- (void)assignMissionTargets
+{
+    NSMutableDictionary *shipDict = [NSMutableDictionary dictionary];
+    
+    // TODO: this currently only supports tow missions
+    
+    for (NuShip* ship in self.ships)
+    {
+        [shipDict setObject:ship forKey:[NSNumber numberWithInteger:ship.shipId]];
+    }
+    
+    for (NuShip* mr in self.ships)
+    {
+        if (mr.mission == kShipMissionTow)
+        {
+            if (mr.mission1targetId > 0)
+            {
+                mr.missionTarget1 = [shipDict objectForKey:[NSNumber numberWithInteger:mr.mission1targetId]];
+            }
+        }
+    }
 }
 
 - (void)loadMessages:(NSDictionary *)input
@@ -348,6 +399,7 @@
     // Needs to be loaded before ships
     [self loadBeams:input];
     [self loadTorpedos:input];
+    [self loadEngines:input];
     
     // Needs to be loaded before ships
     [self loadHulls:input];

@@ -39,6 +39,7 @@
     NSArray* hulls;
     NSArray* beams;
     NSArray* launchers;
+    NSArray* engines;
 }
 
 @property (nonatomic, retain) NSArray* planets;
@@ -55,6 +56,7 @@
 @property (nonatomic, retain) NSArray* hulls;
 @property (nonatomic, retain) NSArray* beams;
 @property (nonatomic, retain) NSArray* launchers;
+@property (nonatomic, retain) NSArray* engines;
 
 -(BOOL)loadFromDict:(NSDictionary*)input;
 -(void)calculateShipPlanetDistances;
