@@ -2,7 +2,7 @@
 //  NuTorpedo.h
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 1/16/12.
+//  Created by Cameron Hotchkies on 1/20/12.
 //  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
@@ -20,15 +20,25 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 #import "NuWeapon.h"
 
+@class NuTurn;
+
 @interface NuTorpedo : NuWeapon
-{
-    NSInteger torpedoId;
-}
 
-@property (nonatomic, assign) NSInteger torpedoId;
+@property (nonatomic) int16_t torpedoId;
+@property (nonatomic, retain) NSSet *ships;
+@property (nonatomic, retain) NuTurn *turn;
+@end
 
-- (void)loadFromDict:(NSDictionary*)input;
+@interface NuTorpedo (CoreDataGeneratedAccessors)
 
+- (void)addShipsObject:(NuTurn *)value;
+- (void)removeShipsObject:(NuTurn *)value;
+- (void)addShips:(NSSet *)values;
+- (void)removeShips:(NSSet *)values;
+
++ (NuTorpedo*)torpedoFromJson:(NSDictionary*)input
+                  withContext:(NSManagedObjectContext*)context;
 @end

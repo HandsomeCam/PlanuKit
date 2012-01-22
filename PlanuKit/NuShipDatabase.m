@@ -45,9 +45,10 @@ static NuShipDatabase* instance;
         NSMutableArray* h = [NSMutableArray array];
         for (NSDictionary* hullDict in hullDicts)
         {
-            NuHull* hull = [[[NuHull alloc] init] autorelease];
-            [hull loadFromDict:hullDict];
-            [h addObject:hull];
+            // TODO: this will need a context
+//            NuHull* hull = [[[NuHull alloc] init] autorelease];
+//            [hull loadFromDict:hullDict];
+//            [h addObject:hull];
         }
         self.hulls = h;
     }

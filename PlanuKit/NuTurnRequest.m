@@ -24,7 +24,15 @@
 #import "NuTurnRequest.h"
 #import "JSONKit.h"
 
+@interface NuTurnRequest (private)
+
+- (NuTurn*) parseTurnFromResponse:(NSString*)response;
+
+@end
+
 @implementation NuTurnRequest
+
+@synthesize context;
 
 - (id)init
 {
@@ -128,7 +136,7 @@
 { 
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     
-    NuTurn* retVal = [[NuTurn alloc] init];
+    NuTurn* retVal = nil;
     
     id decodedJson = [response objectFromJSONString];
     
@@ -137,7 +145,8 @@
         return nil;
     }
     
-    [retVal loadFromDict:decodedJson];
+    retVal = [NuTurn turnFromJson:decodedJson
+                      withContext:self.context];
     
     [pool drain];
     

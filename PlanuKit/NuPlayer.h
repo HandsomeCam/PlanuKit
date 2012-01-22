@@ -2,8 +2,8 @@
 //  NuPlayer.h
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 12/24/11.
-//  Copyright 2011 Roboboogie Studios. All rights reserved.
+//  Created by Cameron Hotchkies on 1/20/12.
+//  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU Lesser General Public License as published by
@@ -20,42 +20,50 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NuPlayerRaces.h"
-#import "NuPlayerRace.h"
+#import <CoreData/CoreData.h>
 
-@interface NuPlayer : NSObject
-{
-    NSString* email;
-    NSInteger finishRank;
-    NSInteger playerId;
-    NSInteger priorityPoints;
-    NuPlayerRaces raceId;
-    NSString* saveKey;
-    NSInteger status;
-    NSInteger teamId;
-    NSInteger turnJoined;
-    BOOL turnReady;
-    NSInteger turnsMissed;
-    NSInteger turnStatus;
-    NSString* username;
-    NuPlayerRace* race;
-}
- 
-@property (nonatomic, retain) NSString* email;
-@property (nonatomic, assign) NSInteger finishRank;
-@property (nonatomic, assign) NSInteger playerId;
-@property (nonatomic, assign) NSInteger priorityPoints;
-@property (nonatomic, assign) NuPlayerRaces raceId;
-@property (nonatomic, retain) NSString* saveKey;
-@property (nonatomic, assign) NSInteger status;
-@property (nonatomic, assign) NSInteger teamId;
-@property (nonatomic, assign) NSInteger turnJoined;
-@property (nonatomic, assign) BOOL turnReady;
-@property (nonatomic, assign) NSInteger turnsMissed;
-@property (nonatomic, assign) NSInteger turnStatus;
-@property (nonatomic, retain) NSString* username;
-@property (nonatomic, retain) NuPlayerRace* race;
+@class NuDiplomaticRelation, NuPlayerRace, NuShip, NuTurn;
 
-- (void)loadFromDict:(NSDictionary*)input;
+@interface NuPlayer : NSManagedObject
+
+@property (nonatomic, retain) NSString * email;
+@property (nonatomic) int16_t finishRank;
+@property (nonatomic) int32_t playerId;
+@property (nonatomic) int32_t priorityPoints;
+@property (nonatomic) int16_t raceId;
+@property (nonatomic, retain) NSString * saveKey;
+@property (nonatomic) int32_t status;
+@property (nonatomic) int16_t teamId;
+@property (nonatomic) int32_t turnJoined;
+@property (nonatomic) BOOL turnReady;
+@property (nonatomic) int16_t turnsMissed;
+@property (nonatomic) int16_t turnStatus;
+@property (nonatomic, retain) NSString * username;
+@property (nonatomic, retain) NuPlayerRace *race;
+@property (nonatomic, retain) NSSet *ships;
+@property (nonatomic, retain) NuTurn *turn;
+@property (nonatomic, retain) NSSet *diplomaticRelationsFrom;
+@property (nonatomic, retain) NSSet *diplomaticRelationsTo;
+@end
+
+@interface NuPlayer (CoreDataGeneratedAccessors)
+
+- (void)addShipsObject:(NuShip *)value;
+- (void)removeShipsObject:(NuShip *)value;
+- (void)addShips:(NSSet *)values;
+- (void)removeShips:(NSSet *)values;
+
+- (void)addDiplomaticRelationsFromObject:(NuDiplomaticRelation *)value;
+- (void)removeDiplomaticRelationsFromObject:(NuDiplomaticRelation *)value;
+- (void)addDiplomaticRelationsFrom:(NSSet *)values;
+- (void)removeDiplomaticRelationsFrom:(NSSet *)values;
+
+- (void)addDiplomaticRelationsToObject:(NuDiplomaticRelation *)value;
+- (void)removeDiplomaticRelationsToObject:(NuDiplomaticRelation *)value;
+- (void)addDiplomaticRelationsTo:(NSSet *)values;
+- (void)removeDiplomaticRelationsTo:(NSSet *)values;
+
++ (NuPlayer*)playerFromJson:(NSDictionary*)input
+                withContext:(NSManagedObjectContext*)context;
 
 @end

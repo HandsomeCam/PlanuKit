@@ -2,7 +2,7 @@
 //  NuTorpedo.m
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 1/16/12.
+//  Created by Cameron Hotchkies on 1/20/12.
 //  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
@@ -20,19 +20,30 @@
 //
 
 #import "NuTorpedo.h"
+#import "NuTurn.h"
+
 
 @implementation NuTorpedo
 
-@synthesize torpedoId;
+@dynamic torpedoId;
+@dynamic ships;
+@dynamic turn;
 
-- (void)loadFromDict:(NSDictionary*)input
++ (NuTorpedo*)torpedoFromJson:(NSDictionary*)input
+                  withContext:(NSManagedObjectContext*)context
 {
-    [super loadFromDict:input];
+    NuTorpedo* retVal =
+    [NSEntityDescription insertNewObjectForEntityForName:@"NuTorpedo"
+                                  inManagedObjectContext:context];
     
-    self.torpedoId = [[input objectForKey:@"id"] intValue];
+    [retVal updateWithJson:input];
+    
+    retVal.torpedoId = [[input objectForKey:@"id"] intValue];
     
     // torpedos have cost named oddly
-    self.cost = [[input objectForKey:@"launchercost"] intValue];
+    retVal.cost = [[input objectForKey:@"launchercost"] intValue];
+    
+    return retVal;
 }
 
 @end

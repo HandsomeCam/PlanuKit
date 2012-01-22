@@ -2,8 +2,8 @@
 //  NuIonStorm.m
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 12/24/11.
-//  Copyright 2011 Roboboogie Studios. All rights reserved.
+//  Created by Cameron Hotchkies on 1/20/12.
+//  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU Lesser General Public License as published by
@@ -20,32 +20,36 @@
 //
 
 #import "NuIonStorm.h"
+#import "NuTurn.h"
+
 
 @implementation NuIonStorm
 
-@synthesize heading, ionStormId, isGrowing, radius;
-@synthesize voltage, warp;
+@dynamic heading;
+@dynamic ionStormId;
+@dynamic isGrowing;
+@dynamic radius;
+@dynamic voltage;
+@dynamic warp;
+@dynamic turn;
 
-- (id)init
++ (NuIonStorm*)stormFromJson:(NSDictionary*)input 
+                 withContext:(NSManagedObjectContext*)context
 {
-    self = [super init];
-    if (self) {
-        // Initialization code here.
-    }
+    NuIonStorm* retVal =
+    [NSEntityDescription insertNewObjectForEntityForName:@"NuIonStorm"
+                                  inManagedObjectContext:context];
+
+    retVal.heading = [[input objectForKey:@"heading"] intValue];
+    retVal.ionStormId = [[input objectForKey:@"id"] intValue];
+    retVal.isGrowing = [[input objectForKey:@"isgrowing"] boolValue];
+    retVal.radius = [[input objectForKey:@"radius"] intValue];
+    retVal.voltage = [[input objectForKey:@"voltage"] intValue];
+    retVal.warp = [[input objectForKey:@"warp"] intValue];
+    retVal.x = [[input objectForKey:@"x"] intValue];
+    retVal.y = [[input objectForKey:@"y"] intValue];
     
-    return self;
-}
-
-- (void)loadFromDict:(NSDictionary*)input
-{
-    self.heading = [[input objectForKey:@"heading"] intValue];
-    self.ionStormId = [[input objectForKey:@"id"] intValue];
-    self.isGrowing = [[input objectForKey:@"isgrowing"] boolValue];
-    self.radius = [[input objectForKey:@"radius"] intValue];
-    self.voltage = [[input objectForKey:@"voltage"] intValue];
-    self.warp = [[input objectForKey:@"warp"] intValue];
-    self.x = [[input objectForKey:@"x"] intValue];
-    self.y = [[input objectForKey:@"y"] intValue];
+    return retVal;
 }
 
 @end

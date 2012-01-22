@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="1" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="878" systemVersion="11C74" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="NuBeam" representedClassName="NuBeam" parentEntity="NuWeapon" syncable="YES">
+        <attribute name="beamId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="ships" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuShip" inverseName="beam" inverseEntity="NuShip" syncable="YES"/>
+        <relationship name="turn" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuTurn" inverseName="beams" inverseEntity="NuTurn" syncable="YES"/>
+    </entity>
+    <entity name="NuDiplomaticRelation" representedClassName="NuDiplomaticRelation" syncable="YES">
+        <attribute name="conflictLevel" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="playerId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="playerToId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="relationFrom" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="relationId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="relationTo" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="playerFrom" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuPlayer" inverseName="diplomaticRelationsFrom" inverseEntity="NuPlayer" syncable="YES"/>
+        <relationship name="playerTo" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuPlayer" inverseName="diplomaticRelationsTo" inverseEntity="NuPlayer" syncable="YES"/>
+        <relationship name="turn" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuTurn" inverseName="diplomaticRelations" inverseEntity="NuTurn" syncable="YES"/>
+    </entity>
+    <entity name="NuEngine" representedClassName="NuEngine" syncable="YES">
+        <attribute name="cost" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="duranium" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="engineId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="fuelFactor1" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="fuelFactor2" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="fuelFactor3" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="fuelFactor4" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="fuelFactor5" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="fuelFactor6" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="fuelFactor7" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="fuelFactor8" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="fuelFactor9" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="molybdenum" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="techLevel" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="tritanium" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="ship" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuShip" inverseName="engine" inverseEntity="NuShip" syncable="YES"/>
+        <relationship name="turn" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuTurn" inverseName="engines" inverseEntity="NuTurn" syncable="YES"/>
+    </entity>
+    <entity name="NuGame" representedClassName="NuGame" syncable="YES">
+        <attribute name="gameId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="settings" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuGameSettings" inverseName="game" inverseEntity="NuGameSettings" syncable="YES"/>
+    </entity>
+    <entity name="NuGameSettings" representedClassName="NuGameSettings" syncable="YES">
+        <attribute name="buildQueuePlanetId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="cloakFail" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="debrisDiskPercent" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="discussionId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gameName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hostCompleted" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="hostStart" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="mapHeight" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="mapWidth" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="maxAllies" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="maxIonCloudsPerStorm" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="maxIonStorms" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="nebulas" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="nextHost" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="nuIonStorms" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="numberOfPlanets" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="planetScanRange" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="roundMap" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="settingsId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="shipScanRange" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="stars" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="structureDecayRate" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="teamSize" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="turnNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="uniqueRaces" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="victoryCountdown" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="game" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuGame" inverseName="settings" inverseEntity="NuGame" syncable="YES"/>
+        <relationship name="turn" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuTurn" inverseName="settings" inverseEntity="NuTurn" syncable="YES"/>
+    </entity>
+    <entity name="NuHull" representedClassName="NuHull" syncable="YES">
+        <attribute name="beams" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="canCloak" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="cargo" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="cost" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="crew" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="descr" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="duranium" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="engines" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="fighterBays" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="fuel" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="hullId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="mass" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="molybdenum" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="specialAbility" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="techLevel" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="torpedoes" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="tritanium" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="ships" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuShip" inverseName="hull" inverseEntity="NuShip" syncable="YES"/>
+        <relationship name="turn" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuTurn" inverseName="hulls" inverseEntity="NuTurn" syncable="YES"/>
+    </entity>
+    <entity name="NuIonStorm" representedClassName="NuIonStorm" parentEntity="NuMappableEntity" syncable="YES">
+        <attribute name="heading" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="ionStormId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="isGrowing" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="radius" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="voltage" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="warp" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="turn" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuTurn" inverseName="ionStorms" inverseEntity="NuTurn" syncable="YES"/>
+    </entity>
+    <entity name="NuMappableEntity" representedClassName="NuMappableEntity" isAbstract="YES" syncable="YES">
+        <attribute name="ownerId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="x" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="y" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="owner" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuPlayer" inverseName="ships" inverseEntity="NuPlayer" syncable="YES"/>
+    </entity>
+    <entity name="NuMessage" representedClassName="NuMessage" syncable="YES">
+        <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="headline" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isPlayerMessage" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="messageId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="messageType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="ownerId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="target" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="turnNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="x" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="y" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="turn" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuTurn" inverseName="messages" inverseEntity="NuTurn" syncable="YES"/>
+    </entity>
+    <entity name="NuMinefield" representedClassName="NuMinefield" parentEntity="NuMappableEntity" syncable="YES">
+        <attribute name="friendlyCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="infoTurn" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="isWeb" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="minefieldId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="radius" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="units" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="turn" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuTurn" inverseName="minefields" inverseEntity="NuTurn" syncable="YES"/>
+    </entity>
+    <entity name="NuPlanet" representedClassName="NuPlanet" parentEntity="NuMappableEntity" syncable="YES">
+        <attribute name="clans" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="colonistsChange" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="colonyHappinessChange" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="colonyTaxRate" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="debrisDisk" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="defenseBuilt" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="defensePosts" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="defenseTarget" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="duranium" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="duraniumDensity" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="duraniumOnGround" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="duraniumTotal" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="factories" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="factoriesBuilt" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="factoriesTarget" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="friendlyCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="infoTurn" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="isBuildingStarbase" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="megacredits" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="mines" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="minesBuilt" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="minesTarget" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="molybdenum" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="molybdenumDensity" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="molybdenumOnGround" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="molybdenumTotal" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nativeChange" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="nativeClans" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="nativeGovernment" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="nativeGovernmentName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nativeHappiness" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="nativeHappinessChange" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="nativeRace" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="nativeRaceName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nativeTaxRate" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="neutronium" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="neutroniumDensity" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="neutroniumOnGround" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="neutroniumTotal" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="planetId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="readyStatus" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="suppliedSold" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="supplies" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="temperature" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="tritanium" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="tritaniumDensity" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="tritaniumOnGround" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="tritaniumTotal" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="starbase" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuStarbase" inverseName="planet" inverseEntity="NuStarbase" syncable="YES"/>
+        <relationship name="turn" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuTurn" inverseName="planets" inverseEntity="NuTurn" syncable="YES"/>
+    </entity>
+    <entity name="NuPlayer" representedClassName="NuPlayer" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="finishRank" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="playerId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="priorityPoints" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="raceId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="saveKey" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="teamId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="turnJoined" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="turnReady" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="turnsMissed" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="turnStatus" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="diplomaticRelationsFrom" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuDiplomaticRelation" inverseName="playerFrom" inverseEntity="NuDiplomaticRelation" syncable="YES"/>
+        <relationship name="diplomaticRelationsTo" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuDiplomaticRelation" inverseName="playerTo" inverseEntity="NuDiplomaticRelation" syncable="YES"/>
+        <relationship name="race" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NuPlayerRace" inverseName="player" inverseEntity="NuPlayerRace" syncable="YES"/>
+        <relationship name="ships" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuShip" inverseName="owner" inverseEntity="NuMappableEntity" syncable="YES"/>
+        <relationship name="turn" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuTurn" inverseName="players" inverseEntity="NuTurn" syncable="YES"/>
+    </entity>
+    <entity name="NuPlayerRace" representedClassName="NuPlayerRace" syncable="YES">
+        <attribute name="adjective" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="freeFighters" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="groundAttack" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="groundDefense" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="miningRate" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="raceId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="shortName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="taxRate" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="player" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuPlayer" inverseName="race" inverseEntity="NuPlayer" syncable="YES"/>
+        <relationship name="turn" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuTurn" inverseName="races" inverseEntity="NuTurn" syncable="YES"/>
+    </entity>
+    <entity name="NuShip" representedClassName="NuShip" parentEntity="NuMappableEntity" syncable="YES">
+        <attribute name="ammo" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="bays" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="beamId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="beams" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="clans" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="crew" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="damage" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="duranium" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="enemy" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="engineId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="experience" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="friendlyCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="heading" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="history" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hullId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="infoTurn" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="isCloaked" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="mass" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="megacredits" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="mission" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="mission1targetId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="mission2targetId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="molybdenum" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="neutronium" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="readyStatus" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="shipId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="supplies" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="targetX" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="targetY" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="torpedoId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="torps" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="transferAmmo" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="transferClans" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="transferDuranium" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="transferMegacredits" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="transferMolybdenum" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="transferNeutronium" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="transferSupplies" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="transferTargetId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="transferTargetType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="transferTritanium" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="tritanium" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="turnKilled" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="turnNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="warp" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="beam" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuBeam" inverseName="ships" inverseEntity="NuBeam" syncable="YES"/>
+        <relationship name="engine" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuEngine" inverseName="ship" inverseEntity="NuEngine" syncable="YES"/>
+        <relationship name="hull" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuHull" inverseName="ships" inverseEntity="NuHull" syncable="YES"/>
+        <relationship name="launcher" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuTorpedo" inverseName="ships" inverseEntity="NuTorpedo" syncable="YES"/>
+        <relationship name="missionTarget1" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuShip" syncable="YES"/>
+        <relationship name="missionTarget2" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuShip" syncable="YES"/>
+        <relationship name="turn" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuTurn" inverseName="ships" inverseEntity="NuTurn" syncable="YES"/>
+    </entity>
+    <entity name="NuStarbase" representedClassName="NuStarbase" syncable="YES">
+        <attribute name="planetId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="planet" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuPlanet" inverseName="starbase" inverseEntity="NuPlanet" syncable="YES"/>
+        <relationship name="turn" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuTurn" inverseName="starbases" inverseEntity="NuTurn" syncable="YES"/>
+    </entity>
+    <entity name="NuTorpedo" representedClassName="NuTorpedo" parentEntity="NuWeapon" syncable="YES">
+        <attribute name="torpedoId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="ships" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuShip" inverseName="launcher" inverseEntity="NuShip" syncable="YES"/>
+        <relationship name="turn" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuTurn" inverseName="launchers" inverseEntity="NuTurn" syncable="YES"/>
+    </entity>
+    <entity name="NuTurn" representedClassName="NuTurn" syncable="YES">
+        <relationship name="beams" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuBeam" inverseName="turn" inverseEntity="NuBeam" syncable="YES"/>
+        <relationship name="diplomaticRelations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuDiplomaticRelation" inverseName="turn" inverseEntity="NuDiplomaticRelation" syncable="YES"/>
+        <relationship name="engines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuEngine" inverseName="turn" inverseEntity="NuEngine" syncable="YES"/>
+        <relationship name="hulls" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuHull" inverseName="turn" inverseEntity="NuHull" syncable="YES"/>
+        <relationship name="ionStorms" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuIonStorm" inverseName="turn" inverseEntity="NuIonStorm" syncable="YES"/>
+        <relationship name="launchers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuTorpedo" inverseName="turn" inverseEntity="NuTorpedo" syncable="YES"/>
+        <relationship name="messages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuMessage" inverseName="turn" inverseEntity="NuMessage" syncable="YES"/>
+        <relationship name="minefields" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuMinefield" inverseName="turn" inverseEntity="NuMinefield" syncable="YES"/>
+        <relationship name="planets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuPlanet" inverseName="turn" inverseEntity="NuPlanet" syncable="YES"/>
+        <relationship name="player" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NuPlayer" inverseName="turn" inverseEntity="NuPlayer" syncable="YES"/>
+        <relationship name="players" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuPlayer" inverseName="turn" inverseEntity="NuPlayer" syncable="YES"/>
+        <relationship name="races" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuPlayerRace" inverseName="turn" inverseEntity="NuPlayerRace" syncable="YES"/>
+        <relationship name="settings" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuGameSettings" inverseName="turn" inverseEntity="NuGameSettings" syncable="YES"/>
+        <relationship name="ships" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuShip" inverseName="turn" inverseEntity="NuShip" syncable="YES"/>
+        <relationship name="starbases" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuStarbase" inverseName="turn" inverseEntity="NuStarbase" syncable="YES"/>
+    </entity>
+    <entity name="NuWeapon" representedClassName="NuWeapon" isAbstract="YES" syncable="YES">
+        <attribute name="cost" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="crewKill" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="damage" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="duranium" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="mass" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="molybdenum" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="techLevel" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="tritanium" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="NuBeam" positionX="-18" positionY="729" width="128" height="75"/>
+        <element name="NuEngine" positionX="99" positionY="-189" width="128" height="90"/>
+        <element name="NuGame" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="NuGameSettings" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="NuIonStorm" positionX="-9" positionY="378" width="128" height="135"/>
+        <element name="NuMappableEntity" positionX="-171" positionY="390" width="128" height="105"/>
+        <element name="NuMinefield" positionX="27" positionY="-2934" width="128" height="135"/>
+        <element name="NuPlanet" positionX="-173" positionY="576" width="128" height="225"/>
+        <element name="NuPlayer" positionX="-459" positionY="270" width="128" height="270"/>
+        <element name="NuPlayerRace" positionX="-0" positionY="-72" width="128" height="195"/>
+        <element name="NuShip" positionX="277" positionY="-72" width="128" height="840"/>
+        <element name="NuStarbase" positionX="-9" positionY="7650" width="128" height="75"/>
+        <element name="NuTorpedo" positionX="-27" positionY="720" width="128" height="75"/>
+        <element name="NuTurn" positionX="385" positionY="147" width="128" height="60"/>
+        <element name="NuWeapon" positionX="-20" positionY="711" width="128" height="180"/>
+        <element name="NuHull" positionX="322" positionY="192" width="128" height="345"/>
+        <element name="NuMessage" positionX="160" positionY="192" width="128" height="210"/>
+        <element name="NuDiplomaticRelation" positionX="160" positionY="192" width="128" height="180"/>
+    </elements>
+</model>

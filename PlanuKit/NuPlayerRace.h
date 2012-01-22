@@ -2,8 +2,8 @@
 //  NuPlayerRace.h
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 12/31/11.
-//  Copyright 2011 Roboboogie Studios. All rights reserved.
+//  Created by Cameron Hotchkies on 1/20/12.
+//  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU Lesser General Public License as published by
@@ -20,30 +20,25 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface NuPlayerRace : NSObject
-{
-    NSString* adjective;
-    NSInteger freeFighters;
-    NSInteger groundAttack;
-    NSInteger groundDefense;
-    NSInteger raceId;
-    NSInteger miningRate;
-    NSString* name;
-    NSString* shortName;
-    NSInteger taxRate;
-}
+@class NuPlayer, NuTurn;
 
-@property (nonatomic, retain) NSString* adjective;
-@property (nonatomic, assign) NSInteger freeFighters;
-@property (nonatomic, assign) NSInteger groundAttack;
-@property (nonatomic, assign) NSInteger groundDefense;
-@property (nonatomic, assign) NSInteger raceId;
-@property (nonatomic, assign) NSInteger miningRate;
-@property (nonatomic, retain) NSString* name;
-@property (nonatomic, retain) NSString* shortName;
-@property (nonatomic, assign) NSInteger taxRate;
+@interface NuPlayerRace : NSManagedObject
 
-- (void)loadFromDict:(NSDictionary*)input;
+@property (nonatomic, retain) NSString * adjective;
+@property (nonatomic) int16_t freeFighters;
+@property (nonatomic) int16_t groundAttack;
+@property (nonatomic) int16_t groundDefense;
+@property (nonatomic) int16_t miningRate;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic) int16_t raceId;
+@property (nonatomic, retain) NSString * shortName;
+@property (nonatomic) int16_t taxRate;
+@property (nonatomic, retain) NuPlayer *player;
+@property (nonatomic, retain) NuTurn *turn;
+
++ (NuPlayerRace*)raceFromJson:(NSDictionary*)input 
+                  withContext:(NSManagedObjectContext*)context;
 
 @end

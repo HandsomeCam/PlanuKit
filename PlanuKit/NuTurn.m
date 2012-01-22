@@ -2,8 +2,8 @@
 //  NuTurn.m
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 12/23/11.
-//  Copyright 2011-2012 Roboboogie Studios. All rights reserved.
+//  Created by Cameron Hotchkies on 1/20/12.
+//  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU Lesser General Public License as published by
@@ -20,123 +20,169 @@
 //
 
 #import "NuTurn.h"
-#import "NuPlanet.h"
-#import "NuStarbase.h"
+#import "NuBeam.h"
+#import "NuEngine.h"
+#import "NuHull.h"
 #import "NuIonStorm.h"
+#import "NuMinefield.h"
+#import "NuPlanet.h"
+#import "NuPlayer.h"
+#import "NuPlayerRace.h"
 #import "NuShip.h"
+#import "NuTorpedo.h"
+#import "NuGameSettings.h"
+#import "NuStarbase.h"
 #import "NuMessage.h"
 #import "NuDiplomaticRelation.h"
-#import "NuPlayerRace.h"
-#import "NuMinefield.h"
-#import "NuHull.h"
-#import "NuBeam.h"
-#import "NuTorpedo.h"
-#import "NuEngine.h"
 
 @interface NuTurn (private)
 
-- (void)loadDiplomaticRelations:(NSDictionary*)input;
-- (void)loadPlanets:(NSDictionary*)input;
-- (void)loadStarbases:(NSDictionary*)input;
-- (void)loadIonStorms:(NSDictionary*)input;
-- (void)loadShips:(NSDictionary*)input;
-- (void)loadMessages:(NSDictionary*)input;
-- (void)loadPlayers:(NSDictionary*)input;
-- (void)loadRaces:(NSDictionary*)input;
-- (void)loadMinefields:(NSDictionary*)input;
-- (void)loadHulls:(NSDictionary*)input;
-- (void)loadEngines:(NSDictionary*)input;
+- (void)loadDiplomaticRelations:(NSDictionary*)input
+                    withContext:(NSManagedObjectContext*)context;
+- (void)loadPlanets:(NSDictionary*)input
+        withContext:(NSManagedObjectContext*)context;
+- (void)loadStarbases:(NSDictionary*)input 
+          withContext:(NSManagedObjectContext*)context;
+- (void)loadIonStorms:(NSDictionary*)input
+          withContext:(NSManagedObjectContext*)context;
+- (void)loadShips:(NSDictionary*)input
+      withContext:(NSManagedObjectContext*)context;
+- (void)loadMessages:(NSDictionary*)input
+         withContext:(NSManagedObjectContext*)context;
+- (void)loadPlayers:(NSDictionary*)input
+        withContext:(NSManagedObjectContext*)context;
+- (void)loadRaces:(NSDictionary*)input
+      withContext:(NSManagedObjectContext*)context;
+- (void)loadMinefields:(NSDictionary*)input
+           withContext:(NSManagedObjectContext*)context;
+- (void)loadHulls:(NSDictionary*)input
+      withContext:(NSManagedObjectContext*)context;
+- (void)loadEngines:(NSDictionary*)input
+        withContext:(NSManagedObjectContext*)context;
+- (void)loadBeams:(NSDictionary*)input
+      withContext:(NSManagedObjectContext*)context;
+- (void)loadTorpedoes:(NSDictionary*)input
+      withContext:(NSManagedObjectContext*)context;
 
+- (void)calculateShipPlanetDistances;
 - (void)assignMissionTargets;
 
 @end
 
 @implementation NuTurn
 
-@synthesize planets, gameSettings, player, ionStorms, ships;
-@synthesize playerMessages, systemMessages, hulls, beams;
-@synthesize diplomaticRelations, players, races, minefields;
-@synthesize launchers, engines;
+@dynamic ships;
+@dynamic settings;
+@dynamic planets;
+@dynamic player;
+@dynamic ionStorms;
+@dynamic messages;
+@dynamic diplomaticRelations;
+@dynamic players;
+@dynamic races;
+@dynamic minefields;
+@dynamic hulls;
+@dynamic beams;
+@dynamic launchers;
+@dynamic engines;
 
-- (id)init
++ (NuTurn*)turnFromJson:(NSDictionary*)input withContext:(NSManagedObjectContext*)context
 {
-    self = [super init];
-    if (self) {
-        // Initialization code here.
-    }
+    NuTurn* retVal = [NSEntityDescription insertNewObjectForEntityForName:@"NuTurn"
+                                             inManagedObjectContext:context];
     
-    return self;
+    NSDictionary* settingsDict = [input objectForKey:@"settings"];
+    
+    // Load Settings
+    NuGameSettings* settings = [NuGameSettings settingsFromJson:settingsDict withContext:context];
+    
+    retVal.settings = settings;
+    
+    // Needs to be loaded before players
+    [retVal loadRaces:input withContext:context];
+    
+    // Needs to be loaded before ships
+    [retVal loadBeams:input withContext:context];
+    [retVal loadTorpedoes:input withContext:context];
+    [retVal loadEngines:input withContext:context];
+    
+    // Needs to be loaded before ships
+    [retVal loadHulls:input withContext:context];
+    
+    // Needs to be loaded before planets, ships, starbases, messages, minefields
+    [retVal loadPlayers:input withContext:context];
+    
+    [retVal loadDiplomaticRelations:input withContext:context];
+    
+    [retVal loadPlanets:input withContext:context];
+    
+    // Load player
+    retVal.player = [NuPlayer playerFromJson:[input objectForKey:@"player"]
+                                                     withContext:context]; // [[[NuPlayer alloc] init] autorelease];
+    
+    [retVal loadStarbases:input withContext:context];
+    
+    [retVal loadIonStorms:input withContext:context];
+    
+    [retVal loadShips:input withContext:context];
+    
+    [retVal loadMessages:input withContext:context];
+    
+    [retVal loadMinefields:input withContext:context];
+    
+    return retVal;
 }
 
-- (void)loadDiplomaticRelations:(NSDictionary*)input
+- (void)loadDiplomaticRelations:(NSDictionary*)input withContext:(NSManagedObjectContext *)context
 {
     // Load Diplomatic Relations
-    NSMutableArray* rels = [NSMutableArray array];
-    
     for (NSDictionary* relDict in [input objectForKey:@"relations"])
     {
-        NuDiplomaticRelation* ndr = [[[NuDiplomaticRelation alloc] init] autorelease];
-        [ndr loadFromDict:relDict];
-        [rels addObject:ndr];
+        NuDiplomaticRelation* ndr = [NuDiplomaticRelation diplomaticRelationFromJson:relDict
+                                                                         withContext:context];
+        [self addDiplomaticRelationsObject:ndr];
     }
-    
-    self.diplomaticRelations = rels;
-    
 }
 
-- (void)loadBeams:(NSDictionary*)input
+- (void)loadBeams:(NSDictionary*)input withContext:(NSManagedObjectContext *)context
 {
-    NSMutableArray* bms = [NSMutableArray array];
-    
     for (NSDictionary* beamDict in [input objectForKey:@"beams"])
     {
-        NuBeam* beam = [[[NuBeam alloc] init] autorelease];
-        [beam loadFromDict:beamDict];
-        [bms addObject:beam];
+        NuBeam* beam = [NuBeam beamFromJson:beamDict
+                                withContext:context];
+        [self addBeamsObject:beam];
     }
-    
-    self.beams = bms;
 }
 
-- (void)loadTorpedos:(NSDictionary*)input
+- (void)loadTorpedoes:(NSDictionary*)input withContext:(NSManagedObjectContext*)context
 {
-    NSMutableArray* tps = [NSMutableArray array];
-    
     for (NSDictionary* torpDict in [input objectForKey:@"torpedos"])
     {
-        NuTorpedo* torp = [[[NuTorpedo alloc] init] autorelease];
-        [torp loadFromDict:torpDict];
-        [tps addObject:torp];
+        NuTorpedo* torp = [NuTorpedo torpedoFromJson:torpDict
+                                         withContext:context];
+        [self addLaunchersObject:torp];
     }
-    
-    self.launchers = tps;
 }
 
-- (void)loadEngines:(NSDictionary *)input
+- (void)loadEngines:(NSDictionary *)input withContext:(NSManagedObjectContext *)context
 {
-    NSMutableArray* engs = [NSMutableArray array];
-    
     for (NSDictionary* engDict in [input objectForKey:@"engines"])
     {
-        NuEngine* engine = [[[NuEngine alloc] init] autorelease];
-        [engine loadFromDict:engDict];
-        [engs addObject:engine];
+        NuEngine* engine = [NuEngine engineFromJson:engDict
+                                        withContext:context];
+        
+        [self addEnginesObject:engine];
     }
-    
-    self.engines = engs;
 }
 
-- (void)loadPlanets:(NSDictionary *)input
+- (void)loadPlanets:(NSDictionary *)input withContext:(NSManagedObjectContext *)context
 {
     // Load planets
-    NSMutableArray* pl = [NSMutableArray array];
-    
     for (NSDictionary* planetDict in [input objectForKey:@"planets"])
     {
-        NuPlanet* planet = [[NuPlanet alloc] init];
-        
-        [planet loadFromDict:planetDict];
-        
+        NuPlanet* planet = [NuPlanet planetFromJson:planetDict
+                                        withContext:context];
+                
         for (NuPlayer* plr in self.players)
         {
             if (planet.ownerId == plr.playerId)
@@ -146,24 +192,18 @@
             }
         }
         
-        [pl addObject:planet];
-        
-        [planet release];
+        [self addPlanetsObject:planet];
     }
-    
-    self.planets = pl;
 }
 
-- (void)loadStarbases:(NSDictionary *)input
+- (void)loadStarbases:(NSDictionary *)input withContext:(NSManagedObjectContext*)context
 {
     // Load starbases
     NSArray* starbases = [input objectForKey:@"starbases"];
     
     for (NSDictionary* sbDict in starbases)
     {
-        NuStarbase* sb = [[[NuStarbase alloc] init] autorelease];
-        
-        [sb loadFromDict:sbDict];
+        NuStarbase* sb = [NuStarbase starbaseFromJson:sbDict withContext:context];
         
         for (NuPlanet* sbp in self.planets)
         {
@@ -175,34 +215,26 @@
     }
 }
 
-- (void)loadIonStorms:(NSDictionary *)input
+- (void)loadIonStorms:(NSDictionary *)input withContext:(NSManagedObjectContext *)context
 {
     // Load Ion Storms
-    NSMutableArray* ions = [NSMutableArray array];
-    
     for (NSDictionary* stormDict in [input objectForKey:@"ionstorms"])
     {
-        NuIonStorm* storm = [[[NuIonStorm alloc] init] autorelease];
-        
-        [storm loadFromDict:stormDict];
-        [ions addObject:storm];
+        NuIonStorm* storm = [NuIonStorm stormFromJson:stormDict
+                                          withContext:context];
+        [self addIonStormsObject:storm];
     }
-    
-    self.ionStorms = ions;
 }
 
-- (void)loadShips:(NSDictionary *)input
+- (void)loadShips:(NSDictionary *)input withContext:(NSManagedObjectContext *)context
 {
     // Load Ships
-    NSMutableArray* starships = [NSMutableArray array];
-    
     for (NSDictionary* shipDict in [input objectForKey:@"ships"])
     {
-        NuShip* ship = [[[NuShip alloc] init] autorelease];
+        NuShip* ship = [NuShip shipFromJson:shipDict
+                                withContext:context];
         
-        [ship loadFromDict:shipDict];
-        
-        for (NuHull* hull in hulls)
+        for (NuHull* hull in self.hulls)
         {
             if (hull.hullId == ship.hullId)
             {
@@ -253,10 +285,8 @@
             }
         }
         
-        [starships addObject:ship];
+        [self addShipsObject:ship];
     }
-    
-    self.ships = starships;
     
     [self calculateShipPlanetDistances];
     [self assignMissionTargets];
@@ -285,43 +315,41 @@
     }
 }
 
-- (void)loadMessages:(NSDictionary *)input
+- (void)loadMessages:(NSDictionary *)input withContext:(NSManagedObjectContext *)context
 {
     // Load Player Messages
-    NSMutableArray* msgs = [NSMutableArray array];
     
     for (NSDictionary* msgDict in [input objectForKey:@"mymessages"])
     {
-        NuMessage* msg = [[[NuMessage alloc] init] autorelease];
-        [msg loadFromDict:msgDict];
+        NuMessage* msg = [NuMessage messageFromJson:msgDict 
+                                        withContext:context];
         msg.isPlayerMessage = YES;
-        [msgs addObject:msg];
+        
+        [self addMessagesObject:msg];
     }
     
-    self.playerMessages = msgs;
+    // TODO: add property
+    //self.playerMessages = msgs;
     
     // Load System Messages
-    msgs = [NSMutableArray array];
     
     for (NSDictionary* msgDict in [input objectForKey:@"messages"])
     {
-        NuMessage* msg = [[[NuMessage alloc] init] autorelease];
-        [msg loadFromDict:msgDict];
-        [msgs addObject:msg];
+        NuMessage* msg = [NuMessage messageFromJson:msgDict
+                                        withContext:context];
+        [self addMessagesObject:msg];
     }
     
-    self.systemMessages = msgs;
+    //self.systemMessages = msgs;
 }
 
-- (void)loadPlayers:(NSDictionary *)input
+- (void)loadPlayers:(NSDictionary *)input withContext:(NSManagedObjectContext *)context
 {
     // Load Players
-    NSMutableArray* plyrs = [NSMutableArray array];
-    
     for (NSDictionary* playerDict in [input objectForKey:@"players"])
     {
-        NuPlayer* plyr = [[[NuPlayer alloc] init] autorelease];
-        [plyr loadFromDict:playerDict];
+        NuPlayer* plyr = [NuPlayer playerFromJson:playerDict
+                                      withContext:context];
         
         for (NuPlayerRace* race in self.races)
         {
@@ -331,101 +359,42 @@
             }
         }
         
-        
-        [plyrs addObject:plyr];
+        [self addPlayersObject:plyr];
     }
-    
-    self.players = plyrs;
 }
 
-- (void)loadRaces:(NSDictionary *)input
+- (void)loadRaces:(NSDictionary *)input withContext:(NSManagedObjectContext *)context
 {
     // Load Races
-    NSMutableArray* rcs = [NSMutableArray array];
-    
     for (NSDictionary* raceDict in [input objectForKey:@"races"])
     {
-        NuPlayerRace* race = [[[NuPlayerRace alloc] init] autorelease];
-        [race loadFromDict:raceDict];
-        [rcs addObject:race];
+        NuPlayerRace* race = [NuPlayerRace raceFromJson:raceDict
+                                            withContext:context];
+        [self addRacesObject:race];
     }
-    
-    self.races = rcs;
 }
 
-- (void)loadMinefields:(NSDictionary *)input
+- (void)loadMinefields:(NSDictionary *)input withContext:(NSManagedObjectContext *)context
 {
     // Load Minefields
-    NSMutableArray* mfs = [NSMutableArray array];
-    
     for (NSDictionary* mfDict in [input objectForKey:@"minefields"])
     {
-        NuMinefield* mf = [[[NuMinefield alloc] init] autorelease];
-        [mf loadFromDict:mfDict];
-        [mfs addObject:mf];
+        NuMinefield* mf = [NuMinefield minefieldFromJson:mfDict
+                                             withContext:context];
+        
+        [self addMinefieldsObject:mf];
     }
-    
-    self.minefields = mfs;
 }
 
-- (void)loadHulls:(NSDictionary *)input
+- (void)loadHulls:(NSDictionary *)input withContext:(NSManagedObjectContext *)context
 {
-    NSMutableArray* hls = [NSMutableArray array];
-    
     for (NSDictionary* hullDict in [input objectForKey:@"hulls"])
     {
-        NuHull* hull = [[[NuHull alloc] init] autorelease];
-        [hull loadFromDict:hullDict];
+        NuHull* hull = [NuHull hullFromJson:hullDict
+                                withContext:context];
         
-        [hls addObject:hull];
+        [self addHullsObject:hull];
     }
-    
-    self.hulls = hls;
-}
-
--(BOOL)loadFromDict:(NSDictionary*)input
-{
-    NSDictionary* settingsDict = [input objectForKey:@"settings"];
-    
-    // Load Settings
-    NuGameSettings* settings = [[[NuGameSettings alloc] init] autorelease];
-    
-    [settings loadFromDict:settingsDict];
-    self.gameSettings = settings;
-
-    // Needs to be loaded before players
-    [self loadRaces:input];
-    
-    // Needs to be loaded before ships
-    [self loadBeams:input];
-    [self loadTorpedos:input];
-    [self loadEngines:input];
-    
-    // Needs to be loaded before ships
-    [self loadHulls:input];
-    
-    // Needs to be loaded before planets, ships, starbases, messages, minefields
-    [self loadPlayers:input];
-    
-    [self loadDiplomaticRelations:input];
-    
-    [self loadPlanets:input];
-    
-    // Load player
-    self.player = [[[NuPlayer alloc] init] autorelease];
-    [self.player loadFromDict:[input objectForKey:@"player"]];
-    
-    [self loadStarbases:input];
-    
-    [self loadIonStorms:input];
-    
-    [self loadShips:input];
-    
-    [self loadMessages:input];
-    
-    [self loadMinefields:input];
-    
-    return NO;
 }
 
 -(void)calculateShipPlanetDistances
@@ -448,17 +417,34 @@
     }
 }
 
--(NuPlayer*)playerForId:(NSInteger)playerId
+- (NSArray*)playerMessages
 {
-    for (NuPlayer* plyr in self.players)
-    {
-        if (plyr.playerId == playerId)
-        {
-            return plyr;
-        }
-    }
+    NSArray* allMessages = [self.messages allObjects];
+
+    NSPredicate* pred = [NSPredicate predicateWithFormat:@"isPlayerMessage == YES"];
     
-    return nil;
+    NSSortDescriptor* idSorter;
+    idSorter = [NSSortDescriptor sortDescriptorWithKey:@"messageId" ascending:NO];
+
+    
+    NSArray* retVal = [[allMessages filteredArrayUsingPredicate:pred] sortedArrayUsingDescriptors:[NSArray arrayWithObjects:idSorter, nil]];
+    
+    return retVal;
+}
+
+- (NSArray*)systemMessages
+{
+    NSArray* allMessages = [self.messages allObjects];
+    
+    NSPredicate* pred = [NSPredicate predicateWithFormat:@"isPlayerMessage == NO"];
+    
+    NSSortDescriptor* idSorter;
+    idSorter = [NSSortDescriptor sortDescriptorWithKey:@"messageId" ascending:NO];
+    
+    
+    NSArray* retVal = [[allMessages filteredArrayUsingPredicate:pred] sortedArrayUsingDescriptors:[NSArray arrayWithObjects:idSorter, nil]];
+    
+    return retVal;
 }
 
 @end

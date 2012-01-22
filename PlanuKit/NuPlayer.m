@@ -2,8 +2,8 @@
 //  NuPlayer.m
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 12/24/11.
-//  Copyright 2011 Roboboogie Studios. All rights reserved.
+//  Created by Cameron Hotchkies on 1/20/12.
+//  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU Lesser General Public License as published by
@@ -20,39 +20,58 @@
 //
 
 #import "NuPlayer.h"
+#import "NuDiplomaticRelation.h"
+#import "NuPlayerRace.h"
+#import "NuShip.h"
+#import "NuTurn.h"
+
 
 @implementation NuPlayer
 
-@synthesize playerId, email, finishRank, priorityPoints;
-@synthesize raceId, saveKey, status, teamId;
-@synthesize turnJoined, turnReady, turnsMissed, turnStatus;
-@synthesize username, race;
+@dynamic email;
+@dynamic finishRank;
+@dynamic playerId;
+@dynamic priorityPoints;
+@dynamic raceId;
+@dynamic saveKey;
+@dynamic status;
+@dynamic teamId;
+@dynamic turnJoined;
+@dynamic turnReady;
+@dynamic turnsMissed;
+@dynamic turnStatus;
+@dynamic username;
+@dynamic race;
+@dynamic ships;
+@dynamic turn;
+@dynamic diplomaticRelationsFrom;
+@dynamic diplomaticRelationsTo;
 
-- (id)init
++ (NuPlayer*)playerFromJson:(NSDictionary*)input
+                withContext:(NSManagedObjectContext*)context
 {
-    self = [super init];
-    if (self) {
-        // Initialization code here.
-    }
+    NuPlayer* retVal =
+    [NSEntityDescription insertNewObjectForEntityForName:@"NuPlayer"
+                                  inManagedObjectContext:context];
+ 
+    retVal.playerId = [[input objectForKey:@"id"] intValue];
+    retVal.email = [input objectForKey:@"email"];
+    retVal.finishRank = [[input objectForKey:@"finishrank"] intValue];
+    retVal.priorityPoints = [[input objectForKey:@"prioritypoints"] intValue];
+    retVal.raceId = [[input objectForKey:@"raceid"] intValue];
+    retVal.saveKey = [input objectForKey:@"savekey"];
+    retVal.status = [[input objectForKey:@"status"] intValue];
+    retVal.teamId = [[input objectForKey:@"teamid"] intValue];
+    retVal.turnJoined = [[input objectForKey:@"turnjoined"] intValue];
+    retVal.turnReady = [[input objectForKey:@"turnready"] boolValue];
+    retVal.turnsMissed = [[input objectForKey:@"turnsmissed"] intValue];
+    retVal.turnStatus = [[input objectForKey:@"turnstatus"] intValue];
+    retVal.username = [input objectForKey:@"username"];
+
     
-    return self;
+    return retVal;
 }
-
-- (void)loadFromDict:(NSDictionary*)input
-{
-    self.playerId = [[input objectForKey:@"id"] intValue];
-    self.email = [input objectForKey:@"email"];
-    self.finishRank = [[input objectForKey:@"finishrank"] intValue];
-    self.priorityPoints = [[input objectForKey:@"prioritypoints"] intValue];
-    self.raceId = [[input objectForKey:@"raceid"] intValue];
-    self.saveKey = [input objectForKey:@"savekey"];
-    self.status = [[input objectForKey:@"status"] intValue];
-    self.teamId = [[input objectForKey:@"teamid"] intValue];
-    self.turnJoined = [[input objectForKey:@"turnjoined"] intValue];
-    self.turnReady = [[input objectForKey:@"turnready"] boolValue];
-    self.turnsMissed = [[input objectForKey:@"turnsmissed"] intValue];
-    self.turnStatus = [[input objectForKey:@"turnstatus"] intValue];
-    self.username = [input objectForKey:@"username"];
-}
+     
+     
 
 @end

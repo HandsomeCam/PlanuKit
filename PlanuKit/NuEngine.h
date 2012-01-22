@@ -2,7 +2,7 @@
 //  NuEngine.h
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 1/17/12.
+//  Created by Cameron Hotchkies on 1/20/12.
 //  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
@@ -20,29 +20,44 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface NuEngine : NSObject
-{
-    NSInteger cost;
-    NSInteger duranium;
-    NSInteger engineId;
-    NSInteger molybdenum;
-    NSString* name;
-    NSInteger techLevel;
-    NSInteger tritanium;
-    NSInteger fuelFactor[9];
-}
+@class NuShip, NuTurn;
 
-@property (nonatomic, assign) NSInteger cost;
-@property (nonatomic, assign) NSInteger duranium;
-@property (nonatomic, assign) NSInteger engineId;
-@property (nonatomic, assign) NSInteger molybdenum;
-@property (nonatomic, retain) NSString* name;
-@property (nonatomic, assign) NSInteger techLevel;
-@property (nonatomic, assign)NSInteger tritanium;
+@interface NuEngine : NSManagedObject
 
-- (NSInteger)fuelFactorForWarp:(NSInteger)warpLevel;
+@property (nonatomic) int16_t cost;
+@property (nonatomic) int16_t duranium;
+@property (nonatomic) int16_t engineId;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSSet *ship;
+@property (nonatomic, retain) NuTurn *turn;
+@property (nonatomic) int16_t molybdenum;
+@property (nonatomic) int16_t tritanium;
+@property (nonatomic) int16_t techLevel;
+@property (nonatomic) int16_t fuelFactor1;
+@property (nonatomic) int16_t fuelFactor2;
+@property (nonatomic) int16_t fuelFactor3;
+@property (nonatomic) int16_t fuelFactor4;
+@property (nonatomic) int16_t fuelFactor5;
+@property (nonatomic) int16_t fuelFactor6;
+@property (nonatomic) int16_t fuelFactor7;
+@property (nonatomic) int16_t fuelFactor8;
+@property (nonatomic) int16_t fuelFactor9;
 
-- (void)loadFromDict:(NSDictionary*)input;
+
++ (NuEngine*)engineFromJson:(NSDictionary*)input 
+                withContext:(NSManagedObjectContext*)context;
+
+- (NSInteger)fuelFactorForWarp:(NSInteger)warp;
+
+@end
+
+@interface NuEngine (CoreDataGeneratedAccessors)
+
+- (void)addShipObject:(NuShip *)value;
+- (void)removeShipObject:(NuShip *)value;
+- (void)addShip:(NSSet *)values;
+- (void)removeShip:(NSSet *)values;
 
 @end

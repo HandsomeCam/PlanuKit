@@ -2,8 +2,8 @@
 //  NuIonStorm.h
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 12/24/11.
-//  Copyright 2011 Roboboogie Studios. All rights reserved.
+//  Created by Cameron Hotchkies on 1/20/12.
+//  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU Lesser General Public License as published by
@@ -20,25 +20,22 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 #import "NuMappableEntity.h"
 
+@class NuTurn;
+
 @interface NuIonStorm : NuMappableEntity
-{
-    NSInteger heading;
-    NSInteger ionStormId;
-    BOOL isGrowing;
-    NSInteger radius;
-    NSInteger voltage;
-    NSInteger warp; 
-}
 
-@property (nonatomic, assign) NSInteger heading;
-@property (nonatomic, assign) NSInteger ionStormId;
-@property (nonatomic, assign) BOOL isGrowing;
-@property (nonatomic, assign) NSInteger radius;
-@property (nonatomic, assign) NSInteger voltage;
-@property (nonatomic, assign) NSInteger warp;
+@property (nonatomic) int16_t heading;
+@property (nonatomic) int16_t ionStormId;
+@property (nonatomic) BOOL isGrowing;
+@property (nonatomic) int16_t radius;
+@property (nonatomic) int16_t voltage;
+@property (nonatomic) int16_t warp;
+@property (nonatomic, retain) NuTurn *turn;
 
-- (void)loadFromDict:(NSDictionary*)input;
++ (NuIonStorm*)stormFromJson:(NSDictionary*)input 
+                 withContext:(NSManagedObjectContext*)context;
 
 @end

@@ -2,8 +2,8 @@
 //  NuGame.h
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 12/23/11.
-//  Copyright 2011 Roboboogie Studios. All rights reserved.
+//  Created by Cameron Hotchkies on 1/20/12.
+//  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU Lesser General Public License as published by
@@ -20,19 +20,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NuGameSettings.h"
+#import <CoreData/CoreData.h>
 
-@interface NuGame : NSObject
-{
-    NSString* name;
-    NSInteger gameId;
-    NuGameSettings* settings;
-}
+@class NuGameSettings;
 
-@property (nonatomic, retain) NSString* name;
-@property (nonatomic, assign) NSInteger gameId;
-@property (nonatomic, retain) NuGameSettings* settings;
+@interface NuGame : NSManagedObject
 
-- (BOOL)loadFromDict:(NSDictionary*)input;
+@property (nonatomic) int64_t gameId;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NuGameSettings *settings;
+
++ (NuGame*)gameFromJson:(NSDictionary*)input
+            withContext:(NSManagedObjectContext*)context;
 
 @end

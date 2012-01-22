@@ -2,7 +2,7 @@
 //  NuEngine.m
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 1/17/12.
+//  Created by Cameron Hotchkies on 1/20/12.
 //  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
@@ -20,41 +20,100 @@
 //
 
 #import "NuEngine.h"
+#import "NuShip.h"
+#import "NuTurn.h"
+
 
 @implementation NuEngine
 
-@synthesize cost, duranium, engineId, molybdenum;
-@synthesize name, techLevel, tritanium;
+@dynamic cost;
+@dynamic duranium;
+@dynamic engineId;
+@dynamic name;
+@dynamic ship;
+@dynamic turn;
+@dynamic molybdenum;
+@dynamic tritanium;
+@dynamic techLevel;
+@dynamic fuelFactor1;
+@dynamic fuelFactor2;
+@dynamic fuelFactor3;
+@dynamic fuelFactor4;
+@dynamic fuelFactor5;
+@dynamic fuelFactor6;
+@dynamic fuelFactor7;
+@dynamic fuelFactor8;
+@dynamic fuelFactor9;
 
-- (NSInteger)fuelFactorForWarp:(NSInteger)warpLevel
+
++ (NuEngine*)engineFromJson:(NSDictionary*)input 
+                withContext:(NSManagedObjectContext*)context
 {
-    if (warpLevel > 9)
-    {
-        return -1;
-    }
+    NuEngine* retVal =
+    [NSEntityDescription insertNewObjectForEntityForName:@"NuEngine"
+                                  inManagedObjectContext:context];
     
-    return fuelFactor[warpLevel-1];
+    retVal.cost = [[input objectForKey:@"cost"] intValue];
+    retVal.duranium = [[input objectForKey:@"duranium"] intValue];
+    retVal.engineId = [[input objectForKey:@"id"] intValue];
+    retVal.molybdenum = [[input objectForKey:@"molybdenum"] intValue];
+    retVal.name = [input objectForKey:@"name"];
+    retVal.techLevel = [[input objectForKey:@"techlevel"] intValue];
+    retVal.tritanium = [[input objectForKey:@"tritanium"] intValue];
+    
+    retVal.fuelFactor1 = [[input objectForKey:@"warp1"] intValue];
+    retVal.fuelFactor2 = [[input objectForKey:@"warp2"] intValue];
+    retVal.fuelFactor3 = [[input objectForKey:@"warp3"] intValue];
+    retVal.fuelFactor4 = [[input objectForKey:@"warp4"] intValue];
+    retVal.fuelFactor5 = [[input objectForKey:@"warp5"] intValue];
+    retVal.fuelFactor6 = [[input objectForKey:@"warp6"] intValue];
+    retVal.fuelFactor7 = [[input objectForKey:@"warp7"] intValue];
+    retVal.fuelFactor8 = [[input objectForKey:@"warp8"] intValue];
+    retVal.fuelFactor9 = [[input objectForKey:@"warp9"] intValue];
+    
+    return retVal;
 }
 
-- (void)loadFromDict:(NSDictionary*)input
+- (NSInteger)fuelFactorForWarp:(NSInteger)warp
 {
-    self.cost = [[input objectForKey:@"cost"] intValue];
-    self.duranium = [[input objectForKey:@"duranium"] intValue];
-    self.engineId = [[input objectForKey:@"id"] intValue];
-    self.molybdenum = [[input objectForKey:@"molybdenum"] intValue];
-    self.name = [input objectForKey:@"name"];
-    self.techLevel = [[input objectForKey:@"techlevel"] intValue];
-    self.tritanium = [[input objectForKey:@"tritanium"] intValue];
+    if (warp == 1)
+    {
+        return self.fuelFactor1;
+    }
+    else if (warp == 2)
+    {
+        return self.fuelFactor2;
+    }
+    else if (warp == 3)
+    {
+        return self.fuelFactor3;
+    }
+    else if (warp == 4)
+    {
+        return self.fuelFactor4;
+    }
+    else if (warp == 5)
+    {
+        return self.fuelFactor5;
+    }
+    else if (warp == 6)
+    {
+        return self.fuelFactor6;
+    }
+    else if (warp == 7)
+    {
+        return self.fuelFactor7;
+    }
+    else if (warp == 8)
+    {
+        return self.fuelFactor8;
+    }
+    else if (warp == 9)
+    {
+        return self.fuelFactor9;
+    }
     
-    fuelFactor[0] = [[input objectForKey:@"warp1"] intValue];
-    fuelFactor[1] = [[input objectForKey:@"warp2"] intValue];
-    fuelFactor[2] = [[input objectForKey:@"warp3"] intValue];
-    fuelFactor[3] = [[input objectForKey:@"warp4"] intValue];
-    fuelFactor[4] = [[input objectForKey:@"warp5"] intValue];
-    fuelFactor[5] = [[input objectForKey:@"warp6"] intValue];
-    fuelFactor[6] = [[input objectForKey:@"warp7"] intValue];
-    fuelFactor[7] = [[input objectForKey:@"warp8"] intValue];
-    fuelFactor[8] = [[input objectForKey:@"warp9"] intValue];
+    return 9999999;
 }
 
 @end

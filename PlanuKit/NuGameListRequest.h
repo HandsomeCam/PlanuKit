@@ -34,16 +34,15 @@
 @private
     id<NuGameListRequestDelegate> delegate;
     NSMutableData* receivedData;
+    NSManagedObjectContext* context;
 }
 
-- (void)requestGamesFor:(NSString*)username withDelegate:(id<NuGameListRequestDelegate>)delegate;
+@property (nonatomic, retain) NSManagedObjectContext* context;
+
+- (void)requestGamesFor:(NSString*)username 
+           withDelegate:(id<NuGameListRequestDelegate>)delegate
+             andContext:(NSManagedObjectContext*)context;
 
 @end
 
-
-@interface NuGameListRequest(private) 
-
-- (NSArray*) parseGamesFromResponse:(NSString*)response;
-
-@end
 

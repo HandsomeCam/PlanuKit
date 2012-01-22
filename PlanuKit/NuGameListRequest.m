@@ -25,7 +25,15 @@
 
 #define kPlanetsNuGameListUrl @"http://api.planets.nu/games/list"
 
+@interface NuGameListRequest(private) 
+
+- (NSArray*) parseGamesFromResponse:(NSString*)response;
+
+@end
+
 @implementation NuGameListRequest
+
+@synthesize context;
 
 - (id)init
 {
@@ -38,9 +46,12 @@
 }
 
 
-- (void)requestGamesFor:(NSString*)username withDelegate:(id<NuGameListRequestDelegate>)delegateIncoming
+- (void)requestGamesFor:(NSString*)username 
+           withDelegate:(id<NuGameListRequestDelegate>)delegateIncoming
+             andContext:(NSManagedObjectContext*)c
 {
     delegate = delegateIncoming;
+    self.context = c;
     
     NSString* fullUrl = [NSString stringWithFormat:@"%@?username=%@", kPlanetsNuGameListUrl, username];
     
@@ -143,8 +154,8 @@ didFailWithError:(NSError *)error
     
     for (NSDictionary* gameDict in decodedJson)
     {
-        NuGame *game = [[NuGame alloc] init];
-        [game loadFromDict:gameDict];
+        NuGame *game = [NuGame gameFromJson:gameDict
+                                withContext:self.context];
         
         [retVal addObject:[game autorelease]];
     }
@@ -153,5 +164,12 @@ didFailWithError:(NSError *)error
      
     return [retVal autorelease];
 } 
+
+- (void)dealloc
+{
+    self.context = nil;
+    
+    [super dealloc];
+}
 
 @end

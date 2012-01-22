@@ -2,8 +2,8 @@
 //  NuPlayerRace.m
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 12/31/11.
-//  Copyright 2012 Roboboogie Studios. All rights reserved.
+//  Created by Cameron Hotchkies on 1/20/12.
+//  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU Lesser General Public License as published by
@@ -20,33 +20,42 @@
 //
 
 #import "NuPlayerRace.h"
+#import "NuPlayer.h"
+#import "NuTurn.h"
+
 
 @implementation NuPlayerRace
 
-@synthesize adjective, freeFighters, groundAttack, groundDefense;
-@synthesize raceId, miningRate, name, shortName, taxRate;
+@dynamic adjective;
+@dynamic freeFighters;
+@dynamic groundAttack;
+@dynamic groundDefense;
+@dynamic miningRate;
+@dynamic name;
+@dynamic raceId;
+@dynamic shortName;
+@dynamic taxRate;
+@dynamic player;
+@dynamic turn;
 
-- (id)init
++ (NuPlayerRace*)raceFromJson:(NSDictionary*)input 
+                  withContext:(NSManagedObjectContext*)context
 {
-    self = [super init];
-    if (self) {
-        // Initialization code here.
-    }
+    NuPlayerRace* retVal =
+    [NSEntityDescription insertNewObjectForEntityForName:@"NuPlayerRace"
+                                  inManagedObjectContext:context];
     
-    return self;
-}
+    retVal.adjective = [input objectForKey:@"adjective"]; 
+    retVal.freeFighters = [[input objectForKey:@"freefighters"] intValue];
+    retVal.groundAttack = [[input objectForKey:@"groundattack"] intValue];
+    retVal.groundDefense = [[input objectForKey:@"grounddefense"] intValue];
+    retVal.raceId = [[input objectForKey:@"id"] intValue];
+    retVal.miningRate = [[input objectForKey:@"miningrate"] intValue];
+    retVal.name = [input objectForKey:@"name"];
+    retVal.shortName = [input objectForKey:@"shortname"];
+    retVal.taxRate = [[input objectForKey:@"taxrate"] intValue];
 
-- (void)loadFromDict:(NSDictionary*)input
-{
-    self.adjective = [input objectForKey:@"adjective"]; 
-    self.freeFighters = [[input objectForKey:@"freefighters"] intValue];
-    self.groundAttack = [[input objectForKey:@"groundattack"] intValue];
-    self.groundDefense = [[input objectForKey:@"grounddefense"] intValue];
-    self.raceId = [[input objectForKey:@"id"] intValue];
-    self.miningRate = [[input objectForKey:@"miningrate"] intValue];
-    self.name = [input objectForKey:@"name"];
-    self.shortName = [input objectForKey:@"shortname"];
-    self.taxRate = [[input objectForKey:@"taxrate"] intValue];
+    return retVal;
 }
 
 @end

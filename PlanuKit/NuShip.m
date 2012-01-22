@@ -2,8 +2,8 @@
 //  NuShip.m
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 12/26/11.
-//  Copyright 2011 Roboboogie Studios. All rights reserved.
+//  Created by Cameron Hotchkies on 1/20/12.
+//  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU Lesser General Public License as published by
@@ -20,96 +20,137 @@
 //
 
 #import "NuShip.h"
+#import "NuBeam.h"
+#import "NuEngine.h"
 #import "NuHull.h"
+#import "NuShip.h"
+#import "NuTorpedo.h"
+#import "NuTurn.h"
 #import "NuShipDatabase.h"
 
+
 @implementation NuShip
+
+@dynamic name;
+@dynamic shipId;
+@dynamic ammo;
+@dynamic bays;
+@dynamic beamId;
+@dynamic beams;
+@dynamic clans;
+@dynamic crew;
+@dynamic damage;
+@dynamic duranium;
+@dynamic enemy;
+@dynamic engineId;
+@dynamic experience;
+@dynamic friendlyCode;
+@dynamic heading;
+@dynamic history;
+@dynamic hullId;
+@dynamic infoTurn;
+@dynamic isCloaked;
+@dynamic mass;
+@dynamic megacredits;
+@dynamic mission;
+@dynamic mission1targetId;
+@dynamic mission2targetId;
+@dynamic molybdenum;
+@dynamic neutronium;
+@dynamic readyStatus;
+@dynamic supplies;
+@dynamic targetX;
+@dynamic targetY;
+@dynamic torpedoId;
+@dynamic torps;
+@dynamic transferAmmo;
+@dynamic transferClans;
+@dynamic transferDuranium;
+@dynamic transferMegacredits;
+@dynamic transferMolybdenum;
+@dynamic transferNeutronium;
+@dynamic transferSupplies;
+@dynamic transferTargetId;
+@dynamic transferTargetType;
+@dynamic transferTritanium;
+@dynamic tritanium;
+@dynamic turnNumber;
+@dynamic turnKilled;
+@dynamic warp;
+@dynamic beam;
+@dynamic engine;
+@dynamic launcher;
+@dynamic missionTarget1;
+@dynamic missionTarget2;
+@dynamic turn;
+@dynamic hull;
+
+@synthesize distanceToClosestPlanet;
+
++ (NuShip*)shipFromJson:(NSDictionary*)input
+            withContext:(NSManagedObjectContext*)context;
+{
+    NuShip* retVal =
+    [NSEntityDescription insertNewObjectForEntityForName:@"NuShip"
+                                  inManagedObjectContext:context];
  
-@synthesize ammo, bays, beamId, beams;
-@synthesize clans, crew, damage, duranium;
-@synthesize enemy, engineId, experience, friendlyCode;
-@synthesize heading, history, hullId, shipId;
-@synthesize infoTurn, isCloaked, mass, megacredits;
-@synthesize mission, mission1targetId, mission2targetId, molybdenum;
-@synthesize name, neutronium, readyStatus;
-@synthesize supplies, targetX, targetY, torpedoId;
-@synthesize torps, transferAmmo, transferClans, transferDuranium;
-@synthesize transferMegacredits, transferMolybdenum, transferNeutronium;
-@synthesize transferSupplies, transferTargetId, transferTargetType;
-@synthesize transferTritanium, tritanium, turn, turnKilled;
-@synthesize warp, waypoints, distanceToClosestPlanet, hull;
-@synthesize owner, beam, launcher, engine, missionTarget1, missionTarget2;
-
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        // Initialization code here.
-    }
+    retVal.ammo = [[input objectForKey:@"ammo"] intValue];
+    retVal.bays = [[input objectForKey:@"bays"] intValue];
+    retVal.beamId = [[input objectForKey:@"beamid"] intValue];
+    retVal.beams = [[input objectForKey:@"beams"] intValue];
+    retVal.clans  = [[input objectForKey:@"clans"] intValue];
+    retVal.crew = [[input objectForKey:@"crew"] intValue];
+    retVal.damage  = [[input objectForKey:@"damage"] intValue];
+    retVal.duranium = [[input objectForKey:@"duranium"] intValue];
+    retVal.enemy = [[input objectForKey:@"enemy"] intValue];
+    retVal.engineId = [[input objectForKey:@"engineid"] intValue];
+    retVal.experience = [[input objectForKey:@"experience"] intValue];
+    retVal.friendlyCode = [input objectForKey:@"friendlycode"];
+    retVal.heading = [[input objectForKey:@"heading"] intValue];
+    retVal.history = [input objectForKey:@"history"];
+    retVal.hullId = [[input objectForKey:@"hullid"] intValue];
+    retVal.shipId = [[input objectForKey:@"id"] intValue];
+    retVal.infoTurn = [[input objectForKey:@"infoturn"] intValue];
+    retVal.isCloaked = [[input objectForKey:@"iscloaked"] boolValue];
+    retVal.mass = [[input objectForKey:@"mass"] intValue];
+    retVal.megacredits = [[input objectForKey:@"megacredits"] intValue];
+    retVal.mission = [[input objectForKey:@"mission"] intValue];
+    retVal.mission1targetId = [[input objectForKey:@"mission1target"] intValue];
+    retVal.mission2targetId = [[input objectForKey:@"mission2target"] intValue];
+    retVal.molybdenum = [[input objectForKey:@"molybdenum"] intValue];
+    retVal.name = [input objectForKey:@"name"];
+    retVal.neutronium = [[input objectForKey:@"neutronium"] intValue];
+    retVal.ownerId = [[input objectForKey:@"ownerid"] intValue];
+    retVal.readyStatus = [[input objectForKey:@"readystatus"] intValue];
+    retVal.supplies = [[input objectForKey:@"supplies"] intValue];
+    retVal.targetX = [[input objectForKey:@"targetx"] intValue];
+    retVal.targetY = [[input objectForKey:@"targety"] intValue];
+    retVal.torpedoId = [[input objectForKey:@"torpedoid"] intValue];
+    retVal.torps = [[input objectForKey:@"torps"] intValue];
+    retVal.transferAmmo = [[input objectForKey:@"transferammo"] intValue];
+    retVal.transferClans = [[input objectForKey:@"transferclans"] intValue];
+    retVal.transferDuranium = [[input objectForKey:@"transferduranium"] intValue];;
+    retVal.transferMegacredits = [[input objectForKey:@"transfermegacredits"] intValue];
+    retVal.transferMolybdenum = [[input objectForKey:@"transfermolybdenum"] intValue];
+    retVal.transferNeutronium = [[input objectForKey:@"transferneutronium"] intValue];
+    retVal.transferSupplies = [[input objectForKey:@"transfersupplies"] intValue];
+    retVal.transferTargetId = [[input objectForKey:@"transfertargetid"] intValue];
+    retVal.transferTargetType = [[input objectForKey:@"transfertargettype"] intValue];
+    retVal.transferTritanium = [[input objectForKey:@"transfertritanium"] intValue];
+    retVal.tritanium = [[input objectForKey:@"tritanium"] intValue];
+    retVal.turnNumber = [[input objectForKey:@"turn"] intValue];
+    retVal.turnKilled = [[input objectForKey:@"turnkilled"] intValue];
+    retVal.warp = [[input objectForKey:@"warp"] intValue];
     
-    return self;
-}
-
-- (void)loadFromDict:(NSDictionary*)input
-{
-        
-    self.ammo = [[input objectForKey:@"ammo"] intValue];
-    self.bays = [[input objectForKey:@"bays"] intValue];
-    self.beamId = [[input objectForKey:@"beamid"] intValue];
-    self.beams = [[input objectForKey:@"beams"] intValue];
-    self.clans  = [[input objectForKey:@"clans"] intValue];
-    self.crew = [[input objectForKey:@"crew"] intValue];
-    self.damage  = [[input objectForKey:@"damage"] intValue];
-    self.duranium = [[input objectForKey:@"duranium"] intValue];
-    self.enemy = [[input objectForKey:@"enemy"] intValue];
-    self.engineId = [[input objectForKey:@"engineid"] intValue];
-    self.experience = [[input objectForKey:@"experience"] intValue];
-    self.friendlyCode = [input objectForKey:@"friendlycode"];
-    self.heading = [[input objectForKey:@"heading"] intValue];
-    self.history = [input objectForKey:@"history"];
-    self.hullId = [[input objectForKey:@"hullid"] intValue];
-    self.shipId = [[input objectForKey:@"id"] intValue];
-    self.infoTurn = [[input objectForKey:@"infoturn"] intValue];
-    self.isCloaked = [[input objectForKey:@"iscloaked"] boolValue];
-    self.mass = [[input objectForKey:@"mass"] intValue];
-    self.megacredits = [[input objectForKey:@"megacredits"] intValue];
-    self.mission = [[input objectForKey:@"mission"] intValue];
-    self.mission1targetId = [[input objectForKey:@"mission1target"] intValue];
-    self.mission2targetId = [[input objectForKey:@"mission2target"] intValue];
-    self.molybdenum = [[input objectForKey:@"molybdenum"] intValue];
-    self.name = [input objectForKey:@"name"];
-    self.neutronium = [[input objectForKey:@"neutronium"] intValue];
-    self.ownerId = [[input objectForKey:@"ownerid"] intValue];
-    self.readyStatus = [[input objectForKey:@"readystatus"] intValue];
-    self.supplies = [[input objectForKey:@"supplies"] intValue];
-    self.targetX = [[input objectForKey:@"targetx"] intValue];
-    self.targetY = [[input objectForKey:@"targety"] intValue];
-    self.torpedoId = [[input objectForKey:@"torpedoid"] intValue];
-    self.torps = [[input objectForKey:@"torps"] intValue];
-    self.transferAmmo = [[input objectForKey:@"transferammo"] intValue];
-    self.transferClans = [[input objectForKey:@"transferclans"] intValue];
-    self.transferDuranium = [[input objectForKey:@"transferduranium"] intValue];;
-    self.transferMegacredits = [[input objectForKey:@"transfermegacredits"] intValue];
-    self.transferMolybdenum = [[input objectForKey:@"transfermolybdenum"] intValue];
-    self.transferNeutronium = [[input objectForKey:@"transferneutronium"] intValue];
-    self.transferSupplies = [[input objectForKey:@"transfersupplies"] intValue];
-    self.transferTargetId = [[input objectForKey:@"transfertargetid"] intValue];
-    self.transferTargetType = [[input objectForKey:@"transfertargettype"] intValue];
-    self.transferTritanium = [[input objectForKey:@"transfertritanium"] intValue];
-    self.tritanium = [[input objectForKey:@"tritanium"] intValue];
-    self.turn = [[input objectForKey:@"turn"] intValue];
-    self.turnKilled = [[input objectForKey:@"turnkilled"] intValue];
-    self.warp = [[input objectForKey:@"warp"] intValue];
+    retVal.x = [[input objectForKey:@"x"] intValue];
+    retVal.y = [[input objectForKey:@"y"] intValue];
     
-    self.x = [[input objectForKey:@"x"] intValue];
-    self.y = [[input objectForKey:@"y"] intValue];
-    
-    if (self.heading < 0 
-        && (self.x != self.targetX && self.y != self.targetY)
-        && self.warp > 0)
+    if (retVal.heading < 0 
+        && (retVal.x != retVal.targetX && retVal.y != retVal.targetY)
+        && retVal.warp > 0)
     {
-        NSInteger mvX = self.targetX - self.x;
-        NSInteger mvY = self.targetY - self.y;
+        NSInteger mvX = retVal.targetX - retVal.x;
+        NSInteger mvY = retVal.targetY - retVal.y;
         
         double hdng = atan2((double)mvX, (double)mvY);
         hdng *= 180;
@@ -123,13 +164,10 @@
             hdng += 360;
         }
         
-        self.heading = (int)hdng;
-        
-        
+        retVal.heading = (int)hdng;
     }
 
-    // TODO: load waypoints
-    //self.waypoints;
+    return retVal;
 }
 
 - (NSInteger)flightLength
@@ -140,25 +178,26 @@
     NSInteger retVal = pow(self.warp,2);
     
     // Check for Gravitonic accellerator
-    NuShipDatabase* db = [NuShipDatabase sharedDatabase];
-    NuHull* thisHull = [db.hulls objectAtIndex:self.hullId-1];
+    NuHull* thisHull = self.hull;
+    
     if (thisHull.specialAbility == kShipSpecialGravitonic)
     {
         retVal += retVal;
     }
-    
+        
     if (self.targetX != self.x && self.targetY != self.y)
     {
         NSInteger targetPathX = self.targetX - self.x;
         NSInteger targetPathY = self.targetY - self.y;
-
+        
         NSInteger targetLength = sqrt( pow(targetPathX,2) + pow(targetPathY,2) );
+        
         if (targetLength < retVal)
         {
             retVal = targetLength;
         }
     }
-    
+        
     // HYP override
     if (thisHull.specialAbility == kShipSpecialHyperjump
         && [self.friendlyCode isEqualToString:@"HYP"])
@@ -177,47 +216,48 @@
     
     NSInteger distance = floor(sqrt(pow(vector.x,2) + pow(vector.y,2)));
     NSInteger maxTravel = pow(self.warp, 2);
+    
     if (self.hull.specialAbility == kShipSpecialGravitonic)
     {
         maxTravel *= 2;
     }
-    
+        
     // check for out of fuel
     if ([self fuelBurnToPoint:target] > self.neutronium)
     {
         maxTravel = [self maxDistanceForFuel];
     }
-    
+     
     CGFloat trueHeading = atan2(vector.x, vector.y);
-    
+        
     if (maxTravel < distance)
     {
         target.x = self.x + floor(sin(trueHeading) * maxTravel );
         target.y = self.y + floor(cos(trueHeading) * maxTravel );
     }
-    
+        
     return target;
 }
-
 
 - (NSInteger)maxDistanceForFuel
 {
     NSInteger fuelFactor = [self.engine fuelFactorForWarp:self.warp];
-    
+
     NSInteger massFraction = trunc(self.mass/10);
     
     if (self.mission == kShipMissionTow)
     {
         massFraction += trunc(self.missionTarget1.mass/10);
     }
-    
+        
     NSInteger fueluse = floor (fuelFactor * massFraction  / 10000 );
     NSInteger maxTravel = pow(self.warp, 2);
+    
     if (self.hull.specialAbility == kShipSpecialGravitonic)
     {
         maxTravel *= 2;
     }
-    
+        
     NSInteger distance = maxTravel * (self.neutronium / fueluse);
     return distance;
 }
@@ -230,8 +270,8 @@
     {
         massFraction += trunc(self.missionTarget1.mass/10);
     }
-    
-    CGFloat distance = floor(sqrt(pow(target.x - x, 2) + pow(target.y - y, 2)));
+        
+    CGFloat distance = floor(sqrt(pow(target.x - self.x, 2) + pow(target.y - self.y, 2)));
     
     NSInteger maxTravel = pow(self.warp, 2);
     if (self.hull.specialAbility == kShipSpecialGravitonic)

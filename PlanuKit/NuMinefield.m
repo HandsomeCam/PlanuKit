@@ -2,7 +2,7 @@
 //  NuMinefield.m
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 1/11/12.
+//  Created by Cameron Hotchkies on 1/20/12.
 //  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
@@ -20,23 +20,37 @@
 //
 
 #import "NuMinefield.h"
+#import "NuTurn.h"
+
 
 @implementation NuMinefield
 
-@synthesize friendlyCode, minefieldId, infoTurn, isWeb, radius, units;
+@dynamic friendlyCode;
+@dynamic infoTurn;
+@dynamic isWeb;
+@dynamic minefieldId;
+@dynamic radius;
+@dynamic units;
+@dynamic turn;
 
-- (void)loadFromDict:(NSDictionary*)input
++ (NuMinefield*)minefieldFromJson:(NSDictionary*)input
+                      withContext:(NSManagedObjectContext*)context
 {
-    self.x = [[input objectForKey:@"x"] intValue];
-    self.y = [[input objectForKey:@"y"] intValue];
-    self.ownerId = [[input objectForKey:@"ownerid"] intValue];
-    self.friendlyCode = [input objectForKey:@"friendlycode"];
-    self.minefieldId = [[input objectForKey:@"id"] intValue];
-    self.infoTurn = [[input objectForKey:@"infoturn"] intValue];
-    self.isWeb = [[input objectForKey:@"isweb"] boolValue];
-    self.radius = [[input objectForKey:@"radius"] intValue];
-    self.units = [[input objectForKey:@"units"] intValue];
+    NuMinefield* retVal =
+    [NSEntityDescription insertNewObjectForEntityForName:@"NuMinefield"
+                                  inManagedObjectContext:context];
+ 
+    retVal.x = [[input objectForKey:@"x"] intValue];
+    retVal.y = [[input objectForKey:@"y"] intValue];
+    retVal.ownerId = [[input objectForKey:@"ownerid"] intValue];
+    retVal.friendlyCode = [input objectForKey:@"friendlycode"];
+    retVal.minefieldId = [[input objectForKey:@"id"] intValue];
+    retVal.infoTurn = [[input objectForKey:@"infoturn"] intValue];
+    retVal.isWeb = [[input objectForKey:@"isweb"] boolValue];
+    retVal.radius = [[input objectForKey:@"radius"] intValue];
+    retVal.units = [[input objectForKey:@"units"] intValue];
+    
+    return retVal;
 }
-
 
 @end

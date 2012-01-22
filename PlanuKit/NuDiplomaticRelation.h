@@ -2,8 +2,8 @@
 //  NuDiplomaticRelation.h
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 12/31/11.
-//  Copyright 2011 Roboboogie Studios. All rights reserved.
+//  Created by Cameron Hotchkies on 1/20/12.
+//  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU Lesser General Public License as published by
@@ -20,6 +20,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
 typedef enum
 {
@@ -31,23 +32,23 @@ typedef enum
     kNuDiplomaticRelationBlockCommunication = 5,
 } NuRelationshipStatus;
 
-@interface NuDiplomaticRelation : NSObject
-{
-    NSInteger conflictLevel;
-    NSInteger relationId;
-    NSInteger playerId;
-    NSInteger playerToId;
-    NSInteger relationTo;
-    NSInteger relationFrom;
-}
 
-@property (nonatomic, assign) NSInteger conflictLevel;
-@property (nonatomic, assign) NSInteger relationId;
-@property (nonatomic, assign) NSInteger playerId;
-@property (nonatomic, assign) NSInteger playerToId;
-@property (nonatomic, assign) NSInteger relationTo;
-@property (nonatomic, assign) NSInteger relationFrom;
+@class NuPlayer, NuTurn;
 
-- (void)loadFromDict:(NSDictionary*)input;
+@interface NuDiplomaticRelation : NSManagedObject
+
+@property (nonatomic) int16_t conflictLevel;
+@property (nonatomic) int32_t relationId;
+@property (nonatomic) int32_t playerId;
+@property (nonatomic) int32_t playerToId;
+@property (nonatomic) int16_t relationTo;
+@property (nonatomic) int16_t relationFrom;
+@property (nonatomic, retain) NuPlayer *playerFrom;
+@property (nonatomic, retain) NuPlayer *playerTo;
+@property (nonatomic, retain) NuTurn *turn;
+
+
++ (NuDiplomaticRelation*)diplomaticRelationFromJson:(NSDictionary*)input 
+                                        withContext:(NSManagedObjectContext*)context;
 
 @end
