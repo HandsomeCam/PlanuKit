@@ -23,7 +23,7 @@ NSString * const DataManagerDidSaveFailedNotification = @"DataManagerDidSaveFail
 @synthesize mainObjectContext = _mainObjectContext;
 @synthesize objectModel = _objectModel;
 
-NSString * const kDataManagerBundleName = @"PlanuKit.framework";
+NSString * const kDataManagerBundleName = @"PlanuKit";
 NSString * const kDataManagerModelName = @"NuData";
 NSString * const kDataManagerSQLiteName = @"PlanuKit.sqlite";
 
@@ -58,7 +58,7 @@ NSString * const kDataManagerSQLiteName = @"PlanuKit.sqlite";
 //	if (kDataManagerBundleName) 
 //    {
 //		NSString *bundlePath = [[NSBundle mainBundle] pathForResource:kDataManagerBundleName ofType:@"bundle"];
-//        bundlePath = 
+//        //bundlePath = 
 //		bundle = [NSBundle bundleWithPath:bundlePath];
 //	}
     

@@ -1,5 +1,5 @@
 //
-//  NuGame.m
+//  NuGame+Functionality.h
 //  PlanuKit
 //
 //  Created by Cameron Hotchkies on 1/21/12.
@@ -20,48 +20,14 @@
 //
 
 #import "NuGame.h"
-#import "NuGameSettings.h"
-#import "NuTurn.h"
 
+@interface NuGame (Functionality)
 
-@implementation NuGame
++ (NuGame*)gameFromJson:(NSDictionary*)input
+            withContext:(NSManagedObjectContext*)context;
 
-@dynamic allTurnsIn;
-@dynamic createdBy;
-@dynamic dateCreated;
-@dynamic dateEnded;
-@dynamic deleteDate;
-@dynamic desc;
-@dynamic difficulty;
-@dynamic fastStart;
-@dynamic gameId;
-@dynamic gameType;
-@dynamic hostDays;
-@dynamic hostTime;
-@dynamic isHosting;
-@dynamic isPrivate;
-@dynamic lastBackupPath;
-@dynamic lastLoadedDate;
-@dynamic lastNotified;
-@dynamic mapType;
-@dynamic masterPlanetId;
-@dynamic maxLevelId;
-@dynamic name;
-@dynamic nextHost;
-@dynamic quadrant;
-@dynamic requiredLevelId;
-@dynamic scenarioId;
-@dynamic shortDesc;
-@dynamic slots;
-@dynamic slowHostDays;
-@dynamic status;
-@dynamic turnNumber;
-@dynamic turnsPerWeek;
-@dynamic turnStatus;
-@dynamic tutorialId;
-@dynamic winCondition;
-@dynamic yearStarted;
-@dynamic settings;
-@dynamic turns;
++ (NSArray*)allGames;
+
+- (void)updateContents:(NSDictionary*)input;
 
 @end

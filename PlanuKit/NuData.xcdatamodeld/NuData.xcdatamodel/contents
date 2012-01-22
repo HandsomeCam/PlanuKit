@@ -37,9 +37,43 @@
         <relationship name="turn" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuTurn" inverseName="engines" inverseEntity="NuTurn" syncable="YES"/>
     </entity>
     <entity name="NuGame" representedClassName="NuGame" syncable="YES">
+        <attribute name="allTurnsIn" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="createdBy" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dateCreated" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dateEnded" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="deleteDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="difficulty" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="fastStart" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="gameId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="gameType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="hostDays" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hostTime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isHosting" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isPrivate" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="lastBackupPath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastLoadedDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="lastNotified" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="mapType" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="masterPlanetId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="maxLevelId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nextHost" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="quadrant" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="requiredLevelId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="scenarioId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="shortDesc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="slots" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="slowHostDays" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="turnNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="turnsPerWeek" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="turnStatus" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tutorialId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="winCondition" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="yearStarted" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="settings" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuGameSettings" inverseName="game" inverseEntity="NuGameSettings" syncable="YES"/>
+        <relationship name="turns" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuTurn" inverseName="game" inverseEntity="NuTurn" syncable="YES"/>
     </entity>
     <entity name="NuGameSettings" representedClassName="NuGameSettings" syncable="YES">
         <attribute name="buildQueuePlanetId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -285,6 +319,7 @@
         <relationship name="beams" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuBeam" inverseName="turn" inverseEntity="NuBeam" syncable="YES"/>
         <relationship name="diplomaticRelations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuDiplomaticRelation" inverseName="turn" inverseEntity="NuDiplomaticRelation" syncable="YES"/>
         <relationship name="engines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuEngine" inverseName="turn" inverseEntity="NuEngine" syncable="YES"/>
+        <relationship name="game" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuGame" inverseName="turns" inverseEntity="NuGame" syncable="YES"/>
         <relationship name="hulls" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuHull" inverseName="turn" inverseEntity="NuHull" syncable="YES"/>
         <relationship name="ionStorms" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuIonStorm" inverseName="turn" inverseEntity="NuIonStorm" syncable="YES"/>
         <relationship name="launchers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuTorpedo" inverseName="turn" inverseEntity="NuTorpedo" syncable="YES"/>
@@ -310,12 +345,15 @@
         <attribute name="tritanium" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="NuBeam" positionX="-18" positionY="729" width="128" height="75"/>
+        <element name="NuBeam" positionX="-18" positionY="729" width="128" height="90"/>
+        <element name="NuDiplomaticRelation" positionX="160" positionY="192" width="128" height="180"/>
         <element name="NuEngine" positionX="99" positionY="-189" width="128" height="90"/>
-        <element name="NuGame" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="NuGame" positionX="160" positionY="192" width="128" height="600"/>
         <element name="NuGameSettings" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="NuHull" positionX="322" positionY="192" width="128" height="345"/>
         <element name="NuIonStorm" positionX="-9" positionY="378" width="128" height="135"/>
         <element name="NuMappableEntity" positionX="-171" positionY="390" width="128" height="105"/>
+        <element name="NuMessage" positionX="160" positionY="192" width="128" height="210"/>
         <element name="NuMinefield" positionX="27" positionY="-2934" width="128" height="135"/>
         <element name="NuPlanet" positionX="-173" positionY="576" width="128" height="225"/>
         <element name="NuPlayer" positionX="-459" positionY="270" width="128" height="270"/>
@@ -323,10 +361,7 @@
         <element name="NuShip" positionX="277" positionY="-72" width="128" height="840"/>
         <element name="NuStarbase" positionX="-9" positionY="7650" width="128" height="75"/>
         <element name="NuTorpedo" positionX="-27" positionY="720" width="128" height="75"/>
-        <element name="NuTurn" positionX="385" positionY="147" width="128" height="60"/>
+        <element name="NuTurn" positionX="385" positionY="147" width="128" height="285"/>
         <element name="NuWeapon" positionX="-20" positionY="711" width="128" height="180"/>
-        <element name="NuHull" positionX="322" positionY="192" width="128" height="345"/>
-        <element name="NuMessage" positionX="160" positionY="192" width="128" height="210"/>
-        <element name="NuDiplomaticRelation" positionX="160" positionY="192" width="128" height="180"/>
     </elements>
 </model>

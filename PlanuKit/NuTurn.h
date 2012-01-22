@@ -22,12 +22,13 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class NuBeam, NuEngine, NuHull, NuIonStorm, NuMinefield, NuPlanet, NuPlayer, NuPlayerRace, NuShip, NuTorpedo, NuGameSettings;
+@class NuBeam, NuEngine, NuHull, NuIonStorm, NuMinefield, NuPlanet, NuPlayer, NuPlayerRace, NuShip, NuTorpedo, NuGameSettings, NuGame;
 
 @interface NuTurn : NSManagedObject
 
 @property (nonatomic, retain) NSSet *ships;
 @property (nonatomic, retain) NuGameSettings *settings;
+@property (nonatomic, retain) NuGame *game;
 @property (nonatomic, retain) NSSet *planets;
 @property (nonatomic, retain) NuPlayer *player;
 @property (nonatomic, retain) NSSet *ionStorms;

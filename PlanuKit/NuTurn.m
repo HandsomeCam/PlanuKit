@@ -39,28 +39,40 @@
 
 - (void)loadDiplomaticRelations:(NSDictionary*)input
                     withContext:(NSManagedObjectContext*)context;
+
 - (void)loadPlanets:(NSDictionary*)input
         withContext:(NSManagedObjectContext*)context;
+
 - (void)loadStarbases:(NSDictionary*)input 
           withContext:(NSManagedObjectContext*)context;
+
 - (void)loadIonStorms:(NSDictionary*)input
           withContext:(NSManagedObjectContext*)context;
+
 - (void)loadShips:(NSDictionary*)input
       withContext:(NSManagedObjectContext*)context;
+
 - (void)loadMessages:(NSDictionary*)input
          withContext:(NSManagedObjectContext*)context;
+
 - (void)loadPlayers:(NSDictionary*)input
         withContext:(NSManagedObjectContext*)context;
+
 - (void)loadRaces:(NSDictionary*)input
       withContext:(NSManagedObjectContext*)context;
+
 - (void)loadMinefields:(NSDictionary*)input
            withContext:(NSManagedObjectContext*)context;
+
 - (void)loadHulls:(NSDictionary*)input
       withContext:(NSManagedObjectContext*)context;
+
 - (void)loadEngines:(NSDictionary*)input
         withContext:(NSManagedObjectContext*)context;
+
 - (void)loadBeams:(NSDictionary*)input
       withContext:(NSManagedObjectContext*)context;
+
 - (void)loadTorpedoes:(NSDictionary*)input
       withContext:(NSManagedObjectContext*)context;
 
@@ -85,6 +97,7 @@
 @dynamic beams;
 @dynamic launchers;
 @dynamic engines;
+@dynamic game;
 
 + (NuTurn*)turnFromJson:(NSDictionary*)input withContext:(NSManagedObjectContext*)context
 {
@@ -118,7 +131,7 @@
     
     // Load player
     retVal.player = [NuPlayer playerFromJson:[input objectForKey:@"player"]
-                                                     withContext:context]; // [[[NuPlayer alloc] init] autorelease];
+                                 withContext:context]; 
     
     [retVal loadStarbases:input withContext:context];
     
@@ -138,8 +151,9 @@
     // Load Diplomatic Relations
     for (NSDictionary* relDict in [input objectForKey:@"relations"])
     {
-        NuDiplomaticRelation* ndr = [NuDiplomaticRelation diplomaticRelationFromJson:relDict
-                                                                         withContext:context];
+        NuDiplomaticRelation* ndr = 
+        [NuDiplomaticRelation diplomaticRelationFromJson:relDict
+                                             withContext:context];
         [self addDiplomaticRelationsObject:ndr];
     }
 }

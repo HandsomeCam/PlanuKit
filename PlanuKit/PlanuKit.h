@@ -32,6 +32,7 @@
 
 #import "NuGameSettings.h"
 #import "NuGame.h"
+#import "NuGame+Functionality.h"
 #import "NuHull.h"
 #import "NuDiplomaticRelation.h"
 
