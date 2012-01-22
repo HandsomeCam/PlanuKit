@@ -35,15 +35,15 @@
 @property (nonatomic) int16_t molybdenum;
 @property (nonatomic) int16_t tritanium;
 @property (nonatomic) int16_t techLevel;
-@property (nonatomic) int16_t fuelFactor1;
-@property (nonatomic) int16_t fuelFactor2;
-@property (nonatomic) int16_t fuelFactor3;
-@property (nonatomic) int16_t fuelFactor4;
-@property (nonatomic) int16_t fuelFactor5;
-@property (nonatomic) int16_t fuelFactor6;
-@property (nonatomic) int16_t fuelFactor7;
-@property (nonatomic) int16_t fuelFactor8;
-@property (nonatomic) int16_t fuelFactor9;
+@property (nonatomic) int32_t fuelFactor1;
+@property (nonatomic) int32_t fuelFactor2;
+@property (nonatomic) int32_t fuelFactor3;
+@property (nonatomic) int32_t fuelFactor4;
+@property (nonatomic) int32_t fuelFactor5;
+@property (nonatomic) int32_t fuelFactor6;
+@property (nonatomic) int32_t fuelFactor7;
+@property (nonatomic) int32_t fuelFactor8;
+@property (nonatomic) int32_t fuelFactor9;
 
 
 + (NuEngine*)engineFromJson:(NSDictionary*)input 
