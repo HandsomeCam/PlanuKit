@@ -2,8 +2,8 @@
 //  NuHull.m
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 12/27/11.
-//  Copyright 2011 Roboboogie Studios. All rights reserved.
+//  Created by Cameron Hotchkies on 1/20/12.
+//  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU Lesser General Public License as published by
@@ -20,118 +20,131 @@
 //
 
 #import "NuHull.h"
+#import "NuShip.h"
+#import "NuTurn.h"
 
 @interface NuHull (private)
 
-- (NSInteger)hullSpecialFromString:(NSString*)special;
++ (int32_t)hullSpecialFromString:(NSString *)special;
 
 @end
 
 
 @implementation NuHull
 
-@synthesize hullId, techLevel, name, mass;
-@synthesize fuel, cargo, crew, engines;
-@synthesize beams, torpedoes, fighterBays, cost;
-@synthesize duranium, tritanium, molybdenum;
-@synthesize canCloak, specialAbility, description;
+@dynamic hullId;
+@dynamic techLevel;
+@dynamic name;
+@dynamic mass;
+@dynamic fuel;
+@dynamic cargo;
+@dynamic crew;
+@dynamic engines;
+@dynamic beams;
+@dynamic torpedoes;
+@dynamic fighterBays;
+@dynamic cost;
+@dynamic duranium;
+@dynamic tritanium;
+@dynamic molybdenum;
+@dynamic canCloak;
+@dynamic specialAbility;
+@dynamic descr;
+@dynamic ships;
+@dynamic turn;
 
-- (id)init
++ (NuHull*)hullFromJson:(NSDictionary*)input 
+            withContext:(NSManagedObjectContext*)context;
 {
-    self = [super init];
-    if (self) {
-        // Initialization code here.
-    }
-    
-    return self;
-}
-
-- (void)loadFromDict:(NSDictionary*)input
-{
+    NuHull* retVal =
+    [NSEntityDescription insertNewObjectForEntityForName:@"NuHull"
+                                  inManagedObjectContext:context];
     if ([input objectForKey:@"hullId"] != nil) // plist version
     {
-        self.hullId = [[input objectForKey:@"hullId"] intValue];
+        retVal.hullId = [[input objectForKey:@"hullId"] intValue];
     }
     else if ([input objectForKey:@"id"] != nil) // API version
     {
-        self.hullId = [[input objectForKey:@"id"] intValue];
+        retVal.hullId = [[input objectForKey:@"id"] intValue];
     }
     
-    self.techLevel = [[input objectForKey:@"techlevel"] intValue]; //
+    retVal.techLevel = [[input objectForKey:@"techlevel"] intValue]; //
     
-    self.name = [input objectForKey:@"name"]; //
-     
-    self.mass = [[input objectForKey:@"mass"] intValue]; //
+    retVal.name = [input objectForKey:@"name"]; //
+    
+    retVal.mass = [[input objectForKey:@"mass"] intValue]; //
     
     if ([input objectForKey:@"fuel"] != nil) // plist version
     {
-        self.fuel = [[input objectForKey:@"fuel"] intValue];
+        retVal.fuel = [[input objectForKey:@"fuel"] intValue];
     }
     else if ([input objectForKey:@"fueltank"] != nil) // API version
     {
-        self.fuel = [[input objectForKey:@"fueltank"] intValue];
+        retVal.fuel = [[input objectForKey:@"fueltank"] intValue];
     }
     
-    self.cargo = [[input objectForKey:@"cargo"] intValue]; //
-     
-    self.crew = [[input objectForKey:@"crew"] intValue]; //
-     
-    self.engines = [[input objectForKey:@"engines"] intValue]; //
-     
-    self.beams = [[input objectForKey:@"beams"] intValue]; //
-     
+    retVal.cargo = [[input objectForKey:@"cargo"] intValue]; //
+    
+    retVal.crew = [[input objectForKey:@"crew"] intValue]; //
+    
+    retVal.engines = [[input objectForKey:@"engines"] intValue]; //
+    
+    retVal.beams = [[input objectForKey:@"beams"] intValue]; //
+    
     if ([input objectForKey:@"torps"] != nil) // plist version
     {
-        self.torpedoes = [[input objectForKey:@"torps"] intValue];
+        retVal.torpedoes = [[input objectForKey:@"torps"] intValue];
     }
     else if ([input objectForKey:@"launchers"] != nil) // API version
     {
-        self.torpedoes = [[input objectForKey:@"launchers"] intValue];
+        retVal.torpedoes = [[input objectForKey:@"launchers"] intValue];
     }
     
     if ([input objectForKey:@"bays"] != nil) // plist version
     {
-        self.fighterBays = [[input objectForKey:@"bays"] intValue];
+        retVal.fighterBays = [[input objectForKey:@"bays"] intValue];
     }
     else if ([input objectForKey:@"fighterbays"] != nil) // API version
     {
-        self.fighterBays = [[input objectForKey:@"fighterbays"] intValue];
+        retVal.fighterBays = [[input objectForKey:@"fighterbays"] intValue];
     }
     
-    self.cost = [[input objectForKey:@"cost"] intValue]; //
-     
-    self.duranium = [[input objectForKey:@"duranium"] intValue]; //
-     
-    self.tritanium = [[input objectForKey:@"tritanium"] intValue]; //
-     
-    self.molybdenum = [[input objectForKey:@"molybdenum"] intValue]; //
+    retVal.cost = [[input objectForKey:@"cost"] intValue]; //
+    
+    retVal.duranium = [[input objectForKey:@"duranium"] intValue]; //
+    
+    retVal.tritanium = [[input objectForKey:@"tritanium"] intValue]; //
+    
+    retVal.molybdenum = [[input objectForKey:@"molybdenum"] intValue]; //
     
     if ([input objectForKey:@"hasCloak"] != nil) // plist version
     {
-        self.canCloak = [[input objectForKey:@"hasCloak"] boolValue];
+        retVal.canCloak = [[input objectForKey:@"hasCloak"] boolValue];
     }
     else if ([input objectForKey:@"cancloak"] != nil) // API version
     {
-        self.canCloak = [[input objectForKey:@"cancloak"] boolValue];
+        retVal.canCloak = [[input objectForKey:@"cancloak"] boolValue];
     }
     
     id special = [input objectForKey:@"special"];
     
     if ([special isKindOfClass:[NSNumber class]] == YES)
     {
-        self.specialAbility = [special intValue];
+        retVal.specialAbility = [special intValue];
     }
     else
     {
-        self.specialAbility = [self hullSpecialFromString:special];
+        retVal.specialAbility = [NuHull hullSpecialFromString:special];
     }
     
-    self.description = [input objectForKey:@"description"]; // API only
+    retVal.descr = [input objectForKey:@"description"]; // API only
+    
+    return retVal;
 }
 
-- (NSInteger)hullSpecialFromString:(NSString *)special
++ (int32_t)hullSpecialFromString:(NSString *)special
 {
-    NSInteger retVal = 0;
+    int32_t retVal = 0;
     
     if ([special length] == 0)
     {
@@ -225,14 +238,14 @@
     {
         retVal |= kShipSpecialImperialAssault;
     }
-     
+    
     // Advanced Bioscanner
     textRange = [special rangeOfString:@"Advanced Bioscan"];
     if (textRange.location != NSNotFound)
     {
         retVal |= kShipSpecialAdvancedBioscanner;
     }
-     
+    
     // Alchemy
     textRange =[special rangeOfString:@"Alchemy"];
     if(textRange.location != NSNotFound)
@@ -249,5 +262,7 @@
     
     return retVal;
 }
+
+    
 
 @end

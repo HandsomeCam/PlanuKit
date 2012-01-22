@@ -2,8 +2,8 @@
 //  NuMappableEntity.h
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 12/31/11.
-//  Copyright 2011 Roboboogie Studios. All rights reserved.
+//  Created by Cameron Hotchkies on 1/20/12.
+//  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU Lesser General Public License as published by
@@ -20,16 +20,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface NuMappableEntity : NSObject
-{
-    NSInteger x;
-    NSInteger y;
-    NSInteger ownerId;
-}
+@class NuPlayer;
 
-@property (nonatomic, assign) NSInteger x;
-@property (nonatomic, assign) NSInteger y;
-@property (nonatomic, assign) NSInteger ownerId;
+@interface NuMappableEntity : NSManagedObject
+
+@property (nonatomic) int16_t ownerId;
+@property (nonatomic) int16_t x;
+@property (nonatomic) int16_t y;
+@property (nonatomic, retain) NuPlayer *owner;
 
 @end

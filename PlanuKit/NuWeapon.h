@@ -2,7 +2,7 @@
 //  NuWeapon.h
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 1/16/12.
+//  Created by Cameron Hotchkies on 1/20/12.
 //  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
@@ -20,32 +20,21 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface NuWeapon : NSObject
-{
-    NSInteger cost;
-    NSInteger crewKill;
-    NSInteger damage;
-    NSInteger duranium;
-    NSInteger mass;
-    NSInteger molybdenum;
-    NSString* name;
-    NSInteger techLevel;
-    NSInteger tritanium;
-}
+#import <CoreData/CoreData.h>
 
 
-@property (nonatomic, assign) NSInteger cost;
-@property (nonatomic, assign) NSInteger crewKill;
-@property (nonatomic, assign) NSInteger damage;
-@property (nonatomic, assign) NSInteger duranium;
-@property (nonatomic, assign) NSInteger mass;
-@property (nonatomic, assign) NSInteger molybdenum;
-@property (nonatomic, retain) NSString* name;
-@property (nonatomic, assign) NSInteger techLevel;
-@property (nonatomic, assign) NSInteger tritanium;
+@interface NuWeapon : NSManagedObject
 
+@property (nonatomic) int16_t cost;
+@property (nonatomic) int16_t crewKill;
+@property (nonatomic) int16_t damage;
+@property (nonatomic) int16_t duranium;
+@property (nonatomic) int16_t mass;
+@property (nonatomic) int16_t molybdenum;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic) int16_t techLevel;
+@property (nonatomic) int16_t tritanium;
 
-- (void)loadFromDict:(NSDictionary*)input;
+- (void)updateWithJson:(NSDictionary*)input;
 
 @end

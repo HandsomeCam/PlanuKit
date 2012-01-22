@@ -2,9 +2,9 @@
 //  NuGame.m
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 12/23/11.
-//  Copyright 2011 Roboboogie Studios. All rights reserved.
-//
+//  Created by Cameron Hotchkies on 1/20/12.
+//  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
+// 
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU Lesser General Public License as published by
 //  the Free Software Foundation, either version 3 of the License, or
@@ -20,33 +20,28 @@
 //
 
 #import "NuGame.h"
+#import "NuGameSettings.h"
 
 @implementation NuGame
 
-@synthesize name;
-@synthesize gameId, settings;
+@dynamic gameId;
+@dynamic name;
+@dynamic settings;
 
-- (id)init
++ (NuGame*)gameFromJson:(NSDictionary*)input
+            withContext:(NSManagedObjectContext*)context
 {
-    self = [super init];
-    if (self) {
-        // Initialization code here.
-    }
+    NuGame* retVal =
+    [NSEntityDescription insertNewObjectForEntityForName:@"NuGame"
+                                  inManagedObjectContext:context];
+    retVal.name = [input objectForKey:@"name"];
     
-    return self;
-}
-
-- (BOOL)loadFromDict:(NSDictionary*)input
-{
-    self.name = [input objectForKey:@"name"];
-    NSNumber* gid = [input objectForKey:@"id"];
-
-    self.gameId = [gid intValue];
+    retVal.gameId = [[input objectForKey:@"id"] intValue];
     
-    self.settings = [[[NuGameSettings alloc] init] autorelease];
-    [self.settings loadFromDict:[input objectForKey:@"settings"]];
+    retVal.settings = [NuGameSettings settingsFromJson:[input objectForKey:@"settings"]
+                                           withContext:context];
     
-    return YES;
+    return retVal;
 }
 
 @end

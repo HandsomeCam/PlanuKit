@@ -2,8 +2,8 @@
 //  NuDiplomaticRelation.m
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 12/31/11.
-//  Copyright 2011 Roboboogie Studios. All rights reserved.
+//  Created by Cameron Hotchkies on 1/20/12.
+//  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU Lesser General Public License as published by
@@ -20,30 +20,38 @@
 //
 
 #import "NuDiplomaticRelation.h"
+#import "NuPlayer.h"
+#import "NuTurn.h"
+
 
 @implementation NuDiplomaticRelation
 
-@synthesize conflictLevel, relationId, playerId;
-@synthesize playerToId, relationTo, relationFrom;
+@dynamic conflictLevel;
+@dynamic relationId;
+@dynamic playerId;
+@dynamic playerToId;
+@dynamic relationTo;
+@dynamic relationFrom;
+@dynamic playerFrom;
+@dynamic playerTo;
+@dynamic turn;
 
-- (id)init
+
++ (NuDiplomaticRelation*)diplomaticRelationFromJson:(NSDictionary*)input 
+                                        withContext:(NSManagedObjectContext*)context
 {
-    self = [super init];
-    if (self) {
-        // Initialization code here.
-    }
+    NuDiplomaticRelation* retVal =
+    [NSEntityDescription insertNewObjectForEntityForName:@"NuDiplomaticRelation"
+                                  inManagedObjectContext:context];
     
-    return self;
-}
+    retVal.conflictLevel = [[input objectForKey:@"conflictlevel"] intValue];
+    retVal.relationId = [[input objectForKey:@"id"] intValue];
+    retVal.playerId = [[input objectForKey:@"playerid"] intValue];
+    retVal.playerToId = [[input objectForKey:@"playertoid"] intValue];
+    retVal.relationTo = [[input objectForKey:@"relationfrom"] intValue];
+    retVal.relationFrom = [[input objectForKey:@"relationto"] intValue];
 
-- (void)loadFromDict:(NSDictionary*)input
-{
-    self.conflictLevel = [[input objectForKey:@"conflictlevel"] intValue];
-    self.relationId = [[input objectForKey:@"id"] intValue];
-    self.playerId = [[input objectForKey:@"playerid"] intValue];
-    self.playerToId = [[input objectForKey:@"playertoid"] intValue];
-    self.relationTo = [[input objectForKey:@"relationfrom"] intValue];
-    self.relationFrom = [[input objectForKey:@"relationto"] intValue];
-}
 
+    return retVal;
+}
 @end

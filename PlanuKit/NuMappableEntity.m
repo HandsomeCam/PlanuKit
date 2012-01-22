@@ -2,8 +2,8 @@
 //  NuMappableEntity.m
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 12/31/11.
-//  Copyright 2011 Roboboogie Studios. All rights reserved.
+//  Created by Cameron Hotchkies on 1/20/12.
+//  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU Lesser General Public License as published by
@@ -20,20 +20,14 @@
 //
 
 #import "NuMappableEntity.h"
+#import "NuPlayer.h"
+
 
 @implementation NuMappableEntity
 
-@synthesize x, y, ownerId;
-
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        // Initialization code here.
-        ownerId = -1;
-    }
-    
-    return self;
-}
+@dynamic ownerId;
+@dynamic x;
+@dynamic y;
+@dynamic owner;
 
 @end

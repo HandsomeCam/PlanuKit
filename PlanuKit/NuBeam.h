@@ -2,7 +2,7 @@
 //  NuBeam.h
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 1/16/12.
+//  Created by Cameron Hotchkies on 1/20/12.
 //  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
@@ -20,15 +20,27 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 #import "NuWeapon.h"
 
+@class NuTurn;
+
 @interface NuBeam : NuWeapon
-{
-    NSInteger beamId;
-}
 
-@property (nonatomic, assign) NSInteger beamId;
+@property (nonatomic) int16_t beamId;
+@property (nonatomic, retain) NSSet *ships;
+@property (nonatomic, retain) NuTurn *turn;
+@end
 
-- (void)loadFromDict:(NSDictionary*)input;
+@interface NuBeam (CoreDataGeneratedAccessors)
+
+- (void)addShipsObject:(NuTurn *)value;
+- (void)removeShipsObject:(NuTurn *)value;
+- (void)addShips:(NSSet *)values;
+- (void)removeShips:(NSSet *)values;
+
++ (NuBeam*)beamFromJson:(NSDictionary*)input
+            withContext:(NSManagedObjectContext*)context;
+
 
 @end

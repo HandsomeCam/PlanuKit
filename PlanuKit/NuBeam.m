@@ -2,7 +2,7 @@
 //  NuBeam.m
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 1/16/12.
+//  Created by Cameron Hotchkies on 1/20/12.
 //  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
@@ -20,16 +20,28 @@
 //
 
 #import "NuBeam.h"
+#import "NuTurn.h"
+
 
 @implementation NuBeam
 
-@synthesize beamId;
+@dynamic beamId;
+@dynamic ships;
+@dynamic turn;
 
-- (void)loadFromDict:(NSDictionary*)input
++ (NuBeam*)beamFromJson:(NSDictionary*)input
+            withContext:(NSManagedObjectContext*)context
 {
-    [super loadFromDict:input];
+    NuBeam* retVal =
+    [NSEntityDescription insertNewObjectForEntityForName:@"NuBeam"
+                                  inManagedObjectContext:context];
     
-    self.beamId = [[input objectForKey:@"id"] intValue];
+    [retVal updateWithJson:input];
+       
+    retVal.beamId = [[input objectForKey:@"id"] intValue];
+    
+    return retVal;
 }
+     
 
 @end

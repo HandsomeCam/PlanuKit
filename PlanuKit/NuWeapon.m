@@ -2,7 +2,7 @@
 //  NuWeapon.m
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 1/16/12.
+//  Created by Cameron Hotchkies on 1/20/12.
 //  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
@@ -21,14 +21,21 @@
 
 #import "NuWeapon.h"
 
+
 @implementation NuWeapon
 
-@synthesize cost, crewKill, damage, duranium;
-@synthesize mass, molybdenum, name;
-@synthesize techLevel, tritanium;
+@dynamic cost;
+@dynamic crewKill;
+@dynamic damage;
+@dynamic duranium;
+@dynamic mass;
+@dynamic molybdenum;
+@dynamic name;
+@dynamic techLevel;
+@dynamic tritanium;
 
 
-- (void)loadFromDict:(NSDictionary*)input
+- (void)updateWithJson:(NSDictionary*)input
 {
     self.cost = [[input objectForKey:@"cost"] intValue];
     self.crewKill = [[input objectForKey:@"crewkill"] intValue];

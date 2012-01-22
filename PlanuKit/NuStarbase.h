@@ -2,8 +2,8 @@
 //  NuStarbase.h
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 12/24/11.
-//  Copyright 2011 Roboboogie Studios. All rights reserved.
+//  Created by Cameron Hotchkies on 1/20/12.
+//  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU Lesser General Public License as published by
@@ -20,15 +20,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NuMappableEntity.h"
+#import <CoreData/CoreData.h>
 
-@interface NuStarbase : NuMappableEntity
-{
-    NSInteger planetId;
-}
+@class NuPlanet;
 
-@property (nonatomic, assign) NSInteger planetId;
+@interface NuStarbase : NSManagedObject
 
-- (void)loadFromDict:(NSDictionary*)input;
+@property (nonatomic) int16_t planetId;
+@property (nonatomic, retain) NuPlanet *planet;
+
++ (NuStarbase*)starbaseFromJson:(NSDictionary*)input 
+                    withContext:(NSManagedObjectContext*)context;
 
 @end

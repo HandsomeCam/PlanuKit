@@ -2,8 +2,8 @@
 //  NuMessage.m
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 12/30/11.
-//  Copyright 2011 Roboboogie Studios. All rights reserved.
+//  Created by Cameron Hotchkies on 1/20/12.
+//  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU Lesser General Public License as published by
@@ -20,34 +20,42 @@
 //
 
 #import "NuMessage.h"
+#import "NuTurn.h"
+
 
 @implementation NuMessage
 
-@synthesize body, headline, messageId, messageType;
-@synthesize ownerId, target, turn, x, y, isPlayerMessage;
+@dynamic body;
+@dynamic headline;
+@dynamic messageId;
+@dynamic messageType;
+@dynamic ownerId;
+@dynamic target;
+@dynamic turnNumber;
+@dynamic x;
+@dynamic y;
+@dynamic isPlayerMessage;
+@dynamic turn;
 
-- (id)init
++ (NuMessage*)messageFromJson:(NSDictionary*)input 
+                  withContext:(NSManagedObjectContext*)context
 {
-    self = [super init];
-    if (self) {
-        // Initialization code here.
-        isPlayerMessage = NO;
-    }
+    NuMessage* retVal =
+    [NSEntityDescription insertNewObjectForEntityForName:@"NuMessage"
+                                  inManagedObjectContext:context];
     
-    return self;
-}
+    retVal.body = [input objectForKey:@"body"];
+    retVal.headline = [input objectForKey:@"headline"];
+    retVal.messageId = [[input objectForKey:@"id"] intValue]; 
+    retVal.messageType = [[input objectForKey:@"messagetype"] intValue];
+    retVal.ownerId = [[input objectForKey:@"ownerid"] intValue]; 
+    retVal.target = [[input objectForKey:@"target"] intValue]; 
+    retVal.turnNumber = [[input objectForKey:@"turn"] intValue]; 
+    retVal.x = [[input objectForKey:@"x"] intValue]; 
+    retVal.y = [[input objectForKey:@"y"] intValue]; 
 
-- (void)loadFromDict:(NSDictionary*)input
-{
-    self.body = [input objectForKey:@"body"];
-    self.headline = [input objectForKey:@"headline"];
-    self.messageId = [[input objectForKey:@"id"] intValue]; 
-    self.messageType = [[input objectForKey:@"messagetype"] intValue];
-    self.ownerId = [[input objectForKey:@"ownerid"] intValue]; 
-    self.target = [[input objectForKey:@"target"] intValue]; 
-    self.turn = [[input objectForKey:@"turn"] intValue]; 
-    self.x = [[input objectForKey:@"x"] intValue]; 
-    self.y = [[input objectForKey:@"y"] intValue]; 
+    
+    return retVal;
 }
 
 @end

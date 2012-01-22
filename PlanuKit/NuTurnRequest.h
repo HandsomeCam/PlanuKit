@@ -33,15 +33,8 @@
 {
     id<NuTurnRequestDelegate> delegate;
     NSMutableData* receivedData;
-
 }
 
 - (void)requestTurnFor:(NSInteger)gameId With:(NSString *)apiKey andDelegate:(id<NuTurnRequestDelegate>)delegate;
-
-@end
-
-@interface NuTurnRequest (private)
-
-- (NuTurn*) parseTurnFromResponse:(NSString*)response;
 
 @end

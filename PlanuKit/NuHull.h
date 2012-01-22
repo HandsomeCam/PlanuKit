@@ -2,8 +2,8 @@
 //  NuHull.h
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 12/27/11.
-//  Copyright 2011 Roboboogie Studios. All rights reserved.
+//  Created by Cameron Hotchkies on 1/20/12.
+//  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU Lesser General Public License as published by
@@ -20,6 +20,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
 #define kShipSpecialTerraform           1
 #define kShipSpecialRadiationShielding  2
@@ -37,48 +38,42 @@
 #define kShipSpecialAlchemy				8192
 #define kShipSpecialRamscoop			16384
 
-@interface NuHull : NSObject
-{
-    NSInteger hullId;
-    NSInteger techLevel;
-    NSString* name;
-    NSInteger mass;
-    NSInteger fuel;
-    NSInteger cargo;
-    NSInteger crew;
-    NSInteger engines;
-    NSInteger beams;
-    NSInteger torpedoes;
-    NSInteger fighterBays;
-    NSInteger cost;
-    NSInteger duranium;
-    NSInteger tritanium;
-    NSInteger molybdenum;
-    BOOL canCloak;
-    NSInteger specialAbility;
-    NSString* description;
-}
 
-@property (nonatomic, assign) NSInteger hullId;
-@property (nonatomic, assign) NSInteger techLevel;
-@property (nonatomic, retain) NSString* name;
-@property (nonatomic, assign) NSInteger mass;
-@property (nonatomic, assign) NSInteger fuel;
-@property (nonatomic, assign) NSInteger cargo;
-@property (nonatomic, assign) NSInteger crew;
-@property (nonatomic, assign) NSInteger engines;
-@property (nonatomic, assign) NSInteger beams;
-@property (nonatomic, assign) NSInteger torpedoes;
-@property (nonatomic, assign) NSInteger fighterBays;
-@property (nonatomic, assign) NSInteger cost;
-@property (nonatomic, assign) NSInteger duranium;
-@property (nonatomic, assign) NSInteger tritanium;
-@property (nonatomic, assign) NSInteger molybdenum;
-@property (nonatomic, assign) BOOL canCloak;
-@property (nonatomic, assign) NSInteger specialAbility;
-@property (nonatomic, retain) NSString* description;
+@class NuShip, NuTurn;
 
+@interface NuHull : NSManagedObject
 
-- (void)loadFromDict:(NSDictionary*)input;
+@property (nonatomic) int16_t hullId;
+@property (nonatomic) int16_t techLevel;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic) int16_t mass;
+@property (nonatomic) int16_t fuel;
+@property (nonatomic) int16_t cargo;
+@property (nonatomic) int16_t crew;
+@property (nonatomic) int16_t engines;
+@property (nonatomic) int16_t beams;
+@property (nonatomic) int16_t torpedoes;
+@property (nonatomic) int16_t fighterBays;
+@property (nonatomic) int16_t cost;
+@property (nonatomic) int16_t duranium;
+@property (nonatomic) int16_t tritanium;
+@property (nonatomic) int16_t molybdenum;
+@property (nonatomic) BOOL canCloak;
+@property (nonatomic) int32_t specialAbility;
+@property (nonatomic, retain) NSString * descr;
+@property (nonatomic, retain) NSSet *ships;
+@property (nonatomic, retain) NuTurn *turn;
+@end
+
+@interface NuHull (CoreDataGeneratedAccessors)
+
+- (void)addShipsObject:(NuShip *)value;
+- (void)removeShipsObject:(NuShip *)value;
+- (void)addShips:(NSSet *)values;
+- (void)removeShips:(NSSet *)values;
+
++ (NuHull*)hullFromJson:(NSDictionary*)input
+            withContext:(NSManagedObjectContext*)context;
+    
 
 @end

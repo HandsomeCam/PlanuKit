@@ -2,8 +2,8 @@
 //  NuGameSettings.m
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 12/23/11.
-//  Copyright 2011 Roboboogie Studios. All rights reserved.
+//  Created by Cameron Hotchkies on 1/20/12.
+//  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU Lesser General Public License as published by
@@ -20,62 +20,82 @@
 //
 
 #import "NuGameSettings.h"
+#import "NuGame.h"
+#import "NuTurn.h"
+
 
 @implementation NuGameSettings
- 
 
-@synthesize buildQueuePlanetId, cloakFail, debrisDiskPercent;
-@synthesize discussionId, hostCompleted, hostStart, settingsId;
-@synthesize mapHeight, mapWidth, maxAllies, maxIonCloudsPerStorm;
-@synthesize maxIonStorms, gameName, nebulas, nextHost, nuIonStorms;
-@synthesize numberOfPlanets, planetScanRange, roundMap, shipScanRange;
-@synthesize stars, structureDecayRate, teamSize, turn, uniqueRaces;
-@synthesize victoryCountdown;
+@dynamic buildQueuePlanetId;
+@dynamic cloakFail;
+@dynamic debrisDiskPercent;
+@dynamic discussionId;
+@dynamic hostCompleted;
+@dynamic hostStart;
+@dynamic settingsId;
+@dynamic mapHeight;
+@dynamic mapWidth;
+@dynamic maxAllies;
+@dynamic maxIonCloudsPerStorm;
+@dynamic maxIonStorms;
+@dynamic gameName;
+@dynamic nebulas;
+@dynamic nextHost;
+@dynamic nuIonStorms;
+@dynamic numberOfPlanets;
+@dynamic planetScanRange;
+@dynamic roundMap;
+@dynamic shipScanRange;
+@dynamic stars;
+@dynamic structureDecayRate;
+@dynamic teamSize;
+@dynamic turnNumber;
+@dynamic uniqueRaces;
+@dynamic victoryCountdown;
+@dynamic game;
+@dynamic turn;
 
-- (id)init
++ (NuGameSettings*)settingsFromJson:(NSDictionary*)input withContext:(NSManagedObjectContext*)context
 {
-    self = [super init];
-    if (self) {
-        // Initialization code here.
-    }
+    NuGameSettings* retVal =
+        [NSEntityDescription insertNewObjectForEntityForName:@"NuGameSettings"
+                                      inManagedObjectContext:context];
     
-    return self;
-}
 
-- (BOOL)loadFromDict:(NSDictionary*)input
-{
+    
     NSDateFormatter* df = [[[NSDateFormatter alloc] init] autorelease];
     
-    self.buildQueuePlanetId = [[input objectForKey:@"buildqueueplanetid"] intValue];
-    self.cloakFail = [[input objectForKey:@"cloakfail"] intValue];
-    self.debrisDiskPercent = [[input objectForKey:@"debrisdiskpercent"] intValue];
-    self.discussionId = [input objectForKey:@"discussionid"];
-    self.hostCompleted = [df dateFromString:[input objectForKey:@"hostcompleted"]];
-    self.hostStart = [df dateFromString:[input objectForKey:@"hoststart"]];
-    self.settingsId = [[input objectForKey:@"id"] intValue];
-
-    self.mapHeight = [[input objectForKey:@"mapheight"] intValue];
-    self.mapWidth = [[input objectForKey:@"mapwidth"] intValue];
-
-    self.maxAllies = [[input objectForKey:@"maxalliest"] intValue];
-    self.maxIonCloudsPerStorm = [[input objectForKey:@"maxioncloudsperstorm"] intValue];
-    self.maxIonStorms = [[input objectForKey:@"maxions"] intValue];
-    self.gameName = [input objectForKey:@"name"];
-    self.nebulas = [[input objectForKey:@"nebulas"] intValue];
-    self.nextHost = [df dateFromString:[input objectForKey:@"nexthost"]];
-    self.nuIonStorms = [[input objectForKey:@"nuionstorms"] intValue];
-    self.numberOfPlanets = [[input objectForKey:@"numplanets"] intValue];
-    self.planetScanRange = [[input objectForKey:@"planetscanrange"] intValue];
-    self.roundMap = [[input objectForKey:@"roundmap"] boolValue];
-    self.shipScanRange = [[input objectForKey:@"shipscanrange"] intValue];
-    self.stars = [[input objectForKey:@"stars"] intValue];
-    self.structureDecayRate = [[input objectForKey:@"structuredecayrate"] intValue];
-    self.teamSize = [[input objectForKey:@"teamsize"] intValue];
-    self.turn = [[input objectForKey:@"turn"] intValue];
-    self.uniqueRaces = [[input objectForKey:@"uniqueraces"] intValue];
-    self.victoryCountdown = [[input objectForKey:@"victorycountdown"] intValue];
+    retVal.buildQueuePlanetId = [[input objectForKey:@"buildqueueplanetid"] intValue];
+    retVal.cloakFail = [[input objectForKey:@"cloakfail"] intValue];
+    retVal.debrisDiskPercent = [[input objectForKey:@"debrisdiskpercent"] intValue];
+    retVal.discussionId = [input objectForKey:@"discussionid"];
+    retVal.hostCompleted = [[df dateFromString:[input objectForKey:@"hostcompleted"]] timeIntervalSince1970];
+    retVal.hostStart = [[df dateFromString:[input objectForKey:@"hoststart"]] timeIntervalSince1970];
+    retVal.settingsId = [[input objectForKey:@"id"] intValue];
     
-    return YES;
+    retVal.mapHeight = [[input objectForKey:@"mapheight"] intValue];
+    retVal.mapWidth = [[input objectForKey:@"mapwidth"] intValue];
+    
+    retVal.maxAllies = [[input objectForKey:@"maxalliest"] intValue];
+    retVal.maxIonCloudsPerStorm = [[input objectForKey:@"maxioncloudsperstorm"] intValue];
+    retVal.maxIonStorms = [[input objectForKey:@"maxions"] intValue];
+    retVal.gameName = [input objectForKey:@"name"];
+    retVal.nebulas = [[input objectForKey:@"nebulas"] intValue];
+    retVal.nextHost = [[df dateFromString:[input objectForKey:@"nexthost"]] timeIntervalSince1970];
+    retVal.nuIonStorms = [[input objectForKey:@"nuionstorms"] intValue];
+    retVal.numberOfPlanets = [[input objectForKey:@"numplanets"] intValue];
+    retVal.planetScanRange = [[input objectForKey:@"planetscanrange"] intValue];
+    retVal.roundMap = [[input objectForKey:@"roundmap"] boolValue];
+    retVal.shipScanRange = [[input objectForKey:@"shipscanrange"] intValue];
+    retVal.stars = [[input objectForKey:@"stars"] intValue];
+    retVal.structureDecayRate = [[input objectForKey:@"structuredecayrate"] intValue];
+    retVal.teamSize = [[input objectForKey:@"teamsize"] intValue];
+    retVal.turnNumber = [[input objectForKey:@"turn"] intValue];
+    retVal.uniqueRaces = [[input objectForKey:@"uniqueraces"] intValue];
+    retVal.victoryCountdown = [[input objectForKey:@"victorycountdown"] intValue];
+    
+    return retVal;
+    
 }
 
 @end

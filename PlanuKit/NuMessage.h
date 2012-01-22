@@ -2,8 +2,8 @@
 //  NuMessage.h
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 12/30/11.
-//  Copyright 2011 Roboboogie Studios. All rights reserved.
+//  Created by Cameron Hotchkies on 1/20/12.
+//  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU Lesser General Public License as published by
@@ -20,6 +20,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
 typedef enum
 {
@@ -34,32 +35,23 @@ typedef enum
     kNuMessageTypeMineScan          = 19
 } NuMessageType;
 
-@interface NuMessage : NSObject
-{
-    NSString* body;
-    NSString* headline;
-    NSInteger messageId;
-    NuMessageType messageType;
-    NSInteger ownerId;
-    NSInteger target;
-    NSInteger turn;
-    NSInteger x;
-    NSInteger y;
-    BOOL isPlayerMessage;
-}
+@class NuTurn;
 
-@property (nonatomic, retain) NSString* body;
-@property (nonatomic, retain) NSString* headline;
-@property (nonatomic, assign) NSInteger messageId;
-@property (nonatomic, assign) NuMessageType messageType;
-@property (nonatomic, assign) NSInteger ownerId;
-@property (nonatomic, assign) NSInteger target;
-@property (nonatomic, assign) NSInteger turn;
-@property (nonatomic, assign) NSInteger x;
-@property (nonatomic, assign) NSInteger y;
-@property (nonatomic, assign) BOOL isPlayerMessage;
+@interface NuMessage : NSManagedObject
 
+@property (nonatomic, retain) NSString * body;
+@property (nonatomic, retain) NSString * headline;
+@property (nonatomic) int32_t messageId;
+@property (nonatomic) int16_t messageType;
+@property (nonatomic) int32_t ownerId;
+@property (nonatomic) int32_t target;
+@property (nonatomic) int32_t turnNumber;
+@property (nonatomic) int16_t x;
+@property (nonatomic) int16_t y;
+@property (nonatomic) BOOL isPlayerMessage;
+@property (nonatomic, retain) NuTurn *turn;
 
-- (void)loadFromDict:(NSDictionary*)input;
++ (NuMessage*)messageFromJson:(NSDictionary*)input 
+                  withContext:(NSManagedObjectContext*)context;
 
 @end

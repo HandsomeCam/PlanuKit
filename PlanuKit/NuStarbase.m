@@ -2,8 +2,8 @@
 //  NuStarbase.m
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 12/24/11.
-//  Copyright 2011 Roboboogie Studios. All rights reserved.
+//  Created by Cameron Hotchkies on 1/20/12.
+//  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU Lesser General Public License as published by
@@ -20,27 +20,23 @@
 //
 
 #import "NuStarbase.h"
+#import "NuPlanet.h"
+
 
 @implementation NuStarbase
 
-@synthesize planetId;
+@dynamic planetId;
+@dynamic planet;
 
-- (id)init
++ (NuStarbase*)starbaseFromJson:(NSDictionary*)input 
+                    withContext:(NSManagedObjectContext*)context
 {
-    self = [super init];
-    if (self) {
-        // Initialization code here.
-    }
+    NuStarbase* retVal =
+    [NSEntityDescription insertNewObjectForEntityForName:@"NuStarbase"
+                                  inManagedObjectContext:context];
+    retVal.planetId = [[input objectForKey:@"planetid"] intValue];
     
-    return self;
-}
-
-- (void)loadFromDict:(NSDictionary *)input
-{
-    NSNumber* buf = nil;
-    
-    buf = [input objectForKey:@"planetid"];
-    self.planetId = [buf intValue];
+    return retVal;
 }
 
 @end

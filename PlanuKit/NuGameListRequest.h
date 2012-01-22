@@ -36,14 +36,9 @@
     NSMutableData* receivedData;
 }
 
-- (void)requestGamesFor:(NSString*)username withDelegate:(id<NuGameListRequestDelegate>)delegate;
+- (void)requestGamesFor:(NSString*)username 
+           withDelegate:(id<NuGameListRequestDelegate>)delegate;
 
 @end
 
-
-@interface NuGameListRequest(private) 
-
-- (NSArray*) parseGamesFromResponse:(NSString*)response;
-
-@end
 
