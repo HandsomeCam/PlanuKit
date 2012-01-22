@@ -33,11 +33,7 @@
 {
     id<NuTurnRequestDelegate> delegate;
     NSMutableData* receivedData;
-    NSManagedObjectContext* context;
-
 }
-
-@property (nonatomic, retain) NSManagedObjectContext* context;
 
 - (void)requestTurnFor:(NSInteger)gameId With:(NSString *)apiKey andDelegate:(id<NuTurnRequestDelegate>)delegate;
 

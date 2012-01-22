@@ -22,6 +22,7 @@
 #import "NuGameListRequest.h"
 #import "JSONKit.h"
 #import "NuGame.h"
+#import "NuDataManager.h"
 
 #define kPlanetsNuGameListUrl @"http://api.planets.nu/games/list"
 
@@ -32,8 +33,6 @@
 @end
 
 @implementation NuGameListRequest
-
-@synthesize context;
 
 - (id)init
 {
@@ -48,10 +47,8 @@
 
 - (void)requestGamesFor:(NSString*)username 
            withDelegate:(id<NuGameListRequestDelegate>)delegateIncoming
-             andContext:(NSManagedObjectContext*)c
 {
     delegate = delegateIncoming;
-    self.context = c;
     
     NSString* fullUrl = [NSString stringWithFormat:@"%@?username=%@", kPlanetsNuGameListUrl, username];
     
@@ -152,10 +149,12 @@ didFailWithError:(NSError *)error
         return nil;
     }
     
+    NuDataManager* dm = [NuDataManager sharedInstance];
+    
     for (NSDictionary* gameDict in decodedJson)
     {
         NuGame *game = [NuGame gameFromJson:gameDict
-                                withContext:self.context];
+                                withContext:[dm mainObjectContext]];
         
         [retVal addObject:[game autorelease]];
     }
@@ -164,12 +163,5 @@ didFailWithError:(NSError *)error
      
     return [retVal autorelease];
 } 
-
-- (void)dealloc
-{
-    self.context = nil;
-    
-    [super dealloc];
-}
 
 @end

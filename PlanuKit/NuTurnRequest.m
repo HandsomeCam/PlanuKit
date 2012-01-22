@@ -23,6 +23,7 @@
 
 #import "NuTurnRequest.h"
 #import "JSONKit.h"
+#import "NuDataManager.h"
 
 @interface NuTurnRequest (private)
 
@@ -31,8 +32,6 @@
 @end
 
 @implementation NuTurnRequest
-
-@synthesize context;
 
 - (id)init
 {
@@ -145,8 +144,10 @@
         return nil;
     }
     
+    NuDataManager* dm = [NuDataManager sharedInstance];
+    
     retVal = [NuTurn turnFromJson:decodedJson
-                      withContext:self.context];
+                      withContext:[dm mainObjectContext]];
     
     [pool drain];
     
