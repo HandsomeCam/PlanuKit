@@ -21,6 +21,7 @@
 
 #import <Foundation/Foundation.h>
 #import "NuTurn.h"
+#import "NuGame.h"
 
 @protocol NuTurnRequestDelegate <NSObject>
 
@@ -33,8 +34,22 @@
 {
     id<NuTurnRequestDelegate> delegate;
     NSMutableData* receivedData;
+    NSMutableSet* turnsToUpdate;
+    NSString* apiKeyInUse;
+    NuGame* gameToUpdate;
 }
 
-- (void)requestTurnFor:(NSInteger)gameId With:(NSString *)apiKey andDelegate:(id<NuTurnRequestDelegate>)delegate;
+- (void)requestTurnFor:(NSInteger)gameId 
+                  With:(NSString *)apiKey 
+           andDelegate:(id<NuTurnRequestDelegate>)delegate;
+
+- (void)requestTurnNumber:(NSInteger)turnNumber 
+                  forGame:(NSInteger)gameId 
+                  withKey:(NSString *)apiKey 
+              andDelegate:(id<NuTurnRequestDelegate>)delegate;
+
+- (void)updateAllTurnsForGame:(NuGame*)game
+                      withKey:(NSString*)apiKey
+                  andDelegate:(id<NuTurnRequestDelegate>)delegate;
 
 @end

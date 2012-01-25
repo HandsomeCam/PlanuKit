@@ -24,10 +24,13 @@
 #import "NuTurnRequest.h"
 #import "JSONKit.h"
 #import "NuDataManager.h"
+#import "NuGameSettings.h"
+#import "NuTurn+Functionality.h"
 
 @interface NuTurnRequest (private)
 
 - (NuTurn*) parseTurnFromResponse:(NSString*)response;
+- (NuTurn*) parseTurnFromResponse:(NSString *)response withTurn:(NuTurn*)t;
 
 @end
 
@@ -45,9 +48,54 @@
 
 - (void)requestTurnFor:(NSInteger)gameId With:(NSString *)apiKey andDelegate:(id<NuTurnRequestDelegate>)delegateIncoming
 {
+    [self requestTurnNumber:-1
+                    forGame:gameId
+                    withKey:apiKey
+                andDelegate:delegateIncoming];
+}
+
+- (void)updateAllTurnsForGame:(NuGame*)game
+                      withKey:(NSString*)apiKey
+                  andDelegate:(id<NuTurnRequestDelegate>)d
+{
+    turnsToUpdate = [[NSMutableSet set] retain];
+    apiKeyInUse = [apiKey retain];
+    gameToUpdate = [game retain];
+    
+    // Add every turn to the set
+    for (int i=1; i <= game.turnNumber; i++)
+    {
+        [turnsToUpdate addObject:[NSNumber numberWithInt:i]];
+    }
+    
+    for (NuTurn* turn in game.turns)
+    {
+        NSNumber* thisTurn = [NSNumber numberWithInt:turn.settings.turnNumber];
+        [turnsToUpdate removeObject:thisTurn];
+    }
+    
+    [turnsToUpdate removeObject:[NSNumber numberWithInteger:game.turnNumber]];
+    
+    [self requestTurnNumber:game.turnNumber 
+                    forGame:game.gameId 
+                    withKey:apiKey 
+                andDelegate:d];
+}
+
+- (void)requestTurnNumber:(NSInteger)turnNumber forGame:(NSInteger)gameId withKey:(NSString *)apiKey andDelegate:(id<NuTurnRequestDelegate>)delegateIncoming
+{
     delegate = delegateIncoming;
     
+    NSString *turnOption = @"";
+    
+    if (turnNumber > 0)
+    {
+        turnOption = [NSString stringWithFormat:@"&turn=%ld", turnNumber];
+    }
+    
     NSString* fullUrl = [NSString stringWithFormat:@"%@?gameid=%d&apikey=%@", kPlanetsNuLoadTurnUrl, gameId, apiKey];
+    
+    fullUrl = [fullUrl stringByAppendingString:turnOption];
     
     // Create the request.
     NSMutableURLRequest *theRequest=[NSMutableURLRequest requestWithURL:[NSURL URLWithString:fullUrl]
@@ -126,16 +174,81 @@
         return;
     }
     
-    NuTurn* retVal = [self parseTurnFromResponse:responseString];
+    NuTurn* retVal = nil;
     
-    [delegate turnRequestSucceededWith:retVal];
+    if (gameToUpdate == nil)
+    {
+        retVal = [self parseTurnFromResponse:responseString];
+        
+        [delegate turnRequestSucceededWith:retVal];
+    }
+    else
+    {
+        NSDictionary* decodedJson = [responseString objectFromJSONString];
+        
+        NSDictionary* settings = [decodedJson objectForKey:@"settings"];
+        
+        NSInteger turnNumber = [[settings objectForKey:@"turn"] intValue];
+        
+        NuTurn* thisTurn = nil;
+
+        for (NuTurn* t in gameToUpdate.turns)
+        {
+            if (t.settings.turnNumber == turnNumber)
+            {
+                thisTurn = t;
+            }
+        }
+        
+        NuTurn* updated = [self parseTurnFromResponse:responseString withTurn:thisTurn];
+        [responseString release];
+        
+        if (updated != thisTurn) // New object
+        {
+            [gameToUpdate addTurnsObject:updated];
+        }
+        
+        if (turnsToUpdate.count >= 1)
+        {
+            NSNumber* nextTurn = [turnsToUpdate anyObject];
+            [turnsToUpdate removeObject:nextTurn];
+            [self requestTurnNumber:[nextTurn intValue]
+                        forGame:gameToUpdate.gameId
+                        withKey:apiKeyInUse
+                    andDelegate:delegate];
+        }
+        else
+        {
+            for (NuTurn* t in gameToUpdate.turns)
+            {
+                if (t.settings.turnNumber == gameToUpdate.turnNumber)
+                {
+                    retVal = t;
+                }
+            }
+            [turnsToUpdate release];
+            [apiKeyInUse release];
+            [gameToUpdate release];
+            
+            NuDataManager* dm = [NuDataManager sharedInstance];
+            [dm save];
+            
+            [delegate turnRequestSucceededWith:retVal];
+        }
+    }
 }
 
+
 - (NuTurn*) parseTurnFromResponse:(NSString*)response
+{
+    return [self parseTurnFromResponse:response withTurn:nil];
+}
+
+- (NuTurn*) parseTurnFromResponse:(NSString *)response withTurn:(NuTurn*)t
 { 
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     
-    NuTurn* retVal = nil;
+    NuTurn* retVal = t;
     
     id decodedJson = [response objectFromJSONString];
     
@@ -146,8 +259,16 @@
     
     NuDataManager* dm = [NuDataManager sharedInstance];
     
-    retVal = [NuTurn turnFromJson:decodedJson
+    if (retVal == nil)
+    {
+        retVal = [NuTurn turnFromJson:decodedJson
                       withContext:[dm mainObjectContext]];
+    }
+    else
+    {
+        [retVal updateContents:decodedJson
+                   withContext:[dm mainObjectContext]];
+    }
     
     [pool drain];
     

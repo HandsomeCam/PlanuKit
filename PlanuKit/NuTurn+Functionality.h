@@ -1,8 +1,8 @@
 //
-//  NuTurn.m
+//  NuTurn+Functionality.h
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 1/20/12.
+//  Created by Cameron Hotchkies on 1/23/12.
 //  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
@@ -21,22 +21,12 @@
 
 #import "NuTurn.h"
 
-@implementation NuTurn
+@interface NuTurn (Functionality)
 
-@dynamic ships;
-@dynamic settings;
-@dynamic planets;
-@dynamic player;
-@dynamic ionStorms;
-@dynamic messages;
-@dynamic diplomaticRelations;
-@dynamic players;
-@dynamic races;
-@dynamic minefields;
-@dynamic hulls;
-@dynamic beams;
-@dynamic launchers;
-@dynamic engines;
-@dynamic game;
++ (NuTurn*)turnFromJson:(NSDictionary*)input 
+            withContext:(NSManagedObjectContext*)context;
+
+- (void)updateContents:(NSDictionary*)input 
+           withContext:(NSManagedObjectContext*)context;
 
 @end

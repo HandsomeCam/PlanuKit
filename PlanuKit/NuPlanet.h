@@ -2,30 +2,16 @@
 //  NuPlanet.h
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 1/20/12.
+//  Created by Cameron Hotchkies on 1/24/12.
 //  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
-//
-//  This program is free software: you can redistribute it and/or modify
-//  it under the terms of the GNU Lesser General Public License as published by
-//  the Free Software Foundation, either version 3 of the License, or
-//  (at your option) any later version.
-//
-//  This program is distributed in the hope that it will be useful,
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//  GNU Lesser General Public License for more details.
-//
-//  You should have received a copy of the GNU Lesser General Public License
-//  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "NuMappableEntity.h"
 
-@class NuTurn, NuStarbase;
+@class NuPlayer, NuStarbase, NuTurn;
 
-@interface NuPlanet : NuMappableEntity
+@interface NuPlanet : NSManagedObject
 
 @property (nonatomic) int32_t clans;
 @property (nonatomic) int32_t colonistsChange;
@@ -56,8 +42,8 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic) int32_t nativeChange;
 @property (nonatomic) int32_t nativeClans;
-@property (nonatomic, retain) NSString * nativeGovernmentName;
 @property (nonatomic) int16_t nativeGovernment;
+@property (nonatomic, retain) NSString * nativeGovernmentName;
 @property (nonatomic) int16_t nativeHappiness;
 @property (nonatomic) int16_t nativeHappinessChange;
 @property (nonatomic) int16_t nativeRace;
@@ -76,11 +62,11 @@
 @property (nonatomic) int16_t tritaniumDensity;
 @property (nonatomic) int32_t tritaniumOnGround;
 @property (nonatomic) int32_t tritaniumTotal;
+@property (nonatomic) int16_t x;
+@property (nonatomic) int16_t y;
+@property (nonatomic) int16_t ownerId;
 @property (nonatomic, retain) NuStarbase *starbase;
 @property (nonatomic, retain) NuTurn *turn;
-
-
-+ (NuPlanet*)planetFromJson:(NSDictionary*)input
-                withContext:(NSManagedObjectContext*)context;
+@property (nonatomic, retain) NuPlayer *owner;
 
 @end

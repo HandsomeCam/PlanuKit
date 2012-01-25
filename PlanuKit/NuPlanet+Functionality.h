@@ -1,8 +1,8 @@
 //
-//  NuTurn.m
+//  NuPlanet+Functionality.h
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 1/20/12.
+//  Created by Cameron Hotchkies on 1/24/12.
 //  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
@@ -19,24 +19,11 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "NuTurn.h"
+#import "NuPlanet.h"
 
-@implementation NuTurn
+@interface NuPlanet (Functionality)
 
-@dynamic ships;
-@dynamic settings;
-@dynamic planets;
-@dynamic player;
-@dynamic ionStorms;
-@dynamic messages;
-@dynamic diplomaticRelations;
-@dynamic players;
-@dynamic races;
-@dynamic minefields;
-@dynamic hulls;
-@dynamic beams;
-@dynamic launchers;
-@dynamic engines;
-@dynamic game;
++ (NuPlanet*)planetFromJson:(NSDictionary*)input
+                withContext:(NSManagedObjectContext*)context;
 
 @end

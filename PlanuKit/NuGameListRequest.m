@@ -154,25 +154,34 @@ didFailWithError:(NSError *)error
     
     NSArray* loaded = [NuGame allGames];
     
-    if ([loaded count] > 0)
+   
+    for (NSDictionary* gameDict in decodedJson)
     {
-        [retVal release];
-        retVal = [[NSArray arrayWithArray:loaded] retain];
-    }
-    else
-    {
-        for (NSDictionary* gameDict in decodedJson)
+        NuGame* game = nil;
+        
+        for (NuGame* g in loaded)
         {
-            NuGame *game = [NuGame gameFromJson:gameDict
-                                    withContext:[dm mainObjectContext]];
-            
-            
-            [retVal addObject:[game autorelease]];
+            if (g.gameId == [[gameDict objectForKey:@"id"] intValue])
+            {
+                [g updateContents:gameDict];
+                game = g;
+                break;
+            }
         }
-         
-        NSError* error = nil;
-        [[dm mainObjectContext] save:&error];
+       
+        if (game == nil)
+        {
+            game = [NuGame gameFromJson:gameDict
+                            withContext:[dm mainObjectContext]];
+        }
+        
+        
+        [retVal addObject:[game autorelease]];
     }
+     
+    NSError* error = nil;
+    [[dm mainObjectContext] save:&error];
+    
     [pool drain];
      
     return [retVal autorelease];

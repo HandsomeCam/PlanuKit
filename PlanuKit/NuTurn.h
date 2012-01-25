@@ -108,6 +108,4 @@
 - (NSArray*)playerMessages;
 - (NSArray*)systemMessages;
 
-+ (NuTurn*)turnFromJson:(NSDictionary*)input withContext:(NSManagedObjectContext*)context;
-
 @end

@@ -1,8 +1,8 @@
 //
-//  NuTurn.m
+//  NuStarbase+Functionality.m
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 1/20/12.
+//  Created by Cameron Hotchkies on 1/24/12.
 //  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
@@ -19,24 +19,19 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "NuTurn.h"
+#import "NuStarbase+Functionality.h"
 
-@implementation NuTurn
+@implementation NuStarbase (Functionality)
 
-@dynamic ships;
-@dynamic settings;
-@dynamic planets;
-@dynamic player;
-@dynamic ionStorms;
-@dynamic messages;
-@dynamic diplomaticRelations;
-@dynamic players;
-@dynamic races;
-@dynamic minefields;
-@dynamic hulls;
-@dynamic beams;
-@dynamic launchers;
-@dynamic engines;
-@dynamic game;
++ (NuStarbase*)starbaseFromJson:(NSDictionary*)input 
+                    withContext:(NSManagedObjectContext*)context
+{
+    NuStarbase* retVal =
+    [NSEntityDescription insertNewObjectForEntityForName:@"NuStarbase"
+                                  inManagedObjectContext:context];
+    retVal.planetId = [[input objectForKey:@"planetid"] intValue];
+    
+    return retVal;
+}
 
 @end
