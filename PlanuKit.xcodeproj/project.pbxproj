@@ -47,6 +47,8 @@
 		7E940F2814CF9476007B3777 /* NuStarbase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E940F2614CF9476007B3777 /* NuStarbase.m */; };
 		7E940F2B14CF9477007B3777 /* NuShip.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E940F2914CF9477007B3777 /* NuShip.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7E940F2C14CF9477007B3777 /* NuShip.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E940F2A14CF9477007B3777 /* NuShip.m */; };
+		7E9930DC14DE23CC00A463EE /* NuPlayer+Functionality.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E9930DA14DE23CC00A463EE /* NuPlayer+Functionality.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7E9930DD14DE23CC00A463EE /* NuPlayer+Functionality.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9930DB14DE23CC00A463EE /* NuPlayer+Functionality.m */; };
 		7EB9CC1D14ABB4D700A6ECB3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB9CC1C14ABB4D700A6ECB3 /* Cocoa.framework */; };
 		7EB9CC2714ABB4D700A6ECB3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7EB9CC2514ABB4D700A6ECB3 /* InfoPlist.strings */; };
 		7EB9CC3314ABB4D800A6ECB3 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB9CC3214ABB4D800A6ECB3 /* SenTestingKit.framework */; };
@@ -147,6 +149,8 @@
 		7E940F2614CF9476007B3777 /* NuStarbase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NuStarbase.m; path = PlanuKit/NuStarbase.m; sourceTree = "<group>"; };
 		7E940F2914CF9477007B3777 /* NuShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NuShip.h; path = PlanuKit/NuShip.h; sourceTree = "<group>"; };
 		7E940F2A14CF9477007B3777 /* NuShip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NuShip.m; path = PlanuKit/NuShip.m; sourceTree = "<group>"; };
+		7E9930DA14DE23CC00A463EE /* NuPlayer+Functionality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NuPlayer+Functionality.h"; sourceTree = "<group>"; };
+		7E9930DB14DE23CC00A463EE /* NuPlayer+Functionality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NuPlayer+Functionality.m"; sourceTree = "<group>"; };
 		7E9FC9BF14C48DC800B44623 /* NuWeapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuWeapon.h; sourceTree = "<group>"; };
 		7E9FC9C014C48DC800B44623 /* NuWeapon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuWeapon.m; sourceTree = "<group>"; };
 		7EB9CC1914ABB4D700A6ECB3 /* PlanuKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PlanuKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -292,6 +296,8 @@
 				7EF364F514AEC3C1009BBE86 /* NuMessage.m */,
 				7E2908B214ABBFE500B11972 /* NuPlayer.h */,
 				7E2908B314ABBFE500B11972 /* NuPlayer.m */,
+				7E9930DA14DE23CC00A463EE /* NuPlayer+Functionality.h */,
+				7E9930DB14DE23CC00A463EE /* NuPlayer+Functionality.m */,
 				7ECC437414AFFC190083591C /* NuPlayerRace.h */,
 				7ECC437514AFFC1A0083591C /* NuPlayerRace.m */,
 				7E2908D014AC331900B11972 /* NuPlayerRaces.h */,
@@ -420,6 +426,7 @@
 				7E940F2314CF9475007B3777 /* NuPlanet.h in Headers */,
 				7E940F2714CF9476007B3777 /* NuStarbase.h in Headers */,
 				7E940F2B14CF9477007B3777 /* NuShip.h in Headers */,
+				7E9930DC14DE23CC00A463EE /* NuPlayer+Functionality.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,6 +571,7 @@
 				7E940F2414CF9475007B3777 /* NuPlanet.m in Sources */,
 				7E940F2814CF9476007B3777 /* NuStarbase.m in Sources */,
 				7E940F2C14CF9477007B3777 /* NuShip.m in Sources */,
+				7E9930DD14DE23CC00A463EE /* NuPlayer+Functionality.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

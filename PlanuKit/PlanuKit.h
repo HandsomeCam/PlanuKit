@@ -50,6 +50,7 @@
 #import "NuPlayerRaces.h"
 #import "NuPlayerRace.h"
 #import "NuPlayer.h"
+#import "NuPlayer+Functionality.h"
 
 #import "NuWeapon.h"
 #import "NuBeam.h"

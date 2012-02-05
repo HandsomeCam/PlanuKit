@@ -359,20 +359,20 @@
     <elements>
         <element name="NuBeam" positionX="-18" positionY="729" width="128" height="90"/>
         <element name="NuDiplomaticRelation" positionX="160" positionY="192" width="128" height="180"/>
-        <element name="NuEngine" positionX="99" positionY="-189" width="128" height="90"/>
-        <element name="NuGame" positionX="160" positionY="192" width="128" height="600"/>
-        <element name="NuGameSettings" positionX="160" positionY="192" width="128" height="105"/>
-        <element name="NuHull" positionX="322" positionY="192" width="128" height="345"/>
+        <element name="NuEngine" positionX="223" positionY="1026" width="128" height="90"/>
+        <element name="NuGame" positionX="-272" positionY="-882" width="128" height="600"/>
+        <element name="NuGameSettings" positionX="313" positionY="-204" width="128" height="105"/>
+        <element name="NuHull" positionX="511" positionY="702" width="128" height="345"/>
         <element name="NuIonStorm" positionX="-9" positionY="378" width="128" height="135"/>
-        <element name="NuMessage" positionX="160" positionY="192" width="128" height="210"/>
-        <element name="NuMinefield" positionX="27" positionY="-2934" width="128" height="135"/>
+        <element name="NuMessage" positionX="340" positionY="-9" width="128" height="210"/>
+        <element name="NuMinefield" positionX="27" positionY="-1728" width="128" height="135"/>
         <element name="NuPlanet" positionX="-173" positionY="576" width="128" height="225"/>
         <element name="NuPlayer" positionX="-459" positionY="270" width="128" height="270"/>
         <element name="NuPlayerRace" positionX="-0" positionY="-72" width="128" height="195"/>
-        <element name="NuShip" positionX="277" positionY="-72" width="128" height="915"/>
+        <element name="NuShip" positionX="720" positionY="-324" width="128" height="915"/>
         <element name="NuStarbase" positionX="-9" positionY="7650" width="128" height="75"/>
         <element name="NuTorpedo" positionX="-27" positionY="720" width="128" height="75"/>
-        <element name="NuTurn" positionX="385" positionY="147" width="128" height="285"/>
+        <element name="NuTurn" positionX="468" positionY="219" width="128" height="285"/>
         <element name="NuWeapon" positionX="-20" positionY="711" width="128" height="180"/>
     </elements>
 </model>

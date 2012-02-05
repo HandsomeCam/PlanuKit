@@ -63,7 +63,4 @@
 - (void)addDiplomaticRelationsTo:(NSSet *)values;
 - (void)removeDiplomaticRelationsTo:(NSSet *)values;
 
-+ (NuPlayer*)playerFromJson:(NSDictionary*)input
-                withContext:(NSManagedObjectContext*)context;
-
 @end

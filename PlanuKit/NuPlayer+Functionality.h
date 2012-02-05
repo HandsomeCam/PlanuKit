@@ -1,8 +1,8 @@
 //
-//  NuPlayer.m
+//  NuPlayer+Functionality.h
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 1/20/12.
+//  Created by Cameron Hotchkies on 2/4/12.
 //  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
@@ -20,31 +20,10 @@
 //
 
 #import "NuPlayer.h"
-#import "NuDiplomaticRelation.h"
-#import "NuPlayerRace.h"
-#import "NuShip.h"
-#import "NuTurn.h"
 
+@interface NuPlayer (Functionality)
 
-@implementation NuPlayer
-
-@dynamic email;
-@dynamic finishRank;
-@dynamic playerId;
-@dynamic priorityPoints;
-@dynamic raceId;
-@dynamic saveKey;
-@dynamic status;
-@dynamic teamId;
-@dynamic turnJoined;
-@dynamic turnReady;
-@dynamic turnsMissed;
-@dynamic turnStatus;
-@dynamic username;
-@dynamic race;
-@dynamic ships;
-@dynamic turn;
-@dynamic diplomaticRelationsFrom;
-@dynamic diplomaticRelationsTo;
++ (NuPlayer*)playerFromJson:(NSDictionary*)input
+                withContext:(NSManagedObjectContext*)context;
 
 @end
