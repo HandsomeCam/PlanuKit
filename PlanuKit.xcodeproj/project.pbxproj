@@ -23,13 +23,13 @@
 		7E2A913914CBB5A600BA24DA /* NuGame+Functionality.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E2A913714CBB5A600BA24DA /* NuGame+Functionality.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7E2A913A14CBB5A600BA24DA /* NuGame+Functionality.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2A913814CBB5A600BA24DA /* NuGame+Functionality.m */; };
 		7E2F16C114CBCEF400D793FC /* PlanuKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E2908CC14ABC2B100B11972 /* PlanuKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7E6C7F2614E0D13C0024BC9D /* NuScore.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E6C7F2414E0D13C0024BC9D /* NuScore.h */; };
+		7E6C7F2614E0D13C0024BC9D /* NuScore.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E6C7F2414E0D13C0024BC9D /* NuScore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7E6C7F2714E0D13C0024BC9D /* NuScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6C7F2514E0D13C0024BC9D /* NuScore.m */; };
 		7E6C7F2B14E0D13D0024BC9D /* NuPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E6C7F2914E0D13D0024BC9D /* NuPlayer.h */; };
 		7E6C7F2C14E0D13D0024BC9D /* NuPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6C7F2A14E0D13D0024BC9D /* NuPlayer.m */; };
 		7E6C7F2F14E0D1BA0024BC9D /* NuTurn.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E6C7F2D14E0D1BA0024BC9D /* NuTurn.h */; };
 		7E6C7F3014E0D1BA0024BC9D /* NuTurn.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6C7F2E14E0D1BA0024BC9D /* NuTurn.m */; };
-		7E6C7F3314E0D21A0024BC9D /* NuScore+Functionality.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E6C7F3114E0D21A0024BC9D /* NuScore+Functionality.h */; };
+		7E6C7F3314E0D21A0024BC9D /* NuScore+Functionality.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E6C7F3114E0D21A0024BC9D /* NuScore+Functionality.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7E6C7F3414E0D21A0024BC9D /* NuScore+Functionality.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6C7F3214E0D21A0024BC9D /* NuScore+Functionality.m */; };
 		7E8A71A414CE7445001B400E /* NuTurn+Functionality.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E8A71A214CE7445001B400E /* NuTurn+Functionality.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7E8A71A514CE7445001B400E /* NuTurn+Functionality.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8A71A314CE7445001B400E /* NuTurn+Functionality.m */; };

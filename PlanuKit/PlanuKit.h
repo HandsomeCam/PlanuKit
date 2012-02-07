@@ -57,4 +57,7 @@
 #import "NuTorpedo.h"
 #import "NuEngine.h"
 
+#import "NuScore.h"
+#import "NuScore+Functionality.h"
+
 #endif

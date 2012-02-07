@@ -92,7 +92,10 @@
        withContext:(NSManagedObjectContext*)context;
 
 - (void)calculateShipPlanetDistances;
+
 - (void)assignMissionTargets;
+
+- (void)removeOldData;
 
 @end
 
@@ -111,6 +114,10 @@
 - (void)updateContents:(NSDictionary*)input withContext:(NSManagedObjectContext*)context
 {
     NSDictionary* settingsDict = [input objectForKey:@"settings"];
+    
+    
+    // Remove all data
+    [self removeOldData];
     
     // Load Settings
     NuGameSettings* settings = [NuGameSettings settingsFromJson:settingsDict withContext:context];
@@ -152,11 +159,28 @@
     [self loadScores:input withContext:context];
 }
 
+- (void)removeOldData
+{
+    [self removeScores:self.scores];
+    self.settings = nil;
+    self.player = nil;
+    [self removeDiplomaticRelations:self.diplomaticRelations];
+    [self removeBeams:self.beams];
+    [self removeLaunchers:self.launchers];
+    [self removeEngines:self.engines];
+    [self removePlanets:self.planets];
+    [self removeIonStorms:self.ionStorms];
+    [self removeShips:self.ships];
+    [self removeMessages:self.messages];
+    [self removePlayers:self.players];
+    [self removeRaces:self.races];
+    [self removeMinefields:self.minefields];
+    [self removeHulls:self.hulls];
+    
+}
 
 - (void)loadDiplomaticRelations:(NSDictionary*)input withContext:(NSManagedObjectContext *)context
 {
-    [self removeDiplomaticRelations:self.diplomaticRelations];
-    
     // Load Diplomatic Relations
     for (NSDictionary* relDict in [input objectForKey:@"relations"])
     {
@@ -169,7 +193,6 @@
 
 - (void)loadBeams:(NSDictionary*)input withContext:(NSManagedObjectContext *)context
 {
-    [self removeBeams:self.beams];
     for (NSDictionary* beamDict in [input objectForKey:@"beams"])
     {
         NuBeam* beam = [NuBeam beamFromJson:beamDict
@@ -180,8 +203,6 @@
 
 - (void)loadTorpedoes:(NSDictionary*)input withContext:(NSManagedObjectContext*)context
 {
-    [self removeLaunchers:self.launchers];
-    
     for (NSDictionary* torpDict in [input objectForKey:@"torpedos"])
     {
         NuTorpedo* torp = [NuTorpedo torpedoFromJson:torpDict
@@ -192,8 +213,6 @@
 
 - (void)loadEngines:(NSDictionary *)input withContext:(NSManagedObjectContext *)context
 {
-    [self removeEngines:self.engines];
-    
     for (NSDictionary* engDict in [input objectForKey:@"engines"])
     {
         NuEngine* engine = [NuEngine engineFromJson:engDict
@@ -205,8 +224,6 @@
 
 - (void)loadPlanets:(NSDictionary *)input withContext:(NSManagedObjectContext *)context
 {
-    [self removePlanets:self.planets];
-    
     // Load planets
     for (NSDictionary* planetDict in [input objectForKey:@"planets"])
     {
@@ -247,8 +264,6 @@
 
 - (void)loadIonStorms:(NSDictionary *)input withContext:(NSManagedObjectContext *)context
 {
-    [self removeIonStorms:self.ionStorms];
-    
     // Load Ion Storms
     for (NSDictionary* stormDict in [input objectForKey:@"ionstorms"])
     {
@@ -260,8 +275,6 @@
 
 - (void)loadShips:(NSDictionary *)input withContext:(NSManagedObjectContext *)context
 {
-    [self removeShips:self.ships];
-    
     // Load Ships
     for (NSDictionary* shipDict in [input objectForKey:@"ships"])
     {
@@ -352,8 +365,6 @@
 - (void)loadMessages:(NSDictionary *)input 
          withContext:(NSManagedObjectContext *)context
 {
-    [self removeMessages:self.messages];
-    
     // Load Player Messages
     
     for (NSDictionary* msgDict in [input objectForKey:@"mymessages"])
@@ -385,8 +396,6 @@
 - (void)loadPlayers:(NSDictionary *)input 
         withContext:(NSManagedObjectContext *)context
 {
-    [self removePlayers:self.players];
-    
     // Load Players
     for (NSDictionary* playerDict in [input objectForKey:@"players"])
     {
@@ -408,9 +417,6 @@
 - (void)loadRaces:(NSDictionary *)input 
       withContext:(NSManagedObjectContext *)context
 {
-    // Clear out the old ones, we don't need them anymore
-    [self removeRaces:self.races];
-    
     // Load Races
     for (NSDictionary* raceDict in [input objectForKey:@"races"])
     {
@@ -422,9 +428,7 @@
 
 - (void)loadMinefields:(NSDictionary *)input 
            withContext:(NSManagedObjectContext *)context
-{
-    [self removeMinefields:self.minefields];
-    
+{ 
     // Load Minefields
     for (NSDictionary* mfDict in [input objectForKey:@"minefields"])
     {
@@ -438,8 +442,6 @@
 - (void)loadHulls:(NSDictionary *)input 
       withContext:(NSManagedObjectContext *)context
 {
-    [self removeHulls:self.hulls];
-    
     for (NSDictionary* hullDict in [input objectForKey:@"hulls"])
     {
         NuHull* hull = [NuHull hullFromJson:hullDict
@@ -453,8 +455,6 @@
 - (void)loadScores:(NSDictionary*)input
        withContext:(NSManagedObjectContext*)context
 {
-    [self removeScores:self.scores];
-    
     for (NSDictionary* scoreDict in [input objectForKey:@"scores"])
     {
         NuScore* score = [NuScore scoreFromJson:scoreDict
@@ -464,7 +464,7 @@
         {
             if (player.playerId == score.ownerId)
             {
-                score.owner = player;
+                player.score = score;
             }
         }
         
