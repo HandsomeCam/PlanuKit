@@ -143,7 +143,7 @@ NSString * const kDataManagerSQLiteName = @"PlanuKit.sqlite";
     
 	// Compose a path to the <Library>/Database directory
 	NSString *libraryPath = [[NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0] retain];
-	SharedDocumentsPath = [[libraryPath stringByAppendingPathComponent:@"Database"] retain];
+	SharedDocumentsPath = [[libraryPath stringByAppendingPathComponent:@"PlanuKit"] retain];
     
 	// Ensure the database directory exists
 	NSFileManager *manager = [NSFileManager defaultManager];

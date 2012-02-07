@@ -1,8 +1,8 @@
 //
-//  NuGame+Functionality.h
+//  NuScore.m
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 1/21/12.
+//  Created by Cameron Hotchkies on 2/6/12.
 //  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
@@ -19,19 +19,26 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "NuGame.h"
+#import "NuScore.h"
+#import "NuPlayer.h"
+#import "NuTurn.h"
 
-@class NuTurn;
 
-@interface NuGame (Functionality)
+@implementation NuScore
 
-+ (NuGame*)gameFromJson:(NSDictionary*)input
-            withContext:(NSManagedObjectContext*)context;
-
-+ (NSArray*)allGames;
-
-- (void)updateContents:(NSDictionary*)input;
-
-- (NuTurn*)getTurnNumber:(NSInteger)turnNumber;
+@dynamic capitalShips;
+@dynamic dateAdded;
+@dynamic freighters;
+@dynamic scoreId;
+@dynamic inventoryScore;
+@dynamic militaryScore;
+@dynamic ownerId;
+@dynamic percent;
+@dynamic planets;
+@dynamic priorityPoints;
+@dynamic starbases;
+@dynamic turnNumber;
+@dynamic owner;
+@dynamic turn;
 
 @end

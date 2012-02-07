@@ -2,7 +2,7 @@
 //  NuPlayer.h
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 1/20/12.
+//  Created by Cameron Hotchkies on 2/6/12.
 //  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
@@ -22,7 +22,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class NuDiplomaticRelation, NuPlayerRace, NuShip, NuTurn;
+@class NuDiplomaticRelation, NuMinefield, NuPlanet, NuPlayerRace, NuScore, NuShip, NuTurn;
 
 @interface NuPlayer : NSManagedObject
 
@@ -39,19 +39,17 @@
 @property (nonatomic) int16_t turnsMissed;
 @property (nonatomic) int16_t turnStatus;
 @property (nonatomic, retain) NSString * username;
+@property (nonatomic, retain) NSSet *diplomaticRelationsFrom;
+@property (nonatomic, retain) NSSet *diplomaticRelationsTo;
+@property (nonatomic, retain) NSSet *minefields;
+@property (nonatomic, retain) NSSet *planets;
 @property (nonatomic, retain) NuPlayerRace *race;
 @property (nonatomic, retain) NSSet *ships;
 @property (nonatomic, retain) NuTurn *turn;
-@property (nonatomic, retain) NSSet *diplomaticRelationsFrom;
-@property (nonatomic, retain) NSSet *diplomaticRelationsTo;
+@property (nonatomic, retain) NuScore *score;
 @end
 
 @interface NuPlayer (CoreDataGeneratedAccessors)
-
-- (void)addShipsObject:(NuShip *)value;
-- (void)removeShipsObject:(NuShip *)value;
-- (void)addShips:(NSSet *)values;
-- (void)removeShips:(NSSet *)values;
 
 - (void)addDiplomaticRelationsFromObject:(NuDiplomaticRelation *)value;
 - (void)removeDiplomaticRelationsFromObject:(NuDiplomaticRelation *)value;
@@ -62,5 +60,20 @@
 - (void)removeDiplomaticRelationsToObject:(NuDiplomaticRelation *)value;
 - (void)addDiplomaticRelationsTo:(NSSet *)values;
 - (void)removeDiplomaticRelationsTo:(NSSet *)values;
+
+- (void)addMinefieldsObject:(NuMinefield *)value;
+- (void)removeMinefieldsObject:(NuMinefield *)value;
+- (void)addMinefields:(NSSet *)values;
+- (void)removeMinefields:(NSSet *)values;
+
+- (void)addPlanetsObject:(NuPlanet *)value;
+- (void)removePlanetsObject:(NuPlanet *)value;
+- (void)addPlanets:(NSSet *)values;
+- (void)removePlanets:(NSSet *)values;
+
+- (void)addShipsObject:(NuShip *)value;
+- (void)removeShipsObject:(NuShip *)value;
+- (void)addShips:(NSSet *)values;
+- (void)removeShips:(NSSet *)values;
 
 @end

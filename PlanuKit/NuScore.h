@@ -1,5 +1,5 @@
 //
-//  NuPlayer.m
+//  NuScore.h
 //  PlanuKit
 //
 //  Created by Cameron Hotchkies on 2/6/12.
@@ -19,38 +19,26 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "NuPlayer.h"
-#import "NuDiplomaticRelation.h"
-#import "NuMinefield.h"
-#import "NuPlanet.h"
-#import "NuPlayerRace.h"
-#import "NuScore.h"
-#import "NuShip.h"
-#import "NuTurn.h"
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
+@class NuPlayer, NuTurn;
 
-@implementation NuPlayer
+@interface NuScore : NSManagedObject
 
-@dynamic email;
-@dynamic finishRank;
-@dynamic playerId;
-@dynamic priorityPoints;
-@dynamic raceId;
-@dynamic saveKey;
-@dynamic status;
-@dynamic teamId;
-@dynamic turnJoined;
-@dynamic turnReady;
-@dynamic turnsMissed;
-@dynamic turnStatus;
-@dynamic username;
-@dynamic diplomaticRelationsFrom;
-@dynamic diplomaticRelationsTo;
-@dynamic minefields;
-@dynamic planets;
-@dynamic race;
-@dynamic ships;
-@dynamic turn;
-@dynamic score;
+@property (nonatomic) int16_t capitalShips;
+@property (nonatomic) NSTimeInterval dateAdded;
+@property (nonatomic) int16_t freighters;
+@property (nonatomic) int32_t scoreId;
+@property (nonatomic) int32_t inventoryScore;
+@property (nonatomic) int32_t militaryScore;
+@property (nonatomic) int16_t ownerId;
+@property (nonatomic) double percent;
+@property (nonatomic) int16_t planets;
+@property (nonatomic) int32_t priorityPoints;
+@property (nonatomic) int16_t starbases;
+@property (nonatomic) int32_t turnNumber;
+@property (nonatomic, retain) NuPlayer *owner;
+@property (nonatomic, retain) NuTurn *turn;
 
 @end

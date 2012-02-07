@@ -1,8 +1,8 @@
 //
-//  NuGame+Functionality.h
+//  NuScore+Functionality.h
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 1/21/12.
+//  Created by Cameron Hotchkies on 2/6/12.
 //  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
@@ -19,19 +19,11 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "NuGame.h"
+#import "NuScore.h"
 
-@class NuTurn;
+@interface NuScore (Functionality)
 
-@interface NuGame (Functionality)
-
-+ (NuGame*)gameFromJson:(NSDictionary*)input
-            withContext:(NSManagedObjectContext*)context;
-
-+ (NSArray*)allGames;
-
-- (void)updateContents:(NSDictionary*)input;
-
-- (NuTurn*)getTurnNumber:(NSInteger)turnNumber;
++ (NuScore*)scoreFromJson:(NSDictionary*)input
+              withContext:(NSManagedObjectContext*)context;
 
 @end

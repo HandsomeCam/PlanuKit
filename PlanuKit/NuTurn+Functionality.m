@@ -45,6 +45,7 @@
 #import "NuMinefield+Functionality.h"
 #import "NuHull+Functionality.h"
 #import "NuPlayer+Functionality.h"
+#import "NuScore+Functionality.h"
 
 @interface NuTurn (private)
 
@@ -87,6 +88,9 @@
 - (void)loadTorpedoes:(NSDictionary*)input
           withContext:(NSManagedObjectContext*)context;
 
+- (void)loadScores:(NSDictionary*)input
+       withContext:(NSManagedObjectContext*)context;
+
 - (void)calculateShipPlanetDistances;
 - (void)assignMissionTargets;
 
@@ -124,7 +128,7 @@
     // Needs to be loaded before ships
     [self loadHulls:input withContext:context];
     
-    // Needs to be loaded before planets, ships, starbases, messages, minefields
+    // Needs to be loaded before planets, ships, starbases, messages, minefields, scores
     [self loadPlayers:input withContext:context];
     
     [self loadDiplomaticRelations:input withContext:context];
@@ -137,8 +141,6 @@
     
     [self loadStarbases:input withContext:context];
     
-    
-    
     [self loadIonStorms:input withContext:context];
     
     [self loadShips:input withContext:context];
@@ -146,6 +148,8 @@
     [self loadMessages:input withContext:context];
     
     [self loadMinefields:input withContext:context];
+    
+    [self loadScores:input withContext:context];
 }
 
 
@@ -345,7 +349,8 @@
     }
 }
 
-- (void)loadMessages:(NSDictionary *)input withContext:(NSManagedObjectContext *)context
+- (void)loadMessages:(NSDictionary *)input 
+         withContext:(NSManagedObjectContext *)context
 {
     [self removeMessages:self.messages];
     
@@ -375,7 +380,8 @@
     //self.systemMessages = msgs;
 }
 
-- (void)loadPlayers:(NSDictionary *)input withContext:(NSManagedObjectContext *)context
+- (void)loadPlayers:(NSDictionary *)input 
+        withContext:(NSManagedObjectContext *)context
 {
     [self removePlayers:self.players];
     
@@ -397,7 +403,8 @@
     }
 }
 
-- (void)loadRaces:(NSDictionary *)input withContext:(NSManagedObjectContext *)context
+- (void)loadRaces:(NSDictionary *)input 
+      withContext:(NSManagedObjectContext *)context
 {
     // Clear out the old ones, we don't need them anymore
     [self removeRaces:self.races];
@@ -411,7 +418,8 @@
     }
 }
 
-- (void)loadMinefields:(NSDictionary *)input withContext:(NSManagedObjectContext *)context
+- (void)loadMinefields:(NSDictionary *)input 
+           withContext:(NSManagedObjectContext *)context
 {
     [self removeMinefields:self.minefields];
     
@@ -425,7 +433,8 @@
     }
 }
 
-- (void)loadHulls:(NSDictionary *)input withContext:(NSManagedObjectContext *)context
+- (void)loadHulls:(NSDictionary *)input 
+      withContext:(NSManagedObjectContext *)context
 {
     [self removeHulls:self.hulls];
     
@@ -435,6 +444,29 @@
                                 withContext:context];
         
         [self addHullsObject:hull];
+    }
+}
+
+
+- (void)loadScores:(NSDictionary*)input
+       withContext:(NSManagedObjectContext*)context
+{
+    [self removeScores:self.scores];
+    
+    for (NSDictionary* scoreDict in [input objectForKey:@"scores"])
+    {
+        NuScore* score = [NuScore scoreFromJson:scoreDict
+                                    withContext:context];
+        
+        for (NuPlayer* player in self.players)
+        {
+            if (player.playerId == score.ownerId)
+            {
+                score.owner = player;
+            }
+        }
+        
+        [self addScoresObject:score];
     }
 }
 

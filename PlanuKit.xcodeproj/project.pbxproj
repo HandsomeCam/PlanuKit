@@ -23,6 +23,14 @@
 		7E2A913914CBB5A600BA24DA /* NuGame+Functionality.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E2A913714CBB5A600BA24DA /* NuGame+Functionality.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7E2A913A14CBB5A600BA24DA /* NuGame+Functionality.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2A913814CBB5A600BA24DA /* NuGame+Functionality.m */; };
 		7E2F16C114CBCEF400D793FC /* PlanuKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E2908CC14ABC2B100B11972 /* PlanuKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7E6C7F2614E0D13C0024BC9D /* NuScore.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E6C7F2414E0D13C0024BC9D /* NuScore.h */; };
+		7E6C7F2714E0D13C0024BC9D /* NuScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6C7F2514E0D13C0024BC9D /* NuScore.m */; };
+		7E6C7F2B14E0D13D0024BC9D /* NuPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E6C7F2914E0D13D0024BC9D /* NuPlayer.h */; };
+		7E6C7F2C14E0D13D0024BC9D /* NuPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6C7F2A14E0D13D0024BC9D /* NuPlayer.m */; };
+		7E6C7F2F14E0D1BA0024BC9D /* NuTurn.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E6C7F2D14E0D1BA0024BC9D /* NuTurn.h */; };
+		7E6C7F3014E0D1BA0024BC9D /* NuTurn.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6C7F2E14E0D1BA0024BC9D /* NuTurn.m */; };
+		7E6C7F3314E0D21A0024BC9D /* NuScore+Functionality.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E6C7F3114E0D21A0024BC9D /* NuScore+Functionality.h */; };
+		7E6C7F3414E0D21A0024BC9D /* NuScore+Functionality.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6C7F3214E0D21A0024BC9D /* NuScore+Functionality.m */; };
 		7E8A71A414CE7445001B400E /* NuTurn+Functionality.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E8A71A214CE7445001B400E /* NuTurn+Functionality.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7E8A71A514CE7445001B400E /* NuTurn+Functionality.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8A71A314CE7445001B400E /* NuTurn+Functionality.m */; };
 		7E940EFF14CF90C0007B3777 /* NuShip+Functionality.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E940EFD14CF90C0007B3777 /* NuShip+Functionality.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -65,11 +73,9 @@
 		7EE9B68114CB6EB500A77606 /* NuGameSettings.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E2908AA14ABBFE400B11972 /* NuGameSettings.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7EE9B68214CB6EBB00A77606 /* NuHull.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E2908AC14ABBFE400B11972 /* NuHull.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7EE9B68314CB6EBE00A77606 /* NuMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EF364F414AEC3C1009BBE86 /* NuMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7EE9B68414CB6EC600A77606 /* NuPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E2908B214ABBFE500B11972 /* NuPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7EE9B68514CB6ECB00A77606 /* NuPlayerRace.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ECC437414AFFC190083591C /* NuPlayerRace.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7EE9B68614CB6ECF00A77606 /* NuPlayerRaces.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E2908D014AC331900B11972 /* NuPlayerRaces.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7EE9B68714CB6EDE00A77606 /* NuTorpedo.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EFBC27914C48786008D406D /* NuTorpedo.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7EE9B68814CB6EE300A77606 /* NuTurn.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E2908B814ABBFE500B11972 /* NuTurn.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7EE9B68914CB6EE800A77606 /* NuWeapon.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E9FC9BF14C48DC800B44623 /* NuWeapon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7EE9B68A14CB6F3A00A77606 /* NuHull.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2908AD14ABBFE400B11972 /* NuHull.m */; };
 		7EE9B69114CB6F7400A77606 /* NuBeam.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE440F514C411A7006745D7 /* NuBeam.m */; };
@@ -77,10 +83,8 @@
 		7EE9B69314CB6F7B00A77606 /* NuEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E20648214C6186F00E7A484 /* NuEngine.m */; };
 		7EE9B69514CB6F8100A77606 /* NuGameSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2908AB14ABBFE400B11972 /* NuGameSettings.m */; };
 		7EE9B69614CB6F8B00A77606 /* NuMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF364F514AEC3C1009BBE86 /* NuMessage.m */; };
-		7EE9B69814CB6F9E00A77606 /* NuPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2908B314ABBFE500B11972 /* NuPlayer.m */; };
 		7EE9B69914CB6FA400A77606 /* NuPlayerRace.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC437514AFFC1A0083591C /* NuPlayerRace.m */; };
 		7EE9B69A14CB6FB100A77606 /* NuTorpedo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFBC27A14C48786008D406D /* NuTorpedo.m */; };
-		7EE9B69B14CB6FB600A77606 /* NuTurn.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2908B914ABBFE500B11972 /* NuTurn.m */; };
 		7EE9B69C14CB6FBA00A77606 /* NuWeapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9FC9C014C48DC800B44623 /* NuWeapon.m */; };
 		7EE9B6EA14CB918B00A77606 /* NuDataManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EE9B6E814CB918B00A77606 /* NuDataManager.h */; };
 		7EE9B6EB14CB918B00A77606 /* NuDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE9B6E914CB918B00A77606 /* NuDataManager.m */; };
@@ -115,16 +119,20 @@
 		7E2908AB14ABBFE400B11972 /* NuGameSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuGameSettings.m; sourceTree = "<group>"; };
 		7E2908AC14ABBFE400B11972 /* NuHull.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuHull.h; sourceTree = "<group>"; };
 		7E2908AD14ABBFE400B11972 /* NuHull.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuHull.m; sourceTree = "<group>"; };
-		7E2908B214ABBFE500B11972 /* NuPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuPlayer.h; sourceTree = "<group>"; };
-		7E2908B314ABBFE500B11972 /* NuPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuPlayer.m; sourceTree = "<group>"; };
-		7E2908B814ABBFE500B11972 /* NuTurn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuTurn.h; sourceTree = "<group>"; };
-		7E2908B914ABBFE500B11972 /* NuTurn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuTurn.m; sourceTree = "<group>"; };
 		7E2908CC14ABC2B100B11972 /* PlanuKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanuKit.h; sourceTree = "<group>"; };
 		7E2908D014AC331900B11972 /* NuPlayerRaces.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuPlayerRaces.h; sourceTree = "<group>"; };
 		7E2A913214CBB54000BA24DA /* NuGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuGame.h; sourceTree = "<group>"; };
 		7E2A913314CBB54000BA24DA /* NuGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuGame.m; sourceTree = "<group>"; };
 		7E2A913714CBB5A600BA24DA /* NuGame+Functionality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NuGame+Functionality.h"; sourceTree = "<group>"; };
 		7E2A913814CBB5A600BA24DA /* NuGame+Functionality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NuGame+Functionality.m"; sourceTree = "<group>"; };
+		7E6C7F2414E0D13C0024BC9D /* NuScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuScore.h; sourceTree = "<group>"; };
+		7E6C7F2514E0D13C0024BC9D /* NuScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuScore.m; sourceTree = "<group>"; };
+		7E6C7F2914E0D13D0024BC9D /* NuPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuPlayer.h; sourceTree = "<group>"; };
+		7E6C7F2A14E0D13D0024BC9D /* NuPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuPlayer.m; sourceTree = "<group>"; };
+		7E6C7F2D14E0D1BA0024BC9D /* NuTurn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuTurn.h; sourceTree = "<group>"; };
+		7E6C7F2E14E0D1BA0024BC9D /* NuTurn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuTurn.m; sourceTree = "<group>"; };
+		7E6C7F3114E0D21A0024BC9D /* NuScore+Functionality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NuScore+Functionality.h"; sourceTree = "<group>"; };
+		7E6C7F3214E0D21A0024BC9D /* NuScore+Functionality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NuScore+Functionality.m"; sourceTree = "<group>"; };
 		7E8A71A214CE7445001B400E /* NuTurn+Functionality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NuTurn+Functionality.h"; sourceTree = "<group>"; };
 		7E8A71A314CE7445001B400E /* NuTurn+Functionality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NuTurn+Functionality.m"; sourceTree = "<group>"; };
 		7E940EFD14CF90C0007B3777 /* NuShip+Functionality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NuShip+Functionality.h"; path = "PlanuKit/NuShip+Functionality.h"; sourceTree = "<group>"; };
@@ -294,19 +302,23 @@
 				7E940F0214CF91D2007B3777 /* NuHull+Functionality.m */,
 				7EF364F414AEC3C1009BBE86 /* NuMessage.h */,
 				7EF364F514AEC3C1009BBE86 /* NuMessage.m */,
-				7E2908B214ABBFE500B11972 /* NuPlayer.h */,
-				7E2908B314ABBFE500B11972 /* NuPlayer.m */,
+				7E6C7F2914E0D13D0024BC9D /* NuPlayer.h */,
+				7E6C7F2A14E0D13D0024BC9D /* NuPlayer.m */,
 				7E9930DA14DE23CC00A463EE /* NuPlayer+Functionality.h */,
 				7E9930DB14DE23CC00A463EE /* NuPlayer+Functionality.m */,
 				7ECC437414AFFC190083591C /* NuPlayerRace.h */,
 				7ECC437514AFFC1A0083591C /* NuPlayerRace.m */,
 				7E2908D014AC331900B11972 /* NuPlayerRaces.h */,
+				7E6C7F2414E0D13C0024BC9D /* NuScore.h */,
+				7E6C7F2514E0D13C0024BC9D /* NuScore.m */,
+				7E6C7F3114E0D21A0024BC9D /* NuScore+Functionality.h */,
+				7E6C7F3214E0D21A0024BC9D /* NuScore+Functionality.m */,
 				7EB9CC5414ABB7BF00A6ECB3 /* NuShipDatabase.h */,
 				7EB9CC5514ABB7BF00A6ECB3 /* NuShipDatabase.m */,
 				7EFBC27914C48786008D406D /* NuTorpedo.h */,
 				7EFBC27A14C48786008D406D /* NuTorpedo.m */,
-				7E2908B814ABBFE500B11972 /* NuTurn.h */,
-				7E2908B914ABBFE500B11972 /* NuTurn.m */,
+				7E6C7F2D14E0D1BA0024BC9D /* NuTurn.h */,
+				7E6C7F2E14E0D1BA0024BC9D /* NuTurn.m */,
 				7E8A71A214CE7445001B400E /* NuTurn+Functionality.h */,
 				7E8A71A314CE7445001B400E /* NuTurn+Functionality.m */,
 				7E9FC9BF14C48DC800B44623 /* NuWeapon.h */,
@@ -402,12 +414,10 @@
 				7EE9B68114CB6EB500A77606 /* NuGameSettings.h in Headers */,
 				7EE9B68214CB6EBB00A77606 /* NuHull.h in Headers */,
 				7EE9B68314CB6EBE00A77606 /* NuMessage.h in Headers */,
-				7EE9B68414CB6EC600A77606 /* NuPlayer.h in Headers */,
 				7EE9B68514CB6ECB00A77606 /* NuPlayerRace.h in Headers */,
 				7EE9B68614CB6ECF00A77606 /* NuPlayerRaces.h in Headers */,
 				7EB9CC5614ABB7BF00A6ECB3 /* NuShipDatabase.h in Headers */,
 				7EE9B68714CB6EDE00A77606 /* NuTorpedo.h in Headers */,
-				7EE9B68814CB6EE300A77606 /* NuTurn.h in Headers */,
 				7EE9B68914CB6EE800A77606 /* NuWeapon.h in Headers */,
 				7E29089D14ABBCE900B11972 /* NuGameListRequest.h in Headers */,
 				7E29089F14ABBCE900B11972 /* NuLoginRequest.h in Headers */,
@@ -427,6 +437,10 @@
 				7E940F2714CF9476007B3777 /* NuStarbase.h in Headers */,
 				7E940F2B14CF9477007B3777 /* NuShip.h in Headers */,
 				7E9930DC14DE23CC00A463EE /* NuPlayer+Functionality.h in Headers */,
+				7E6C7F2614E0D13C0024BC9D /* NuScore.h in Headers */,
+				7E6C7F2B14E0D13D0024BC9D /* NuPlayer.h in Headers */,
+				7E6C7F2F14E0D1BA0024BC9D /* NuTurn.h in Headers */,
+				7E6C7F3314E0D21A0024BC9D /* NuScore+Functionality.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,10 +565,8 @@
 				7EE9B69514CB6F8100A77606 /* NuGameSettings.m in Sources */,
 				7EE9B68A14CB6F3A00A77606 /* NuHull.m in Sources */,
 				7EE9B69614CB6F8B00A77606 /* NuMessage.m in Sources */,
-				7EE9B69814CB6F9E00A77606 /* NuPlayer.m in Sources */,
 				7EE9B69914CB6FA400A77606 /* NuPlayerRace.m in Sources */,
 				7EE9B69A14CB6FB100A77606 /* NuTorpedo.m in Sources */,
-				7EE9B69B14CB6FB600A77606 /* NuTurn.m in Sources */,
 				7EE9B69C14CB6FBA00A77606 /* NuWeapon.m in Sources */,
 				7EE9B6EB14CB918B00A77606 /* NuDataManager.m in Sources */,
 				7E2A913514CBB54000BA24DA /* NuGame.m in Sources */,
@@ -572,6 +584,10 @@
 				7E940F2814CF9476007B3777 /* NuStarbase.m in Sources */,
 				7E940F2C14CF9477007B3777 /* NuShip.m in Sources */,
 				7E9930DD14DE23CC00A463EE /* NuPlayer+Functionality.m in Sources */,
+				7E6C7F2714E0D13C0024BC9D /* NuScore.m in Sources */,
+				7E6C7F2C14E0D13D0024BC9D /* NuPlayer.m in Sources */,
+				7E6C7F3014E0D1BA0024BC9D /* NuTurn.m in Sources */,
+				7E6C7F3414E0D21A0024BC9D /* NuScore+Functionality.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

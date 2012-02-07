@@ -240,6 +240,7 @@
         <relationship name="minefields" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuMinefield" inverseName="owner" inverseEntity="NuMinefield" syncable="YES"/>
         <relationship name="planets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuPlanet" inverseName="owner" inverseEntity="NuPlanet" syncable="YES"/>
         <relationship name="race" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NuPlayerRace" inverseName="player" inverseEntity="NuPlayerRace" syncable="YES"/>
+        <relationship name="score" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuScore" inverseName="owner" inverseEntity="NuScore" syncable="YES"/>
         <relationship name="ships" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuShip" inverseName="owner" inverseEntity="NuShip" syncable="YES"/>
         <relationship name="turn" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuTurn" inverseName="players" inverseEntity="NuTurn" syncable="YES"/>
     </entity>
@@ -255,6 +256,22 @@
         <attribute name="taxRate" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="player" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuPlayer" inverseName="race" inverseEntity="NuPlayer" syncable="YES"/>
         <relationship name="turn" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuTurn" inverseName="races" inverseEntity="NuTurn" syncable="YES"/>
+    </entity>
+    <entity name="NuScore" representedClassName="NuScore" syncable="YES">
+        <attribute name="capitalShips" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="dateAdded" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="freighters" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="inventoryScore" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="militaryScore" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="ownerId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="percent" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="planets" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="priorityPoints" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="scoreId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="starbases" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="turnNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="owner" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuPlayer" inverseName="score" inverseEntity="NuPlayer" syncable="YES"/>
+        <relationship name="turn" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuTurn" inverseName="scores" inverseEntity="NuTurn" syncable="YES"/>
     </entity>
     <entity name="NuShip" representedClassName="NuShip" syncable="YES">
         <attribute name="ammo" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -340,6 +357,7 @@
         <relationship name="player" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NuPlayer" inverseName="turn" inverseEntity="NuPlayer" syncable="YES"/>
         <relationship name="players" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuPlayer" inverseName="turn" inverseEntity="NuPlayer" syncable="YES"/>
         <relationship name="races" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuPlayerRace" inverseName="turn" inverseEntity="NuPlayerRace" syncable="YES"/>
+        <relationship name="scores" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuScore" inverseName="turn" inverseEntity="NuScore" syncable="YES"/>
         <relationship name="settings" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuGameSettings" inverseName="turn" inverseEntity="NuGameSettings" syncable="YES"/>
         <relationship name="ships" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuShip" inverseName="turn" inverseEntity="NuShip" syncable="YES"/>
         <relationship name="starbases" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuStarbase" inverseName="turn" inverseEntity="NuStarbase" syncable="YES"/>
@@ -367,12 +385,13 @@
         <element name="NuMessage" positionX="340" positionY="-9" width="128" height="210"/>
         <element name="NuMinefield" positionX="27" positionY="-1728" width="128" height="135"/>
         <element name="NuPlanet" positionX="-173" positionY="576" width="128" height="225"/>
-        <element name="NuPlayer" positionX="-459" positionY="270" width="128" height="270"/>
+        <element name="NuPlayer" positionX="-459" positionY="270" width="128" height="360"/>
         <element name="NuPlayerRace" positionX="-0" positionY="-72" width="128" height="195"/>
         <element name="NuShip" positionX="720" positionY="-324" width="128" height="915"/>
         <element name="NuStarbase" positionX="-9" positionY="7650" width="128" height="75"/>
         <element name="NuTorpedo" positionX="-27" positionY="720" width="128" height="75"/>
-        <element name="NuTurn" positionX="468" positionY="219" width="128" height="285"/>
+        <element name="NuTurn" positionX="468" positionY="219" width="128" height="300"/>
         <element name="NuWeapon" positionX="-20" positionY="711" width="128" height="180"/>
+        <element name="NuScore" positionX="-324" positionY="-1539" width="128" height="255"/>
     </elements>
 </model>

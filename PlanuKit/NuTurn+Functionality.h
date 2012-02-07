@@ -29,4 +29,7 @@
 - (void)updateContents:(NSDictionary*)input 
            withContext:(NSManagedObjectContext*)context;
 
+- (NSArray*)playerMessages;
+- (NSArray*)systemMessages;
+
 @end

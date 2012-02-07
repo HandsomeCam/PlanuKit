@@ -2,41 +2,47 @@
 //  NuTurn.m
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 1/20/12.
+//  Created by Cameron Hotchkies on 2/6/12.
 //  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
-//
-//  This program is free software: you can redistribute it and/or modify
-//  it under the terms of the GNU Lesser General Public License as published by
-//  the Free Software Foundation, either version 3 of the License, or
-//  (at your option) any later version.
-//
-//  This program is distributed in the hope that it will be useful,
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//  GNU Lesser General Public License for more details.
-//
-//  You should have received a copy of the GNU Lesser General Public License
-//  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
 #import "NuTurn.h"
+#import "NuBeam.h"
+#import "NuDiplomaticRelation.h"
+#import "NuEngine.h"
+#import "NuGame.h"
+#import "NuGameSettings.h"
+#import "NuHull.h"
+#import "NuIonStorm.h"
+#import "NuMessage.h"
+#import "NuMinefield.h"
+#import "NuPlanet.h"
+#import "NuPlayer.h"
+#import "NuPlayerRace.h"
+#import "NuScore.h"
+#import "NuShip.h"
+#import "NuStarbase.h"
+#import "NuTorpedo.h"
+
 
 @implementation NuTurn
 
-@dynamic ships;
-@dynamic settings;
-@dynamic planets;
-@dynamic player;
-@dynamic ionStorms;
-@dynamic messages;
-@dynamic diplomaticRelations;
-@dynamic players;
-@dynamic races;
-@dynamic minefields;
-@dynamic hulls;
 @dynamic beams;
-@dynamic launchers;
+@dynamic diplomaticRelations;
 @dynamic engines;
 @dynamic game;
+@dynamic hulls;
+@dynamic ionStorms;
+@dynamic launchers;
+@dynamic messages;
+@dynamic minefields;
+@dynamic planets;
+@dynamic player;
+@dynamic players;
+@dynamic races;
+@dynamic settings;
+@dynamic ships;
+@dynamic starbases;
+@dynamic scores;
 
 @end

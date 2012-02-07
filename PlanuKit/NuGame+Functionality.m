@@ -22,6 +22,7 @@
 #import "NuGame+Functionality.h"
 #import "NuGameSettings.h"
 #import "NuDataManager.h"
+#import "NuTurn.h"
 
 @implementation NuGame (Functionality)
 
@@ -106,6 +107,19 @@
     self.tutorialId = [[input objectForKey:@"tutorialid"] intValue];
     self.winCondition = [[input objectForKey:@"wincondition"] intValue];
     self.yearStarted = [[input objectForKey:@"yearstarted"] intValue];
+}
+
+- (NuTurn*)getTurnNumber:(NSInteger)turnNumber
+{
+    for (NuTurn* turn in self.turns)
+    {
+        if (turn.settings.turnNumber == turnNumber)
+        {
+            return turn;
+        }
+    }
+    
+    return nil;
 }
 
 @end
