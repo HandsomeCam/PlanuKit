@@ -374,6 +374,8 @@
     {
         NuMessage* msg = [NuMessage messageFromJson:msgDict
                                         withContext:context];
+        msg.isPlayerMessage = NO;
+        
         [self addMessagesObject:msg];
     }
     
