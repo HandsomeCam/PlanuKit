@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="1" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="878" systemVersion="11C74" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="1" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="878" systemVersion="11D50" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="NuBeam" representedClassName="NuBeam" parentEntity="NuWeapon" syncable="YES">
         <attribute name="beamId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="ships" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuShip" inverseName="beam" inverseEntity="NuShip" syncable="YES"/>
@@ -35,6 +35,13 @@
         <attribute name="tritanium" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="ship" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuShip" inverseName="engine" inverseEntity="NuShip" syncable="YES"/>
         <relationship name="turn" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuTurn" inverseName="engines" inverseEntity="NuTurn" syncable="YES"/>
+    </entity>
+    <entity name="NuExplosion" representedClassName="NuExplosion" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="turnNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="x" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="y" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="turn" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuTurn" inverseName="explosions" inverseEntity="NuTurn" syncable="YES"/>
     </entity>
     <entity name="NuGame" representedClassName="NuGame" syncable="YES">
         <attribute name="allTurnsIn" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -347,6 +354,7 @@
         <relationship name="beams" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuBeam" inverseName="turn" inverseEntity="NuBeam" syncable="YES"/>
         <relationship name="diplomaticRelations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuDiplomaticRelation" inverseName="turn" inverseEntity="NuDiplomaticRelation" syncable="YES"/>
         <relationship name="engines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuEngine" inverseName="turn" inverseEntity="NuEngine" syncable="YES"/>
+        <relationship name="explosions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuExplosion" inverseName="turn" inverseEntity="NuExplosion" syncable="YES"/>
         <relationship name="game" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuGame" inverseName="turns" inverseEntity="NuGame" syncable="YES"/>
         <relationship name="hulls" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuHull" inverseName="turn" inverseEntity="NuHull" syncable="YES"/>
         <relationship name="ionStorms" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuIonStorm" inverseName="turn" inverseEntity="NuIonStorm" syncable="YES"/>
@@ -387,11 +395,12 @@
         <element name="NuPlanet" positionX="-173" positionY="576" width="128" height="225"/>
         <element name="NuPlayer" positionX="-459" positionY="270" width="128" height="360"/>
         <element name="NuPlayerRace" positionX="-0" positionY="-72" width="128" height="195"/>
+        <element name="NuScore" positionX="-324" positionY="-1539" width="128" height="255"/>
         <element name="NuShip" positionX="720" positionY="-324" width="128" height="915"/>
         <element name="NuStarbase" positionX="-9" positionY="7650" width="128" height="75"/>
         <element name="NuTorpedo" positionX="-27" positionY="720" width="128" height="75"/>
         <element name="NuTurn" positionX="468" positionY="219" width="128" height="300"/>
         <element name="NuWeapon" positionX="-20" positionY="711" width="128" height="180"/>
-        <element name="NuScore" positionX="-324" positionY="-1539" width="128" height="255"/>
+        <element name="NuExplosion" positionX="160" positionY="192" width="128" height="120"/>
     </elements>
 </model>

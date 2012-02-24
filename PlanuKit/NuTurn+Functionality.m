@@ -37,6 +37,7 @@
 #import "NuMessage.h"
 #import "NuDiplomaticRelation.h"
 #import "NuDataManager.h"
+#import "NuExplosion.h"
 
 #import "NuPlanet+Functionality.h"
 #import "NuStarbase+Functionality.h"
@@ -91,6 +92,7 @@
 - (void)loadScores:(NSDictionary*)input
        withContext:(NSManagedObjectContext*)context;
 
+- (void)extractExplosionsWithContext:(NSManagedObjectContext*)context;
 - (void)calculateShipPlanetDistances;
 
 - (void)assignMissionTargets;
@@ -157,6 +159,31 @@
     [self loadMinefields:input withContext:context];
     
     [self loadScores:input withContext:context];
+    
+    [self extractExplosionsWithContext:context];
+}
+
+- (void)extractExplosionsWithContext:(NSManagedObjectContext *)context
+{
+    for (NuMessage* msg in self.messages)
+    {
+        if (msg.messageType == kNuMessageTypeExplosion)
+        {
+            NuExplosion* explosion = 
+            [NSEntityDescription insertNewObjectForEntityForName:@"NuExplosion"
+                                          inManagedObjectContext:context];
+            
+            explosion.x = msg.x;
+            explosion.y = msg.y;
+            
+            NSString *msgBody = msg.body;
+            NSArray* splitBody = [msgBody componentsSeparatedByString:@": "];
+            
+            explosion.name = [splitBody objectAtIndex:1];
+            explosion.turnNumber = self.settings.turnNumber;
+            [self addExplosionsObject:explosion];
+        }
+    }
 }
 
 - (void)removeOldData
@@ -176,6 +203,7 @@
     [self removeRaces:self.races];
     [self removeMinefields:self.minefields];
     [self removeHulls:self.hulls];
+    [self removeExplosions:self.explosions];
     
 }
 

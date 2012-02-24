@@ -2,14 +2,14 @@
 //  NuTurn.h
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 2/6/12.
+//  Created by Cameron Hotchkies on 2/19/12.
 //  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class NuBeam, NuDiplomaticRelation, NuEngine, NuGame, NuGameSettings, NuHull, NuIonStorm, NuMessage, NuMinefield, NuPlanet, NuPlayer, NuPlayerRace, NuScore, NuShip, NuStarbase, NuTorpedo;
+@class NuBeam, NuDiplomaticRelation, NuEngine, NuExplosion, NuGame, NuGameSettings, NuHull, NuIonStorm, NuMessage, NuMinefield, NuPlanet, NuPlayer, NuPlayerRace, NuScore, NuShip, NuStarbase, NuTorpedo;
 
 @interface NuTurn : NSManagedObject
 
@@ -26,10 +26,11 @@
 @property (nonatomic, retain) NuPlayer *player;
 @property (nonatomic, retain) NSSet *players;
 @property (nonatomic, retain) NSSet *races;
+@property (nonatomic, retain) NSSet *scores;
 @property (nonatomic, retain) NuGameSettings *settings;
 @property (nonatomic, retain) NSSet *ships;
 @property (nonatomic, retain) NSSet *starbases;
-@property (nonatomic, retain) NSSet *scores;
+@property (nonatomic, retain) NSSet *explosions;
 @end
 
 @interface NuTurn (CoreDataGeneratedAccessors)
@@ -89,6 +90,11 @@
 - (void)addRaces:(NSSet *)values;
 - (void)removeRaces:(NSSet *)values;
 
+- (void)addScoresObject:(NuScore *)value;
+- (void)removeScoresObject:(NuScore *)value;
+- (void)addScores:(NSSet *)values;
+- (void)removeScores:(NSSet *)values;
+
 - (void)addShipsObject:(NuShip *)value;
 - (void)removeShipsObject:(NuShip *)value;
 - (void)addShips:(NSSet *)values;
@@ -99,9 +105,9 @@
 - (void)addStarbases:(NSSet *)values;
 - (void)removeStarbases:(NSSet *)values;
 
-- (void)addScoresObject:(NuScore *)value;
-- (void)removeScoresObject:(NuScore *)value;
-- (void)addScores:(NSSet *)values;
-- (void)removeScores:(NSSet *)values;
+- (void)addExplosionsObject:(NuExplosion *)value;
+- (void)removeExplosionsObject:(NuExplosion *)value;
+- (void)addExplosions:(NSSet *)values;
+- (void)removeExplosions:(NSSet *)values;
 
 @end
