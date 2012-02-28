@@ -20,8 +20,23 @@
 //
 
 #import "NuPlayer+Functionality.h"
+#import "NuDataManager.h"
 
 @implementation NuPlayer (Functionality)
+
++ (NuPlayer*)blankPlayer
+{
+    NSManagedObjectContext* myMOC = [[NuDataManager sharedInstance] managedObjectContext];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"NuPlayer"
+                                              inManagedObjectContext:myMOC];
+    NSManagedObject *unassociatedPlayer = [[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:nil];
+    
+    NuPlayer* retVal = (NuPlayer*)unassociatedPlayer;
+    retVal.username = @"Unknown";
+    
+    return retVal;
+}
 
 + (NuPlayer*)playerFromJson:(NSDictionary*)input
                 withContext:(NSManagedObjectContext*)context

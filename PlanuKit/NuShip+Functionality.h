@@ -46,6 +46,7 @@ typedef enum {
 + (NuShip*)shipFromJson:(NSDictionary*)input 
             withContext:(NSManagedObjectContext*)context;
 
++ (NuShip*)blankShip;
 
 - (NSInteger)flightLength;
 - (NSInteger)fuelBurnToPoint:(NSPoint)target;

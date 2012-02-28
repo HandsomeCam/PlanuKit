@@ -23,6 +23,8 @@
 
 @interface NuPlayer (Functionality)
 
++ (NuPlayer*)blankPlayer;
+
 + (NuPlayer*)playerFromJson:(NSDictionary*)input
                 withContext:(NSManagedObjectContext*)context;
 

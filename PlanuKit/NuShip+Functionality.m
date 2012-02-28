@@ -22,9 +22,25 @@
 #import "NuShip+Functionality.h"
 #import "NuHull+Functionality.h"
 #import "NuEngine.h"
-
+#import "NuDataManager.h"
+#import "NuPlayer+Functionality.h"
 
 @implementation NuShip (Functionality)
+
++ (NuShip*)blankShip
+{
+    NSManagedObjectContext* myMOC = [[NuDataManager sharedInstance] managedObjectContext];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"NuShip"
+                                              inManagedObjectContext:myMOC];
+    NSManagedObject *unassociatedShip = [[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:nil];
+    
+    NuShip* retVal = (NuShip*)unassociatedShip;
+    
+    //retVal.player = [NuPlayer blankPlayer];
+    
+    return retVal;
+}
 
 + (NuShip*)shipFromJson:(NSDictionary*)input
             withContext:(NSManagedObjectContext*)context;
