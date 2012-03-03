@@ -34,4 +34,6 @@
 
 - (NuTurn*)getTurnNumber:(NSInteger)turnNumber;
 
+- (NuTurn*)latestTurn;
+
 @end

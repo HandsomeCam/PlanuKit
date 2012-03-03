@@ -122,4 +122,20 @@
     return nil;
 }
 
+- (NuTurn*)latestTurn
+{
+    NuTurn* retVal = nil;
+    
+    for (NuTurn* turn in self.turns)
+    {
+        if (retVal == nil || 
+             turn.settings.turnNumber > retVal.settings.turnNumber)
+        {
+            retVal = turn;
+        }
+    }
+        
+    return retVal;
+}
+
 @end
