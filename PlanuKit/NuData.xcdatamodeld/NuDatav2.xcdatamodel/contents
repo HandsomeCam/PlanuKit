@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="2" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1811" systemVersion="11G63" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="2" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="878" systemVersion="11D50" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="NuBeam" representedClassName="NuBeam" parentEntity="NuWeapon" syncable="YES">
         <attribute name="beamId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="ships" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuShip" inverseName="beam" inverseEntity="NuShip" syncable="YES"/>
@@ -295,6 +295,7 @@
         <attribute name="experience" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="friendlyCode" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="heading" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="history" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="hullId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="infoTurn" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="isCloaked" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -332,18 +333,12 @@
         <attribute name="y" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="beam" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuBeam" inverseName="ships" inverseEntity="NuBeam" syncable="YES"/>
         <relationship name="engine" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuEngine" inverseName="ship" inverseEntity="NuEngine" syncable="YES"/>
-        <relationship name="history" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="NuShipHistory" inverseName="ship" inverseEntity="NuShipHistory" syncable="YES"/>
         <relationship name="hull" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuHull" inverseName="ships" inverseEntity="NuHull" syncable="YES"/>
         <relationship name="launcher" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuTorpedo" inverseName="ships" inverseEntity="NuTorpedo" syncable="YES"/>
         <relationship name="missionTarget1" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuShip" syncable="YES"/>
         <relationship name="missionTarget2" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuShip" syncable="YES"/>
         <relationship name="owner" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuPlayer" inverseName="ships" inverseEntity="NuPlayer" syncable="YES"/>
         <relationship name="turn" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuTurn" inverseName="ships" inverseEntity="NuTurn" syncable="YES"/>
-    </entity>
-    <entity name="NuShipHistory" representedClassName="NuShipHistory" syncable="YES">
-        <attribute name="x" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="y" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <relationship name="ship" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuShip" inverseName="history" inverseEntity="NuShip" syncable="YES"/>
     </entity>
     <entity name="NuStarbase" representedClassName="NuStarbase" syncable="YES">
         <attribute name="planetId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -388,7 +383,7 @@
     </entity>
     <fetchRequest name="gameById" entity="NuGame" predicateString="gameId == $gameId"/>
     <elements>
-        <element name="NuBeam" positionX="-18" positionY="729" width="128" height="105"/>
+        <element name="NuBeam" positionX="-18" positionY="729" width="128" height="90"/>
         <element name="NuDiplomaticRelation" positionX="160" positionY="192" width="128" height="180"/>
         <element name="NuEngine" positionX="223" positionY="1026" width="128" height="90"/>
         <element name="NuExplosion" positionX="160" positionY="192" width="128" height="120"/>
@@ -405,8 +400,7 @@
         <element name="NuShip" positionX="720" positionY="-324" width="128" height="915"/>
         <element name="NuStarbase" positionX="-9" positionY="7650" width="128" height="75"/>
         <element name="NuTorpedo" positionX="-27" positionY="720" width="128" height="75"/>
-        <element name="NuTurn" positionX="468" positionY="219" width="128" height="315"/>
+        <element name="NuTurn" positionX="468" positionY="219" width="128" height="300"/>
         <element name="NuWeapon" positionX="-20" positionY="711" width="128" height="180"/>
-        <element name="NuShipHistory" positionX="160" positionY="192" width="128" height="90"/>
     </elements>
 </model>

@@ -62,7 +62,13 @@
     retVal.experience = [[input objectForKey:@"experience"] intValue];
     retVal.friendlyCode = [input objectForKey:@"friendlycode"];
     retVal.heading = [[input objectForKey:@"heading"] intValue];
-    retVal.history = [input objectForKey:@"history"];
+    
+    id history_temp = [input objectForKey:@"history"];
+    
+    if ([history_temp class] == [NSString class])
+    {
+        retVal.history = [input objectForKey:@"history"];
+    }
     retVal.hullId = [[input objectForKey:@"hullid"] intValue];
     retVal.shipId = [[input objectForKey:@"id"] intValue];
     retVal.infoTurn = [[input objectForKey:@"infoturn"] intValue];

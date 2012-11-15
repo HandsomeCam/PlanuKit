@@ -51,6 +51,7 @@
 {
     delegate = delegateIncoming;
     
+    // TODO: modify status
     NSString* fullUrl = [NSString stringWithFormat:@"%@?username=%@", kPlanetsNuGameListUrl, username];
     
     // Create the request.
@@ -142,7 +143,7 @@ didFailWithError:(NSError *)error
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     
     NSMutableArray* retVal = [[NSMutableArray alloc] init];
-    
+    NSLog(@"%@", response);
     id decodedJson = [response objectFromJSONString];
     
     if ([decodedJson isKindOfClass:[NSArray class]] == false)

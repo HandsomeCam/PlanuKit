@@ -31,8 +31,12 @@
 		7E6C7F3414E0D21A0024BC9D /* NuScore+Functionality.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6C7F3214E0D21A0024BC9D /* NuScore+Functionality.m */; };
 		7E7522D114F1C27100AA4B0F /* NuExplosion.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E7522CF14F1C27100AA4B0F /* NuExplosion.h */; };
 		7E7522D214F1C27100AA4B0F /* NuExplosion.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7522D014F1C27100AA4B0F /* NuExplosion.m */; };
-		7E7522D614F1C28D00AA4B0F /* NuTurn.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E7522D414F1C28D00AA4B0F /* NuTurn.h */; };
-		7E7522D714F1C28D00AA4B0F /* NuTurn.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7522D514F1C28D00AA4B0F /* NuTurn.m */; };
+		7E88D45A165531C8002B62B2 /* NuShipHistory.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E88D458165531C8002B62B2 /* NuShipHistory.h */; };
+		7E88D45B165531C8002B62B2 /* NuShipHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E88D459165531C8002B62B2 /* NuShipHistory.m */; };
+		7E88D45E165531C9002B62B2 /* NuShip.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E88D45C165531C8002B62B2 /* NuShip.h */; };
+		7E88D45F165531C9002B62B2 /* NuShip.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E88D45D165531C8002B62B2 /* NuShip.m */; };
+		7E88D462165531C9002B62B2 /* NuTurn.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E88D460165531C9002B62B2 /* NuTurn.h */; };
+		7E88D463165531C9002B62B2 /* NuTurn.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E88D461165531C9002B62B2 /* NuTurn.m */; };
 		7E8A71A414CE7445001B400E /* NuTurn+Functionality.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E8A71A214CE7445001B400E /* NuTurn+Functionality.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7E8A71A514CE7445001B400E /* NuTurn+Functionality.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8A71A314CE7445001B400E /* NuTurn+Functionality.m */; };
 		7E940EFF14CF90C0007B3777 /* NuShip+Functionality.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E940EFD14CF90C0007B3777 /* NuShip+Functionality.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -55,8 +59,6 @@
 		7E940F2414CF9475007B3777 /* NuPlanet.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E940F2214CF9475007B3777 /* NuPlanet.m */; };
 		7E940F2714CF9476007B3777 /* NuStarbase.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E940F2514CF9476007B3777 /* NuStarbase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7E940F2814CF9476007B3777 /* NuStarbase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E940F2614CF9476007B3777 /* NuStarbase.m */; };
-		7E940F2B14CF9477007B3777 /* NuShip.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E940F2914CF9477007B3777 /* NuShip.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7E940F2C14CF9477007B3777 /* NuShip.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E940F2A14CF9477007B3777 /* NuShip.m */; };
 		7E9930DC14DE23CC00A463EE /* NuPlayer+Functionality.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E9930DA14DE23CC00A463EE /* NuPlayer+Functionality.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7E9930DD14DE23CC00A463EE /* NuPlayer+Functionality.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9930DB14DE23CC00A463EE /* NuPlayer+Functionality.m */; };
 		7EB9CC1D14ABB4D700A6ECB3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB9CC1C14ABB4D700A6ECB3 /* Cocoa.framework */; };
@@ -135,8 +137,12 @@
 		7E6C7F3214E0D21A0024BC9D /* NuScore+Functionality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NuScore+Functionality.m"; sourceTree = "<group>"; };
 		7E7522CF14F1C27100AA4B0F /* NuExplosion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuExplosion.h; sourceTree = "<group>"; };
 		7E7522D014F1C27100AA4B0F /* NuExplosion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuExplosion.m; sourceTree = "<group>"; };
-		7E7522D414F1C28D00AA4B0F /* NuTurn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuTurn.h; sourceTree = "<group>"; };
-		7E7522D514F1C28D00AA4B0F /* NuTurn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuTurn.m; sourceTree = "<group>"; };
+		7E88D458165531C8002B62B2 /* NuShipHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuShipHistory.h; sourceTree = "<group>"; };
+		7E88D459165531C8002B62B2 /* NuShipHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuShipHistory.m; sourceTree = "<group>"; };
+		7E88D45C165531C8002B62B2 /* NuShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NuShip.h; path = PlanuKit/NuShip.h; sourceTree = "<group>"; };
+		7E88D45D165531C8002B62B2 /* NuShip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NuShip.m; path = PlanuKit/NuShip.m; sourceTree = "<group>"; };
+		7E88D460165531C9002B62B2 /* NuTurn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuTurn.h; sourceTree = "<group>"; };
+		7E88D461165531C9002B62B2 /* NuTurn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuTurn.m; sourceTree = "<group>"; };
 		7E8A71A214CE7445001B400E /* NuTurn+Functionality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NuTurn+Functionality.h"; sourceTree = "<group>"; };
 		7E8A71A314CE7445001B400E /* NuTurn+Functionality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NuTurn+Functionality.m"; sourceTree = "<group>"; };
 		7E940EFD14CF90C0007B3777 /* NuShip+Functionality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NuShip+Functionality.h"; path = "PlanuKit/NuShip+Functionality.h"; sourceTree = "<group>"; };
@@ -159,8 +165,6 @@
 		7E940F2214CF9475007B3777 /* NuPlanet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NuPlanet.m; path = PlanuKit/NuPlanet.m; sourceTree = "<group>"; };
 		7E940F2514CF9476007B3777 /* NuStarbase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NuStarbase.h; path = PlanuKit/NuStarbase.h; sourceTree = "<group>"; };
 		7E940F2614CF9476007B3777 /* NuStarbase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NuStarbase.m; path = PlanuKit/NuStarbase.m; sourceTree = "<group>"; };
-		7E940F2914CF9477007B3777 /* NuShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NuShip.h; path = PlanuKit/NuShip.h; sourceTree = "<group>"; };
-		7E940F2A14CF9477007B3777 /* NuShip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NuShip.m; path = PlanuKit/NuShip.m; sourceTree = "<group>"; };
 		7E9930DA14DE23CC00A463EE /* NuPlayer+Functionality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NuPlayer+Functionality.h"; sourceTree = "<group>"; };
 		7E9930DB14DE23CC00A463EE /* NuPlayer+Functionality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NuPlayer+Functionality.m"; sourceTree = "<group>"; };
 		7E9FC9BF14C48DC800B44623 /* NuWeapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuWeapon.h; sourceTree = "<group>"; };
@@ -323,10 +327,12 @@
 				7EB9CC5514ABB7BF00A6ECB3 /* NuShipDatabase.m */,
 				7EFBC27914C48786008D406D /* NuTorpedo.h */,
 				7EFBC27A14C48786008D406D /* NuTorpedo.m */,
-				7E7522D414F1C28D00AA4B0F /* NuTurn.h */,
-				7E7522D514F1C28D00AA4B0F /* NuTurn.m */,
 				7E8A71A214CE7445001B400E /* NuTurn+Functionality.h */,
 				7E8A71A314CE7445001B400E /* NuTurn+Functionality.m */,
+				7E88D460165531C9002B62B2 /* NuTurn.h */,
+				7E88D461165531C9002B62B2 /* NuTurn.m */,
+				7E88D458165531C8002B62B2 /* NuShipHistory.h */,
+				7E88D459165531C8002B62B2 /* NuShipHistory.m */,
 				7E9FC9BF14C48DC800B44623 /* NuWeapon.h */,
 				7E9FC9C014C48DC800B44623 /* NuWeapon.m */,
 				7E29089614ABBCE900B11972 /* Service Requests */,
@@ -388,8 +394,8 @@
 				7E940F2214CF9475007B3777 /* NuPlanet.m */,
 				7E940F2514CF9476007B3777 /* NuStarbase.h */,
 				7E940F2614CF9476007B3777 /* NuStarbase.m */,
-				7E940F2914CF9477007B3777 /* NuShip.h */,
-				7E940F2A14CF9477007B3777 /* NuShip.m */,
+				7E88D45C165531C8002B62B2 /* NuShip.h */,
+				7E88D45D165531C8002B62B2 /* NuShip.m */,
 			);
 			name = "Mappable Entities";
 			path = ..;
@@ -441,13 +447,14 @@
 				7E940F1F14CF9475007B3777 /* NuIonStorm.h in Headers */,
 				7E940F2314CF9475007B3777 /* NuPlanet.h in Headers */,
 				7E940F2714CF9476007B3777 /* NuStarbase.h in Headers */,
-				7E940F2B14CF9477007B3777 /* NuShip.h in Headers */,
 				7E9930DC14DE23CC00A463EE /* NuPlayer+Functionality.h in Headers */,
 				7E6C7F2614E0D13C0024BC9D /* NuScore.h in Headers */,
 				7E6C7F2B14E0D13D0024BC9D /* NuPlayer.h in Headers */,
 				7E6C7F3314E0D21A0024BC9D /* NuScore+Functionality.h in Headers */,
 				7E7522D114F1C27100AA4B0F /* NuExplosion.h in Headers */,
-				7E7522D614F1C28D00AA4B0F /* NuTurn.h in Headers */,
+				7E88D45A165531C8002B62B2 /* NuShipHistory.h in Headers */,
+				7E88D45E165531C9002B62B2 /* NuShip.h in Headers */,
+				7E88D462165531C9002B62B2 /* NuTurn.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,13 +596,14 @@
 				7E940F2014CF9475007B3777 /* NuIonStorm.m in Sources */,
 				7E940F2414CF9475007B3777 /* NuPlanet.m in Sources */,
 				7E940F2814CF9476007B3777 /* NuStarbase.m in Sources */,
-				7E940F2C14CF9477007B3777 /* NuShip.m in Sources */,
 				7E9930DD14DE23CC00A463EE /* NuPlayer+Functionality.m in Sources */,
 				7E6C7F2714E0D13C0024BC9D /* NuScore.m in Sources */,
 				7E6C7F2C14E0D13D0024BC9D /* NuPlayer.m in Sources */,
 				7E6C7F3414E0D21A0024BC9D /* NuScore+Functionality.m in Sources */,
 				7E7522D214F1C27100AA4B0F /* NuExplosion.m in Sources */,
-				7E7522D714F1C28D00AA4B0F /* NuTurn.m in Sources */,
+				7E88D45B165531C8002B62B2 /* NuShipHistory.m in Sources */,
+				7E88D45F165531C9002B62B2 /* NuShip.m in Sources */,
+				7E88D463165531C9002B62B2 /* NuTurn.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

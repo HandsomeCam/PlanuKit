@@ -2,7 +2,7 @@
 //  NuTurn.m
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 2/19/12.
+//  Created by Cameron Hotchkies on 11/15/12.
 //  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 
@@ -31,6 +31,7 @@
 @dynamic beams;
 @dynamic diplomaticRelations;
 @dynamic engines;
+@dynamic explosions;
 @dynamic game;
 @dynamic hulls;
 @dynamic ionStorms;
@@ -45,6 +46,5 @@
 @dynamic settings;
 @dynamic ships;
 @dynamic starbases;
-@dynamic explosions;
 
 @end

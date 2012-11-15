@@ -119,7 +119,7 @@
     
     
     // Remove all data
-    [self removeOldData];
+    //[self removeOldData];
     
     // Load Settings
     NuGameSettings* settings = [NuGameSettings settingsFromJson:settingsDict withContext:context];
@@ -191,7 +191,10 @@
     [self removeScores:self.scores];
     self.settings = nil;
     self.player = nil;
-    [self removeDiplomaticRelations:self.diplomaticRelations];
+//    if (self.diplomaticRelations != nil)
+//    {
+//    [self removeDiplomaticRelations:self.diplomaticRelations];
+//    }
     [self removeBeams:self.beams];
     [self removeLaunchers:self.launchers];
     [self removeEngines:self.engines];

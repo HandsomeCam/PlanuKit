@@ -200,6 +200,11 @@
             }
         }
         
+        if (thisTurn == nil)
+        {
+            NSLog(@"Danger will robinson!");
+        }
+        
         NuTurn* updated = [self parseTurnFromResponse:responseString withTurn:thisTurn];
         [responseString release];
         
@@ -259,14 +264,16 @@
     
     NuDataManager* dm = [NuDataManager sharedInstance];
     
+    NSDictionary* turnResult = [decodedJson objectForKey:@"rst"];
+    
     if (retVal == nil)
     {
-        retVal = [NuTurn turnFromJson:decodedJson
+        retVal = [NuTurn turnFromJson:turnResult
                       withContext:[dm mainObjectContext]];
     }
     else
     {
-        [retVal updateContents:decodedJson
+        [retVal updateContents:turnResult
                    withContext:[dm mainObjectContext]];
     }
     

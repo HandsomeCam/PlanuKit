@@ -2,14 +2,14 @@
 //  NuShip.h
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 1/24/12.
+//  Created by Cameron Hotchkies on 11/15/12.
 //  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class NuBeam, NuEngine, NuHull, NuPlayer, NuShip, NuTorpedo, NuTurn;
+@class NuBeam, NuEngine, NuHull, NuPlayer, NuShip, NuShipHistory, NuTorpedo, NuTurn;
 
 @interface NuShip : NSManagedObject
 
@@ -20,13 +20,13 @@
 @property (nonatomic) int16_t clans;
 @property (nonatomic) int16_t crew;
 @property (nonatomic) int16_t damage;
+@property (nonatomic) double distanceToClosestPlanet;
 @property (nonatomic) int16_t duranium;
 @property (nonatomic) int16_t enemy;
 @property (nonatomic) int16_t engineId;
 @property (nonatomic) int32_t experience;
 @property (nonatomic, retain) NSString * friendlyCode;
 @property (nonatomic) int16_t heading;
-@property (nonatomic, retain) NSString * history;
 @property (nonatomic) int16_t hullId;
 @property (nonatomic) int32_t infoTurn;
 @property (nonatomic) BOOL isCloaked;
@@ -38,6 +38,7 @@
 @property (nonatomic) int16_t molybdenum;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic) int16_t neutronium;
+@property (nonatomic) int16_t ownerId;
 @property (nonatomic) int16_t readyStatus;
 @property (nonatomic) int16_t shipId;
 @property (nonatomic) int16_t supplies;
@@ -61,15 +62,27 @@
 @property (nonatomic) int16_t warp;
 @property (nonatomic) int16_t x;
 @property (nonatomic) int16_t y;
-@property (nonatomic) int16_t ownerId;
-@property (nonatomic) double distanceToClosestPlanet;
 @property (nonatomic, retain) NuBeam *beam;
 @property (nonatomic, retain) NuEngine *engine;
 @property (nonatomic, retain) NuHull *hull;
 @property (nonatomic, retain) NuTorpedo *launcher;
 @property (nonatomic, retain) NuShip *missionTarget1;
 @property (nonatomic, retain) NuShip *missionTarget2;
-@property (nonatomic, retain) NuTurn *turn;
 @property (nonatomic, retain) NuPlayer *owner;
+@property (nonatomic, retain) NuTurn *turn;
+@property (nonatomic, retain) NSOrderedSet *history;
+@end
 
+@interface NuShip (CoreDataGeneratedAccessors)
+
+- (void)insertObject:(NuShipHistory *)value inHistoryAtIndex:(NSUInteger)idx;
+- (void)removeObjectFromHistoryAtIndex:(NSUInteger)idx;
+- (void)insertHistory:(NSArray *)value atIndexes:(NSIndexSet *)indexes;
+- (void)removeHistoryAtIndexes:(NSIndexSet *)indexes;
+- (void)replaceObjectInHistoryAtIndex:(NSUInteger)idx withObject:(NuShipHistory *)value;
+- (void)replaceHistoryAtIndexes:(NSIndexSet *)indexes withHistory:(NSArray *)values;
+- (void)addHistoryObject:(NuShipHistory *)value;
+- (void)removeHistoryObject:(NuShipHistory *)value;
+- (void)addHistory:(NSOrderedSet *)values;
+- (void)removeHistory:(NSOrderedSet *)values;
 @end

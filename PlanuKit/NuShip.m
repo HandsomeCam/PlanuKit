@@ -2,7 +2,7 @@
 //  NuShip.m
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 1/24/12.
+//  Created by Cameron Hotchkies on 11/15/12.
 //  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 
@@ -12,6 +12,7 @@
 #import "NuHull.h"
 #import "NuPlayer.h"
 #import "NuShip.h"
+#import "NuShipHistory.h"
 #import "NuTorpedo.h"
 #import "NuTurn.h"
 
@@ -25,13 +26,13 @@
 @dynamic clans;
 @dynamic crew;
 @dynamic damage;
+@dynamic distanceToClosestPlanet;
 @dynamic duranium;
 @dynamic enemy;
 @dynamic engineId;
 @dynamic experience;
 @dynamic friendlyCode;
 @dynamic heading;
-@dynamic history;
 @dynamic hullId;
 @dynamic infoTurn;
 @dynamic isCloaked;
@@ -43,6 +44,7 @@
 @dynamic molybdenum;
 @dynamic name;
 @dynamic neutronium;
+@dynamic ownerId;
 @dynamic readyStatus;
 @dynamic shipId;
 @dynamic supplies;
@@ -66,15 +68,14 @@
 @dynamic warp;
 @dynamic x;
 @dynamic y;
-@dynamic ownerId;
-@dynamic distanceToClosestPlanet;
 @dynamic beam;
 @dynamic engine;
 @dynamic hull;
 @dynamic launcher;
 @dynamic missionTarget1;
 @dynamic missionTarget2;
-@dynamic turn;
 @dynamic owner;
+@dynamic turn;
+@dynamic history;
 
 @end

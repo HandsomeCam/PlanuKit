@@ -2,7 +2,7 @@
 //  NuTurn.h
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 2/19/12.
+//  Created by Cameron Hotchkies on 11/15/12.
 //  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
 //
 
@@ -16,6 +16,7 @@
 @property (nonatomic, retain) NSSet *beams;
 @property (nonatomic, retain) NSSet *diplomaticRelations;
 @property (nonatomic, retain) NSSet *engines;
+@property (nonatomic, retain) NSSet *explosions;
 @property (nonatomic, retain) NuGame *game;
 @property (nonatomic, retain) NSSet *hulls;
 @property (nonatomic, retain) NSSet *ionStorms;
@@ -30,7 +31,6 @@
 @property (nonatomic, retain) NuGameSettings *settings;
 @property (nonatomic, retain) NSSet *ships;
 @property (nonatomic, retain) NSSet *starbases;
-@property (nonatomic, retain) NSSet *explosions;
 @end
 
 @interface NuTurn (CoreDataGeneratedAccessors)
@@ -49,6 +49,11 @@
 - (void)removeEnginesObject:(NuEngine *)value;
 - (void)addEngines:(NSSet *)values;
 - (void)removeEngines:(NSSet *)values;
+
+- (void)addExplosionsObject:(NuExplosion *)value;
+- (void)removeExplosionsObject:(NuExplosion *)value;
+- (void)addExplosions:(NSSet *)values;
+- (void)removeExplosions:(NSSet *)values;
 
 - (void)addHullsObject:(NuHull *)value;
 - (void)removeHullsObject:(NuHull *)value;
@@ -104,10 +109,5 @@
 - (void)removeStarbasesObject:(NuStarbase *)value;
 - (void)addStarbases:(NSSet *)values;
 - (void)removeStarbases:(NSSet *)values;
-
-- (void)addExplosionsObject:(NuExplosion *)value;
-- (void)removeExplosionsObject:(NuExplosion *)value;
-- (void)addExplosions:(NSSet *)values;
-- (void)removeExplosions:(NSSet *)values;
 
 @end
