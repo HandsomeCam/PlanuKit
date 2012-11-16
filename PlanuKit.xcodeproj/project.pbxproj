@@ -117,8 +117,8 @@
 		7E29089A14ABBCE900B11972 /* NuLoginRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NuLoginRequest.m; path = ../PlanuKit/PlanuKit/NuLoginRequest.m; sourceTree = "<group>"; };
 		7E29089B14ABBCE900B11972 /* NuTurnRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NuTurnRequest.h; path = ../PlanuKit/PlanuKit/NuTurnRequest.h; sourceTree = "<group>"; };
 		7E29089C14ABBCE900B11972 /* NuTurnRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NuTurnRequest.m; path = ../PlanuKit/PlanuKit/NuTurnRequest.m; sourceTree = "<group>"; };
-		7E2908A414ABBD8F00B11972 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = ../JSONKit/JSONKit.h; sourceTree = "<group>"; };
-		7E2908A514ABBD8F00B11972 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONKit.m; path = ../JSONKit/JSONKit.m; sourceTree = "<group>"; };
+		7E2908A414ABBD8F00B11972 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = ../PlanuKit/JSONKit/JSONKit.h; sourceTree = "<group>"; };
+		7E2908A514ABBD8F00B11972 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONKit.m; path = ../PlanuKit/JSONKit/JSONKit.m; sourceTree = "<group>"; };
 		7E2908AA14ABBFE400B11972 /* NuGameSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuGameSettings.h; sourceTree = "<group>"; };
 		7E2908AB14ABBFE400B11972 /* NuGameSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuGameSettings.m; sourceTree = "<group>"; };
 		7E2908AC14ABBFE400B11972 /* NuHull.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuHull.h; sourceTree = "<group>"; };
