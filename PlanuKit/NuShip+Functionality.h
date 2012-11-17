@@ -3,7 +3,7 @@
 //  PlanuKit
 //
 //  Created by Cameron Hotchkies on 1/24/12.
-//  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
+//  Copyright (c) 2012 Srs Biznas, LLC. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU Lesser General Public License as published by
@@ -20,7 +20,7 @@
 //
 
 #import "NuShip.h"
-
+#include <TargetConditionals.h>
 
 typedef enum {
     kShipMissionExploration         = 0,
@@ -49,8 +49,15 @@ typedef enum {
 + (NuShip*)blankShip;
 
 - (NSInteger)flightLength;
+
+#if TARGET_OS_IPHONE
+- (NSInteger)fuelBurnToPoint:(CGPoint)target;
+- (CGPoint)nextTurnDestination;
+#elif TARGET_OS_MAC
 - (NSInteger)fuelBurnToPoint:(NSPoint)target;
 - (NSPoint)nextTurnDestination;
+#endif
+
 - (NSInteger)maxDistanceForFuel;
 
 @end

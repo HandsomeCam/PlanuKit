@@ -3,7 +3,7 @@
 //  PlanuKit
 //
 //  Created by Cameron Hotchkies on 1/18/12.
-//  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
+//  Copyright (c) 2012 Srs Biznas, LLC. All rights reserved.
 //
 
 //  Logic unit tests contain unit test code that is designed to be linked into an independent test executable.

@@ -3,7 +3,7 @@
 //  PlanuKit
 //
 //  Created by Cameron Hotchkies on 2/19/12.
-//  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
+//  Copyright (c) 2012 Srs Biznas, LLC. All rights reserved.
 //
 
 #import "NuExplosion.h"

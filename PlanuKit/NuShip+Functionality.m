@@ -3,7 +3,7 @@
 //  PlanuKit
 //
 //  Created by Cameron Hotchkies on 1/24/12.
-//  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
+//  Copyright (c) 2012 Srs Biznas, LLC. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU Lesser General Public License as published by
@@ -24,6 +24,16 @@
 #import "NuEngine.h"
 #import "NuDataManager.h"
 #import "NuPlayer+Functionality.h"
+
+
+#if TARGET_OS_IPHONE
+    #define PointMaker CGPointMake
+    #define PointRef CGPoint
+    #define pi 3.1415962
+#elif TARGET_OS_MAC
+    #define PointMaker NSMakePoint
+    #define PointRef NSPoint
+#endif
 
 @implementation NuShip (Functionality)
 
@@ -169,11 +179,11 @@
     return retVal;
 }
 
-- (NSPoint)nextTurnDestination
+- (PointRef)nextTurnDestination
 {
-    NSPoint target = NSMakePoint(self.targetX, self.targetY);
+    PointRef target = PointMaker(self.targetX, self.targetY);
     
-    NSPoint vector = NSMakePoint(target.x - self.x, target.y - self.y);
+    PointRef vector = PointMaker(target.x - self.x, target.y - self.y);
     
     NSInteger distance = floor(sqrt(pow(vector.x,2) + pow(vector.y,2)));
     NSInteger maxTravel = pow(self.warp, 2);
@@ -223,7 +233,7 @@
     return distance;
 }
 
-- (NSInteger)fuelBurnToPoint:(NSPoint)target
+- (NSInteger)fuelBurnToPoint:(PointRef)target
 {
     NSInteger massFraction = trunc(self.mass/10);
     

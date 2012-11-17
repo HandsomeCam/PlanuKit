@@ -3,7 +3,7 @@
 //  PlanuKit
 //
 //  Created by Cameron Hotchkies on 1/23/12.
-//  Copyright (c) 2012 Roboboogie Studios. All rights reserved.
+//  Copyright (c) 2012 Srs Biznas, LLC. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU Lesser General Public License as published by

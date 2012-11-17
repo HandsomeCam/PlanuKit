@@ -3,7 +3,7 @@
 //  PlanuKit
 //
 //  Created by Cameron Hotchkies on 12/21/11.
-//  Copyright 2011 Roboboogie Studios. All rights reserved.
+//  Copyright 2011 Srs Biznas, LLC. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU Lesser General Public License as published by
@@ -121,6 +121,8 @@
         [responseString release];
         return;
     }
+    
+    
     
     NSString* apiKeyFormat = @"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX";
     
