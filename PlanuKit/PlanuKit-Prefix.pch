@@ -1,7 +1,7 @@
 //
-// Prefix header for all source files of the 'PlanuKit' target in the 'PlanuKit' project
+// Prefix header for all source files of the 'Planukit' target in the 'Planukit' project
 //
 
 #ifdef __OBJC__
-    #import <Cocoa/Cocoa.h>
+    #import <Foundation/Foundation.h>
 #endif

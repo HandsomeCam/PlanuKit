@@ -39,6 +39,9 @@
 		7E88D463165531C9002B62B2 /* NuTurn.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E88D461165531C9002B62B2 /* NuTurn.m */; };
 		7E8A71A414CE7445001B400E /* NuTurn+Functionality.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E8A71A214CE7445001B400E /* NuTurn+Functionality.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7E8A71A514CE7445001B400E /* NuTurn+Functionality.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8A71A314CE7445001B400E /* NuTurn+Functionality.m */; };
+		7E8F37E2165833F5006F347F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E8F37E1165833F5006F347F /* Foundation.framework */; };
+		7E8F37E7165833F5006F347F /* Planukit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7E8F37E6165833F5006F347F /* Planukit.h */; };
+		7E8F37E9165833F5006F347F /* Planukit.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8F37E8165833F5006F347F /* Planukit.m */; };
 		7E940EFF14CF90C0007B3777 /* NuShip+Functionality.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E940EFD14CF90C0007B3777 /* NuShip+Functionality.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7E940F0014CF90C0007B3777 /* NuShip+Functionality.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E940EFE14CF90C0007B3777 /* NuShip+Functionality.m */; };
 		7E940F0314CF91D2007B3777 /* NuHull+Functionality.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E940F0114CF91D2007B3777 /* NuHull+Functionality.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -104,6 +107,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		7E8F37DE165833F5006F347F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+				7E8F37E7165833F5006F347F /* Planukit.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		7E03E9FB14C785E0001E69FA /* NuShipTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuShipTest.h; sourceTree = "<group>"; };
 		7E03E9FC14C785E0001E69FA /* NuShipTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuShipTest.m; sourceTree = "<group>"; };
@@ -145,6 +161,11 @@
 		7E88D461165531C9002B62B2 /* NuTurn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuTurn.m; sourceTree = "<group>"; };
 		7E8A71A214CE7445001B400E /* NuTurn+Functionality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NuTurn+Functionality.h"; sourceTree = "<group>"; };
 		7E8A71A314CE7445001B400E /* NuTurn+Functionality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NuTurn+Functionality.m"; sourceTree = "<group>"; };
+		7E8F37E0165833F5006F347F /* libPlanukit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPlanukit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E8F37E1165833F5006F347F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7E8F37E5165833F5006F347F /* Planukit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Planukit-Prefix.pch"; sourceTree = "<group>"; };
+		7E8F37E6165833F5006F347F /* Planukit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Planukit.h; sourceTree = "<group>"; };
+		7E8F37E8165833F5006F347F /* Planukit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Planukit.m; sourceTree = "<group>"; };
 		7E940EFD14CF90C0007B3777 /* NuShip+Functionality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NuShip+Functionality.h"; path = "PlanuKit/NuShip+Functionality.h"; sourceTree = "<group>"; };
 		7E940EFE14CF90C0007B3777 /* NuShip+Functionality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NuShip+Functionality.m"; path = "PlanuKit/NuShip+Functionality.m"; sourceTree = "<group>"; };
 		7E940F0114CF91D2007B3777 /* NuHull+Functionality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NuHull+Functionality.h"; sourceTree = "<group>"; };
@@ -200,6 +221,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7E8F37DD165833F5006F347F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E8F37E2165833F5006F347F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7EB9CC1514ABB4D700A6ECB3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -245,12 +274,31 @@
 			path = ../PlanuPlanu;
 			sourceTree = "<group>";
 		};
+		7E8F37E3165833F5006F347F /* Planukit */ = {
+			isa = PBXGroup;
+			children = (
+				7E8F37E6165833F5006F347F /* Planukit.h */,
+				7E8F37E8165833F5006F347F /* Planukit.m */,
+				7E8F37E4165833F5006F347F /* Supporting Files */,
+			);
+			path = Planukit;
+			sourceTree = "<group>";
+		};
+		7E8F37E4165833F5006F347F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7E8F37E5165833F5006F347F /* Planukit-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		7EB9CC0D14ABB4D700A6ECB3 = {
 			isa = PBXGroup;
 			children = (
 				7E2908A314ABBD8F00B11972 /* JSONKit */,
 				7EB9CC2214ABB4D700A6ECB3 /* PlanuKit */,
 				7EB9CC3814ABB4D800A6ECB3 /* PlanuKitTests */,
+				7E8F37E3165833F5006F347F /* Planukit */,
 				7EB9CC1B14ABB4D700A6ECB3 /* Frameworks */,
 				7EB9CC1A14ABB4D700A6ECB3 /* Products */,
 			);
@@ -261,6 +309,7 @@
 			children = (
 				7EB9CC1914ABB4D700A6ECB3 /* PlanuKit.framework */,
 				7EB9CC3114ABB4D800A6ECB3 /* PlanuKitTests.octest */,
+				7E8F37E0165833F5006F347F /* libPlanukit.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -270,6 +319,7 @@
 			children = (
 				7EB9CC1C14ABB4D700A6ECB3 /* Cocoa.framework */,
 				7EB9CC3214ABB4D800A6ECB3 /* SenTestingKit.framework */,
+				7E8F37E1165833F5006F347F /* Foundation.framework */,
 				7EB9CC1E14ABB4D700A6ECB3 /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -461,6 +511,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		7E8F37DF165833F5006F347F /* Planukit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7E8F37EA165833F5006F347F /* Build configuration list for PBXNativeTarget "Planukit" */;
+			buildPhases = (
+				7E8F37DC165833F5006F347F /* Sources */,
+				7E8F37DD165833F5006F347F /* Frameworks */,
+				7E8F37DE165833F5006F347F /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Planukit;
+			productName = Planukit;
+			productReference = 7E8F37E0165833F5006F347F /* libPlanukit.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		7EB9CC1814ABB4D700A6ECB3 /* PlanuKit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7EB9CC4414ABB4D800A6ECB3 /* Build configuration list for PBXNativeTarget "PlanuKit" */;
@@ -504,7 +571,7 @@
 		7EB9CC0F14ABB4D700A6ECB3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Roboboogie Studios";
 			};
 			buildConfigurationList = 7EB9CC1214ABB4D700A6ECB3 /* Build configuration list for PBXProject "PlanuKit" */;
@@ -521,6 +588,7 @@
 			targets = (
 				7EB9CC1814ABB4D700A6ECB3 /* PlanuKit */,
 				7EB9CC3014ABB4D800A6ECB3 /* PlanuKitTests */,
+				7E8F37DF165833F5006F347F /* Planukit */,
 			);
 		};
 /* End PBXProject section */
@@ -563,6 +631,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7E8F37DC165833F5006F347F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E8F37E9165833F5006F347F /* Planukit.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7EB9CC1414ABB4D700A6ECB3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -646,6 +722,47 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		7E8F37EB165833F5006F347F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				DSTROOT = /tmp/Planukit.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Planukit/Planukit-Prefix.pch";
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		7E8F37EC165833F5006F347F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				DSTROOT = /tmp/Planukit.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Planukit/Planukit-Prefix.pch";
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		7EB9CC4214ABB4D800A6ECB3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -696,6 +813,7 @@
 		7EB9CC4514ABB4D800A6ECB3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
@@ -711,6 +829,7 @@
 		7EB9CC4614ABB4D800A6ECB3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
@@ -726,6 +845,7 @@
 		7EB9CC4814ABB4D800A6ECB3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PlanuKit/PlanuKit-Prefix.pch";
@@ -738,6 +858,7 @@
 		7EB9CC4914ABB4D800A6ECB3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PlanuKit/PlanuKit-Prefix.pch";
@@ -750,6 +871,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7E8F37EA165833F5006F347F /* Build configuration list for PBXNativeTarget "Planukit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E8F37EB165833F5006F347F /* Debug */,
+				7E8F37EC165833F5006F347F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		7EB9CC1214ABB4D700A6ECB3 /* Build configuration list for PBXProject "PlanuKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
