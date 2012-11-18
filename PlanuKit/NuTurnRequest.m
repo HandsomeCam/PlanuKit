@@ -82,7 +82,7 @@
                 andDelegate:d];
 }
 
-- (void)requestTurnNumber:(NSInteger)turnNumber forGame:(NSInteger)gameId withKey:(NSString *)apiKey andDelegate:(id<NuTurnRequestDelegate>)delegateIncoming
+- (void)requestTurnNumber:(NSInteger)turnNumber forGame:(int64_t)gameId withKey:(NSString *)apiKey andDelegate:(id<NuTurnRequestDelegate>)delegateIncoming
 {
     delegate = delegateIncoming;
     
@@ -90,10 +90,10 @@
     
     if (turnNumber > 0)
     {
-        turnOption = [NSString stringWithFormat:@"&turn=%ld", turnNumber];
+        turnOption = [NSString stringWithFormat:@"&turn=%d", turnNumber];
     }
     
-    NSString* fullUrl = [NSString stringWithFormat:@"%@?gameid=%d&apikey=%@", kPlanetsNuLoadTurnUrl, gameId, apiKey];
+    NSString* fullUrl = [NSString stringWithFormat:@"%@?gameid=%lld&apikey=%@", kPlanetsNuLoadTurnUrl, gameId, apiKey];
     
     fullUrl = [fullUrl stringByAppendingString:turnOption];
     

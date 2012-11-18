@@ -44,7 +44,7 @@
            andDelegate:(id<NuTurnRequestDelegate>)delegate;
 
 - (void)requestTurnNumber:(NSInteger)turnNumber 
-                  forGame:(NSInteger)gameId 
+                  forGame:(int64_t)gameId
                   withKey:(NSString *)apiKey 
               andDelegate:(id<NuTurnRequestDelegate>)delegate;
 

@@ -20,6 +20,7 @@
 //
 
 #import "NuLoginRequest.h"
+#import "JSONKit.h"
 
 #define kPlanetsNuLoginUrl @"http://api.planets.nu/login"
 
@@ -122,18 +123,28 @@
         return;
     }
     
+    id responseObject = [responseString objectFromJSONString];
     
-    
-    NSString* apiKeyFormat = @"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX";
-    
-    if (responseString.length != apiKeyFormat.length)
+    if ([responseObject isKindOfClass:[NSDictionary class]] == NO)
     {
         [delegate loginFailedWith:@"Invalid response from server"];
         [responseString release];
         return;
     }
     
-    [delegate loginSucceededWith:responseString];
+    NSDictionary *responseData = (NSDictionary*)responseObject;
+    
+    if ([[responseData objectForKey:@"success"] boolValue] == NO)
+    {
+        NSString* errorString = [responseData objectForKey:@"error"];
+        [delegate loginFailedWith:errorString];
+        [responseString release];
+        return;
+    }
+    
+    NSString *apiKey = [responseData objectForKey:@"apikey"];
+    
+    [delegate loginSucceededWith:apiKey];
     
 }
 

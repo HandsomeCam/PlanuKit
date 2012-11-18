@@ -40,7 +40,6 @@
 		7E8A71A414CE7445001B400E /* NuTurn+Functionality.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E8A71A214CE7445001B400E /* NuTurn+Functionality.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7E8A71A514CE7445001B400E /* NuTurn+Functionality.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8A71A314CE7445001B400E /* NuTurn+Functionality.m */; };
 		7E8F37E2165833F5006F347F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E8F37E1165833F5006F347F /* Foundation.framework */; };
-		7E8F385616583894006F347F /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2908A514ABBD8F00B11972 /* JSONKit.m */; };
 		7E8F385816583894006F347F /* NuDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE9B6E914CB918B00A77606 /* NuDataManager.m */; };
 		7E8F385A16583894006F347F /* NuData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7E09C54B14C8C8CF00CE7E9F /* NuData.xcdatamodeld */; };
 		7E8F385C16583894006F347F /* NuIonStorm+Functionality.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E940F0614CF92A2007B3777 /* NuIonStorm+Functionality.m */; };
@@ -116,6 +115,7 @@
 		7E8F38F816583DEA006F347F /* NuTurnRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E29089B14ABBCE900B11972 /* NuTurnRequest.h */; };
 		7E8F38FD16583DEA006F347F /* PlanuKitTests.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB9CC3E14ABB4D800A6ECB3 /* PlanuKitTests.h */; };
 		7E8F390016583DEA006F347F /* NuShipTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E03E9FB14C785E0001E69FA /* NuShipTest.h */; };
+		7E8F390E16586DAB006F347F /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2908A514ABBD8F00B11972 /* JSONKit.m */; };
 		7E940EFF14CF90C0007B3777 /* NuShip+Functionality.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E940EFD14CF90C0007B3777 /* NuShip+Functionality.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7E940F0014CF90C0007B3777 /* NuShip+Functionality.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E940EFE14CF90C0007B3777 /* NuShip+Functionality.m */; };
 		7E940F0314CF91D2007B3777 /* NuHull+Functionality.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E940F0114CF91D2007B3777 /* NuHull+Functionality.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -733,7 +733,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E8F385616583894006F347F /* JSONKit.m in Sources */,
 				7E8F385816583894006F347F /* NuDataManager.m in Sources */,
 				7E8F385A16583894006F347F /* NuData.xcdatamodeld in Sources */,
 				7E8F385C16583894006F347F /* NuIonStorm+Functionality.m in Sources */,
@@ -770,6 +769,7 @@
 				7E8F389B16583894006F347F /* NuGameListRequest.m in Sources */,
 				7E8F389D16583894006F347F /* NuLoginRequest.m in Sources */,
 				7E8F389F16583894006F347F /* NuTurnRequest.m in Sources */,
+				7E8F390E16586DAB006F347F /* JSONKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -873,7 +873,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LINK_WITH_STANDARD_LIBRARIES = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -896,7 +899,10 @@
 				INFOPLIST_FILE = "PlanuKit/PlanuKit-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LINK_WITH_STANDARD_LIBRARIES = YES;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;

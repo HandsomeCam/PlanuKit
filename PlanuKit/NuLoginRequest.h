@@ -23,8 +23,8 @@
 
 @protocol NuLoginRequestDelegate <NSObject>
 
-- (void)loginSucceededWith:(NSString*) ApiKey;
-- (void)loginFailedWith:(NSString*) Reason;
+- (void)loginSucceededWith:(NSString*)apiKey;
+- (void)loginFailedWith:(NSString*)reason;
 
 @end
  
