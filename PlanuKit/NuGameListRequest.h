@@ -21,22 +21,36 @@
 
 #import <Foundation/Foundation.h>
 
+@class NuGameListRequest;
+
 @protocol NuGameListRequestDelegate <NSObject>
 
-- (void)requestsSucceededWith:(NSArray*) Games;
-- (void)requestFailedWith:(NSString*) Reason;
+- (void)gameRequest:(NuGameListRequest*)request succeededWith:(NSArray*)games;
+- (void)gameRequest:(NuGameListRequest*)request failedWith:(NSString*)reason;
 
 @end
 
+enum GameStatus {
+    Joining = 1,
+    Running = 2,
+    Finished = 3,
+    Hold = 4
+    };
 
 @interface NuGameListRequest : NSObject
 {
+
+enum GameStatus gameStatus;
+
 @private
     id<NuGameListRequestDelegate> delegate;
     NSMutableData* receivedData;
 }
 
-- (void)requestGamesFor:(NSString*)username 
+@property (nonatomic, assign) enum GameStatus gameStatus;
+
+- (void)requestGamesFor:(NSString*)username
+             withStatus:(enum GameStatus)status
            withDelegate:(id<NuGameListRequestDelegate>)delegate;
 
 @end

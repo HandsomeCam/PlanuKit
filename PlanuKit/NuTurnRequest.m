@@ -58,9 +58,9 @@
                       withKey:(NSString*)apiKey
                   andDelegate:(id<NuTurnRequestDelegate>)d
 {
-    turnsToUpdate = [[NSMutableSet set] retain];
-    apiKeyInUse = [apiKey retain];
-    gameToUpdate = [game retain];
+    turnsToUpdate = [NSMutableSet set];
+    apiKeyInUse = apiKey;
+    gameToUpdate = game;
     
     // Add every turn to the set
     for (int i=1; i <= game.turnNumber; i++)
@@ -110,7 +110,7 @@
     if (theConnection) {
         // Create the NSMutableData to hold the received data.
         // receivedData is an instance variable declared elsewhere.
-        receivedData = [[NSMutableData data] retain];
+        receivedData = [NSMutableData data];
     } else {
         // Inform the user that the connection failed.
     }
@@ -139,9 +139,7 @@
   didFailWithError:(NSError *)error
 {
     // release the connection, and the data object
-    [connection release];
     // receivedData is declared as a method instance elsewhere
-    [receivedData release];
     
     // inform the user
     NSLog(@"Connection failed! Error - %@ %@",
@@ -163,14 +161,11 @@
     //NSLog(@"Response: %@", responseString);
     
     // release the connection, and the data object
-    [connection release];
-    [receivedData release];
     
     
     if ([responseString hasPrefix:@"Error:"] == true)
     {
         [delegate turnRequestFailedWith:[responseString substringFromIndex:6]];
-        [responseString release];
         return;
     }
     
@@ -206,7 +201,6 @@
         }
         
         NuTurn* updated = [self parseTurnFromResponse:responseString withTurn:thisTurn];
-        [responseString release];
         
         if (updated != thisTurn) // New object
         {
@@ -231,9 +225,6 @@
                     retVal = t;
                 }
             }
-            [turnsToUpdate release];
-            [apiKeyInUse release];
-            [gameToUpdate release];
             
             NuDataManager* dm = [NuDataManager sharedInstance];
             [dm save];
@@ -251,8 +242,6 @@
 
 - (NuTurn*) parseTurnFromResponse:(NSString *)response withTurn:(NuTurn*)t
 { 
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    
     NuTurn* retVal = t;
     
     id decodedJson = [response objectFromJSONString];
@@ -277,9 +266,8 @@
                    withContext:[dm mainObjectContext]];
     }
     
-    [pool drain];
     
-    return [retVal autorelease];
+    return retVal;
 } 
 
 @end

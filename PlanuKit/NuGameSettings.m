@@ -63,7 +63,7 @@
     
 
     
-    NSDateFormatter* df = [[[NSDateFormatter alloc] init] autorelease];
+    NSDateFormatter* df = [[NSDateFormatter alloc] init];
     
     retVal.buildQueuePlanetId = [[input objectForKey:@"buildqueueplanetid"] intValue];
     retVal.cloakFail = [[input objectForKey:@"cloakfail"] intValue];

@@ -18,7 +18,7 @@
 @property (nonatomic) int16_t cargo;
 @property (nonatomic) int16_t cost;
 @property (nonatomic) int16_t crew;
-@property (nonatomic, retain) NSString * descr;
+@property (nonatomic, strong) NSString * descr;
 @property (nonatomic) int16_t duranium;
 @property (nonatomic) int16_t engines;
 @property (nonatomic) int16_t fighterBays;
@@ -26,13 +26,13 @@
 @property (nonatomic) int16_t hullId;
 @property (nonatomic) int16_t mass;
 @property (nonatomic) int16_t molybdenum;
-@property (nonatomic, retain) NSString * name;
+@property (nonatomic, strong) NSString * name;
 @property (nonatomic) int32_t specialAbility;
 @property (nonatomic) int16_t techLevel;
 @property (nonatomic) int16_t torpedoes;
 @property (nonatomic) int16_t tritanium;
-@property (nonatomic, retain) NSSet *ships;
-@property (nonatomic, retain) NuTurn *turn;
+@property (nonatomic, strong) NSSet *ships;
+@property (nonatomic, strong) NuTurn *turn;
 @end
 
 @interface NuHull (CoreDataGeneratedAccessors)

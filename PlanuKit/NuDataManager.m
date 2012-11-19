@@ -40,11 +40,7 @@ NSString * const kDataManagerSQLiteName = @"PlanuKit.sqlite";
 {
 	[self save];
     
-	[_persistentStoreCoordinator release];
-	[_mainObjectContext release];
-	[_objectModel release];
     
-	[super dealloc];
 }
 
 - (NSManagedObjectModel*)objectModel
@@ -142,8 +138,8 @@ NSString * const kDataManagerSQLiteName = @"PlanuKit.sqlite";
 		return SharedDocumentsPath;
     
 	// Compose a path to the <Library>/Database directory
-	NSString *libraryPath = [[NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0] retain];
-	SharedDocumentsPath = [[libraryPath stringByAppendingPathComponent:@"PlanuKit"] retain];
+	NSString *libraryPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+	SharedDocumentsPath = [libraryPath stringByAppendingPathComponent:@"PlanuKit"];
     
 	// Ensure the database directory exists
 	NSFileManager *manager = [NSFileManager defaultManager];
@@ -167,7 +163,7 @@ NSString * const kDataManagerSQLiteName = @"PlanuKit.sqlite";
 
 - (NSManagedObjectContext*)managedObjectContext 
 {
-	NSManagedObjectContext *ctx = [[[NSManagedObjectContext alloc] init] autorelease];
+	NSManagedObjectContext *ctx = [[NSManagedObjectContext alloc] init];
 	[ctx setPersistentStoreCoordinator:self.persistentStoreCoordinator];
     
 	return ctx;

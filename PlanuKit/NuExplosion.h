@@ -15,8 +15,8 @@
 
 @property (nonatomic) int16_t x;
 @property (nonatomic) int16_t y;
-@property (nonatomic, retain) NSString * name;
+@property (nonatomic, strong) NSString * name;
 @property (nonatomic) int32_t turnNumber;
-@property (nonatomic, retain) NuTurn *turn;
+@property (nonatomic, strong) NuTurn *turn;
 
 @end

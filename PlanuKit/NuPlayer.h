@@ -26,27 +26,27 @@
 
 @interface NuPlayer : NSManagedObject
 
-@property (nonatomic, retain) NSString * email;
+@property (nonatomic, strong) NSString * email;
 @property (nonatomic) int16_t finishRank;
 @property (nonatomic) int32_t playerId;
 @property (nonatomic) int32_t priorityPoints;
 @property (nonatomic) int16_t raceId;
-@property (nonatomic, retain) NSString * saveKey;
+@property (nonatomic, strong) NSString * saveKey;
 @property (nonatomic) int32_t status;
 @property (nonatomic) int16_t teamId;
 @property (nonatomic) int32_t turnJoined;
 @property (nonatomic) BOOL turnReady;
 @property (nonatomic) int16_t turnsMissed;
 @property (nonatomic) int16_t turnStatus;
-@property (nonatomic, retain) NSString * username;
-@property (nonatomic, retain) NSSet *diplomaticRelationsFrom;
-@property (nonatomic, retain) NSSet *diplomaticRelationsTo;
-@property (nonatomic, retain) NSSet *minefields;
-@property (nonatomic, retain) NSSet *planets;
-@property (nonatomic, retain) NuPlayerRace *race;
-@property (nonatomic, retain) NSSet *ships;
-@property (nonatomic, retain) NuTurn *turn;
-@property (nonatomic, retain) NuScore *score;
+@property (nonatomic, strong) NSString * username;
+@property (nonatomic, strong) NSSet *diplomaticRelationsFrom;
+@property (nonatomic, strong) NSSet *diplomaticRelationsTo;
+@property (nonatomic, strong) NSSet *minefields;
+@property (nonatomic, strong) NSSet *planets;
+@property (nonatomic, strong) NuPlayerRace *race;
+@property (nonatomic, strong) NSSet *ships;
+@property (nonatomic, strong) NuTurn *turn;
+@property (nonatomic, strong) NuScore *score;
 @end
 
 @interface NuPlayer (CoreDataGeneratedAccessors)

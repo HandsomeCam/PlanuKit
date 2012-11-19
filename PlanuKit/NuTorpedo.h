@@ -28,8 +28,8 @@
 @interface NuTorpedo : NuWeapon
 
 @property (nonatomic) int16_t torpedoId;
-@property (nonatomic, retain) NSSet *ships;
-@property (nonatomic, retain) NuTurn *turn;
+@property (nonatomic, strong) NSSet *ships;
+@property (nonatomic, strong) NuTurn *turn;
 @end
 
 @interface NuTorpedo (CoreDataGeneratedAccessors)

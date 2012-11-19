@@ -31,7 +31,7 @@
 @property (nonatomic) int16_t duranium;
 @property (nonatomic) int16_t mass;
 @property (nonatomic) int16_t molybdenum;
-@property (nonatomic, retain) NSString * name;
+@property (nonatomic, strong) NSString * name;
 @property (nonatomic) int16_t techLevel;
 @property (nonatomic) int16_t tritanium;
 

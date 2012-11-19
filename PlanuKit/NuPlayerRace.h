@@ -26,17 +26,17 @@
 
 @interface NuPlayerRace : NSManagedObject
 
-@property (nonatomic, retain) NSString * adjective;
+@property (nonatomic, strong) NSString * adjective;
 @property (nonatomic) int16_t freeFighters;
 @property (nonatomic) int16_t groundAttack;
 @property (nonatomic) int16_t groundDefense;
 @property (nonatomic) int16_t miningRate;
-@property (nonatomic, retain) NSString * name;
+@property (nonatomic, strong) NSString * name;
 @property (nonatomic) int16_t raceId;
-@property (nonatomic, retain) NSString * shortName;
+@property (nonatomic, strong) NSString * shortName;
 @property (nonatomic) int16_t taxRate;
-@property (nonatomic, retain) NuPlayer *player;
-@property (nonatomic, retain) NuTurn *turn;
+@property (nonatomic, strong) NuPlayer *player;
+@property (nonatomic, strong) NuTurn *turn;
 
 + (NuPlayerRace*)raceFromJson:(NSDictionary*)input 
                   withContext:(NSManagedObjectContext*)context;

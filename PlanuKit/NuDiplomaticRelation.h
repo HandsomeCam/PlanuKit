@@ -43,9 +43,9 @@ typedef enum
 @property (nonatomic) int32_t playerToId;
 @property (nonatomic) int16_t relationTo;
 @property (nonatomic) int16_t relationFrom;
-@property (nonatomic, retain) NuPlayer *playerFrom;
-@property (nonatomic, retain) NuPlayer *playerTo;
-@property (nonatomic, retain) NuTurn *turn;
+@property (nonatomic, strong) NuPlayer *playerFrom;
+@property (nonatomic, strong) NuPlayer *playerTo;
+@property (nonatomic, strong) NuTurn *turn;
 
 
 + (NuDiplomaticRelation*)diplomaticRelationFromJson:(NSDictionary*)input 

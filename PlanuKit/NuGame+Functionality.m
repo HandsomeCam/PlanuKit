@@ -58,14 +58,13 @@
         NSLog(@"Fetched Game: %@", [info valueForKey:@"name"]);
         
     }        
-    [fetchRequest release];
     
     return fetchedObjects;
 }
 
 - (void)updateContents:(NSDictionary*)input
 {
-    NSDateFormatter* df = [[[NSDateFormatter alloc] init] autorelease];
+    NSDateFormatter* df = [[NSDateFormatter alloc] init];
     
     self.allTurnsIn = [[input objectForKey:@"allturnsin"] boolValue];
     self.createdBy = [input objectForKey:@"createdby"];

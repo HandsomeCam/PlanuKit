@@ -28,8 +28,8 @@
 @interface NuBeam : NuWeapon
 
 @property (nonatomic) int16_t beamId;
-@property (nonatomic, retain) NSSet *ships;
-@property (nonatomic, retain) NuTurn *turn;
+@property (nonatomic, strong) NSSet *ships;
+@property (nonatomic, strong) NuTurn *turn;
 @end
 
 @interface NuBeam (CoreDataGeneratedAccessors)

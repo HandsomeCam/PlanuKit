@@ -26,7 +26,7 @@
     NSArray* hulls;
 }
 
-@property (nonatomic, retain) NSArray* hulls;
+@property (nonatomic, strong) NSArray* hulls;
 
 + (NuShipDatabase*)sharedDatabase;
 

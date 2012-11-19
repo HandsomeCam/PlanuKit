@@ -1,3 +1,4 @@
+
 //
 //  NuGameListRequest.m
 //  PlanuKit
@@ -35,6 +36,8 @@
 
 @implementation NuGameListRequest
 
+@synthesize gameStatus;
+
 - (id)init
 {
     self = [super init];
@@ -46,13 +49,15 @@
 }
 
 
-- (void)requestGamesFor:(NSString*)username 
+- (void)requestGamesFor:(NSString*)username
+             withStatus:(enum GameStatus)status
            withDelegate:(id<NuGameListRequestDelegate>)delegateIncoming
 {
     delegate = delegateIncoming;
     
-    // TODO: modify status
-    NSString* fullUrl = [NSString stringWithFormat:@"%@?username=%@", kPlanetsNuGameListUrl, username];
+    
+    
+    NSString* fullUrl = [NSString stringWithFormat:@"%@?username=%@&status=%d", kPlanetsNuGameListUrl, username, status];
     
     // Create the request.
     NSMutableURLRequest *theRequest=[NSMutableURLRequest requestWithURL:[NSURL URLWithString:fullUrl]
@@ -67,7 +72,7 @@
     if (theConnection) {
         // Create the NSMutableData to hold the received data.
         // receivedData is an instance variable declared elsewhere.
-        receivedData = [[NSMutableData data] retain];
+        receivedData = [NSMutableData data];
     } else {
         // Inform the user that the connection failed.
     }
@@ -93,19 +98,17 @@
 }
 
 - (void)connection:(NSURLConnection *)connection
-didFailWithError:(NSError *)error
+  didFailWithError:(NSError *)error
 {
     // release the connection, and the data object
-    [connection release];
     // receivedData is declared as a method instance elsewhere
-    [receivedData release];
     
     // inform the user
     NSLog(@"Connection failed! Error - %@ %@",
           [error localizedDescription],
           [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
     
-    [delegate requestFailedWith:[error localizedDescription]];
+    [delegate gameRequest:self failedWith:[error localizedDescription]];
     
 }
 
@@ -120,14 +123,11 @@ didFailWithError:(NSError *)error
     //NSLog(@"Response: %@", responseString);
     
     // release the connection, and the data object
-    [connection release];
-    [receivedData release];
     
     
     if ([responseString hasPrefix:@"Error:"] == true)
     {
-        [delegate requestFailedWith:[responseString substringFromIndex:6]];
-        [responseString release];
+        [delegate gameRequest:self failedWith:[responseString substringFromIndex:6]];
         return;
     }
      
@@ -135,57 +135,59 @@ didFailWithError:(NSError *)error
     
     // TODO: fail if nil
     
-    [delegate requestsSucceededWith:returnValue];
+    [delegate gameRequest:self succeededWith:returnValue];
 }
 
 - (NSArray*) parseGamesFromResponse:(NSString*)response
-{ 
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+{
+    NSMutableArray* retVal = nil;
     
-    NSMutableArray* retVal = [[NSMutableArray alloc] init];
-    NSLog(@"%@", response);
-    id decodedJson = [response objectFromJSONString];
+    @autoreleasepool {
     
-    if ([decodedJson isKindOfClass:[NSArray class]] == false)
-    {
-        return nil;
-    }
-    
-    NuDataManager* dm = [NuDataManager sharedInstance];
-    
-    NSArray* loaded = [NuGame allGames];
-    
+        retVal = [[NSMutableArray alloc] init];
+        NSLog(@"%@", response);
+        id decodedJson = [response objectFromJSONString];
+        
+        if ([decodedJson isKindOfClass:[NSArray class]] == false)
+        {
+            return nil;
+        }
+        
+        NuDataManager* dm = [NuDataManager sharedInstance];
+        
+        NSArray* loaded = [NuGame allGames];
+        
    
-    for (NSDictionary* gameDict in decodedJson)
-    {
-        NuGame* game = nil;
-        
-        for (NuGame* g in loaded)
+        for (NSDictionary* gameDict in decodedJson)
         {
-            if (g.gameId == [[gameDict objectForKey:@"id"] intValue])
+            NuGame* game = nil;
+            
+            for (NuGame* g in loaded)
             {
-                [g updateContents:gameDict];
-                game = g;
-                break;
+                if (g.gameId == [[gameDict objectForKey:@"id"] intValue])
+                {
+                    [g updateContents:gameDict];
+                    game = g;
+                    break;
+                }
             }
+           
+            if (game == nil)
+            {
+                game = [NuGame gameFromJson:gameDict
+                                withContext:[dm mainObjectContext]];
+            }
+            
+            
+            [retVal addObject:game];
         }
-       
-        if (game == nil)
-        {
-            game = [NuGame gameFromJson:gameDict
-                            withContext:[dm mainObjectContext]];
-        }
-        
-        
-        [retVal addObject:[game autorelease]];
+         
+        NSError* error = nil;
+        [[dm mainObjectContext] save:&error];
+    
     }
      
-    NSError* error = nil;
-    [[dm mainObjectContext] save:&error];
-    
-    [pool drain];
-     
-    return [retVal autorelease];
+    return retVal;
 } 
 
 @end

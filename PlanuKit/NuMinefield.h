@@ -13,7 +13,7 @@
 
 @interface NuMinefield : NSManagedObject
 
-@property (nonatomic, retain) NSString * friendlyCode;
+@property (nonatomic, strong) NSString * friendlyCode;
 @property (nonatomic) int16_t infoTurn;
 @property (nonatomic) BOOL isWeb;
 @property (nonatomic) int16_t minefieldId;
@@ -22,7 +22,7 @@
 @property (nonatomic) int16_t x;
 @property (nonatomic) int16_t y;
 @property (nonatomic) int16_t ownerId;
-@property (nonatomic, retain) NuTurn *turn;
-@property (nonatomic, retain) NuPlayer *owner;
+@property (nonatomic, strong) NuTurn *turn;
+@property (nonatomic, strong) NuPlayer *owner;
 
 @end

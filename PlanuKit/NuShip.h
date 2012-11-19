@@ -25,7 +25,7 @@
 @property (nonatomic) int16_t enemy;
 @property (nonatomic) int16_t engineId;
 @property (nonatomic) int32_t experience;
-@property (nonatomic, retain) NSString * friendlyCode;
+@property (nonatomic, strong) NSString * friendlyCode;
 @property (nonatomic) int16_t heading;
 @property (nonatomic) int16_t hullId;
 @property (nonatomic) int32_t infoTurn;
@@ -36,7 +36,7 @@
 @property (nonatomic) int16_t mission1targetId;
 @property (nonatomic) int16_t mission2targetId;
 @property (nonatomic) int16_t molybdenum;
-@property (nonatomic, retain) NSString * name;
+@property (nonatomic, strong) NSString * name;
 @property (nonatomic) int16_t neutronium;
 @property (nonatomic) int16_t ownerId;
 @property (nonatomic) int16_t readyStatus;
@@ -62,15 +62,15 @@
 @property (nonatomic) int16_t warp;
 @property (nonatomic) int16_t x;
 @property (nonatomic) int16_t y;
-@property (nonatomic, retain) NuBeam *beam;
-@property (nonatomic, retain) NuEngine *engine;
-@property (nonatomic, retain) NuHull *hull;
-@property (nonatomic, retain) NuTorpedo *launcher;
-@property (nonatomic, retain) NuShip *missionTarget1;
-@property (nonatomic, retain) NuShip *missionTarget2;
-@property (nonatomic, retain) NuPlayer *owner;
-@property (nonatomic, retain) NuTurn *turn;
-@property (nonatomic, retain) NSOrderedSet *history;
+@property (nonatomic, strong) NuBeam *beam;
+@property (nonatomic, strong) NuEngine *engine;
+@property (nonatomic, strong) NuHull *hull;
+@property (nonatomic, strong) NuTorpedo *launcher;
+@property (nonatomic, strong) NuShip *missionTarget1;
+@property (nonatomic, strong) NuShip *missionTarget2;
+@property (nonatomic, strong) NuPlayer *owner;
+@property (nonatomic, strong) NuTurn *turn;
+@property (nonatomic, strong) NSOrderedSet *history;
 @end
 
 @interface NuShip (CoreDataGeneratedAccessors)

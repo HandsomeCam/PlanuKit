@@ -28,7 +28,7 @@
 @property (nonatomic) int16_t factories;
 @property (nonatomic) int16_t factoriesBuilt;
 @property (nonatomic) int32_t factoriesTarget;
-@property (nonatomic, retain) NSString * friendlyCode;
+@property (nonatomic, strong) NSString * friendlyCode;
 @property (nonatomic) int32_t infoTurn;
 @property (nonatomic) BOOL isBuildingStarbase;
 @property (nonatomic) int32_t megacredits;
@@ -39,15 +39,15 @@
 @property (nonatomic) int16_t molybdenumDensity;
 @property (nonatomic) int32_t molybdenumOnGround;
 @property (nonatomic) int32_t molybdenumTotal;
-@property (nonatomic, retain) NSString * name;
+@property (nonatomic, strong) NSString * name;
 @property (nonatomic) int32_t nativeChange;
 @property (nonatomic) int32_t nativeClans;
 @property (nonatomic) int16_t nativeGovernment;
-@property (nonatomic, retain) NSString * nativeGovernmentName;
+@property (nonatomic, strong) NSString * nativeGovernmentName;
 @property (nonatomic) int16_t nativeHappiness;
 @property (nonatomic) int16_t nativeHappinessChange;
 @property (nonatomic) int16_t nativeRace;
-@property (nonatomic, retain) NSString * nativeRaceName;
+@property (nonatomic, strong) NSString * nativeRaceName;
 @property (nonatomic) int16_t nativeTaxRate;
 @property (nonatomic) int32_t neutronium;
 @property (nonatomic) int16_t neutroniumDensity;
@@ -65,8 +65,8 @@
 @property (nonatomic) int16_t x;
 @property (nonatomic) int16_t y;
 @property (nonatomic) int16_t ownerId;
-@property (nonatomic, retain) NuStarbase *starbase;
-@property (nonatomic, retain) NuTurn *turn;
-@property (nonatomic, retain) NuPlayer *owner;
+@property (nonatomic, strong) NuStarbase *starbase;
+@property (nonatomic, strong) NuTurn *turn;
+@property (nonatomic, strong) NuPlayer *owner;
 
 @end

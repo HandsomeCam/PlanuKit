@@ -29,9 +29,9 @@
 @property (nonatomic) int16_t cost;
 @property (nonatomic) int16_t duranium;
 @property (nonatomic) int16_t engineId;
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSSet *ship;
-@property (nonatomic, retain) NuTurn *turn;
+@property (nonatomic, strong) NSString * name;
+@property (nonatomic, strong) NSSet *ship;
+@property (nonatomic, strong) NuTurn *turn;
 @property (nonatomic) int16_t molybdenum;
 @property (nonatomic) int16_t tritanium;
 @property (nonatomic) int16_t techLevel;

@@ -30,7 +30,7 @@
     [NSEntityDescription insertNewObjectForEntityForName:@"NuScore"
                                   inManagedObjectContext:context];
     
-    NSDateFormatter* df = [[[NSDateFormatter alloc] init] autorelease];
+    NSDateFormatter* df = [[NSDateFormatter alloc] init];
     
     retVal.capitalShips = [[input objectForKey:@"capitalships"] intValue];
     retVal.dateAdded = [[df dateFromString:[input objectForKey:@"dateadded"]] timeIntervalSince1970];

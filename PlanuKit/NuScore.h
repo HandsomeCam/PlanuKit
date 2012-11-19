@@ -38,7 +38,7 @@
 @property (nonatomic) int32_t priorityPoints;
 @property (nonatomic) int16_t starbases;
 @property (nonatomic) int32_t turnNumber;
-@property (nonatomic, retain) NuPlayer *owner;
-@property (nonatomic, retain) NuTurn *turn;
+@property (nonatomic, strong) NuPlayer *owner;
+@property (nonatomic, strong) NuTurn *turn;
 
 @end

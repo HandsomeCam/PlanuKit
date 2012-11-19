@@ -29,7 +29,7 @@
 @property (nonatomic) int16_t buildQueuePlanetId;
 @property (nonatomic) int16_t cloakFail;
 @property (nonatomic) int16_t debrisDiskPercent;
-@property (nonatomic, retain) NSString * discussionId;
+@property (nonatomic, strong) NSString * discussionId;
 @property (nonatomic) NSTimeInterval hostCompleted;
 @property (nonatomic) NSTimeInterval hostStart;
 @property (nonatomic) int32_t settingsId;
@@ -38,7 +38,7 @@
 @property (nonatomic) int16_t maxAllies;
 @property (nonatomic) int16_t maxIonCloudsPerStorm;
 @property (nonatomic) int16_t maxIonStorms;
-@property (nonatomic, retain) NSString * gameName;
+@property (nonatomic, strong) NSString * gameName;
 @property (nonatomic) int16_t nebulas;
 @property (nonatomic) NSTimeInterval nextHost;
 @property (nonatomic) int16_t nuIonStorms;
@@ -52,8 +52,8 @@
 @property (nonatomic) int32_t turnNumber;
 @property (nonatomic) int16_t uniqueRaces;
 @property (nonatomic) int16_t victoryCountdown;
-@property (nonatomic, retain) NuGame *game;
-@property (nonatomic, retain) NuTurn *turn;
+@property (nonatomic, strong) NuGame *game;
+@property (nonatomic, strong) NuTurn *turn;
 
 + (NuGameSettings*)settingsFromJson:(NSDictionary*)input withContext:(NSManagedObjectContext*)context;
 

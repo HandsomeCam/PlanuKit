@@ -27,42 +27,42 @@
 @interface NuGame : NSManagedObject
 
 @property (nonatomic) BOOL allTurnsIn;
-@property (nonatomic, retain) NSString * createdBy;
+@property (nonatomic, strong) NSString * createdBy;
 @property (nonatomic) NSTimeInterval dateCreated;
 @property (nonatomic) NSTimeInterval dateEnded;
 @property (nonatomic) NSTimeInterval deleteDate;
-@property (nonatomic, retain) NSString * desc;
-@property (nonatomic, retain) NSDecimalNumber * difficulty;
+@property (nonatomic, strong) NSString * desc;
+@property (nonatomic, strong) NSDecimalNumber * difficulty;
 @property (nonatomic) int16_t fastStart;
 @property (nonatomic) int64_t gameId;
 @property (nonatomic) int16_t gameType;
-@property (nonatomic, retain) NSString * hostDays;
-@property (nonatomic, retain) NSString * hostTime;
+@property (nonatomic, strong) NSString * hostDays;
+@property (nonatomic, strong) NSString * hostTime;
 @property (nonatomic) BOOL isHosting;
 @property (nonatomic) BOOL isPrivate;
-@property (nonatomic, retain) NSString * lastBackupPath;
+@property (nonatomic, strong) NSString * lastBackupPath;
 @property (nonatomic) NSTimeInterval lastLoadedDate;
 @property (nonatomic) int32_t lastNotified;
 @property (nonatomic) int32_t mapType;
 @property (nonatomic) int16_t masterPlanetId;
 @property (nonatomic) int32_t maxLevelId;
-@property (nonatomic, retain) NSString * name;
+@property (nonatomic, strong) NSString * name;
 @property (nonatomic) NSTimeInterval nextHost;
 @property (nonatomic) int16_t quadrant;
 @property (nonatomic) int16_t requiredLevelId;
 @property (nonatomic) int16_t scenarioId;
-@property (nonatomic, retain) NSString * shortDesc;
+@property (nonatomic, strong) NSString * shortDesc;
 @property (nonatomic) int16_t slots;
-@property (nonatomic, retain) NSString * slowHostDays;
+@property (nonatomic, strong) NSString * slowHostDays;
 @property (nonatomic) int16_t status;
 @property (nonatomic) int32_t turnNumber;
 @property (nonatomic) int16_t turnsPerWeek;
-@property (nonatomic, retain) NSString * turnStatus;
+@property (nonatomic, strong) NSString * turnStatus;
 @property (nonatomic) int16_t tutorialId;
 @property (nonatomic) int16_t winCondition;
 @property (nonatomic) int16_t yearStarted;
-@property (nonatomic, retain) NuGameSettings *settings;
-@property (nonatomic, retain) NSSet *turns;
+@property (nonatomic, strong) NuGameSettings *settings;
+@property (nonatomic, strong) NSSet *turns;
 @end
 
 @interface NuGame (CoreDataGeneratedAccessors)

@@ -14,7 +14,7 @@
 @interface NuStarbase : NSManagedObject
 
 @property (nonatomic) int16_t planetId;
-@property (nonatomic, retain) NuPlanet *planet;
-@property (nonatomic, retain) NuTurn *turn;
+@property (nonatomic, strong) NuPlanet *planet;
+@property (nonatomic, strong) NuTurn *turn;
 
 @end

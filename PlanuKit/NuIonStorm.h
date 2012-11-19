@@ -21,6 +21,6 @@
 @property (nonatomic) int16_t warp;
 @property (nonatomic) int16_t x;
 @property (nonatomic) int16_t y;
-@property (nonatomic, retain) NuTurn *turn;
+@property (nonatomic, strong) NuTurn *turn;
 
 @end

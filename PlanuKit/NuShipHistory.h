@@ -15,6 +15,6 @@
 
 @property (nonatomic) int32_t x;
 @property (nonatomic) int32_t y;
-@property (nonatomic, retain) NuShip *ship;
+@property (nonatomic, strong) NuShip *ship;
 
 @end

@@ -39,8 +39,8 @@ typedef enum
 
 @interface NuMessage : NSManagedObject
 
-@property (nonatomic, retain) NSString * body;
-@property (nonatomic, retain) NSString * headline;
+@property (nonatomic, strong) NSString * body;
+@property (nonatomic, strong) NSString * headline;
 @property (nonatomic) int32_t messageId;
 @property (nonatomic) int16_t messageType;
 @property (nonatomic) int32_t ownerId;
@@ -49,7 +49,7 @@ typedef enum
 @property (nonatomic) int16_t x;
 @property (nonatomic) int16_t y;
 @property (nonatomic) BOOL isPlayerMessage;
-@property (nonatomic, retain) NuTurn *turn;
+@property (nonatomic, strong) NuTurn *turn;
 
 + (NuMessage*)messageFromJson:(NSDictionary*)input 
                   withContext:(NSManagedObjectContext*)context;

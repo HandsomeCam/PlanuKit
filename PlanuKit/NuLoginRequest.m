@@ -59,7 +59,7 @@
     if (theConnection) {
         // Create the NSMutableData to hold the received data.
         // receivedData is an instance variable declared elsewhere.
-        receivedData = [[NSMutableData data] retain];
+        receivedData = [NSMutableData data];
     } else {
         // Inform the user that the connection failed.
     }
@@ -88,9 +88,7 @@
   didFailWithError:(NSError *)error
 {
     // release the connection, and the data object
-    [connection release];
     // receivedData is declared as a method instance elsewhere
-    [receivedData release];
     
     // inform the user
     NSLog(@"Connection failed! Error - %@ %@",
@@ -112,14 +110,11 @@
     //NSLog(@"Response: %@", responseString);
     
     // release the connection, and the data object
-    [connection release];
-    [receivedData release];
     
     
     if ([responseString hasPrefix:@"Error:"] == true)
     {
         [delegate loginFailedWith:[responseString substringFromIndex:6]];
-        [responseString release];
         return;
     }
     
@@ -128,7 +123,6 @@
     if ([responseObject isKindOfClass:[NSDictionary class]] == NO)
     {
         [delegate loginFailedWith:@"Invalid response from server"];
-        [responseString release];
         return;
     }
     
@@ -138,7 +132,6 @@
     {
         NSString* errorString = [responseData objectForKey:@"error"];
         [delegate loginFailedWith:errorString];
-        [responseString release];
         return;
     }
     

@@ -6,6 +6,19 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		7E8F3927165959DB006F347F /* planukit */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 7E8F3928165959DB006F347F /* Build configuration list for PBXAggregateTarget "planukit" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = planukit;
+			productName = planukit;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		7E03E9FD14C785E0001E69FA /* NuShipTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E03E9FC14C785E0001E69FA /* NuShipTest.m */; };
 		7E09C54D14C8C8CF00CE7E9F /* NuData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7E09C54B14C8C8CF00CE7E9F /* NuData.xcdatamodeld */; };
@@ -115,7 +128,7 @@
 		7E8F38F816583DEA006F347F /* NuTurnRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E29089B14ABBCE900B11972 /* NuTurnRequest.h */; };
 		7E8F38FD16583DEA006F347F /* PlanuKitTests.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB9CC3E14ABB4D800A6ECB3 /* PlanuKitTests.h */; };
 		7E8F390016583DEA006F347F /* NuShipTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E03E9FB14C785E0001E69FA /* NuShipTest.h */; };
-		7E8F390E16586DAB006F347F /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2908A514ABBD8F00B11972 /* JSONKit.m */; };
+		7E8F390E16586DAB006F347F /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2908A514ABBD8F00B11972 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7E940EFF14CF90C0007B3777 /* NuShip+Functionality.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E940EFD14CF90C0007B3777 /* NuShip+Functionality.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7E940F0014CF90C0007B3777 /* NuShip+Functionality.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E940EFE14CF90C0007B3777 /* NuShip+Functionality.m */; };
 		7E940F0314CF91D2007B3777 /* NuHull+Functionality.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E940F0114CF91D2007B3777 /* NuHull+Functionality.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -687,6 +700,7 @@
 				7EB9CC1814ABB4D700A6ECB3 /* PlanuKit */,
 				7EB9CC3014ABB4D800A6ECB3 /* PlanuKitTests */,
 				7E8F37DF165833F5006F347F /* Planukit */,
+				7E8F3927165959DB006F347F /* planukit */,
 			);
 		};
 /* End PBXProject section */
@@ -862,6 +876,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				DEAD_CODE_STRIPPING = NO;
@@ -889,6 +904,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				DEAD_CODE_STRIPPING = NO;
@@ -907,6 +923,20 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7E8F3929165959DB006F347F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7E8F392A165959DB006F347F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -1023,6 +1053,15 @@
 			buildConfigurations = (
 				7E8F37EB165833F5006F347F /* Debug */,
 				7E8F37EC165833F5006F347F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7E8F3928165959DB006F347F /* Build configuration list for PBXAggregateTarget "planukit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E8F3929165959DB006F347F /* Debug */,
+				7E8F392A165959DB006F347F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
