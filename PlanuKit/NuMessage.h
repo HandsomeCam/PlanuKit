@@ -24,15 +24,28 @@
 
 typedef enum
 {
+    kNuMessageTypeOutbound          =  0,
+    kNuMessageTypeSystem            =  1,
+    kNuMessageTypeTerraforming      =  2,
+    kNuMessageTypeMinelaying        =  3,
     kNuMessageTypeMineSweep         =  4,
     kNuMessageTypeColony            =  5,
+    kNuMessageTypeCombat            =  6,
+    kNuMessageTypeFleet             =  7,
     kNuMessageTypeShip              =  8,
+    kNuMessageTypeEnemyDistressCall =  9,
     kNuMessageTypeExplosion         = 10,
     kNuMessageTypeStarbase          = 11,
+    kNuMessageTypeWebMines          = 12,
     kNuMessageTypeMeteors           = 13,
     kNuMessageTypeSensorSweep       = 14,
+    kNuMessageTypeBioScan           = 15,
     kNuMessageTypeDistressCall      = 16,
-    kNuMessageTypeMineScan          = 19
+    kNuMessageTypePlayer            = 17,
+    kNuMessageTypeDiplomacy         = 18,
+    kNuMessageTypeMineScan          = 19,
+    kNuMessageTypeDarkSense         = 20,
+    kNuMessageTypeHiss              = 21
 } NuMessageType;
 
 @class NuTurn;
