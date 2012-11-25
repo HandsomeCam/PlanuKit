@@ -1,10 +1,9 @@
-
 //
-//  NuGameListRequest.m
+//  NuSendMessageRequest.m
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 12/22/11.
-//  Copyright 2011 Srs Biznas, LLC. All rights reserved.
+//  Created by Cameron Hotchkies on 11/23/12.
+//  Copyright (c) 2012 Srs Biznas, LLC. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU Lesser General Public License as published by
@@ -20,53 +19,53 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "NuGameListRequest.h"
-#import "JSONKit.h"
-#import "NuGame.h"
-#import "NuGame+Functionality.h"
-#import "NuDataManager.h"
+#import "NuSendMessageRequest.h"
+#import "NSString+NuEncoding.h"
 #import "NSMutableURLRequest+ParamDict.h"
+#import "JSONKit.h"
 
-#define kPlanetsNuGameListUrl @"http://api.planets.nu/games/list"
+#define kPlanetsNuLoginUrl @"http://api.planets.nu/game/sendmessage"
 
-@interface NuGameListRequest(private) 
-
-- (NSArray*) parseGamesFromResponse:(NSString*)response;
-
+@interface NuSendMessageRequest ()
+{
+    NSMutableData *receivedData;
+}
 @end
 
-@implementation NuGameListRequest
+@implementation NuSendMessageRequest
 
-@synthesize gameStatus;
-
-- (id)init
+- (void)send:(NSString*)message
+        from:(NSInteger)playerID
+          to:(NSArray*)recipients
+     forGame:(NSInteger)gameID
+  withApiKey:(NSString*)apiKey;
 {
-    self = [super init];
-    if (self) {
-        // Initialization code here.
-    }
     
-    return self;
-}
-
-
-- (void)requestGamesFor:(NSString*)username
-             withStatus:(enum GameStatus)status
-           withDelegate:(id<NuGameListRequestDelegate>)delegateIncoming
-{
-    delegate = delegateIncoming;
-    
-    
-    
-    NSString* fullUrl = [NSString stringWithFormat:@"%@?username=%@&status=%d", kPlanetsNuGameListUrl, username, status];
     
     // Create the request.
-    NSMutableURLRequest *theRequest=[NSMutableURLRequest requestWithURL:[NSURL URLWithString:fullUrl]
+    NSMutableURLRequest *theRequest=[NSMutableURLRequest requestWithURL:[NSURL URLWithString:kPlanetsNuLoginUrl]
                                                             cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                         timeoutInterval:60.0];
     
-    [theRequest setHTTPMethod:@"GET"];
-      
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setValue:@"application/x-www-form-urlencoded;"
+      forHTTPHeaderField:@"Content-Type"];
+    
+    NSMutableDictionary* params = [NSMutableDictionary dictionary];
+    
+    // TODO: actually add the parameters
+    [params setObject:[NSNumber numberWithInt:gameID] forKey:@"gameid"];
+    [params setObject:[NSNumber numberWithInt:playerID] forKey:@"playerid"];
+    [params setObject:apiKey forKey:@"apikey"];
+    [params setObject:[message nuEncoded] forKey:@"body"];
+    
+    NSString* toPeeps = [recipients componentsJoinedByString:@","];
+    toPeeps = [toPeeps stringByAppendingString:@","];
+    
+    [params setObject:toPeeps forKey:@"to"];
+    
+    [theRequest setHTTPParameters:params];
+    
     // create the connection with the request
     // and start loading the data
     NSURLConnection *theConnection=[[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
@@ -109,7 +108,7 @@
           [error localizedDescription],
           [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
     
-    [delegate gameRequest:self failedWith:[error localizedDescription]];
+    [self.delegate sendMessage:self failedWith:[error localizedDescription]];
     
 }
 
@@ -128,67 +127,37 @@
     
     if ([responseString hasPrefix:@"Error:"] == true)
     {
-        [delegate gameRequest:self failedWith:[responseString substringFromIndex:6]];
+        // TODO: this
+//        [self.delegate loginFailedWith:[responseString substringFromIndex:6]];
         return;
     }
-     
-    NSArray* returnValue = [self parseGamesFromResponse:responseString];
     
-    // TODO: fail if nil
+    id responseObject = [responseString objectFromJSONString];
     
-    [delegate gameRequest:self succeededWith:returnValue];
+    if ([responseObject isKindOfClass:[NSDictionary class]] == NO)
+    {
+        [self.delegate sendMessage:self failedWith:@"Invalid response from server"];
+        return;
+    }
+    
+    NSDictionary *responseData = (NSDictionary*)responseObject;
+    
+    if ([[responseData objectForKey:@"success"] boolValue] == NO)
+    {
+        NSString* errorString = [responseData objectForKey:@"error"];
+        [self.delegate sendMessage:self failedWith:errorString];
+        return;
+    }
+    
+    NSString *apiKey = [responseData objectForKey:@"apikey"];
+    
+    // TODO: this
+    
+    
+//    [delegate loginSucceededWith:apiKey];
+    
 }
 
-- (NSArray*) parseGamesFromResponse:(NSString*)response
-{
-    NSMutableArray* retVal = nil;
-    
-    @autoreleasepool {
-    
-        retVal = [[NSMutableArray alloc] init];
-        NSLog(@"%@", response);
-        id decodedJson = [response objectFromJSONString];
-        
-        if ([decodedJson isKindOfClass:[NSArray class]] == false)
-        {
-            return nil;
-        }
-        
-        NuDataManager* dm = [NuDataManager sharedInstance];
-        
-        NSArray* loaded = [NuGame allGames];
-        
-   
-        for (NSDictionary* gameDict in decodedJson)
-        {
-            NuGame* game = nil;
-            
-            for (NuGame* g in loaded)
-            {
-                if (g.gameId == [[gameDict objectForKey:@"id"] intValue])
-                {
-                    [g updateContents:gameDict];
-                    game = g;
-                    break;
-                }
-            }
-           
-            if (game == nil)
-            {
-                game = [NuGame gameFromJson:gameDict
-                                withContext:[dm mainObjectContext]];
-            }
-            
-            
-            [retVal addObject:game];
-        }
-         
-        NSError* error = nil;
-        [[dm mainObjectContext] save:&error];
-    
-    }
-     
-    return retVal;
-} 
+
 
 @end

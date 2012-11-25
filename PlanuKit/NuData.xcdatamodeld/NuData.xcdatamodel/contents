@@ -367,13 +367,13 @@
         <relationship name="messages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuMessage" inverseName="turn" inverseEntity="NuMessage" syncable="YES"/>
         <relationship name="minefields" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuMinefield" inverseName="turn" inverseEntity="NuMinefield" syncable="YES"/>
         <relationship name="planets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuPlanet" inverseName="turn" inverseEntity="NuPlanet" syncable="YES"/>
-        <relationship name="player" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NuPlayer" inverseName="turn" inverseEntity="NuPlayer" syncable="YES"/>
         <relationship name="players" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuPlayer" inverseName="turn" inverseEntity="NuPlayer" syncable="YES"/>
         <relationship name="races" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuPlayerRace" inverseName="turn" inverseEntity="NuPlayerRace" syncable="YES"/>
         <relationship name="scores" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuScore" inverseName="turn" inverseEntity="NuScore" syncable="YES"/>
         <relationship name="settings" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="NuGameSettings" inverseName="turn" inverseEntity="NuGameSettings" syncable="YES"/>
         <relationship name="ships" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuShip" inverseName="turn" inverseEntity="NuShip" syncable="YES"/>
         <relationship name="starbases" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NuStarbase" inverseName="turn" inverseEntity="NuStarbase" syncable="YES"/>
+        <relationship name="viewingPlayer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NuPlayer" inverseName="turn" inverseEntity="NuPlayer" syncable="YES"/>
     </entity>
     <entity name="NuWeapon" representedClassName="NuWeapon" isAbstract="YES" syncable="YES">
         <attribute name="cost" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -403,10 +403,10 @@
         <element name="NuPlayerRace" positionX="-0" positionY="-72" width="128" height="195"/>
         <element name="NuScore" positionX="-324" positionY="-1539" width="128" height="255"/>
         <element name="NuShip" positionX="720" positionY="-324" width="128" height="915"/>
+        <element name="NuShipHistory" positionX="160" positionY="192" width="128" height="90"/>
         <element name="NuStarbase" positionX="-9" positionY="7650" width="128" height="75"/>
         <element name="NuTorpedo" positionX="-27" positionY="720" width="128" height="75"/>
         <element name="NuTurn" positionX="468" positionY="219" width="128" height="315"/>
         <element name="NuWeapon" positionX="-20" positionY="711" width="128" height="180"/>
-        <element name="NuShipHistory" positionX="160" positionY="192" width="128" height="90"/>
     </elements>
 </model>

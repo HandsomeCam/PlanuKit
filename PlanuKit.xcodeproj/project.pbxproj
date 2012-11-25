@@ -48,8 +48,6 @@
 		7E88D45B165531C8002B62B2 /* NuShipHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E88D459165531C8002B62B2 /* NuShipHistory.m */; };
 		7E88D45E165531C9002B62B2 /* NuShip.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E88D45C165531C8002B62B2 /* NuShip.h */; };
 		7E88D45F165531C9002B62B2 /* NuShip.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E88D45D165531C8002B62B2 /* NuShip.m */; };
-		7E88D462165531C9002B62B2 /* NuTurn.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E88D460165531C9002B62B2 /* NuTurn.h */; };
-		7E88D463165531C9002B62B2 /* NuTurn.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E88D461165531C9002B62B2 /* NuTurn.m */; };
 		7E8A71A414CE7445001B400E /* NuTurn+Functionality.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E8A71A214CE7445001B400E /* NuTurn+Functionality.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7E8A71A514CE7445001B400E /* NuTurn+Functionality.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8A71A314CE7445001B400E /* NuTurn+Functionality.m */; };
 		7E8F37E2165833F5006F347F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E8F37E1165833F5006F347F /* Foundation.framework */; };
@@ -83,7 +81,6 @@
 		7E8F388F16583894006F347F /* NuShipDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB9CC5514ABB7BF00A6ECB3 /* NuShipDatabase.m */; };
 		7E8F389116583894006F347F /* NuTorpedo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFBC27A14C48786008D406D /* NuTorpedo.m */; };
 		7E8F389316583894006F347F /* NuTurn+Functionality.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8A71A314CE7445001B400E /* NuTurn+Functionality.m */; };
-		7E8F389516583894006F347F /* NuTurn.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E88D461165531C9002B62B2 /* NuTurn.m */; };
 		7E8F389716583894006F347F /* NuShipHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E88D459165531C8002B62B2 /* NuShipHistory.m */; };
 		7E8F389916583894006F347F /* NuWeapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9FC9C014C48DC800B44623 /* NuWeapon.m */; };
 		7E8F389B16583894006F347F /* NuGameListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E29089814ABBCE900B11972 /* NuGameListRequest.m */; };
@@ -120,7 +117,6 @@
 		7E8F38E816583DEA006F347F /* NuShipDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB9CC5414ABB7BF00A6ECB3 /* NuShipDatabase.h */; };
 		7E8F38EA16583DEA006F347F /* NuTorpedo.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EFBC27914C48786008D406D /* NuTorpedo.h */; };
 		7E8F38EC16583DEA006F347F /* NuTurn+Functionality.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E8A71A214CE7445001B400E /* NuTurn+Functionality.h */; };
-		7E8F38EE16583DEA006F347F /* NuTurn.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E88D460165531C9002B62B2 /* NuTurn.h */; };
 		7E8F38F016583DEA006F347F /* NuShipHistory.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E88D458165531C8002B62B2 /* NuShipHistory.h */; };
 		7E8F38F216583DEA006F347F /* NuWeapon.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E9FC9BF14C48DC800B44623 /* NuWeapon.h */; };
 		7E8F38F416583DEA006F347F /* NuGameListRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E29089714ABBCE900B11972 /* NuGameListRequest.h */; };
@@ -161,6 +157,22 @@
 		7EB9CC4114ABB4D800A6ECB3 /* PlanuKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB9CC4014ABB4D800A6ECB3 /* PlanuKitTests.m */; };
 		7EB9CC5614ABB7BF00A6ECB3 /* NuShipDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB9CC5414ABB7BF00A6ECB3 /* NuShipDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7EB9CC5714ABB7BF00A6ECB3 /* NuShipDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB9CC5514ABB7BF00A6ECB3 /* NuShipDatabase.m */; };
+		7EBF94B016602DAC0069BBC9 /* NuSendMessageRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EBF94AE16602DAC0069BBC9 /* NuSendMessageRequest.h */; };
+		7EBF94B116602DAC0069BBC9 /* NuSendMessageRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EBF94AE16602DAC0069BBC9 /* NuSendMessageRequest.h */; };
+		7EBF94B216602DAC0069BBC9 /* NuSendMessageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBF94AF16602DAC0069BBC9 /* NuSendMessageRequest.m */; };
+		7EBF94B316602DAC0069BBC9 /* NuSendMessageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBF94AF16602DAC0069BBC9 /* NuSendMessageRequest.m */; };
+		7EBF94B716602E910069BBC9 /* NSString+NuEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EBF94B516602E910069BBC9 /* NSString+NuEncoding.h */; };
+		7EBF94B816602E910069BBC9 /* NSString+NuEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EBF94B516602E910069BBC9 /* NSString+NuEncoding.h */; };
+		7EBF94B916602E910069BBC9 /* NSString+NuEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBF94B616602E910069BBC9 /* NSString+NuEncoding.m */; };
+		7EBF94BA16602E910069BBC9 /* NSString+NuEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBF94B616602E910069BBC9 /* NSString+NuEncoding.m */; };
+		7EBF94C4166031ED0069BBC9 /* NSMutableURLRequest+ParamDict.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EBF94C2166031ED0069BBC9 /* NSMutableURLRequest+ParamDict.h */; };
+		7EBF94C5166031ED0069BBC9 /* NSMutableURLRequest+ParamDict.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EBF94C2166031ED0069BBC9 /* NSMutableURLRequest+ParamDict.h */; };
+		7EBF94C6166031ED0069BBC9 /* NSMutableURLRequest+ParamDict.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBF94C3166031ED0069BBC9 /* NSMutableURLRequest+ParamDict.m */; };
+		7EBF94C7166031ED0069BBC9 /* NSMutableURLRequest+ParamDict.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBF94C3166031ED0069BBC9 /* NSMutableURLRequest+ParamDict.m */; };
+		7EBF951E166287340069BBC9 /* NuTurn.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EBF951C166287330069BBC9 /* NuTurn.h */; };
+		7EBF951F166287340069BBC9 /* NuTurn.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EBF951C166287330069BBC9 /* NuTurn.h */; };
+		7EBF9520166287340069BBC9 /* NuTurn.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBF951D166287330069BBC9 /* NuTurn.m */; };
+		7EBF9521166287340069BBC9 /* NuTurn.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBF951D166287330069BBC9 /* NuTurn.m */; };
 		7EE9B67D14CB6EA000A77606 /* NuBeam.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EE440F414C411A7006745D7 /* NuBeam.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7EE9B67E14CB6EA400A77606 /* NuDiplomaticRelation.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ECC437014AFD6F10083591C /* NuDiplomaticRelation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7EE9B67F14CB6EAA00A77606 /* NuEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E20648114C6186F00E7A484 /* NuEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -243,8 +255,6 @@
 		7E88D459165531C8002B62B2 /* NuShipHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuShipHistory.m; sourceTree = "<group>"; };
 		7E88D45C165531C8002B62B2 /* NuShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NuShip.h; path = PlanuKit/NuShip.h; sourceTree = "<group>"; };
 		7E88D45D165531C8002B62B2 /* NuShip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NuShip.m; path = PlanuKit/NuShip.m; sourceTree = "<group>"; };
-		7E88D460165531C9002B62B2 /* NuTurn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuTurn.h; sourceTree = "<group>"; };
-		7E88D461165531C9002B62B2 /* NuTurn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuTurn.m; sourceTree = "<group>"; };
 		7E8A71A214CE7445001B400E /* NuTurn+Functionality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NuTurn+Functionality.h"; sourceTree = "<group>"; };
 		7E8A71A314CE7445001B400E /* NuTurn+Functionality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NuTurn+Functionality.m"; sourceTree = "<group>"; };
 		7E8F37E0165833F5006F347F /* libPlanukit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPlanukit.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -289,6 +299,14 @@
 		7EB9CC4014ABB4D800A6ECB3 /* PlanuKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlanuKitTests.m; sourceTree = "<group>"; };
 		7EB9CC5414ABB7BF00A6ECB3 /* NuShipDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuShipDatabase.h; sourceTree = "<group>"; };
 		7EB9CC5514ABB7BF00A6ECB3 /* NuShipDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuShipDatabase.m; sourceTree = "<group>"; };
+		7EBF94AE16602DAC0069BBC9 /* NuSendMessageRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NuSendMessageRequest.h; path = ../PlanuKit/PlanuKit/NuSendMessageRequest.h; sourceTree = "<group>"; };
+		7EBF94AF16602DAC0069BBC9 /* NuSendMessageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NuSendMessageRequest.m; path = ../PlanuKit/PlanuKit/NuSendMessageRequest.m; sourceTree = "<group>"; };
+		7EBF94B516602E910069BBC9 /* NSString+NuEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NuEncoding.h"; sourceTree = "<group>"; };
+		7EBF94B616602E910069BBC9 /* NSString+NuEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NuEncoding.m"; sourceTree = "<group>"; };
+		7EBF94C2166031ED0069BBC9 /* NSMutableURLRequest+ParamDict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableURLRequest+ParamDict.h"; sourceTree = "<group>"; };
+		7EBF94C3166031ED0069BBC9 /* NSMutableURLRequest+ParamDict.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableURLRequest+ParamDict.m"; sourceTree = "<group>"; };
+		7EBF951C166287330069BBC9 /* NuTurn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuTurn.h; sourceTree = "<group>"; };
+		7EBF951D166287330069BBC9 /* NuTurn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuTurn.m; sourceTree = "<group>"; };
 		7ECC437014AFD6F10083591C /* NuDiplomaticRelation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuDiplomaticRelation.h; sourceTree = "<group>"; };
 		7ECC437114AFD6F10083591C /* NuDiplomaticRelation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuDiplomaticRelation.m; sourceTree = "<group>"; };
 		7ECC437414AFFC190083591C /* NuPlayerRace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuPlayerRace.h; sourceTree = "<group>"; };
@@ -340,6 +358,8 @@
 				7E29089814ABBCE900B11972 /* NuGameListRequest.m */,
 				7E29089914ABBCE900B11972 /* NuLoginRequest.h */,
 				7E29089A14ABBCE900B11972 /* NuLoginRequest.m */,
+				7EBF94AE16602DAC0069BBC9 /* NuSendMessageRequest.h */,
+				7EBF94AF16602DAC0069BBC9 /* NuSendMessageRequest.m */,
 				7E29089B14ABBCE900B11972 /* NuTurnRequest.h */,
 				7E29089C14ABBCE900B11972 /* NuTurnRequest.m */,
 			);
@@ -402,9 +422,12 @@
 		7EB9CC2214ABB4D700A6ECB3 /* PlanuKit */ = {
 			isa = PBXGroup;
 			children = (
+				7EBF94BB1660300F0069BBC9 /* Categories */,
 				7EE9B6E714CB916600A77606 /* CoreData Support */,
 				7E2908CC14ABC2B100B11972 /* PlanuKit.h */,
 				7E09C54B14C8C8CF00CE7E9F /* NuData.xcdatamodeld */,
+				7EBF951C166287330069BBC9 /* NuTurn.h */,
+				7EBF951D166287330069BBC9 /* NuTurn.m */,
 				7ECC436F14AFCF760083591C /* Mappable Entities */,
 				7EE440F414C411A7006745D7 /* NuBeam.h */,
 				7EE440F514C411A7006745D7 /* NuBeam.m */,
@@ -443,8 +466,6 @@
 				7EFBC27A14C48786008D406D /* NuTorpedo.m */,
 				7E8A71A214CE7445001B400E /* NuTurn+Functionality.h */,
 				7E8A71A314CE7445001B400E /* NuTurn+Functionality.m */,
-				7E88D460165531C9002B62B2 /* NuTurn.h */,
-				7E88D461165531C9002B62B2 /* NuTurn.m */,
 				7E88D458165531C8002B62B2 /* NuShipHistory.h */,
 				7E88D459165531C8002B62B2 /* NuShipHistory.m */,
 				7E9FC9BF14C48DC800B44623 /* NuWeapon.h */,
@@ -485,6 +506,17 @@
 				7EB9CC3B14ABB4D800A6ECB3 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7EBF94BB1660300F0069BBC9 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				7EBF94B516602E910069BBC9 /* NSString+NuEncoding.h */,
+				7EBF94B616602E910069BBC9 /* NSString+NuEncoding.m */,
+				7EBF94C2166031ED0069BBC9 /* NSMutableURLRequest+ParamDict.h */,
+				7EBF94C3166031ED0069BBC9 /* NSMutableURLRequest+ParamDict.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 		7ECC436F14AFCF760083591C /* Mappable Entities */ = {
@@ -562,7 +594,6 @@
 				7E8F38E816583DEA006F347F /* NuShipDatabase.h in Headers */,
 				7E8F38EA16583DEA006F347F /* NuTorpedo.h in Headers */,
 				7E8F38EC16583DEA006F347F /* NuTurn+Functionality.h in Headers */,
-				7E8F38EE16583DEA006F347F /* NuTurn.h in Headers */,
 				7E8F38F016583DEA006F347F /* NuShipHistory.h in Headers */,
 				7E8F38F216583DEA006F347F /* NuWeapon.h in Headers */,
 				7E8F38F416583DEA006F347F /* NuGameListRequest.h in Headers */,
@@ -570,6 +601,10 @@
 				7E8F38F816583DEA006F347F /* NuTurnRequest.h in Headers */,
 				7E8F38FD16583DEA006F347F /* PlanuKitTests.h in Headers */,
 				7E8F390016583DEA006F347F /* NuShipTest.h in Headers */,
+				7EBF94B116602DAC0069BBC9 /* NuSendMessageRequest.h in Headers */,
+				7EBF94B816602E910069BBC9 /* NSString+NuEncoding.h in Headers */,
+				7EBF94C5166031ED0069BBC9 /* NSMutableURLRequest+ParamDict.h in Headers */,
+				7EBF951F166287340069BBC9 /* NuTurn.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,7 +649,10 @@
 				7E7522D114F1C27100AA4B0F /* NuExplosion.h in Headers */,
 				7E88D45A165531C8002B62B2 /* NuShipHistory.h in Headers */,
 				7E88D45E165531C9002B62B2 /* NuShip.h in Headers */,
-				7E88D462165531C9002B62B2 /* NuTurn.h in Headers */,
+				7EBF94B016602DAC0069BBC9 /* NuSendMessageRequest.h in Headers */,
+				7EBF94B716602E910069BBC9 /* NSString+NuEncoding.h in Headers */,
+				7EBF94C4166031ED0069BBC9 /* NSMutableURLRequest+ParamDict.h in Headers */,
+				7EBF951E166287340069BBC9 /* NuTurn.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -777,13 +815,16 @@
 				7E8F388F16583894006F347F /* NuShipDatabase.m in Sources */,
 				7E8F389116583894006F347F /* NuTorpedo.m in Sources */,
 				7E8F389316583894006F347F /* NuTurn+Functionality.m in Sources */,
-				7E8F389516583894006F347F /* NuTurn.m in Sources */,
 				7E8F389716583894006F347F /* NuShipHistory.m in Sources */,
 				7E8F389916583894006F347F /* NuWeapon.m in Sources */,
 				7E8F389B16583894006F347F /* NuGameListRequest.m in Sources */,
 				7E8F389D16583894006F347F /* NuLoginRequest.m in Sources */,
 				7E8F389F16583894006F347F /* NuTurnRequest.m in Sources */,
 				7E8F390E16586DAB006F347F /* JSONKit.m in Sources */,
+				7EBF94B316602DAC0069BBC9 /* NuSendMessageRequest.m in Sources */,
+				7EBF94BA16602E910069BBC9 /* NSString+NuEncoding.m in Sources */,
+				7EBF94C7166031ED0069BBC9 /* NSMutableURLRequest+ParamDict.m in Sources */,
+				7EBF9521166287340069BBC9 /* NuTurn.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -827,7 +868,10 @@
 				7E7522D214F1C27100AA4B0F /* NuExplosion.m in Sources */,
 				7E88D45B165531C8002B62B2 /* NuShipHistory.m in Sources */,
 				7E88D45F165531C9002B62B2 /* NuShip.m in Sources */,
-				7E88D463165531C9002B62B2 /* NuTurn.m in Sources */,
+				7EBF94B216602DAC0069BBC9 /* NuSendMessageRequest.m in Sources */,
+				7EBF94B916602E910069BBC9 /* NSString+NuEncoding.m in Sources */,
+				7EBF94C6166031ED0069BBC9 /* NSMutableURLRequest+ParamDict.m in Sources */,
+				7EBF9520166287340069BBC9 /* NuTurn.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

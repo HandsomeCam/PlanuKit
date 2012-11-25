@@ -2,7 +2,7 @@
 //  NuTurn.h
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 11/15/12.
+//  Created by Cameron Hotchkies on 11/25/12.
 //  Copyright (c) 2012 Srs Biznas, LLC. All rights reserved.
 //
 
@@ -13,24 +13,24 @@
 
 @interface NuTurn : NSManagedObject
 
-@property (nonatomic, strong) NSSet *beams;
-@property (nonatomic, strong) NSSet *diplomaticRelations;
-@property (nonatomic, strong) NSSet *engines;
-@property (nonatomic, strong) NSSet *explosions;
-@property (nonatomic, strong) NuGame *game;
-@property (nonatomic, strong) NSSet *hulls;
-@property (nonatomic, strong) NSSet *ionStorms;
-@property (nonatomic, strong) NSSet *launchers;
-@property (nonatomic, strong) NSSet *messages;
-@property (nonatomic, strong) NSSet *minefields;
-@property (nonatomic, strong) NSSet *planets;
-@property (nonatomic, strong) NuPlayer *player;
-@property (nonatomic, strong) NSSet *players;
-@property (nonatomic, strong) NSSet *races;
-@property (nonatomic, strong) NSSet *scores;
-@property (nonatomic, strong) NuGameSettings *settings;
-@property (nonatomic, strong) NSSet *ships;
-@property (nonatomic, strong) NSSet *starbases;
+@property (nonatomic, retain) NSSet *beams;
+@property (nonatomic, retain) NSSet *diplomaticRelations;
+@property (nonatomic, retain) NSSet *engines;
+@property (nonatomic, retain) NSSet *explosions;
+@property (nonatomic, retain) NuGame *game;
+@property (nonatomic, retain) NSSet *hulls;
+@property (nonatomic, retain) NSSet *ionStorms;
+@property (nonatomic, retain) NSSet *launchers;
+@property (nonatomic, retain) NSSet *messages;
+@property (nonatomic, retain) NSSet *minefields;
+@property (nonatomic, retain) NSSet *planets;
+@property (nonatomic, retain) NuPlayer *viewingPlayer;
+@property (nonatomic, retain) NSSet *players;
+@property (nonatomic, retain) NSSet *races;
+@property (nonatomic, retain) NSSet *scores;
+@property (nonatomic, retain) NuGameSettings *settings;
+@property (nonatomic, retain) NSSet *ships;
+@property (nonatomic, retain) NSSet *starbases;
 @end
 
 @interface NuTurn (CoreDataGeneratedAccessors)

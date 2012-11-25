@@ -2,7 +2,7 @@
 //  NuTurn.m
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 11/15/12.
+//  Created by Cameron Hotchkies on 11/25/12.
 //  Copyright (c) 2012 Srs Biznas, LLC. All rights reserved.
 //
 
@@ -39,7 +39,7 @@
 @dynamic messages;
 @dynamic minefields;
 @dynamic planets;
-@dynamic player;
+@dynamic viewingPlayer;
 @dynamic players;
 @dynamic races;
 @dynamic scores;

@@ -145,7 +145,7 @@
     [self loadPlanets:input withContext:context];
     
     // Load player
-    self.player = [NuPlayer playerFromJson:[input objectForKey:@"player"]
+    self.viewingPlayer = [NuPlayer playerFromJson:[input objectForKey:@"player"]
                                  withContext:context]; 
     
     [self loadStarbases:input withContext:context];
@@ -190,7 +190,7 @@
 {
     [self removeScores:self.scores];
     self.settings = nil;
-    self.player = nil;
+    self.viewingPlayer = nil;
 //    if (self.diplomaticRelations != nil)
 //    {
 //    [self removeDiplomaticRelations:self.diplomaticRelations];

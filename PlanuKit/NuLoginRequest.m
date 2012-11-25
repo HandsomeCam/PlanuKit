@@ -21,6 +21,7 @@
 
 #import "NuLoginRequest.h"
 #import "JSONKit.h"
+#import "NSMutableURLRequest+ParamDict.h"
 
 #define kPlanetsNuLoginUrl @"http://api.planets.nu/login"
 
@@ -49,9 +50,16 @@
     [theRequest setValue:@"application/x-www-form-urlencoded;"
       forHTTPHeaderField:@"Content-Type"];
     
-    NSString* postBody = [NSString stringWithFormat:@"username=%@&password=%@", username, password];
+//    NSString* postBody = [NSString stringWithFormat:@"username=%@&password=%@", username, password];
+
+    NSMutableDictionary* params = [NSMutableDictionary dictionary];
     
-    [theRequest setHTTPBody:[postBody dataUsingEncoding:NSUTF8StringEncoding]];
+    [params setObject:username forKey:@"username"];
+    [params setObject:password forKey:@"password"];
+    
+    [theRequest setHTTPParameters:params];
+    
+//    [theRequest setHTTPBody:[postBody dataUsingEncoding:NSUTF8StringEncoding]];
     
     // create the connection with the request
     // and start loading the data
