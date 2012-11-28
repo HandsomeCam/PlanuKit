@@ -60,7 +60,7 @@
 {
     turnsToUpdate = [NSMutableSet set];
     apiKeyInUse = apiKey;
-    gameToUpdate = game;
+    self.gameToUpdate = game;
     
     // Add every turn to the set
     for (int i=1; i <= game.turnNumber; i++)
@@ -171,7 +171,7 @@
     
     NuTurn* retVal = nil;
     
-    if (gameToUpdate == nil)
+    if (self.gameToUpdate == nil)
     {
         retVal = [self parseTurnFromResponse:responseString];
         
@@ -187,7 +187,7 @@
         
         NuTurn* thisTurn = nil;
 
-        for (NuTurn* t in gameToUpdate.turns)
+        for (NuTurn* t in self.gameToUpdate.turns)
         {
             if (t.settings.turnNumber == turnNumber)
             {
@@ -204,7 +204,7 @@
         
         if (updated != thisTurn) // New object
         {
-            [gameToUpdate addTurnsObject:updated];
+            [self.gameToUpdate addTurnsObject:updated];
         }
         
         if (turnsToUpdate.count >= 1)
@@ -212,15 +212,15 @@
             NSNumber* nextTurn = [turnsToUpdate anyObject];
             [turnsToUpdate removeObject:nextTurn];
             [self requestTurnNumber:[nextTurn intValue]
-                        forGame:gameToUpdate.gameId
+                        forGame:self.gameToUpdate.gameId
                         withKey:apiKeyInUse
                     andDelegate:delegate];
         }
         else
         {
-            for (NuTurn* t in gameToUpdate.turns)
+            for (NuTurn* t in self.gameToUpdate.turns)
             {
-                if (t.settings.turnNumber == gameToUpdate.turnNumber)
+                if (t.settings.turnNumber == self.gameToUpdate.turnNumber)
                 {
                     retVal = t;
                 }

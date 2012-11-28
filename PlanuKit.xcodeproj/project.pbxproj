@@ -173,6 +173,10 @@
 		7EBF951F166287340069BBC9 /* NuTurn.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EBF951C166287330069BBC9 /* NuTurn.h */; };
 		7EBF9520166287340069BBC9 /* NuTurn.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBF951D166287330069BBC9 /* NuTurn.m */; };
 		7EBF9521166287340069BBC9 /* NuTurn.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBF951D166287330069BBC9 /* NuTurn.m */; };
+		7EBF95371665743D0069BBC9 /* NuLoadGameInfoRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EBF9535166574380069BBC9 /* NuLoadGameInfoRequest.h */; };
+		7EBF95381665743D0069BBC9 /* NuLoadGameInfoRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EBF9535166574380069BBC9 /* NuLoadGameInfoRequest.h */; };
+		7EBF95391665743D0069BBC9 /* NuLoadGameInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBF9536166574390069BBC9 /* NuLoadGameInfoRequest.m */; };
+		7EBF953A1665743D0069BBC9 /* NuLoadGameInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBF9536166574390069BBC9 /* NuLoadGameInfoRequest.m */; };
 		7EE9B67D14CB6EA000A77606 /* NuBeam.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EE440F414C411A7006745D7 /* NuBeam.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7EE9B67E14CB6EA400A77606 /* NuDiplomaticRelation.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ECC437014AFD6F10083591C /* NuDiplomaticRelation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7EE9B67F14CB6EAA00A77606 /* NuEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E20648114C6186F00E7A484 /* NuEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -307,6 +311,8 @@
 		7EBF94C3166031ED0069BBC9 /* NSMutableURLRequest+ParamDict.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableURLRequest+ParamDict.m"; sourceTree = "<group>"; };
 		7EBF951C166287330069BBC9 /* NuTurn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuTurn.h; sourceTree = "<group>"; };
 		7EBF951D166287330069BBC9 /* NuTurn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuTurn.m; sourceTree = "<group>"; };
+		7EBF9535166574380069BBC9 /* NuLoadGameInfoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NuLoadGameInfoRequest.h; path = PlanuKit/NuLoadGameInfoRequest.h; sourceTree = SOURCE_ROOT; };
+		7EBF9536166574390069BBC9 /* NuLoadGameInfoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NuLoadGameInfoRequest.m; path = PlanuKit/NuLoadGameInfoRequest.m; sourceTree = SOURCE_ROOT; };
 		7ECC437014AFD6F10083591C /* NuDiplomaticRelation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuDiplomaticRelation.h; sourceTree = "<group>"; };
 		7ECC437114AFD6F10083591C /* NuDiplomaticRelation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuDiplomaticRelation.m; sourceTree = "<group>"; };
 		7ECC437414AFFC190083591C /* NuPlayerRace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuPlayerRace.h; sourceTree = "<group>"; };
@@ -356,6 +362,8 @@
 			children = (
 				7E29089714ABBCE900B11972 /* NuGameListRequest.h */,
 				7E29089814ABBCE900B11972 /* NuGameListRequest.m */,
+				7EBF9535166574380069BBC9 /* NuLoadGameInfoRequest.h */,
+				7EBF9536166574390069BBC9 /* NuLoadGameInfoRequest.m */,
 				7E29089914ABBCE900B11972 /* NuLoginRequest.h */,
 				7E29089A14ABBCE900B11972 /* NuLoginRequest.m */,
 				7EBF94AE16602DAC0069BBC9 /* NuSendMessageRequest.h */,
@@ -605,6 +613,7 @@
 				7EBF94B816602E910069BBC9 /* NSString+NuEncoding.h in Headers */,
 				7EBF94C5166031ED0069BBC9 /* NSMutableURLRequest+ParamDict.h in Headers */,
 				7EBF951F166287340069BBC9 /* NuTurn.h in Headers */,
+				7EBF95381665743D0069BBC9 /* NuLoadGameInfoRequest.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -653,6 +662,7 @@
 				7EBF94B716602E910069BBC9 /* NSString+NuEncoding.h in Headers */,
 				7EBF94C4166031ED0069BBC9 /* NSMutableURLRequest+ParamDict.h in Headers */,
 				7EBF951E166287340069BBC9 /* NuTurn.h in Headers */,
+				7EBF95371665743D0069BBC9 /* NuLoadGameInfoRequest.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -825,6 +835,7 @@
 				7EBF94BA16602E910069BBC9 /* NSString+NuEncoding.m in Sources */,
 				7EBF94C7166031ED0069BBC9 /* NSMutableURLRequest+ParamDict.m in Sources */,
 				7EBF9521166287340069BBC9 /* NuTurn.m in Sources */,
+				7EBF953A1665743D0069BBC9 /* NuLoadGameInfoRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -872,6 +883,7 @@
 				7EBF94B916602E910069BBC9 /* NSString+NuEncoding.m in Sources */,
 				7EBF94C6166031ED0069BBC9 /* NSMutableURLRequest+ParamDict.m in Sources */,
 				7EBF9520166287340069BBC9 /* NuTurn.m in Sources */,
+				7EBF95391665743D0069BBC9 /* NuLoadGameInfoRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

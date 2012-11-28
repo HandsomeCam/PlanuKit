@@ -1,10 +1,9 @@
-
 //
-//  NuGameListRequest.m
+//  NuLoadGameInfoRequest.m
 //  PlanuKit
 //
-//  Created by Cameron Hotchkies on 12/22/11.
-//  Copyright 2011 Srs Biznas, LLC. All rights reserved.
+//  Created by Cameron Hotchkies on 11/27/12.
+//  Copyright (c) 2012 Srs Biznas, LLC. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU Lesser General Public License as published by
@@ -20,45 +19,31 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "NuGameListRequest.h"
-#import "JSONKit.h"
-#import "NuGame.h"
-#import "NuGame+Functionality.h"
+#import "NuLoadGameInfoRequest.h"
 #import "NuDataManager.h"
-#import "NSMutableURLRequest+ParamDict.h"
+#import "JSONKit.h"
+#import "NuGame+Functionality.h"
 
-#define kPlanetsNuGameListUrl @"http://api.planets.nu/games/list"
+#define kPlanetsNuGameInfoUrl @"http://api.planets.nu/game/loadinfo"
 
-@interface NuGameListRequest(private) 
+@interface NuLoadGameInfoRequest ()
+{
+    id<NuLoadGameInfoRequestDelegate> delegate;
+    NSMutableData* receivedData;
+}
 
-- (NSArray*) parseGamesFromResponse:(NSString*)response;
+- (NuGame*)parseGameFromResponse:(NSString*)response;
 
 @end
 
-@implementation NuGameListRequest
+@implementation NuLoadGameInfoRequest
 
-@synthesize gameStatus;
-
-- (id)init
+- (void)requestGameInfoFor:(NSInteger)gameID
+              withDelegate:(id<NuLoadGameInfoRequestDelegate>)del
 {
-    self = [super init];
-    if (self) {
-        // Initialization code here.
-    }
-    
-    return self;
-}
-
-
-- (void)requestGamesFor:(NSString*)username
-             withStatus:(enum GameStatus)status
-           withDelegate:(id<NuGameListRequestDelegate>)delegateIncoming
-{
-    delegate = delegateIncoming;
-    
-    
-    
-    NSString* fullUrl = [NSString stringWithFormat:@"%@?username=%@&status=%d", kPlanetsNuGameListUrl, username, status];
+    delegate = del;
+//    gameID = 999999;
+    NSString* fullUrl = [NSString stringWithFormat:@"%@?&gameid=%d", kPlanetsNuGameInfoUrl, gameID];
     
     // Create the request.
     NSMutableURLRequest *theRequest=[NSMutableURLRequest requestWithURL:[NSURL URLWithString:fullUrl]
@@ -66,7 +51,7 @@
                                                         timeoutInterval:60.0];
     
     [theRequest setHTTPMethod:@"GET"];
-      
+    
     // create the connection with the request
     // and start loading the data
     NSURLConnection *theConnection=[[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
@@ -77,7 +62,9 @@
     } else {
         // Inform the user that the connection failed.
     }
+
 }
+
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -109,8 +96,7 @@
           [error localizedDescription],
           [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
     
-    [delegate gameRequest:self failedWith:[error localizedDescription]];
-    
+    [delegate gameInfoRequest:self failedWith:[error localizedDescription]];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
@@ -121,73 +107,97 @@
     
     NSString *responseString = [[NSString alloc] initWithData:receivedData encoding:NSASCIIStringEncoding];
     
-     
-    // TODO: check to see if this is the new dict style error messages
+    //NSLog(@"Response: %@", responseString);
     
+    // release the connection, and the data object
+    
+    
+    // TODO: check to see if this is the new dict style error messages
     
     if ([responseString hasPrefix:@"Error:"] == true)
     {
-        [delegate gameRequest:self failedWith:[responseString substringFromIndex:6]];
+        [delegate gameInfoRequest:self failedWith:[responseString substringFromIndex:6]];
         return;
     }
-     
-    NSArray* returnValue = [self parseGamesFromResponse:responseString];
     
-    // TODO: fail if nil
+    NuGame* returnValue = [self parseGameFromResponse:responseString];
     
-    [delegate gameRequest:self succeededWith:returnValue];
+    // TODO: check all nil results sent failure delegate
+    if (returnValue == nil)
+    {
+        return;
+    }
+    
+    [delegate gameInfoRequest:self succeededWith:returnValue];
 }
 
-- (NSArray*) parseGamesFromResponse:(NSString*)response
+- (NuGame*) parseGameFromResponse:(NSString*)response
 {
-    NSMutableArray* retVal = nil;
+    NuGame* retVal = nil;
+    id decodedJson = nil;
     
-    @autoreleasepool {
-    
-        retVal = [[NSMutableArray alloc] init];
+    @autoreleasepool
+    {
         NSLog(@"%@", response);
-        id decodedJson = [response objectFromJSONString];
+        decodedJson = [response objectFromJSONString];
         
-        if ([decodedJson isKindOfClass:[NSArray class]] == false)
+        if ([decodedJson isKindOfClass:[NSDictionary class]] == false)
         {
+            [delegate gameInfoRequest:self failedWith:@"Invalid response from server"];
             return nil;
         }
+        
+        NSDictionary* gameInfo = (NSDictionary*) decodedJson;
+
+        id successResult = [gameInfo objectForKey:@"success"];
+        
+        if (successResult != nil)
+        {
+            BOOL result = [successResult boolValue];
+            
+            if (result == NO)
+            {
+                [delegate gameInfoRequest:self failedWith:[gameInfo objectForKey:@"error"]];
+                return nil;
+            }
+        }
+            
         
         NuDataManager* dm = [NuDataManager sharedInstance];
         
         NSArray* loaded = [NuGame allGames];
         
-   
-        for (NSDictionary* gameDict in decodedJson)
+        NSDictionary* gameDict = [gameInfo objectForKey:@"game"];
+                
+        NuGame* game = nil;
+        
+        for (NuGame* g in loaded)
         {
-            NuGame* game = nil;
-            
-            for (NuGame* g in loaded)
+            if (g.gameId == [[gameDict objectForKey:@"id"] intValue])
             {
-                if (g.gameId == [[gameDict objectForKey:@"id"] intValue])
-                {
-                    [g updateContents:gameDict];
-                    game = g;
-                    break;
-                }
+                [g updateContents:gameDict];
+                game = g;
+                break;
             }
-           
-            if (game == nil)
-            {
-                game = [NuGame gameFromJson:gameDict
-                                withContext:[dm mainObjectContext]];
-            }
-            
-            
-            [retVal addObject:game];
         }
-         
+        
+        if (game == nil)
+        {
+            game = [NuGame gameFromJson:gameDict
+                            withContext:[dm mainObjectContext]];
+        }
+        
+          
+        
         NSError* error = nil;
         [[dm mainObjectContext] save:&error];
-    
+        // TODO: catch errors
+        
+        retVal = game;
     }
-     
+    
     return retVal;
 } 
+
 
 @end

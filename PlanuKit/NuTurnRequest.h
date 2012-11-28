@@ -36,8 +36,9 @@
     NSMutableData* receivedData;
     NSMutableSet* turnsToUpdate;
     NSString* apiKeyInUse;
-    NuGame* gameToUpdate;
 }
+
+@property (nonatomic, retain) NuGame* gameToUpdate;
 
 - (void)requestTurnFor:(NSInteger)gameId 
                   With:(NSString *)apiKey 

@@ -92,6 +92,9 @@
 - (void)loadScores:(NSDictionary*)input
        withContext:(NSManagedObjectContext*)context;
 
+- (void)loadViewingPlayer:(NSDictionary*)input
+              withContext:(NSManagedObjectContext*)context;
+
 - (void)extractExplosionsWithContext:(NSManagedObjectContext*)context;
 - (void)calculateShipPlanetDistances;
 
@@ -145,8 +148,7 @@
     [self loadPlanets:input withContext:context];
     
     // Load player
-    self.viewingPlayer = [NuPlayer playerFromJson:[input objectForKey:@"player"]
-                                 withContext:context]; 
+    [self loadViewingPlayer:input withContext:context];
     
     [self loadStarbases:input withContext:context];
     
@@ -186,6 +188,33 @@
     }
 }
 
+- (void)loadViewingPlayer:(NSDictionary *)input withContext:(NSManagedObjectContext *)context
+{
+    NuPlayer * vp = nil;
+    
+    NSDictionary* vpDict = [input objectForKey:@"player"];
+    NSString* playerName = [vpDict objectForKey:@"username"];
+    
+    for (NuPlayer* p in self.players)
+    {
+        if ([playerName isEqualToString:p.username])
+        {
+            vp = p;
+            break;
+        }
+    }
+    
+    if (vp == nil)
+    {
+        vp = [NuPlayer playerFromJson:vpDict
+                          withContext:context];
+        
+        // TODO: set a flag for this maybe, or rely on the fact race isn't set
+    }
+    
+    self.viewingPlayer = vp;
+}
+            
 - (void)removeOldData
 {
     [self removeScores:self.scores];
