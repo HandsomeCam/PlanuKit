@@ -29,6 +29,8 @@
 - (void)updateContents:(NSDictionary*)input 
            withContext:(NSManagedObjectContext*)context;
 
+- (void)updateDiplomaticMessages:(NSDictionary *)input;
+
 - (NSArray*)playerMessages;
 - (NSArray*)systemMessages;
 

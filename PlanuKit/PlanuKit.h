@@ -28,6 +28,7 @@
 #import "NuLoginRequest.h"
 #import "NuTurnRequest.h"
 #import "NuLoadGameInfoRequest.h"
+#import "NuSendMessageRequest.h"
 
 // Data Structures
 

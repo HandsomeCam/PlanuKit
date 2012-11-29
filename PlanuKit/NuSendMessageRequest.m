@@ -23,12 +23,15 @@
 #import "NSString+NuEncoding.h"
 #import "NSMutableURLRequest+ParamDict.h"
 #import "JSONKit.h"
+#import "NuGame+Functionality.h"
+#import "NuTurn+Functionality.h"
 
 #define kPlanetsNuLoginUrl @"http://api.planets.nu/game/sendmessage"
 
 @interface NuSendMessageRequest ()
 {
     NSMutableData *receivedData;
+    NSInteger gameForMessages;
 }
 @end
 
@@ -40,7 +43,7 @@
      forGame:(NSInteger)gameID
   withApiKey:(NSString*)apiKey;
 {
-    
+    gameForMessages = gameID;
     
     // Create the request.
     NSMutableURLRequest *theRequest=[NSMutableURLRequest requestWithURL:[NSURL URLWithString:kPlanetsNuLoginUrl]
@@ -120,7 +123,7 @@
     
     NSString *responseString = [[NSString alloc] initWithData:receivedData encoding:NSASCIIStringEncoding];
     
-    //NSLog(@"Response: %@", responseString);
+    NSLog(@"Response: %@", responseString);
     
     // release the connection, and the data object
     
@@ -128,7 +131,8 @@
     if ([responseString hasPrefix:@"Error:"] == true)
     {
         // TODO: this
-//        [self.delegate loginFailedWith:[responseString substringFromIndex:6]];
+        [self.delegate sendMessage:self failedWith:[responseString substringFromIndex:6]];
+        
         return;
     }
     
@@ -148,14 +152,14 @@
         [self.delegate sendMessage:self failedWith:errorString];
         return;
     }
+     
+    // TODO: this should save the message data itself
+    NuGame *game = [NuGame gameWithId:gameForMessages];
+    NuTurn* turn = [game latestTurn];
     
-    NSString *apiKey = [responseData objectForKey:@"apikey"];
+    [turn updateDiplomaticMessages:responseData];
     
-    // TODO: this
-    
-    
-//    [delegate loginSucceededWith:apiKey];
-    
+    [self.delegate sendMessage:self succeededWith:[responseData objectForKey:@"html"]];
 }
 
 

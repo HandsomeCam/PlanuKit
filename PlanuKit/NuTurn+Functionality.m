@@ -453,6 +453,44 @@
     //self.systemMessages = msgs;
 }
 
+- (void)updateDiplomaticMessages:(NSDictionary *)input
+{
+    NSArray* mymessages = [input objectForKey:@"mymessages"];
+    NSMutableArray* newMessages = [mymessages mutableCopy];
+    
+    for (NuMessage* msg in self.playerMessages)
+    {
+        NSInteger msgid = msg.messageId;
+        BOOL found = NO;
+        
+        for (NSDictionary* incoming in newMessages)
+        {
+            if ([[incoming objectForKey:@"id"] integerValue] == msgid)
+            {
+                found = YES;
+                [newMessages removeObject:incoming];
+                break;
+            }
+        }
+    }
+    
+    NuDataManager* dm = [NuDataManager sharedInstance];
+    NSManagedObjectContext* context = [dm mainObjectContext];
+    
+    // At this point newMessages should only be the new values
+    
+    for (NSDictionary* msgDict in newMessages)
+    {
+        NuMessage* msg = [NuMessage messageFromJson:msgDict
+                                        withContext:context];
+        msg.isPlayerMessage = YES;
+        
+        [self addMessagesObject:msg];
+    }
+    
+    
+}
+
 - (void)loadPlayers:(NSDictionary *)input 
         withContext:(NSManagedObjectContext *)context
 {

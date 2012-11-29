@@ -29,6 +29,7 @@
             withContext:(NSManagedObjectContext*)context;
 
 + (NSArray*)allGames;
++ (NuGame*)gameWithId:(NSInteger)gameId;
 
 - (void)updateContents:(NSDictionary*)input;
 

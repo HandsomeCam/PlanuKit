@@ -62,6 +62,30 @@
     return fetchedObjects;
 }
 
++ (NuGame*)gameWithId:(NSInteger)gameId
+{
+    NuDataManager* dm = [NuDataManager sharedInstance];
+    NSError* error = nil;
+    NSManagedObjectContext* context = [dm mainObjectContext];
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:@"NuGame" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"gameId == %d", gameId];
+    
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest
+                                                     error:&error];
+    
+    if ([fetchedObjects count] == 0)
+    {
+        return nil;
+    }
+    
+    return [fetchedObjects objectAtIndex:0];
+}
+
 - (void)updateContents:(NSDictionary*)input
 {
     NSDateFormatter* df = [[NSDateFormatter alloc] init];

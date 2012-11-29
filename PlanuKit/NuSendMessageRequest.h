@@ -26,7 +26,7 @@
 @protocol NuSendMessageRequestDelegate <NSObject>
 
 - (void)sendMessage:(NuSendMessageRequest*)request
-      succeededWith:(NSDictionary*)newMessages;
+      succeededWith:(NSString*)updateStatus;
 
 - (void)sendMessage:(NuSendMessageRequest*)request
          failedWith:(NSString*)reason;
