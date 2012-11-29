@@ -181,7 +181,10 @@
     {
         NSDictionary* decodedJson = [responseString objectFromJSONString];
         
-        NSDictionary* settings = [decodedJson objectForKey:@"settings"];
+        // TODO: check success result
+        NSDictionary* rst = [decodedJson objectForKey:@"rst"];
+        
+        NSDictionary* settings = [rst objectForKey:@"settings"];
         
         NSInteger turnNumber = [[settings objectForKey:@"turn"] intValue];
         

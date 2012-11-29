@@ -122,7 +122,7 @@
     
     
     // Remove all data
-    //[self removeOldData];
+    [self removeOldData];
     
     // Load Settings
     NuGameSettings* settings = [NuGameSettings settingsFromJson:settingsDict withContext:context];
