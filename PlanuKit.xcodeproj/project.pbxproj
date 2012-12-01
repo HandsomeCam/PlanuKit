@@ -147,6 +147,7 @@
 		7E940F2814CF9476007B3777 /* NuStarbase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E940F2614CF9476007B3777 /* NuStarbase.m */; };
 		7E9930DC14DE23CC00A463EE /* NuPlayer+Functionality.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E9930DA14DE23CC00A463EE /* NuPlayer+Functionality.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7E9930DD14DE23CC00A463EE /* NuPlayer+Functionality.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9930DB14DE23CC00A463EE /* NuPlayer+Functionality.m */; };
+		7EB8BD51166AB620008221E9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7EB8BD50166AB620008221E9 /* README.md */; };
 		7EB9CC1D14ABB4D700A6ECB3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB9CC1C14ABB4D700A6ECB3 /* Cocoa.framework */; };
 		7EB9CC2714ABB4D700A6ECB3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7EB9CC2514ABB4D700A6ECB3 /* InfoPlist.strings */; };
 		7EB9CC3314ABB4D800A6ECB3 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB9CC3214ABB4D800A6ECB3 /* SenTestingKit.framework */; };
@@ -287,6 +288,7 @@
 		7E9930DB14DE23CC00A463EE /* NuPlayer+Functionality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NuPlayer+Functionality.m"; sourceTree = "<group>"; };
 		7E9FC9BF14C48DC800B44623 /* NuWeapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuWeapon.h; sourceTree = "<group>"; };
 		7E9FC9C014C48DC800B44623 /* NuWeapon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuWeapon.m; sourceTree = "<group>"; };
+		7EB8BD50166AB620008221E9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
 		7EB9CC1914ABB4D700A6ECB3 /* PlanuKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PlanuKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EB9CC1C14ABB4D700A6ECB3 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		7EB9CC1F14ABB4D700A6ECB3 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -491,6 +493,7 @@
 				7EB9CC2414ABB4D700A6ECB3 /* PlanuKit-Info.plist */,
 				7EB9CC2514ABB4D700A6ECB3 /* InfoPlist.strings */,
 				7EB9CC2814ABB4D700A6ECB3 /* PlanuKit-Prefix.pch */,
+				7EB8BD50166AB620008221E9 /* README.md */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -760,6 +763,7 @@
 			files = (
 				7EB9CC2714ABB4D700A6ECB3 /* InfoPlist.strings in Resources */,
 				7E29089514ABBCCD00B11972 /* HullDatabase.plist in Resources */,
+				7EB8BD51166AB620008221E9 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
