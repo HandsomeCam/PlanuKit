@@ -88,7 +88,7 @@
 		7E8F389F16583894006F347F /* NuTurnRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E29089C14ABBCE900B11972 /* NuTurnRequest.m */; };
 		7E8F38AF16583DE9006F347F /* JSONKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E2908A414ABBD8F00B11972 /* JSONKit.h */; };
 		7E8F38B116583DEA006F347F /* NuDataManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EE9B6E814CB918B00A77606 /* NuDataManager.h */; };
-		7E8F38B316583DEA006F347F /* PlanuKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E2908CC14ABC2B100B11972 /* PlanuKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7E8F38B316583DEA006F347F /* PlanuKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E2908CC14ABC2B100B11972 /* PlanuKit.h */; settings = {ATTRIBUTES = (); }; };
 		7E8F38B516583DEA006F347F /* NuIonStorm+Functionality.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E940F0514CF92A2007B3777 /* NuIonStorm+Functionality.h */; };
 		7E8F38B716583DEA006F347F /* NuPlanet+Functionality.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E940F0914CF938F007B3777 /* NuPlanet+Functionality.h */; };
 		7E8F38B916583DEA006F347F /* NuShip+Functionality.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E940EFD14CF90C0007B3777 /* NuShip+Functionality.h */; };
@@ -990,6 +990,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
@@ -997,6 +998,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -1059,6 +1061,7 @@
 				INFOPLIST_FILE = "PlanuKit/PlanuKit-Info.plist";
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
@@ -1075,6 +1078,7 @@
 				INFOPLIST_FILE = "PlanuKit/PlanuKit-Info.plist";
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
@@ -1088,6 +1092,7 @@
 				GCC_PREFIX_HEADER = "PlanuKit/PlanuKit-Prefix.pch";
 				INFOPLIST_FILE = "PlanuKitTests/PlanuKitTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -1101,6 +1106,7 @@
 				GCC_PREFIX_HEADER = "PlanuKit/PlanuKit-Prefix.pch";
 				INFOPLIST_FILE = "PlanuKitTests/PlanuKitTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
